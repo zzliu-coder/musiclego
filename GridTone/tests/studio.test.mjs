@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import '../src/model.js';import '../src/presets.js';import '../src/session.js';import '../src/studio.js';import '../src/playback.js';
+const G=globalThis.GridTone;
+const setup=()=>{const p=G.demoProject();return {p,s:G.createEditorSession(p),b:G.createPlaybackContext()};};
+test('triplet and free timing have distinct quantization',()=>{assert.equal(G.snapTime(230,{snap:160}),160);assert.equal(G.snapTime(230,{snap:0}),230);assert.equal(G.snapTime(230,{snap:240}),240);});
+test('continuous and paged windows preserve musical coordinates',()=>{assert.deepEqual(G.gridWindow({continuous:true,page:2},{bars:4}),{offset:0,bars:4});assert.deepEqual(G.gridWindow({continuous:false,page:2},{bars:4}),{offset:G.BAR*2,bars:1});});
+test('empty clip selection returns a consistent transaction',()=>{const {p}=setup();const r=G.moveClips(p,[],1);assert.deepEqual(r,{project:p,ids:[]});assert.notEqual(r.project,p);});
+test('copy creates independent musical pattern while preserving source',()=>{const {p}=setup(),t=p.tracks[0],c=t.clips[0];p.bars=32;const before=G.clone(p),r=G.moveClips(p,[c.id],16,null,true);assert.deepEqual(p,before);const copy=r.project.tracks[0].clips.find(x=>x.id===r.ids[0]);assert.notEqual(copy.patternId,c.patternId);assert.equal(copy.bar,c.bar+16);});
+test('collision rejects an entire multi-clip transaction without mutation',()=>{const {p}=setup(),before=G.clone(p);assert.throws(()=>G.moveClips(p,[p.tracks[0].clips[0].id],0,null,true));assert.deepEqual(p,before);});
+test('incompatible track move is rejected without losing source clips',()=>{const {p}=setup(),drum=p.tracks.find(t=>t.kind==='drum'),tone=p.tracks.find(t=>t.kind!=='drum'),before=G.clone(p);assert.throws(()=>G.moveClips(p,[tone.clips[0].id],0,drum.id));assert.deepEqual(p,before);});
+test('each pattern keeps an independent viewport',()=>{const {p,s}=setup(),t=p.tracks.find(t=>t.patterns.length>1);s.trackId=t.id;s.patternId=t.patterns[0].id;G.viewportFor(s,t).zoomX=3;s.patternId=t.patterns[1].id;assert.equal(G.viewportFor(s,t).zoomX,1);s.patternId=t.patterns[0].id;assert.equal(G.viewportFor(s,t).zoomX,3);});
+function engine(){return {playing:false,starting:false,pausedAt:0,position(){return this.pausedAt;},stop(){this.playing=false;this.pausedAt=0;},seek(t){this.pausedAt=t;},async play(p,s,l,t){this.playing=true;this.pausedAt=t;},updateMix(){}};}
+test('idle loop selection starts at absolute start exactly once',()=>{const {p,s,b}=setup(),e=engine(),c=new G.PlaybackController(e,()=>p,()=>s,b);c.setRange([G.BAR,3*G.BAR]);assert.equal(c.position(),G.BAR);c.seek(2*G.BAR);assert.equal(c.position(),2*G.BAR);});
+test('first stop returns to seek origin; second clears range and returns to song zero',()=>{const {p,s,b}=setup(),e=engine(),c=new G.PlaybackController(e,()=>p,()=>s,b);c.setRange([G.BAR,3*G.BAR]);c.seek(2*G.BAR);e.pausedAt+=100;c.stop();assert.equal(c.position(),2*G.BAR);c.stop();assert.equal(c.position(),0);assert.equal(b.range,null);});
+test('audition close restores local position and active playback',async()=>{const {p,s,b}=setup(),e=engine(),c=new G.PlaybackController(e,()=>p,()=>s,b);c.setRange([G.BAR,3*G.BAR]);await c.start('song',2*G.BAR);await c.audition(G.clone(p),{kind:'song'},'test');c.endAudition();assert.equal(e.playing,true);assert.equal(c.position(),2*G.BAR);});

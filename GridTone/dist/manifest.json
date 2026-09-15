@@ -1,8 +1,8 @@
 {
   "app": "声格 GridTone",
-  "version": "1.3.0",
-  "bytes": 535350,
-  "sha256": "d0b3b7c49a7b5bd3581f64ecb463c7a886923c6c6f170ef1a22b92a020900668",
+  "version": "1.4.0",
+  "bytes": 560201,
+  "sha256": "578df7c18aad72596157bae762737ec68f717b42797258774a3c7cefef47b71a",
   "runtimeDependencies": [],
   "entry": "index.html"
 }

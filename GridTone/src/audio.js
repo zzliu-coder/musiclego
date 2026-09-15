@@ -135,6 +135,7 @@
                     }
                 }
                 master.gain.setTargetAtTime(p.master, ctx.currentTime, .012);
+                delay.delayTime.setTargetAtTime(60/p.bpm*.75,ctx.currentTime,.03);
             },
             dispose() {
                 for (const s of sources) {
@@ -159,7 +160,7 @@
         const add = n => (nodes.push(n), n);
         function source(s, at, end) {
             sources.push(s);
-            graph.sources.add(s);
+            graph.sources.add(s); s.gridStart=at; s.gridTrack=graph.currentTrack;
             remaining++;
             s.onended = () => {
                 graph.sources.delete(s);
@@ -296,6 +297,7 @@
     registerInstrument('drum', drumVoice);
     registerInstrument('sample', sampleVoice);
     function renderNote(graph, note, track, at, duration, assets = new Map()) {
+        graph.currentTrack=track.id;
         const bus = graph.buses.get(track.id);
         if (!bus)
             return;
@@ -371,7 +373,7 @@
                 await this.ready();
                 if (request !== this.request)
                     return;
-                const plan = compileSong(project, scope);
+                const plan = this.compile(project, scope);
                 if (G.assertPlayable)
                     G.assertPlayable(project, plan.trackIds);
                 const assets = await decodeAssets(this.ctx, project, this.assets, plan.trackIds);
@@ -383,7 +385,8 @@
                 this.assets = assets;
                 this.plan = plan;
                 this.graph = createGraph(this.ctx, project);
-                this.graph.update(project, this.plan.trackIds, true);
+                this.graph.update(project, G.resolvePlaybackScope(project,scope).trackIds, true);
+                this.tempo=project.bpm;
                 startTick = clamp(startTick, 0, Math.max(0, this.plan.length - 1));
                 const startAt = this.ctx.currentTime + .065, secondsPerTick = 60 / project.bpm / PPQ;
                 this.origin = startAt - startTick * secondsPerTick;
@@ -415,30 +418,37 @@
             }
         }
         pause() { const at = this.position(); this.stop(false); this.pausedAt = at; }
+        compile(project, scope) {
+            this.compileCount=(this.compileCount||0)+1;
+            return compileSong(project,{...scope,soloIds:[],ignoreMute:true});
+        }
+        updateMix(project,scope=this.scope) {
+            this.project=project;this.scope=scope;
+            if(this.graph)this.graph.update(project,G.resolvePlaybackScope(project,scope).trackIds);
+        }
         update(project, scope = this.scope) {
-            const changed = JSON.stringify(scope) !== JSON.stringify(this.scope);
-            if (!this.playing) {
-                this.project = project;
-                this.scope = scope;
-                if (this.starting)
-                    this.play(project, scope, this.loop).catch(e => { this.error = e; });
-                return;
-            }
-            const rebuild = changed || project.tracks.length !== this.graph.buses.size || project.tracks.some(t => !this.graph.buses.has(t.id)) || [...(G.neededAssets ? G.neededAssets(project) : Object.keys(project.assets))].some(id => this.assets.get(id)?.data !== project.assets[id]?.data);
-            const at = this.position();
-            this.project = project;
-            if (rebuild) {
-                const oldKind = this.scope?.kind || 'song', newKind = scope?.kind || 'song', sameClock = (['song', 'tracks'].includes(oldKind) && ['song', 'tracks'].includes(newKind)) || JSON.stringify({ ...this.scope, soloIds: [] }) === JSON.stringify({ ...scope, soloIds: [] });
-                this.play(project, scope, this.loop, sameClock ? at : 0).catch(e => { this.error = e; });
-                return;
-            }
-            for (const [id, meta] of Object.entries(project.assets))
-                if (this.assets.has(id))
-                    this.assets.get(id).meta = meta;
-            this.plan = compileSong(project, scope);
-            if (G.assertPlayable)
-                G.assertPlayable(project, this.plan.trackIds);
-            this.graph.update(project, this.plan.trackIds);
+            if(!this.playing){this.project=project;this.scope=scope;if(this.starting)this.play(project,scope,this.loop).catch(e=>this.error=e);return;}
+            const at=this.position(),tempoChanged=this.tempo!==project.bpm;
+            const structural=project.tracks.length!==this.graph.buses.size||project.tracks.some(t=>!this.graph.buses.has(t.id))||Object.entries(project.assets).some(([id,a])=>this.assets.get(id)?.data!==a.data);
+            if(structural){this.play(project,scope,this.loop,at).catch(e=>this.error=e);return;}
+            this.project=project;this.scope=scope;
+            for(const [id,meta] of Object.entries(project.assets))if(this.assets.has(id))this.assets.get(id).meta=meta;
+            this.plan=this.compile(project,scope);
+            const now=this.ctx.currentTime;
+            if(tempoChanged){this.tempo=project.bpm;this.origin=now-at/PPQ*60/this.tempo;}
+            for(const source of this.graph.sources)if(source.gridStart>now){try{source.stop(now);}catch{}}
+            this.fromTime=now+.003;
+            this.graph.update(project,G.resolvePlaybackScope(project,scope).trackIds);
+        }
+        seek(tick) {
+            if(!this.playing||!this.plan){this.pausedAt=Math.max(0,tick);return;}
+            tick=clamp(tick,0,Math.max(0,this.plan.length-1));
+            if(!this.playing){this.pausedAt=tick;return;}
+            const at=this.ctx.currentTime+.01;
+            for(const source of this.graph.sources){try{source.stop(at);}catch{}}
+            this.origin=at-tick/PPQ*60/this.tempo;this.fromTime=at;
+            for(const n of this.plan.events)if(n.start<tick&&n.start+n.duration>tick){const t=this.project.tracks.find(t=>t.id===n.trackId);if(t)renderNote(this.graph,n,t,at,(n.start+n.duration-tick)/PPQ*60/this.tempo,this.assets);}
+            this.tick();
         }
         tick() {
             if (!this.playing)
@@ -449,7 +459,7 @@
                     this.lateWindows++;
                     this.fromTime = now + .005;
                 }
-                const end = now + .13, beatSec = 60 / this.project.bpm, cycleSec = this.plan.length / PPQ * beatSec, from = Math.max(0, this.fromTime - this.origin), to = Math.max(0, end - this.origin);
+                const end = now + .13, beatSec = 60 / this.tempo, cycleSec = this.plan.length / PPQ * beatSec, from = Math.max(0, this.fromTime - this.origin), to = Math.max(0, end - this.origin);
                 if (!this.loop && from >= cycleSec) {
                     if (now >= this.origin + cycleSec + 3)
                         this.stop();
@@ -481,7 +491,7 @@
             }
         }
         position() { if (!this.playing || !this.plan)
-            return this.pausedAt; const t = Math.max(0, (this.ctx.currentTime - this.origin) * this.project.bpm / 60 * PPQ); return this.loop ? t % this.plan.length : Math.min(t, this.plan.length); }
+            return this.pausedAt; const t = Math.max(0, (this.ctx.currentTime - this.origin) * (this.tempo || this.project.bpm) / 60 * PPQ); return this.loop ? t % this.plan.length : Math.min(t, this.plan.length); }
         clearPreviews() { this.previewEpoch++; for (const timer of this.previewTimers.values())
             clearTimeout(timer); this.previewTimers.clear(); for (const graph of this.previewGraphs)
             graph.dispose(); this.previewGraphs.clear(); }

@@ -4,6 +4,7 @@
     "src/presets.js",
     "src/session.js",
     "src/editing.js",
+    "src/studio.js",
     "src/music/progressions.js",
     "src/catalog-data.js",
     "src/catalog.js",
@@ -39,6 +40,7 @@
     "src/styles/dialogs.css",
     "src/styles/responsive.css",
     "src/styles/responsive-sound.css",
-    "src/styles/material.css"
+    "src/styles/material.css",
+    "src/styles/studio.css"
   ]
 }

@@ -10,7 +10,7 @@
 
     function miniPattern(p, t, w = 200, h = 35) { const min = p.notes.length ? Math.min(...p.notes.map(n => n.pitch)) : 48, max = p.notes.length ? Math.max(...p.notes.map(n => n.pitch)) : 72, span = Math.max(12, max - min + 1); return `<svg class="mini-pattern" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">${[1, 2, 3].map(i => `<line x1="${w * i / 4}" x2="${w * i / 4}" y1="0" y2="${h}" stroke="currentColor" opacity=".1"/>`).join('')}${p.notes.map(n => { const x = n.start / (p.bars * BAR) * w, y = (max - n.pitch) / span * (h - 5) + 2; return `<rect x="${x}" y="${y}" width="${Math.max(2, n.duration / (p.bars * BAR) * w - 1)}" height="${t.kind === 'drum' ? 4 : 3}" rx="1.3" fill="currentColor" opacity="${.4 + .6 * n.velocity}"/>`; }).join('')}</svg>`; }
     function slider(label, group, key, value, min = 0, max = 1, step = .01, display = '', id = '') { return `<label class="slider-control"><span>${label}<b data-readout="${group}.${key}">${display || Math.round(value * 100) + '%'}</b></span><input type="range" min="${min}" max="${max}" step="${step}" value="${value}" data-range="${group}.${key}" ${id ? `data-track="${id}"` : ''} aria-label="${label}"></label>`; }
-    G.UI_METRICS = Object.freeze({ barWidth: 96, trackHead: 208, clipInset: 3 });
+    G.UI_METRICS = Object.freeze({ barWidth: 96, trackHead: 288, clipInset: 3 });
     G.ui = { esc, icon, button, ib, miniPattern, slider };
 })(globalThis.GridTone ||= {});
 

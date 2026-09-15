@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-15T18:33:09.486Z",
+  "method": "Actual local Chromium DOM events, Web Audio, IndexedDB and offline export; hardware listening not assessed",
+  "results": [
+    {
+      "name": "solo preserves graph and compiled plan",
+      "result": "PASS"
+    },
+    {
+      "name": "tempo change keeps playback and graph",
+      "result": "PASS"
+    },
+    {
+      "name": "undo while playing",
+      "result": "PASS"
+    },
+    {
+      "name": "shell render retains musical grid",
+      "result": "PASS"
+    },
+    {
+      "name": "volume bypasses score compile",
+      "result": "PASS"
+    },
+    {
+      "detail": {
+        "lateWindows": 0,
+        "peak": 0.4122587740421295,
+        "skippedEvents": 0
+      },
+      "name": "audio output contains signal",
+      "result": "PASS"
+    },
+    {
+      "name": "loop position is not double-offset",
+      "result": "PASS"
+    },
+    {
+      "name": "first stop returns to origin",
+      "result": "PASS"
+    },
+    {
+      "name": "second stop returns to zero",
+      "result": "PASS"
+    },
+    {
+      "name": "IndexedDB round trip",
+      "result": "PASS"
+    },
+    {
+      "name": "recovery snapshot is readable",
+      "result": "PASS"
+    },
+    {
+      "name": "MIDI export header",
+      "result": "PASS"
+    },
+    {
+      "detail": {
+        "bytes": 2369940
+      },
+      "name": "WAV export",
+      "result": "PASS"
+    },
+    {
+      "name": "project export/reopen keeps music",
+      "result": "PASS"
+    }
+  ],
+  "entry": "dist/index.html",
+  "sha256": "578df7c18aad72596157bae762737ec68f717b42797258774a3c7cefef47b71a"
+}

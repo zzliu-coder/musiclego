@@ -4,7 +4,7 @@
     'use strict';
     const PPQ = 960, BAR = 3840, STEP = 240;
     const LIMITS = { tracks: 64, bars: 256, notes: 100000, assetsBytes: 24 * 1024 * 1024 };
-    const COLORS = ['#369c89', '#c48954', '#9b82cd', '#6596bc', '#d88195', '#9aac55', '#a9836f', '#65aaa5'];
+    const COLORS = ['#9a79dd', '#e99b6c', '#a28cce', '#86909e', '#cb819a', '#8da289', '#b79a83', '#799fba'];
     const SCALES = { major: [0, 2, 4, 5, 7, 9, 11], minor: [0, 2, 3, 5, 7, 8, 10], pentatonic: [0, 2, 4, 7, 9], chromatic: Array.from({ length: 12 }, (_, i) => i) };
     const KEYS = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
     const DRUMS = [{ pitch: 36, name: '底鼓', en: 'KICK' }, { pitch: 38, name: '军鼓', en: 'SNARE' }, { pitch: 42, name: '闭镲', en: 'CLOSED HAT' }, { pitch: 46, name: '开镲', en: 'OPEN HAT' }, { pitch: 39, name: '拍手', en: 'CLAP' }, { pitch: 45, name: '低嗵鼓', en: 'LOW TOM' }, { pitch: 49, name: '吊镲', en: 'CRASH' }, { pitch: 37, name: '鼓边', en: 'RIM' }];
@@ -274,6 +274,7 @@
         const solos = kind === 'song' ? (scope?.soloIds || (p.version === 1 ? p.tracks.filter(t => t.solo).map(t => t.id) : [])) : [];
         const ignoreMute = kind !== 'song' || scope?.ignoreMute === true;
         const trackIds = p.tracks.filter(t => (!ids || ids.includes(t.id)) && (ignoreMute || !t.mute) && (!solos.length || solos.includes(t.id))).map(t => t.id);
+        if(scope?.range){const [a,b]=scope.range;if(Number.isFinite(a)&&Number.isFinite(b)&&a>=offset&&b>a&&b<=offset+length){offset=a;length=b-a;}}
         return { kind, trackIds, length, offset, patternId };
     }
     function compileSong(p, scope = null) {

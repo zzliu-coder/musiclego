@@ -7,17 +7,19 @@
     let project = G.applyTemplate(blankProject(), G.getTemplate('prism.song.glass')).project;
     let pendingPitch = null;
     const S = G.createEditorSession(project), B = G.createPlaybackContext();
+    S.continuous=innerWidth>700;S.editorHeight=260;project.tracks.forEach((t,i)=>t.color=['#9a79dd','#e99b6c','#a28cce','#86909e'][i%4]);G.fitViewport(S,project.tracks[0],project.tracks[0].patterns[0]);G.viewportFor(S,project.tracks[0]).rowHeight=12;
     const playback = new G.PlaybackController(engine, () => project, () => S, B, () => { updateTransport(); const l = $('#playback-label'); if (l)
         l.textContent = G.playbackLabel(project, S, B); }, message => toast(message));
     function snapshot() { const copy = clone({ ...project, assets: {} }); copy.assets = Object.fromEntries(Object.entries(project.assets).map(([id, a]) => [id, { ...a }])); return copy; }
     function fingerprint(p) { return JSON.stringify({ ...p, assets: Object.fromEntries(Object.entries(p.assets).map(([id, a]) => [id, { name: a.name, root: a.root, mode: a.mode, length: a.data.length }])) }); }
     const history = [], future = [];
+    let rangeMixOnly=true;
     let saveTimer = null, toastTimer = null, interacted = false, rangeBefore = null, recording = null, renderCounter = 0, persistSerial = 0;
     const track = () => project.tracks.find(t => t.id === S.trackId) || project.tracks[0];
     const pattern = () => track().patterns.find(p => p.id === S.patternId) || track().patterns[0];
     function syncSelection() { return G.reconcileSession(S, project, B); }
     function toast(message) { $('#toast').textContent = message; $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 3500); }
-    function markChanged(before) {
+    function markChanged(before, mixOnly=false) {
         if (fingerprint(before) === fingerprint(project))
             return;
         history.push(before);
@@ -25,7 +27,7 @@
             history.shift();
         future.length = 0;
         persist();
-        playback.updateProject();
+        mixOnly ? playback.updateMix() : playback.updateProject();
     }
     function mutate(fn, { draw = true } = {}) {
         const before = snapshot();
@@ -55,7 +57,7 @@
                     S.saveStatus = '已保存在本机';
             }
             catch (e) {
-                S.saveStatus = '本机保存失败 · 请下载工程';
+                if(serial===persistSerial)S.saveStatus = '本机保存失败 · 请下载工程';
             }
             updateStatus();
         }, 350);
@@ -69,9 +71,10 @@
     function undo() {
         if (!history.length)
             return;
-        engine.stop();
+        interactions?.cancel();
         future.push(snapshot());
         project = history.pop();
+        playback.updateProject();
         syncSelection();
         persist();
         render();
@@ -79,14 +82,16 @@
     function redo() {
         if (!future.length)
             return;
-        engine.stop();
+        interactions?.cancel();
         history.push(snapshot());
         project = future.pop();
+        playback.updateProject();
         syncSelection();
         persist();
         render();
     }
     function openPattern(options) {
+        S.editorOpen=true;
         const previousTrack=S.trackId;
         const previousTab=S.editorTab;
         G.openPatternInSession(S, project, options);
@@ -116,8 +121,8 @@
     const catalogContext = { getProject: () => project, getSession: () => S, playback, button, esc, openModal, closeModal, toast, pickFile, render,
         repin: () => mutate(() => { G.pinDocument(project); }),
         commit: result => {
-            playback.stop();
             const wholeSong = result.project.id !== project.id;
+            if(wholeSong)playback.stop();else playback.endAudition();
             mutate(() => {
                 project = result.project;
                 if (wholeSong) {
@@ -140,10 +145,11 @@
         const focusToken = G.ui.captureFocus();
         syncSelection();
         renderCounter++;
-        const t = track(), p = pattern(), scrollKey = S.view + ':' + (S.view === 'edit' ? S.trackId + ':' + S.patternId + ':' + S.editorTab : '');
-        $('#app').innerHTML = G.views.renderShell({ ...viewContext(), engine, history, future, renderEditor, renderArrange, renderMix, scrollKey });
+        const t = track(), p = pattern(), scrollKey = S.view + ':' + S.trackId + ':' + S.patternId + ':' + S.editorTab;
+        G.patchDOM($('#app'), G.views.renderShell({ ...viewContext(), engine, history, future, renderEditor, renderArrange, renderMix, scrollKey }));
+        $$('input[type=range]').forEach(el=>el.style.setProperty('--range-progress',((+el.value-(+el.min||0))/(+el.max-(+el.min||0))*100)+'%'));
         updateStatus();
-        if (S.view === 'edit' && S.editorTab === 'notes')
+        if (S.view !== 'mix' && S.editorOpen && S.editorTab === 'notes')
             drawGrid();
         updateTransport();
         const current = $('.view-content'), scroll = S.scrolls[scrollKey];
@@ -483,7 +489,63 @@
         else pat.notes=(mode==='bass'?[36,36,43,46,43]:[60,64,67,71,67]).map((n,i)=>G.newNote(n,[0,720,1440,2160,2880][i],480,.72));
         playback.audition(p,{kind:'pattern',trackId:t.id,patternId:pat.id,ignoreMute:true},'音色比较 · '+preset.name);
     }
+    function zoomCanvas(delta,clientX,clientY,vertical=false){
+        const sc=$('.grid-scroll');if(!sc)return;const rect=sc.getBoundingClientRect(),anchor=clientX??(rect.left+rect.width/2),anchorY=clientY??rect.top+rect.height/2,v=G.viewportFor(S,track());
+        const oldWidth=geo.width,oldHeight=geo.height,x=sc.scrollLeft+anchor-rect.left,y=sc.scrollTop+anchorY-rect.top;
+        if(vertical)v.rowHeight=clamp(v.rowHeight+delta*2,10,42);else v.zoomX=clamp(v.zoomX+delta*.25,.5,6);
+        drawGrid();sc.scrollLeft=x*geo.width/oldWidth-(anchor-rect.left);sc.scrollTop=y*geo.height/oldHeight-(anchorY-rect.top);G.saveWorkspace(S,project.id);
+    }
+    function clipCommand(action){
+        const ids=S.clipIds.length?S.clipIds:S.clipId?[S.clipId]:[],items=G.clipSelection(project,ids);
+        if(action==='copy'||action==='duplicate'){
+            if(!items.length)return;S.clipClipboard=clone(items.map(x=>({trackId:x.track.id,kind:x.track.kind,bar:x.clip.bar,pattern:x.pattern})));
+            if(action==='copy'){toast('已复制 '+items.length+' 个片段，粘贴在播放起点。');return;}
+        }
+        if(action==='delete'){mutate(()=>{project.tracks.forEach(t=>t.clips=t.clips.filter(c=>!ids.includes(c.id)));S.clipIds=[];S.clipId=null;});return;}
+        if(action==='ArrowLeft'||action==='ArrowRight'){mutate(()=>{const result=G.moveClips(project,ids,action==='ArrowLeft'?-1:1);project=result.project;S.clipIds=result.ids;});return;}
+        if(action==='paste'||action==='duplicate'){
+            if(!S.clipClipboard?.length)return;
+            mutate(()=>{
+                const list=S.clipClipboard,min=Math.min(...list.map(x=>x.bar)),span=Math.max(...list.map(x=>x.bar+x.pattern.bars))-min;
+                const at=action==='duplicate'?Math.max(...items.map(x=>x.clip.bar+x.pattern.bars)):Math.floor((B.startTick||0)/BAR);
+                if(at+span>256)throw Error('超过 256 小节上限。');project.bars=Math.max(project.bars,at+span);
+                const newIds=[];
+                for(const x of list){const t=list.length===1?track():project.tracks.find(t=>t.id===x.trackId)||track();if(t.kind!==x.kind)throw Error('请粘贴到同类型音轨。');const pat=copyPattern(x.pattern),bar=at+x.bar-min;if(!canPlace(t,pat,bar,project.bars))throw Error('粘贴位置已有片段，请先点时间尺选择空白位置。');t.patterns.push(pat);const c={id:uid('c'),bar,patternId:pat.id};t.clips.push(c);newIds.push(c.id);}
+                S.clipIds=newIds;S.clipId=newIds[0];const first=G.clipSelection(project,newIds)[0];S.trackId=first.track.id;S.patternId=first.pattern.id;
+            });
+        }
+    }
+    let noteOriginal=null,noteIds=[];
+    function noteInspector(){
+        noteOriginal=snapshot();noteIds=[...S.selected];const ns=selectedNotes();
+        openModal('精细编辑',`<p>${ns.length?'修改所选 '+ns.length+' 个音符':'修改当前片段全部音符'} · 可先比较，再应用</p><div class="precise-fields"><label>微时移（ticks，960 = 一拍）<input id="note-time" type="number" value="0" step="1"></label><label>移调（半音）<input id="note-pitch" type="number" value="0" min="-24" max="24"></label><label>力度（1–100%，留空保持）<input id="note-velocity" type="number" min="1" max="100" placeholder="保持原力度"></label><label>时长倍率<input id="note-length" type="number" min="0.1" max="8" step="0.1" value="1"></label></div><div class="modal-actions">${button('note-preview-original','试听修改前','headphones','soft-btn')}${button('note-preview-candidate','试听修改后','headphones','soft-btn')}${button('note-apply','应用修改','check','dark-btn')}</div>`);
+    }
+    function noteCandidate(){
+        const next=clone(noteOriginal),t=next.tracks.find(t=>t.id===S.trackId),p=t.patterns.find(p=>p.id===S.patternId),dt=Number($('#note-time').value),dp=Number($('#note-pitch').value),factor=Number($('#note-length').value),vel=$('#note-velocity').value;
+        if(!Number.isFinite(dt)||!Number.isInteger(dp)||Math.abs(dp)>24||!Number.isFinite(factor)||factor<=0||factor>8||vel!==''&&(!Number.isFinite(+vel)||+vel<1||+vel>100))throw Error('请填写有效的时间、音高、时长和力度。');
+        for(const n of p.notes){if(noteIds.length&&!noteIds.includes(n.id))continue;n.start=Math.round(n.start+dt);n.duration=Math.max(1,Math.round(n.duration*factor));if(t.kind!=='drum')n.pitch+=dp;if(vel!=='')n.velocity=Number(vel)/100;if(n.start<0||n.start+n.duration>p.bars*BAR||n.pitch<0||n.pitch>127)throw Error('结果超出片段或音高边界，请缩小修改幅度。');}
+        return next;
+    }
+    function editorMore(){const t=track(),p=pattern();
+        openModal('编辑工具',`<h3>片段</h3><div class="studio-tools-menu">${t.patterns.map(x=>button('pattern',esc(x.name),'','soft-btn',`data-id="${x.id}"`)).join('')}${button('add-pattern','新片段','plus')}${button('duplicate-pattern','创建独立副本','copy')}</div><label>片段长度 <select data-field="pattern-length">${[1,2,4,8,16].map(n=>`<option value="${n}" ${p.bars===n?'selected':''}>${n} 小节</option>`).join('')}</select></label><h3>创作辅助</h3><div class="studio-tools-menu">${button('composer','和弦进行','chord','soft-btn')}${button('catalog','素材模板','folder','soft-btn')}${button('groove','Swing / 律动','wave')}${button('transpose-dialog','移调 / 调式适配','piano')}${button('scale-lock','简化音阶显示','grid')}${button('octave-down','浏览低八度','minus')}${button('octave-up','浏览高八度','plus')}</div><div class="studio-tools-menu"><label>参考主音 <select data-field="key">${KEYS.map((k,i)=>`<option value="${i}" ${project.key===i?'selected':''}>${k}</option>`).join('')}</select></label><label>参考音阶 <select data-field="scale">${Object.keys(SCALES).map(k=>`<option value="${k}" ${project.scale===k?'selected':''}>${({major:'大调',minor:'小调',pentatonic:'五声音阶',chromatic:'半音阶'})[k]}</option>`).join('')}</select></label><label><input data-field="input-snap" type="checkbox" ${S.inputSnap?'checked':''}>新音符吸附调内</label></div><h3>音符操作</h3><div class="studio-tools-menu">${[['up','升八度'],['down','降八度'],['mirror','半音镜像'],['mirror-scale','调内镜像'],['reverse','时间反转'],['humanize','力度变化']].map(([v,l])=>button('transform',l,'','quiet',`data-transform="${v}"`)).join('')}${button('shorten-notes','时长减半')}${button('lengthen-notes','时长加倍')}${button('split-notes','拆分音符')}${button('clear-pattern','清空片段','trash')}</div><h3>试听范围</h3><div class="studio-tools-menu">${button('listen-pattern','当前片段')}${button('listen-bar','当前小节')}${button('clear-solo','全曲')}</div><p>参考调性不改变已有音符。共享片段的修改会同步到全部引用。</p>`);
+    }
+    async function showRecoveries(){try{const rows=await G.listRecoveries();openModal('恢复版本',`<p>保留最近 10 个自动恢复点，间隔至少 30 秒。恢复可以撤销。</p><div class="recovery-list">${rows.length?rows.map(r=>button('restore-recovery',esc(r.title)+' · '+new Date(r.time).toLocaleString(),'undo','soft-btn',`data-id="${r.id}"`)).join(''):'修改作品后会生成恢复点。'}</div>`);}catch(e){toast(e.message);}}
+
     function handleAction(action, el) {
+        if(S.modal&&['pattern','duplicate-pattern','duplicate-clip','unlink-clip','transform','shorten-notes','lengthen-notes','split-notes','octave-up','octave-down','scale-lock','listen-pattern','listen-bar','clear-solo'].includes(action))closeModal();
+        if(action==='close-editor'){S.editorOpen=false;render();return;}
+        if(action==='expand-editor'){S.editorExpanded=!S.editorExpanded;render();return;}
+        if(action==='clear-range'){playback.setRange(null);render();return;}
+        if(action==='track-options'){S.trackId=el.dataset.id;handleAction('rename-track',el);return;}
+        if(action==='clip-menu'){openModal('片段操作',`<div class="studio-tools-menu">${button('clips-copy','复制','copy')}${button('clips-paste','粘贴')}${button('clips-duplicate','独立复制')}${button('duplicate-clip','重复引用','link')}${button('unlink-clip','转为独立片段','split')}${button('clips-delete','删除','trash')}</div><p>普通复制相互独立；重复引用共享音符。跨轨移动会使用目标轨音色。</p>`);return;}
+        if(action.startsWith('clips-')){closeModal();clipCommand(action.slice(6));return;}
+        if(action==='note-inspector'){noteInspector();return;}
+        if(action==='note-preview-original'||action==='note-preview-candidate'){try{playback.audition(action==='note-preview-original'?noteOriginal:noteCandidate(),{kind:'pattern',trackId:S.trackId,patternId:S.patternId,ignoreMute:true},action==='note-preview-original'?'修改前':'修改后');}catch(e){toast(e.message);}return;}
+        if(action==='note-apply'){try{const candidate=noteCandidate();closeModal();mutate(()=>project=candidate);}catch(e){toast(e.message);}return;}
+        if(action==='editor-more'){editorMore();return;}
+        if(action==='recoveries'){showRecoveries();return;}
+        if(action==='restore-recovery'){G.loadRecovery(el.dataset.id).then(p=>{if(p){closeModal();mutate(()=>project=G.pinDocument(validateProject(p)));}}).catch(e=>toast(e.message));return;}
+
         if(action==='sound-source'){playback.endAudition();S.soundSource=el.dataset.source;S.tab='全部';S.query='';render();return;}
         if(action==='sound-audition'){try{soundAudition(el.dataset.id);}catch(e){toast(e.message);}return;}
         if(action==='load-sample-bank'){loadSampleBank(el.dataset.id);return;}
@@ -510,7 +572,7 @@
             render();
         }
         else if (action === 'editor-tab') {
-            S.editorTab = el.dataset.tab;
+            S.editorTab = el.dataset.tab;S.editorExpanded=S.editorTab!=='notes';
             render();
         }
         else if (action === 'editor-group') {
@@ -518,14 +580,11 @@
             render();
         }
         else if (action === 'fit-notes') {
-            G.fitViewport(S, track(), pattern());
-            render();
+            const v=G.fitViewport(S, track(), pattern());v.rowHeight=clamp(Math.floor((($('.grid-scroll')?.clientHeight||240)-35)/v.span),10,32);
+            render();const sc=$('.grid-scroll');if(sc)sc.scrollTop=0;
         }
         else if (action === 'zoom-in' || action === 'zoom-out') {
-            const v = G.viewportFor(S, track());
-            v.rowHeight = clamp(v.rowHeight + (action === 'zoom-in' ? 3 : -3), 18, 42);
-            v.zoomX = clamp(v.zoomX + (action === 'zoom-in' ? .25 : -.25), 1, 3);
-            render();
+            zoomCanvas(action==='zoom-in'?1:-1);
         }
         else if (action === 'track')
             selectTrack(id);
@@ -577,8 +636,7 @@
             render();
         }
         else if (action === 'mute')
-            mutate(() => { const t = project.tracks.find(t => t.id === id); if (t)
-                t.mute = !t.mute; });
+            {const before=snapshot(),t=project.tracks.find(t=>t.id===id);if(t)t.mute=!t.mute;markChanged(before,true);render();}
         else if (action === 'solo') {
             playback.toggleSolo(id);
             render();
@@ -738,7 +796,7 @@
         else if (action === 'help')
             openHelp();
         else if (action === 'project-menu')
-            openModal('你的音乐手账', `<div class="menu-grid">${button('new-project', '从空白开始', 'plus', 'soft-btn')}${button('open-project', '打开工程文件', 'folder', 'soft-btn')}${button('export-project', '下载工程备份', 'save', 'soft-btn')}${button('load-demo', '载入原创示例', 'headphones', 'soft-btn')}</div><p class="modal-copy">自动保存属于当前浏览器。换设备继续写，先下载工程备份，再到另一台设备打开它。</p>`);
+            openModal('你的音乐手账', `<div class="menu-grid">${button('new-project', '从空白开始', 'plus', 'soft-btn')}${button('open-project', '打开工程文件', 'folder', 'soft-btn')}${button('export-project', '下载工程备份', 'save', 'soft-btn')}${button('recoveries','恢复版本','undo','soft-btn')}${button('load-demo', '载入原创示例', 'headphones', 'soft-btn')}</div><p class="modal-copy">自动保存属于当前浏览器。换设备继续写，先下载工程备份，再到另一台设备打开它。</p>`);
         else if (action === 'new-project' || action === 'load-demo')
             confirmAction(action === 'new-project' ? '开始一张空白画板？' : '重新载入示例？', '当前内容会被替换。重要作品请先下载工程备份；也可立即使用撤销找回。', () => { loadProject(action === 'new-project' ? blankProject() : demoProject()); S.view = 'edit'; render(); });
         else if (action === 'open-project')
@@ -842,7 +900,7 @@
     document.addEventListener('dblclick', e => {
         const c = e.target.closest('[data-clip]');
         if (c) {
-            S.clipId = c.dataset.clip;
+            S.clipId = c.dataset.clip;S.trackId=c.dataset.track;S.editorExpanded=true;
             handleAction('edit-clip', c);
         }
     });
@@ -851,6 +909,11 @@
         if (composer.handleField(el) || materials.handleField(el))
             return;
         const f = el.dataset.field, v = el.value;
+        if(f==='snap'){S.snap=Number(v);render();return;}
+        if(f==='continuous'){S.continuous=el.checked;render();return;}
+        if(f==='editor-page'){S.page=+v;render();return;}
+        if(f==='loop-from'||f==='loop-to'){const a=(Number(document.querySelector('[data-field="loop-from"]').value)-1)*BAR,b=Number(document.querySelector('[data-field="loop-to"]').value)*BAR;if(a>=0&&b>a&&b<=project.bars*BAR)playback.setRange([a,b]);else toast('循环结束需要晚于开始。');render();return;}
+
         if(f==='audition-mode'){playback.endAudition();S.auditionMode=v;return;}
         if (f === 'editor-track') {
             selectTrack(v);
@@ -900,7 +963,6 @@
         }
         mutate(() => {
             if (f === 'bpm') {
-                engine.stop();
                 project.bpm = clamp(Math.round(+v) || 100, 40, 240);
             }
             if (f === 'key')
@@ -917,6 +979,7 @@
                 project.assets[track().preset.slice(7)].mode = v;
         });
     }
+    document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('[data-field="bpm"],[data-field="loop-from"],[data-field="loop-to"]')){e.preventDefault();handleField(e.target);e.target.blur();}});
     document.addEventListener('change', e => {
         if (e.target.id?.startsWith('transpose-'))
             playback.endAudition();
@@ -924,7 +987,7 @@
             handleField(e.target);
         if (e.target.dataset.range) {
             if (rangeBefore) {
-                markChanged(rangeBefore);
+                markChanged(rangeBefore,rangeMixOnly);
                 rangeBefore = null;
             }
             render();
@@ -932,6 +995,7 @@
     });
     document.addEventListener('input', e => {
         const el = e.target;
+        if(el.type==='range')el.style.setProperty('--range-progress',((+el.value-(+el.min||0))/(+el.max-(+el.min||0))*100)+'%');
         if (el.dataset.field==='catalog-search'){materials.handleField(el);return;}
         if (el.id === 'sound-search') {
             S.query = el.value;
@@ -949,7 +1013,8 @@
             t[key] = v;
         else
             t[group][key] = v;
-        playback.updateProject();
+        rangeMixOnly=group!=='pipeline'&&key!=='swing';
+        rangeMixOnly?playback.updateMix():playback.updateProject();
         const readout = el.closest('.slider-control')?.querySelector('b');
         if (readout)
             readout.textContent = group === 'pipeline' ? (key === 'transpose' ? v + ' 半音' : v + ' ticks') : key === 'attack' ? Math.round(v * 1000) + ' ms' : key === 'release' ? v.toFixed(2) + ' s' : key === 'pan' ? v === 0 ? '居中' : (v < 0 ? '左 ' : '右 ') + Math.round(Math.abs(v) * 100) : Math.round(v * 100) + '%';
@@ -961,7 +1026,8 @@
         track, pattern, snapshot, markChanged, render, drawGrid, preview, selectedNotes, noteMenu, openPattern, toast,
         closeModal, togglePlay, undo, redo, handleAction, mutate, copyNotes, pasteNotes, deleteNotes,
         interact: () => { interacted=true; }, beginRange: () => { rangeBefore=snapshot(); },
-        commitRange: () => { if (rangeBefore) { markChanged(rangeBefore); rangeBefore=null; } },
+        commitRange: () => { if (rangeBefore) { markChanged(rangeBefore,rangeMixOnly); rangeBefore=null; } },
+        editorChanged:()=>playback.editorChanged(), seek: tick=>playback.seek(tick), setRange: range=>playback.setRange(range), seekPattern:tick=>{const c=track().clips.find(c=>c.id===S.clipId);playback.seek(tick+(['song','tracks'].includes(B.target)?(c?.bar||0)*BAR:0));}, clipCommand, zoom: zoomCanvas,
         hasForm: () => !!pendingForm, submitForm: () => pendingForm?.()
     });
     function updateTransport() {
@@ -983,7 +1049,7 @@
             ph.setAttribute('visibility', 'hidden');
             return;
         }
-        let pos = engine.position();
+        let pos = playback.position();
         if (B.audition) {
             ph.setAttribute('visibility', 'hidden');
             return;
@@ -998,18 +1064,19 @@
             }
             pos -= clip.bar * BAR;
         }
-        const visible = pos >= S.page * BAR && pos < (S.page + 1) * BAR;
+        const offset=geo.offset||0;const visible = pos >= offset && pos < offset + (geo.bars||1)*BAR;
         ph.setAttribute('visibility', visible ? 'visible' : 'hidden');
-        ph.setAttribute('transform', `translate(${geo.left + (pos - S.page * BAR) / STEP * geo.cw} 0)`);
+        ph.setAttribute('transform', `translate(${geo.left + (pos - (geo.offset||0)) / STEP * geo.cw} 0)`);
     }
     const audioMeterBuffer = new Float32Array(1024);
     let animationLast = 0;
     function animation(time) {
         requestAnimationFrame(animation);
+        if (!document.hidden) { updatePlayhead(); const line=$('#arrange-playhead'),lane=$('.arrange-lane');if(line&&lane){line.style.left=($('.ruler-label')?.offsetWidth||G.UI_METRICS.trackHead)+'px';line.style.transform='translateX('+(playback.position()/BAR/project.bars*lane.clientWidth)+'px)';line.style.display=!B.audition&&['song','tracks'].includes(B.target)?'block':'none';}}
         // Keep audio scheduling independent; only throttle visual work while idle or hidden.
-        if (document.hidden || time - animationLast < (engine.playing ? 34 : 250)) return;
+        if (document.hidden || time - animationLast < (engine.playing ? 100 : 300)) return;
         animationLast = time;
-        const pos = engine.position(), bar = Math.floor(pos / BAR) + 1, beat = Math.floor(pos % BAR / PPQ) + 1, step = Math.floor(pos % PPQ / STEP) + 1, clock = $('#position');
+        const pos = playback.position(), bar = Math.floor(pos / BAR) + 1, beat = Math.floor(pos % BAR / PPQ) + 1, step = Math.floor(pos % PPQ / STEP) + 1, clock = $('#position');
         const clockText=String(bar).padStart(3, '0') + `<span> : ${String(beat).padStart(2, '0')} : ${String(step).padStart(2, '0')}</span>`;
         if(clock && clock.innerHTML!==clockText) clock.innerHTML=clockText;
         updatePlayhead();
@@ -1026,17 +1093,6 @@
             for (let i = 0; i < 14; i++) {
                 const css=getComputedStyle(document.documentElement);c.fillStyle = peak > i / 14 ? css.getPropertyValue(i>11?'--warning':'--green') : css.getPropertyValue('--grid-major');
                 c.fillRect(i * 5.5, 8, 3.5, 15);
-            }
-        }
-        if (S.view === 'arrange') {
-            let line = $('#arrange-playhead');
-            if (!line && $('.arrange-inner')) {
-                $('.arrange-inner').insertAdjacentHTML('beforeend', '<div id="arrange-playhead"></div>');
-                line = $('#arrange-playhead');
-            }
-            if (line) {
-                line.style.left = `calc(${pos / BAR / project.bars * 100}% + ${G.UI_METRICS.trackHead * (1 - pos / BAR / project.bars)}px)`;
-                line.style.display = engine.playing && !B.audition && ['song', 'tracks'].includes(B.target) ? 'block' : 'none';
             }
         }
         if (S.view === 'mix')
@@ -1060,7 +1116,7 @@
         resizeTimer = setTimeout(() => {
             const compact=window.matchMedia('(max-width:600px)').matches;
             if(compact!==lastCompact){lastCompact=compact;render();}
-            else if (!interactions.getDrag() && S.view === 'edit') drawGrid();
+            else if (!interactions.getDrag() && S.view !== 'mix' && S.editorOpen) drawGrid();
         }, 100);
     });
     window.addEventListener('beforeunload', e => {
@@ -1070,7 +1126,7 @@
         }
     });
     /** Small public API for automated testing and future integrations. */
-    globalThis.GridToneApp = { version: '1.3.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, openPattern, changeView, engine, playback, render };
+    globalThis.GridToneApp = { version: '1.4.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, openPattern, changeView, engine, playback, render };
     render();
     requestAnimationFrame(animation);
     (async () => {
@@ -1092,7 +1148,7 @@
                 G.restoreWorkspace(S, project);
                 G.reconcileSession(S, project, B);
             }
-            S.saveStatus = saved ? '已保存在本机' : '示例已载入 · 修改后自动保存';
+            if(!interacted)S.saveStatus = saved ? '已保存在本机' : '示例已载入 · 修改后自动保存';
         }
         catch (e) {
             S.saveStatus = '本机存储不可用 · 请下载工程';

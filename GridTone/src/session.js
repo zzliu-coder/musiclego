@@ -6,12 +6,12 @@
     function createEditorSession(project) {
         const t = project.tracks[0];
         return { view: 'arrange', trackId: t.id, patternId: t.patterns[0].id, clipId: t.clips[0]?.id || null,
-            page: 0, tool: 'draw', chord: 'major', showScale: false, inputSnap: false, selected: [], clipboard: null,
+            snap: 240, continuous: true, editorOpen: true, editorHeight: 260, editorExpanded: false, clipIds: [], snapEnabled: true, page: 0, tool: 'draw', chord: 'major', showScale: false, inputSnap: false, selected: [], clipboard: null,
             tab: '全部', query: '', saveStatus: '正在读取本机工程', sidebar: false, panel: 'properties',
             modal: null, cursor: 0, viewports: {}, scrolls: {}, editorTab: 'notes', editorGroup: 'view',
-            templateId: null, templateMode: 'new', templateTranspose: 'original', templateBar: 0 };
+            clipClipboard: null, templateId: null, templateMode: 'new', templateTranspose: 'original', templateBar: 0 };
     }
-    function createPlaybackContext() { return { target: 'song', loop: true, soloIds: [], selectedTrackIds: [] }; }
+    function createPlaybackContext() { return { target: 'song', loop: true, soloIds: [], selectedTrackIds: [], range: null, startTick: 0 }; }
     function reconcileSession(s, p, b) {
         const t = p.tracks.find(t => t.id === s.trackId) || p.tracks[0];
         s.trackId = t.id;
@@ -20,6 +20,7 @@
         const c = t.clips.find(c => c.id === s.clipId && c.patternId === pat.id);
         s.clipId = c?.id || t.clips.find(c => c.patternId === pat.id)?.id || null;
         s.page = clamp(s.page, 0, pat.bars - 1);
+        s.clipIds=(s.clipIds||[]).filter(id=>p.tracks.some(t=>t.clips.some(c=>c.id===id)));
         s.selected = s.selected.filter(id => pat.notes.some(n => n.id === id));
         if (b) {
             for (const key of ['soloIds', 'selectedTrackIds'])
@@ -51,11 +52,13 @@
         return { changed, track: t, pattern: pat };
     }
     function viewportFor(s, t) {
-        if (!s.viewports[t.id]) {
-            const notes = t.patterns.flatMap(p => p.notes), low = notes.length ? Math.max(0, Math.min(...notes.map(n => n.pitch)) - 2) : (t.preset.includes('bass') ? 28 : 48);
-            s.viewports[t.id] = { low: clamp(low, 0, 103), span: 24, rowHeight: 24, zoomX: 1 };
+        const pat=t.patterns.find(p=>p.id===s.patternId)||t.patterns[0], key=t.id+':'+pat.id;
+        if (!s.viewports[key]) {
+            const notes=pat.notes, low=notes.length?Math.min(...notes.map(n=>n.pitch))-2:(t.preset.includes('bass')?28:48);
+            const span=notes.length?clamp(Math.max(...notes.map(n=>n.pitch))-low+3,12,127):24;
+            s.viewports[key] = {low:clamp(low,0,127-span),span,rowHeight:16,zoomX:1};
         }
-        return s.viewports[t.id];
+        return s.viewports[key];
     }
     function moveViewport(s, t, delta) { const v = viewportFor(s, t); v.low = clamp(Math.round(v.low + delta), 0, 127 - v.span); return v; }
     function fitViewport(s, t, pat) {
@@ -77,7 +80,7 @@
             return { kind: b.target, trackId: t.id, patternId: pat.id, ...(b.target === 'bar' ? { page: s.page } : {}), ignoreMute: true };
         if (b.target === 'tracks')
             return { kind: 'tracks', trackIds: [...b.selectedTrackIds], ignoreMute: true };
-        return { kind: 'song', soloIds: exporting ? [] : [...b.soloIds] };
+        return { kind: 'song', soloIds: exporting ? [] : [...b.soloIds], ...(!exporting && b.range ? {range:b.range} : {}) };
     }
     function playbackLabel(p, s, b) {
         if (b.audition)
@@ -93,7 +96,7 @@
     }
     function saveWorkspace(s, projectId) {
         try {
-            localStorage.setItem('gridtone.workspace.' + projectId, JSON.stringify({ view: s.view, trackId: s.trackId, patternId: s.patternId, clipId: s.clipId, page: s.page, viewports: s.viewports, sidebar: s.sidebar, showScale: s.showScale, scrolls: s.scrolls }));
+            localStorage.setItem('gridtone.workspace.' + projectId, JSON.stringify({ view: s.view, trackId: s.trackId, patternId: s.patternId, clipId: s.clipId, page: s.page, viewports: s.viewports, sidebar: s.sidebar, showScale: s.showScale, scrolls: s.scrolls, snap:s.snap, continuous:s.continuous, editorHeight:s.editorHeight, editorOpen:s.editorOpen }));
         }
         catch { /* Optional preferences do not block song saving. */ }
     }
@@ -108,12 +111,12 @@
                 if (typeof v[k] === 'string')
                     s[k] = v[k];
             s.page = Number.isInteger(v.page) ? v.page : 0;
-            s.sidebar = !!v.sidebar;
+            s.sidebar = !!v.sidebar; s.snap=[0,80,120,160,240,320,480].includes(v.snap)?v.snap:240;s.continuous=v.continuous!==false;s.editorHeight=clamp(v.editorHeight||300,180,800);s.editorOpen=v.editorOpen!==false;
             s.showScale = !!v.showScale;
-            for (const t of p.tracks) {
-                const w = v.viewports?.[t.id];
+            for (const t of p.tracks) for(const pat of t.patterns) {
+                const key=t.id+':'+pat.id,w = v.viewports?.[key] || v.viewports?.[t.id];
                 if (w && ['low', 'span', 'rowHeight', 'zoomX'].every(k => Number.isFinite(w[k])))
-                    s.viewports[t.id] = { low: clamp(w.low, 0, 127 - clamp(w.span, 12, 127)), span: clamp(w.span, 12, 127), rowHeight: clamp(w.rowHeight, 18, 42), zoomX: clamp(w.zoomX, 1, 3) };
+                    s.viewports[key] = { low: clamp(w.low, 0, 127 - clamp(w.span, 12, 127)), span: clamp(w.span, 12, 127), rowHeight: clamp(w.rowHeight, 10, 42), zoomX: clamp(w.zoomX, .5, 6) };
             }
             // Scroll offsets are optional, bounded and never musical data.
             if (v.scrolls && typeof v.scrolls === 'object')

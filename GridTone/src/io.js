@@ -63,9 +63,18 @@
             dbPromise = new Promise((resolve, reject) => { const r = indexedDB.open('gridtone-local-v1', 1); r.onupgradeneeded = () => r.result.createObjectStore('projects'); r.onsuccess = () => resolve(r.result); r.onerror = () => { dbPromise = null; reject(r.error); }; });
         return dbPromise;
     }
-    async function saveLocal(project) { const db = await openDB(); return new Promise((resolve, reject) => { const tx = db.transaction('projects', 'readwrite'); tx.objectStore('projects').put(project, 'autosave'); tx.oncomplete = resolve; tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error); }); }
+    let recoveryAt=0;
+    async function saveLocal(project) {
+        const db=await openDB(),copy=G.clone(project),now=Date.now();
+        return new Promise((resolve,reject)=>{const tx=db.transaction('projects','readwrite'),store=tx.objectStore('projects');store.put(copy,'autosave');
+            if(now-recoveryAt>=30000){const id='recovery:'+now;store.put({id,time:now,title:copy.title,project:copy},id);const req=store.getAllKeys();req.onsuccess=()=>{const keys=req.result.filter(k=>String(k).startsWith('recovery:')).sort();for(const key of keys.slice(0,-10))store.delete(key);};}
+            tx.oncomplete=()=>{if(now-recoveryAt>=30000)recoveryAt=now;resolve();};tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
+        });
+    }
+    async function listRecoveries(){const db=await openDB();return new Promise((resolve,reject)=>{const r=db.transaction('projects').objectStore('projects').getAll();r.onsuccess=()=>resolve(r.result.filter(x=>x?.id?.startsWith('recovery:')).sort((a,b)=>b.time-a.time).map(({id,time,title})=>({id,time,title})));r.onerror=()=>reject(r.error);});}
+    async function loadRecovery(id){if(!String(id).startsWith('recovery:'))throw Error('无效恢复版本');const db=await openDB();return new Promise((resolve,reject)=>{const r=db.transaction('projects').objectStore('projects').get(id);r.onsuccess=()=>resolve(r.result?.project);r.onerror=()=>reject(r.error);});}
     async function loadLocal() { const db = await openDB(); return new Promise((resolve, reject) => { const r = db.transaction('projects').objectStore('projects').get('autosave'); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); }); }
     async function saveCatalogPacks(packs) { const db = await openDB(); return new Promise((resolve, reject) => { const tx = db.transaction('projects', 'readwrite'); tx.objectStore('projects').put(packs, 'catalog-packs'); tx.oncomplete = resolve; tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error); }); }
     async function loadCatalogPacks() { const db = await openDB(); return new Promise((resolve, reject) => { const r = db.transaction('projects').objectStore('projects').get('catalog-packs'); r.onsuccess = () => resolve(r.result || []); r.onerror = () => reject(r.error); }); }
-    Object.assign(G, { saveCatalogPacks, loadCatalogPacks, encodeMidi, downloadBlob, safeFilename, saveLocal, loadLocal });
+    Object.assign(G, { listRecoveries, loadRecovery, saveCatalogPacks, loadCatalogPacks, encodeMidi, downloadBlob, safeFilename, saveLocal, loadLocal });
 })(globalThis.GridTone ||= {});

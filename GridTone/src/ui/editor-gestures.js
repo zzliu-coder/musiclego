@@ -1,370 +1,124 @@
-/** Pointer/keyboard lifecycle. One gesture = one history entry; canceled gestures restore the original. */
-(function (G) {
- 'use strict';
- G.createEditorInteractions = function (C) {
-    const { S,B,track,pattern,snapshot,markChanged,render,drawGrid,preview,selectedNotes,noteMenu,openPattern,toast,
-        closeModal,togglePlay,undo,redo,handleAction,mutate,copyNotes,pasteNotes,deleteNotes }=C;
-    const { BAR,STEP,clamp,clone,newNote,chordNotes,canPlace,downloadBlob,safeFilename }=G;
-    const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-    let drag=null, geo={width:960,left:72,top:30,row:24,cw:55,rows:[],height:0};
-    function gridPoint(e) { const r = $('#note-grid').getBoundingClientRect(), x = (e.clientX - r.left) * geo.width / r.width, y = (e.clientY - r.top) * geo.height / r.height; return { x, y, col: clamp(Math.floor((x - geo.left) / geo.cw), 0, 15), row: clamp(Math.floor((y - geo.top) / geo.row), 0, geo.rows.length - 1) }; }
-    function hitNote(pt) { const tick = S.page * BAR + (pt.x - geo.left) / geo.cw * STEP, pitch = geo.rows[pt.row]; return [...pattern().notes].reverse().find(n => n.pitch === pitch && tick >= n.start && tick < n.start + n.duration); }
-    function brushCell(col, row, mode, seen) {
-        const key = col + ':' + row;
-        if (seen.has(key))
-            return;
-        seen.add(key);
-        const p = pattern(), start = S.page * BAR + col * STEP, pitch = geo.rows[row], hits = p.notes.filter(n => n.pitch === pitch && n.start <= start && n.start + n.duration > start);
-        if (mode === 'erase')
-            p.notes = p.notes.filter(n => !hits.some(h => h.id === n.id));
-        else if (!hits.length)
-            p.notes.push(newNote(pitch, start));
+/** Pointer transactions: threshold -> preview -> one commit, or a complete rollback. */
+(function(G){'use strict';
+ G.createEditorInteractions=function(C){
+  const {S,track,pattern,snapshot,markChanged,render,drawGrid,preview,selectedNotes,toast}=C;
+  const $=s=>document.querySelector(s);let drag=null,raf=0,pending=null;
+  let geo={width:960,left:72,top:30,row:24,cw:55,rows:[],height:0,offset:0,bars:1};
+  const step=()=>G.snapTicks?G.snapTicks(S):G.STEP;
+  const snap=t=>Math.round(t/step())*step();
+  function point(e){const r=$('#note-grid').getBoundingClientRect(),x=(e.clientX-r.left)*geo.width/r.width,y=(e.clientY-r.top)*geo.height/r.height;return {x,y,tick:G.clamp(geo.offset+(x-geo.left)/geo.cw*G.STEP,geo.offset,geo.offset+geo.bars*G.BAR-1),row:G.clamp(Math.floor((y-geo.top)/geo.row),0,geo.rows.length-1)};}
+  function hit(pt){return [...pattern().notes].reverse().find(n=>n.pitch===geo.rows[pt.row]&&pt.tick>=n.start&&pt.tick<n.start+n.duration);}
+  function finishCapture(d){clearTimeout(d?.timer);try{if(d?.capture?.hasPointerCapture?.(d.pointer))d.capture.releasePointerCapture(d.pointer);}catch{}}
+  function cancel(){if(!drag)return;const d=drag;drag=null;pending=null;cancelAnimationFrame(raf);raf=0;finishCapture(d);if(d.before)C.setProject(d.before);if(d.selection)S.selected=d.selection;if(d.type==='dock')S.editorHeight=d.height;if(d.type==='ruler')G.viewportFor(S,track()).low=d.low;render();}
+  function drawCell(pt,mode,seen){const start=Math.floor(pt.tick/step())*step(),pitch=geo.rows[pt.row],key=start+':'+pitch;if(seen.has(key))return;seen.add(key);const p=pattern(),hits=p.notes.filter(n=>n.pitch===pitch&&n.start<=start&&n.start+n.duration>start);if(mode==='erase')p.notes=p.notes.filter(n=>!hits.includes(n));else if(!hits.length)p.notes.push(G.newNote(pitch,start,Math.min(step(),p.bars*G.BAR-start)));}
+  function queue(e){pending={clientX:e.clientX,clientY:e.clientY};if(!raf)raf=requestAnimationFrame(flush);}
+  function flush(){raf=0;if(!pending||!drag)return;const e=pending;pending=null;const d=drag;
+   if(!d.moved&&Math.hypot(e.clientX-d.clientX,e.clientY-d.clientY)>=4){d.moved=true;clearTimeout(d.timer);}
+   if(!d.moved)return;
+   if(d.type==='dock'){S.editorHeight=G.clamp(d.height+d.clientY-e.clientY,180,Math.max(220,innerHeight-230));$('.studio-editor')?.style.setProperty('height',S.editorHeight+'px');return;}
+   if(d.type==='time'){
+    const r=d.ruler.getBoundingClientRect(),tick=G.clamp((e.clientX-r.left)/r.width*d.length,0,d.length);d.end=Math.round(tick/G.BAR)*G.BAR;
+    const el=$('#loop-ghost');if(el){el.style.left=Math.min(d.start,d.end)/d.length*100+'%';el.style.width=Math.abs(d.end-d.start)/d.length*100+'%';}return;
+   }
+   if(d.type==='clip'){
+    d.delta=Math.round((e.clientX-d.clientX)/d.barWidth);const lane=document.elementFromPoint(e.clientX,e.clientY)?.closest('.arrange-lane');d.targetId=lane?.dataset.track||d.trackId;
+    const selected=G.clipSelection(C.getProject(),d.ids);d.delta=G.clamp(d.delta,-Math.min(...selected.map(x=>x.clip.bar)),C.getProject().bars-Math.max(...selected.map(x=>x.clip.bar+x.pattern.bars)));
+    let valid=true;try{G.moveClips(d.before,d.ids,d.delta,d.targetId===d.trackId?null:d.targetId,d.copy);}catch{valid=false;}
+    for(const id of d.ids){const el=document.querySelector(`[data-clip="${id}"]`);if(el){el.style.transform=`translateX(${d.delta*d.barWidth}px)`;el.classList.toggle('invalid',!valid);el.classList.add('dragging');}}
+    d.valid=valid;return;
+   }
+   if(d.type==='pan'){d.scroll.scrollLeft=d.left+d.clientX-e.clientX;d.scroll.scrollTop=d.top+d.clientY-e.clientY;return;}
+   if(d.type==='ruler'){G.viewportFor(S,track()).low=G.clamp(d.low+Math.round((e.clientY-d.clientY)/geo.row),0,127-G.viewportFor(S,track()).span);drawGrid();return;}
+   if(!$('#note-grid'))return;const pt=point(e),p=pattern();
+   const key=[d.type,snap(pt.tick),pt.row,d.type==='velocity'?Math.round(pt.y):0].join(':');
+   if(key!==d.lastKey){d.lastKey=key;
+    if(d.type==='draw'){const start=Math.min(d.start,Math.floor(pt.tick/step())*step()),end=Math.max(d.start,Math.floor(pt.tick/step())*step())+step();for(const n of p.notes)if(d.ids.includes(n.id)){n.start=start;n.duration=Math.min(p.bars*G.BAR,end)-start;}}
+    if(d.type==='brush'){const last=d.lastPoint||d.pt,count=Math.max(1,Math.ceil(Math.abs(pt.tick-last.tick)/step()),Math.abs(pt.row-last.row));for(let i=0;i<=count;i++)drawCell({tick:last.tick+(pt.tick-last.tick)*i/count,row:Math.round(last.row+(pt.row-last.row)*i/count)},d.mode,d.seen);d.lastPoint=pt;}
+    if(d.type==='move'||d.type==='resize'){
+     let dt=snap(pt.tick-d.pt.tick),dp=track().kind==='drum'?0:geo.rows[pt.row]-geo.rows[d.pt.row];const orig=[...d.notes.values()];
+     if(orig.length){if(d.type==='move'){dt=G.clamp(dt,-Math.min(...orig.map(n=>n.start)),p.bars*G.BAR-Math.max(...orig.map(n=>n.start+n.duration)));dp=G.clamp(dp,-Math.min(...orig.map(n=>n.pitch)),127-Math.max(...orig.map(n=>n.pitch)));}
+      for(const n of p.notes){const o=d.notes.get(n.id);if(!o)continue;if(d.type==='move'){n.start=o.start+dt;n.pitch=o.pitch+dp;}else n.duration=G.clamp(o.duration+dt,step(),p.bars*G.BAR-o.start);}
+     }
     }
-    let lastClipTap = { id: null, time: 0 };
-    document.addEventListener('pointerdown', e => {
-        C.interact();
-        if (e.target.matches('input[type=range]')) {
-            C.beginRange();
-            return;
-        }
-        if (e.button !== 0 || S.modal)
-            return;
-        const clip = e.target.closest('[data-clip]');
-        if (clip) {
-            const t = C.getProject().tracks.find(t => t.id === clip.dataset.track), c = t.clips.find(c => c.id === clip.dataset.clip);
-            drag = { type: 'clip', clip, c, t, x: e.clientX, start: c.bar, bar: c.bar, moved: false, before: snapshot(), pointer: e.pointerId, barWidth: clip.parentElement.clientWidth / C.getProject().bars };
-            clip.setPointerCapture(e.pointerId);
-            e.preventDefault();
-            return;
-        }
-        const frame = e.target.closest('#gridframe');
-        if (!frame)
-            return;
-        const pt = gridPoint(e);
-        if (pt.x < geo.left) {
-            if (pt.y >= geo.top && pt.y < geo.top + geo.rows.length * geo.row) {
-                e.preventDefault();
-                frame.setPointerCapture(e.pointerId);
-                frame.focus({ preventScroll: true });
-                drag = { type: 'ruler', pointer: e.pointerId, startY: e.clientY, low: G.viewportFor(S, track()).low, pitch: geo.rows[pt.row], moved: false };
-            }
-            return;
-        }
-        if (S.tool === 'pan') {
-            // Touch devices use native scrolling; a mouse gets the same grab-to-pan behavior.
-            if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
-                const scroll=frame.parentElement;
-                drag={type:'pan',pointer:e.pointerId,x:e.clientX,y:e.clientY,left:scroll.scrollLeft,top:scroll.scrollTop,scroll};
-                e.preventDefault();frame.setPointerCapture(e.pointerId);frame.focus({preventScroll:true});
-                frame.classList.add('is-panning');
-            }
-            return;
-        }
-        e.preventDefault();
-        frame.focus({ preventScroll: true });
-        frame.setPointerCapture(e.pointerId);
-        const before = snapshot(), p = pattern(), t = track();
-        S.cursor = S.page * BAR + pt.col * STEP;
-        drag = { before, pointer: e.pointerId, x: pt.x, y: pt.y, mx: pt.x, my: pt.y, col: pt.col, row: pt.row, moved: false, seen: new Set() };
-        if (pt.y >= geo.top + geo.rows.length * geo.row) {
-            drag.type = 'velocity';
-            updateGridGesture(pt);
-            return;
-        }
-        const hit = hitNote(pt);
-        if (S.tool === 'select' && !hit) {
-            drag.type = 'marquee';
-            if (!e.shiftKey)
-                S.selected = [];
-            drawGrid();
-            return;
-        }
-        if (S.tool === 'erase') {
-            drag.type = 'brush';
-            drag.mode = 'erase';
-            brushCell(pt.col, pt.row, 'erase', drag.seen);
-            drawGrid();
-            return;
-        }
-        if (t.kind === 'drum' && S.tool !== 'select') {
-            drag.type = 'brush';
-            drag.mode = hit ? 'erase' : 'draw';
-            brushCell(pt.col, pt.row, drag.mode, drag.seen);
-            if (!hit)
-                preview(t, geo.rows[pt.row], .1);
-            S.selected = [];
-            drawGrid();
-            return;
-        }
-        if (hit) {
-            if (e.shiftKey) {
-                S.selected = S.selected.includes(hit.id) ? S.selected.filter(id => id !== hit.id) : [...S.selected, hit.id];
-            }
-            else if (!S.selected.includes(hit.id))
-                S.selected = [hit.id];
-            const edge = geo.left + (Math.min(hit.start + hit.duration, S.page * BAR + BAR) - S.page * BAR) / STEP * geo.cw;
-            drag.type = t.kind !== 'drum' && pt.x >= edge - 11 ? 'resize' : 'move';
-            drag.notes = clone(selectedNotes());
-            drag.pitch = geo.rows[pt.row];
-            drag.longTimer = setTimeout(() => {
-                if (drag && !drag.moved && ['move', 'resize'].includes(drag.type)) {
-                    drag = null;
-                    noteMenu();
-                }
-            }, 600);
-        }
-        else {
-            drag.type = 'draw';
-            const start = S.page * BAR + pt.col * STEP, pitch = S.inputSnap ? G.snapPitch(geo.rows[pt.row], C.getProject().key, C.getProject().scale) : geo.rows[pt.row];
-            const notes = S.tool === 'chord' ? chordNotes(pitch, S.chord, start, STEP) : [newNote(pitch, start)];
-            p.notes.push(...notes);
-            drag.ids = notes.map(n => n.id);
-            S.selected = drag.ids;
-            preview(t, pitch, .16);
-        }
-        drawGrid();
-    });
-    function updateGridGesture(pt) {
-        if (!drag)
-            return;
-        const p = pattern();
-        drag.mx = pt.x;
-        drag.my = pt.y;
-        if (Math.hypot(pt.x - drag.x, pt.y - drag.y) > 4) {
-            drag.moved = true;
-            clearTimeout(drag.longTimer);
-        }
-        if (drag.type === 'draw') {
-            const lo = Math.min(drag.col, pt.col), hi = Math.max(drag.col, pt.col);
-            for (const n of p.notes.filter(n => drag.ids.includes(n.id))) {
-                n.start = S.page * BAR + lo * STEP;
-                n.duration = (hi - lo + 1) * STEP;
-            }
-        }
-        else if (drag.type === 'brush') {
-            const lastCol = drag.lastCol ?? drag.col, lastRow = drag.lastRow ?? drag.row, count = Math.max(Math.abs(pt.col - lastCol), Math.abs(pt.row - lastRow), 1);
-            for (let i = 0; i <= count; i++)
-                brushCell(Math.round(lastCol + (pt.col - lastCol) * i / count), Math.round(lastRow + (pt.row - lastRow) * i / count), drag.mode, drag.seen);
-            drag.lastCol = pt.col;
-            drag.lastRow = pt.row;
-        }
-        else if (drag.type === 'move' && drag.notes.length) {
-            let delta = Math.round((pt.x - drag.x) / geo.cw) * STEP;
-            const min = Math.min(...drag.notes.map(n => n.start)), max = Math.max(...drag.notes.map(n => n.start + n.duration));
-            delta = clamp(delta, -min, p.bars * BAR - max);
-            let pitchDelta = geo.rows[pt.row] - drag.pitch;
-            if (track().kind === 'drum')
-                pitchDelta = 0;
-            const minP = Math.min(...drag.notes.map(n => n.pitch)), maxP = Math.max(...drag.notes.map(n => n.pitch));
-            pitchDelta = clamp(pitchDelta, -minP, 127 - maxP);
-            for (const n of p.notes) {
-                const orig = drag.notes.find(o => o.id === n.id);
-                if (orig) {
-                    n.start = orig.start + delta;
-                    n.pitch = orig.pitch + pitchDelta;
-                }
-            }
-        }
-        else if (drag.type === 'resize') {
-            const delta = Math.round((pt.x - drag.x) / geo.cw) * STEP;
-            for (const n of p.notes) {
-                const orig = drag.notes.find(o => o.id === n.id);
-                if (orig)
-                    n.duration = clamp(orig.duration + delta, STEP, p.bars * BAR - orig.start);
-            }
-        }
-        else if (drag.type === 'marquee') {
-            const x1 = Math.min(drag.x, pt.x), x2 = Math.max(drag.x, pt.x), y1 = Math.min(drag.y, pt.y), y2 = Math.max(drag.y, pt.y);
-            S.selected = p.notes.filter(n => { const r = geo.rows.indexOf(n.pitch), x = geo.left + (n.start - S.page * BAR) / STEP * geo.cw, y = geo.top + r * geo.row; return r >= 0 && x < x2 && x + n.duration / STEP * geo.cw > x1 && y < y2 && y + geo.row > y1; }).map(n => n.id);
-        }
-        else if (drag.type === 'velocity') {
-            const vy = geo.top + geo.rows.length * geo.row + 12, v = clamp(1 - (pt.y - vy) / 32, .05, 1), start = S.page * BAR + pt.col * STEP;
-            for (const n of p.notes)
-                if (n.start >= start && n.start < start + STEP)
-                    n.velocity = v;
-        }
-        drawGrid();
-    }
-    document.addEventListener('pointermove', e => {
-        if (!drag || e.pointerId !== drag.pointer)
-            return;
-        if (drag.type === 'pan') {
-            e.preventDefault();drag.scroll.scrollLeft=drag.left-(e.clientX-drag.x);drag.scroll.scrollTop=drag.top-(e.clientY-drag.y);return;
-        }
-        if (drag.type === 'ruler') {
-            e.preventDefault();
-            if (Math.abs(e.clientY - drag.startY) > 4)
-                drag.moved = true;
-            if (drag.moved && track().kind !== 'drum') {
-                const v = G.viewportFor(S, track());
-                v.low = clamp(drag.low + Math.round((e.clientY - drag.startY) / geo.row), 0, 127 - v.span);
-                drawGrid();
-            }
-            return;
-        }
-        if (drag.type === 'clip') {
-            const delta = Math.round((e.clientX - drag.x) / drag.barWidth), p = drag.t.patterns.find(p => p.id === drag.c.patternId);
-            drag.bar = clamp(drag.start + delta, 0, C.getProject().bars - p.bars);
-            drag.moved = Math.abs(e.clientX - drag.x) > 4;
-            drag.clip.style.left = (drag.bar * drag.barWidth + G.UI_METRICS.clipInset) + 'px';
-            drag.clip.classList.toggle('invalid', !canPlace(drag.t, p, drag.bar, C.getProject().bars, drag.c.id));
-            return;
-        }
-        e.preventDefault();
-        if ($('#note-grid'))
-            updateGridGesture(gridPoint(e));
-    }, { passive: false });
-    document.addEventListener('pointerup', e => {
-        if (!drag || e.pointerId !== drag.pointer)
-            return;
-        const d = drag;
-        clearTimeout(d.longTimer);
-        drag = null;
-        if (d.type === 'pan') {
-            $('#gridframe')?.classList.remove('is-panning');
-            return;
-        }
-        if (d.type === 'ruler') {
-            if (!d.moved)
-                preview(track(), d.pitch);
-            G.saveWorkspace(S, C.getProject().id);
-            render();
-            return;
-        }
-        if (d.type === 'clip') {
-            const p = d.t.patterns.find(p => p.id === d.c.patternId);
-            if (canPlace(d.t, p, d.bar, C.getProject().bars, d.c.id)) {
-                d.c.bar = d.bar;
-                markChanged(d.before);
-            }
-            else
-                toast('这个位置已有片段，已放回原位。');
-            S.clipId = d.c.id;
-            S.trackId = d.t.id;
-            S.patternId = d.c.patternId;
-            if (!d.moved && lastClipTap.id === d.c.id && Date.now() - lastClipTap.time < 400) {
-                openPattern({ trackId: d.t.id, clipId: d.c.id });
-            }
-            lastClipTap = { id: d.c.id, time: Date.now() };
-            render();
-            return;
-        }
-        markChanged(d.before);
-        render();
-    });
-    document.addEventListener('pointercancel', e => {
-        if (!drag || drag.pointer !== e.pointerId)
-            return;
-        clearTimeout(drag.longTimer);
-        if (drag.type === 'ruler') G.viewportFor(S, track()).low = drag.low;
-        else if (drag.type === 'pan') {drag.scroll.scrollLeft=drag.left;drag.scroll.scrollTop=drag.top;}
-        else C.setProject(drag.before);
-        drag = null;
-        render();
-    });
-    window.addEventListener('blur', () => {
-        if (drag) {
-            clearTimeout(drag.longTimer);
-            if (drag.type === 'ruler') G.viewportFor(S, track()).low = drag.low;
-            else if (drag.type === 'pan') {drag.scroll.scrollLeft=drag.left;drag.scroll.scrollTop=drag.top;}
-            else C.setProject(drag.before);
-            drag = null;
-            render();
-        }
-        C.commitRange();
-    });
-    document.addEventListener('keydown', e => {
-        const target = e.target instanceof Element ? e.target : document.activeElement;
-        if(!target?.matches) return;
-        const editing = target.matches('input,textarea,select,[contenteditable=true]'), mod = e.ctrlKey || e.metaKey;
-        if (S.modal) {
-            if (e.key === 'Escape') { closeModal(); e.preventDefault(); }
-            else if (e.key === 'Enter' && C.hasForm() && !target.matches('button,select,textarea')) { C.submitForm(); e.preventDefault(); }
-            else G.ui.modal.keydown(e);
-            return;
-        }
-        if (editing)
-            return;
-        if (e.code === 'Space' && target.closest('button,a,summary')) return;
-        if (e.code === 'Space') {
-            e.preventDefault();
-            togglePlay();
-            return;
-        }
-        if (mod && e.key.toLowerCase() === 'z') {
-            e.preventDefault();
-            e.shiftKey ? redo() : undo();
-            return;
-        }
-        if (mod && e.key.toLowerCase() === 's') {
-            e.preventDefault();
-            downloadBlob(new Blob([JSON.stringify(C.getProject())], { type: 'application/json' }), safeFilename(C.getProject().title) + '.gridtone');
-            return;
-        }
-        if (S.view !== 'edit') {
-            if (e.key === 'Enter') {
-                const clip = target.closest('[data-clip]');
-                if (clip) {
-                    e.preventDefault();
-                    openPattern({ trackId: clip.dataset.track, clipId: clip.dataset.clip });
-                }
-                else if (S.clipId)
-                    handleAction('edit-clip', e.target);
-            }
-            return;
-        }
-        if (target.closest('button,a,summary')) return;
-        if (mod && e.key.toLowerCase() === 'a') {
-            e.preventDefault();
-            S.selected = pattern().notes.map(n => n.id);
-            render();
-        }
-        if (mod && e.key.toLowerCase() === 'c') {
-            e.preventDefault();
-            copyNotes();
-        }
-        if (mod && e.key.toLowerCase() === 'v') {
-            e.preventDefault();
-            pasteNotes();
-        }
-        if (e.key === 'Delete' || e.key === 'Backspace') {
-            e.preventDefault();
-            deleteNotes();
-        }
-        if (e.key === 'Escape') {
-            S.selected = [];
-            render();
-        }
-        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && S.selected.length) {
-            e.preventDefault();
-            mutate(() => {
-                const notes = selectedNotes(), p = pattern();
-                const dt = e.key === 'ArrowLeft' ? -STEP : e.key === 'ArrowRight' ? STEP : 0, dp = e.key === 'ArrowUp' ? 1 : e.key === 'ArrowDown' ? -1 : 0;
-                if (notes.some(n => n.start + dt < 0 || n.start + n.duration + dt > p.bars * BAR || n.pitch + dp < 0 || n.pitch + dp > 127))
-                    return;
-                notes.forEach(n => {
-                    n.start += dt;
-                    if (track().kind !== 'drum')
-                        n.pitch += dp;
-                });
-            });
-        }
-    });
-
-    document.addEventListener('contextmenu', e => {
-        const grid = target.closest('#gridframe');
-        if (!grid)
-            return;
-        e.preventDefault();
-        const pt = gridPoint(e), hit = hitNote(pt);
-        if (hit) {
-            if (!S.selected.includes(hit.id))
-                S.selected = [hit.id];
-            drawGrid();
-            noteMenu();
-        }
-    });
-
-    return { setGeometry: g => { geo=g; }, getDrag: () => drag };
+    if(d.type==='marquee'){const a=Math.min(d.pt.tick,pt.tick),b=Math.max(d.pt.tick,pt.tick),r0=Math.min(d.pt.row,pt.row),r1=Math.max(d.pt.row,pt.row);S.selected=[...new Set([...(d.additive?d.selection:[]),...p.notes.filter(n=>n.start<b&&n.start+n.duration>a&&geo.rows.indexOf(n.pitch)>=r0&&geo.rows.indexOf(n.pitch)<=r1).map(n=>n.id)])];d.mx=pt.x;d.my=pt.y;}
+    if(d.type==='velocity'){const vy=geo.top+geo.rows.length*geo.row+12,v=G.clamp(1-(pt.y-vy)/48,.01,1);for(const n of p.notes)if(S.selected.length?S.selected.includes(n.id):n.start>=Math.floor(pt.tick/step())*step()&&n.start<(Math.floor(pt.tick/step())+1)*step())n.velocity=v;}
+    drawGrid();
+   }
+   const sc=$('#gridframe')?.parentElement;if(sc&&d.type!=='velocity'){const r=sc.getBoundingClientRect(),dx=e.clientX>r.right-28?12:e.clientX<r.left+75?-12:0,dy=e.clientY>r.bottom-24?10:e.clientY<r.top+24?-10:0;const x=sc.scrollLeft,y=sc.scrollTop;sc.scrollLeft+=dx;sc.scrollTop+=dy;if(x!==sc.scrollLeft||y!==sc.scrollTop){pending=e;raf=requestAnimationFrame(flush);}}
+  }
+  document.addEventListener('pointerdown',e=>{
+   C.interact();if(drag||S.modal||e.button!==0)return;
+   if(e.target.matches('input[type=range]')){C.beginRange();return;}
+   const common={pointer:e.pointerId,clientX:e.clientX,clientY:e.clientY,moved:false,capture:e.target.closest('#gridframe,[data-clip],.ruler-bars,.dock-resize')};
+   if(e.target.closest('.dock-resize')){drag={...common,type:'dock',height:S.editorHeight};e.preventDefault();drag.capture.setPointerCapture(e.pointerId);return;}
+   const ruler=e.target.closest('.ruler-bars');if(ruler){const r=ruler.getBoundingClientRect(),length=C.getProject().bars*G.BAR;const start=G.clamp(Math.floor((e.clientX-r.left)/r.width*C.getProject().bars)*G.BAR,0,length-G.BAR);drag={...common,type:'time',ruler,length,start,end:start};ruler.setPointerCapture(e.pointerId);e.preventDefault();return;}
+   const clip=e.target.closest('[data-clip]');if(clip){
+    const id=clip.dataset.clip;if(e.shiftKey)S.clipIds=S.clipIds.includes(id)?S.clipIds.filter(x=>x!==id):[...S.clipIds,id];else if(!S.clipIds.includes(id))S.clipIds=[id];
+    drag={...common,type:'clip',before:snapshot(),ids:[...S.clipIds],trackId:clip.dataset.track,delta:0,copy:e.altKey,barWidth:clip.parentElement.clientWidth/C.getProject().bars};clip.setPointerCapture(e.pointerId);e.preventDefault();return;
+   }
+   const frame=e.target.closest('#gridframe');if(!frame)return;
+   if(S.tool==='pan'&&e.pointerType==='touch')return;const pt=point(e);e.preventDefault();frame.focus({preventScroll:true});
+   if(pt.y<geo.top){if(pt.x>=geo.left)C.seekPattern?.(snap(pt.tick));return;}
+   if(pt.x<geo.left){if(pt.y<geo.top+geo.rows.length*geo.row)drag={...common,type:'ruler',low:G.viewportFor(S,track()).low,pitch:geo.rows[pt.row]};else return;}
+   else if(S.tool==='pan'){if(e.pointerType==='touch')return;const scroll=frame.parentElement;drag={...common,type:'pan',scroll,left:scroll.scrollLeft,top:scroll.scrollTop};}
+   else{
+    const before=snapshot(),selection=[...S.selected],n=hit(pt);S.cursor=snap(pt.tick);
+    drag={...common,before,selection,pt,x:pt.x,y:pt.y,mx:pt.x,my:pt.y};
+    if(pt.y>=geo.top+geo.rows.length*geo.row){drag.type='velocity';drag.moved=true;queue(e);}
+    else if(S.tool==='select'&&!n){drag.type='marquee';drag.additive=e.shiftKey;if(!e.shiftKey)S.selected=[];}
+    else if(S.tool==='erase'||track().kind==='drum'&&S.tool!=='select'){drag.type='brush';drag.mode=S.tool==='erase'||n?'erase':'draw';drag.seen=new Set();drawCell(pt,drag.mode,drag.seen);if(!n)preview(track(),geo.rows[pt.row],.1);}
+    else if(n){
+     if(e.shiftKey)S.selected=S.selected.includes(n.id)?S.selected.filter(id=>id!==n.id):[...S.selected,n.id];else if(!S.selected.includes(n.id))S.selected=[n.id];
+     const edge=geo.left+(n.start+n.duration-geo.offset)/G.STEP*geo.cw;
+     drag.type=track().kind!=='drum'&&pt.x>=edge-10&&n.start+n.duration<=geo.offset+geo.bars*G.BAR?'resize':'move';drag.notes=new Map(selectedNotes().map(n=>[n.id,G.clone(n)]));
+     if(e.pointerType==='touch')drag.timer=setTimeout(()=>{if(drag&&!drag.moved){const ids=[...S.selected];cancel();S.selected=ids;C.noteMenu();}},600);
+    }else{drag.type='draw';drag.start=Math.floor(pt.tick/step())*step();const pitch=S.inputSnap?G.snapPitch(geo.rows[pt.row],C.getProject().key,C.getProject().scale):geo.rows[pt.row];const notes=S.tool==='chord'?G.chordNotes(pitch,S.chord,drag.start,step()):[G.newNote(pitch,drag.start,Math.min(S.snap===0?G.STEP:step(),pattern().bars*G.BAR-drag.start))];pattern().notes.push(...notes);drag.ids=notes.map(n=>n.id);S.selected=drag.ids;preview(track(),pitch,.16);}
+    drawGrid();
+   }
+   frame.setPointerCapture(e.pointerId);
+  });
+  document.addEventListener('pointermove',e=>{if(!drag||drag.pointer!==e.pointerId)return;e.preventDefault();queue(e);},{passive:false});
+  document.addEventListener('pointerup',e=>{
+   if(!drag||e.pointerId!==drag.pointer)return;if(pending)flush();cancelAnimationFrame(raf);raf=0;pending=null;const d=drag;drag=null;finishCapture(d);
+   if(d.type==='dock'){G.saveWorkspace(S,C.getProject().id);render();return;}
+   if(d.type==='time'){if(d.moved&&d.end!==d.start)C.setRange?.([Math.min(d.start,d.end),Math.max(d.start,d.end)]);else C.seek?.(d.start);render();return;}
+   if(d.type==='ruler'){if(!d.moved)preview(track(),d.pitch);render();return;}
+   if(d.type==='pan')return;
+   if(d.type==='clip'){
+    if(d.moved){if(d.valid)try{const result=G.moveClips(d.before,d.ids,d.delta,d.targetId===d.trackId?null:d.targetId,d.copy);C.setProject(result.project);S.clipIds=result.ids;markChanged(d.before);}catch(err){toast(err.message);}else toast('目标位置不可用，片段已回到原位。');}
+    const first=G.clipSelection(C.getProject(),S.clipIds)[0];if(first){const opened=G.openPatternInSession(S,C.getProject(),{trackId:first.track.id,clipId:first.clip.id,edit:false});if(opened.changed)C.editorChanged?.();S.editorOpen=true;}render();return;
+   }
+   markChanged(d.before);render();
+  });
+  document.addEventListener('pointercancel',e=>{if(drag?.pointer===e.pointerId)cancel();});
+  window.addEventListener('blur',()=>{cancel();C.commitRange();});
+  document.addEventListener('keydown',e=>{
+   const target=e.target instanceof Element?e.target:document.activeElement;if(!target?.matches)return;
+   const mod=e.ctrlKey||e.metaKey;
+   if(e.key==='Escape'&&drag){e.preventDefault();cancel();return;}
+   if(e.target.closest('.dock-resize')&&['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();S.editorHeight=G.clamp(S.editorHeight+(e.key==='ArrowUp'?24:-24),180,Math.max(220,innerHeight-230));render();G.saveWorkspace(S,C.getProject().id);return;}
+   if(S.modal){if(e.key==='Escape'){C.closeModal();e.preventDefault();}else if(e.key==='Enter'&&C.hasForm()&&!target.matches('button,select,textarea')){C.submitForm();e.preventDefault();}else G.ui.modal.keydown(e);return;}
+   if(target.matches('input,textarea,select,[contenteditable=true]'))return;
+   if(e.code==='Space'){if(target.closest('button,a,summary'))return;e.preventDefault();if(!e.repeat)C.togglePlay();return;}
+   if(mod&&e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?C.redo():C.undo();return;}
+   if(mod&&e.key.toLowerCase()==='s'){e.preventDefault();G.downloadBlob(new Blob([JSON.stringify(C.getProject())],{type:'application/json'}),G.safeFilename(C.getProject().title)+'.gridtone');return;}
+   const grid=target.closest('#gridframe');
+   if(!grid&&S.view!=='edit'){
+    if(e.key==='Enter'&&S.clipId){e.preventDefault();C.openPattern({clipId:S.clipId});}
+    const action=mod&&e.key.toLowerCase()==='c'?'copy':mod&&e.key.toLowerCase()==='v'?'paste':mod&&e.key.toLowerCase()==='d'?'duplicate':['Delete','Backspace'].includes(e.key)?'delete':['ArrowLeft','ArrowRight'].includes(e.key)?e.key:null;
+    if(action&&!target.closest('button,a,summary')){e.preventDefault();C.clipCommand?.(action);}return;
+   }
+   if(target.closest('button,a,summary'))return;
+   if(mod&&e.key.toLowerCase()==='a'){e.preventDefault();S.selected=pattern().notes.map(n=>n.id);drawGrid();return;}
+   if(mod&&e.key.toLowerCase()==='c'){e.preventDefault();C.copyNotes();return;}
+   if(mod&&e.key.toLowerCase()==='v'){e.preventDefault();C.pasteNotes();return;}
+   if(['Delete','Backspace'].includes(e.key)){e.preventDefault();C.deleteNotes();return;}
+   if(e.key==='Escape'){S.selected=[];drawGrid();return;}
+   const tools={v:'select',b:'draw',e:'erase',h:'pan'};if(!mod&&tools[e.key]){S.tool=tools[e.key];render();return;}
+   if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)&&S.selected.length){e.preventDefault();C.mutate(()=>{const ns=selectedNotes(),dt=e.key==='ArrowLeft'?-(e.altKey?1:step()):e.key==='ArrowRight'?(e.altKey?1:step()):0,dp=e.key==='ArrowUp'?(e.shiftKey?12:1):e.key==='ArrowDown'?-(e.shiftKey?12:1):0;if(ns.some(n=>n.start+dt<0||n.start+n.duration+dt>pattern().bars*G.BAR||n.pitch+dp<0||n.pitch+dp>127))return;ns.forEach(n=>{n.start+=dt;if(track().kind!=='drum')n.pitch+=dp;});});}
+  });
+  document.addEventListener('contextmenu',e=>{const frame=e.target.closest('#gridframe');if(!frame)return;e.preventDefault();if(drag)cancel();const pt=point(e);if(pt.y<geo.top||pt.x<geo.left)return;const n=hit(pt);if(n){if(!S.selected.includes(n.id))S.selected=[n.id];drawGrid();C.noteMenu();}});
+  document.addEventListener('wheel',e=>{if(!e.target.closest('.grid-scroll')||!(e.ctrlKey||e.metaKey))return;e.preventDefault();C.zoom?.(e.deltaY<0?1:-1,e.clientX,e.clientY,e.shiftKey);},{passive:false});
+  return {setGeometry:g=>geo={...geo,...g},getDrag:()=>drag,cancel};
  };
 })(globalThis.GridTone ||= {});
