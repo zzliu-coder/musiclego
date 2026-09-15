@@ -1,0 +1,39 @@
+/* PRISM 1.0 — semantic design fingerprint. All skins share geometry & hierarchy. */
+:root {
+ --paper:#eaf0f5; --surface:#fafdff; --surface-raised:#fff;
+ --ink:#253a4d; --muted:#536a7c; --subtle:#607687;
+ --line:rgba(81,117,145,.14); --line-strong:rgba(66,105,137,.23);
+ --brand:#286d85; --green:var(--brand); --accent:#bbebe9; --selected:#dceff3; --dark:#28647c;
+ --warning:#865222; --warning-bg:#fff2df; --danger:#a03e52;
+ --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+ --radius-sm:9px; --radius:14px; --radius-lg:20px;
+ --control:34px; --control-small:30px; --touch-control:44px;
+ --font-small:12px; --font-body:13px; --font-label:14px; --font-heading:18px;
+ --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+ --shadow:0 4px 8px rgba(42,75,106,.025),0 16px 40px rgba(42,75,106,.055);
+ --shadow-raised:0 10px 40px rgba(35,66,102,.12),0 1px 2px rgba(35,66,102,.06);
+ --focus:0 0 0 2px var(--surface),0 0 0 4px #276e90;
+ --glass:rgba(250,253,255,.68); --glass-edge:rgba(255,255,255,.9);
+ --glass-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 2px 4px rgba(34,63,98,.04),0 12px 36px rgba(34,63,98,.055);
+ --glass-blur:20px; --button-face:linear-gradient(180deg,#ffffffec,#f4faffc4);
+ --button-shadow:inset 0 1px 0 #fff,0 1px 3px rgba(36,77,107,.07);
+ --ambient:radial-gradient(ellipse at 4% 10%,#d8eff399,transparent 50%),radial-gradient(ellipse at 100% 5%,#e5dcf17a,transparent 46%),radial-gradient(ellipse at 70% 100%,#dcefe780,transparent 50%);
+ --track-head:208px; --track-row:76px;
+ --grid-paper:#fbfdff; --grid-beat:#f0f5fa; --grid-key:#eaf1f7;
+ --grid-major:#c4d3e0; --grid-minor:#e3ebf3; --grid-note:#367b97;
+ --color-playhead:#297390; --duration-quick:130ms; --duration-panel:180ms;
+ color-scheme:light; font:var(--font-body)/1.5 var(--font-ui);color:var(--ink);
+ font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+:root[data-skin="pearl"]{
+ --paper:#f3eeeb;--surface:#fffdfa;--surface-raised:#fff;
+ --ink:#423c48;--muted:#6c626e;--subtle:#786c79;
+ --line:rgba(119,96,114,.14);--line-strong:rgba(111,88,110,.23);
+ --brand:#856272;--accent:#f1d6d5;--selected:#f3e5ea;--dark:#76556d;
+ --glass:#fffafaad;--grid-paper:#fffcfd;--grid-beat:#f7f0f3;--grid-key:#f1e9f0;
+ --grid-major:#dbccd6;--grid-minor:#eee4e9;--grid-note:#93708b;--color-playhead:#8a597a;
+ --ambient:radial-gradient(ellipse at 4% 10%,#f6e8d9cc,transparent 48%),radial-gradient(ellipse at 100% 3%,#eee0f399,transparent 50%),radial-gradient(ellipse at 70% 100%,#efdeda77,transparent 50%);
+ --button-face:linear-gradient(180deg,#fffefdec,#fff6fac4);
+}
+:root[data-transparency="reduced"]{--glass:var(--surface);--glass-blur:0px;--ambient:none;--glass-edge:var(--line-strong)}
+@media(prefers-reduced-transparency:reduce){:root{--glass:var(--surface);--glass-blur:0px;--ambient:none}}

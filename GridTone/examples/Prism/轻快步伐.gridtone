@@ -1,0 +1,772 @@
+{
+  "version": 2,
+  "id": "starter-walk",
+  "title": "轻快步伐",
+  "bpm": 108,
+  "key": 0,
+  "scale": "major",
+  "swing": 0,
+  "master": 0.8,
+  "bars": 8,
+  "tracks": [
+    {
+      "id": "walk-t0",
+      "name": "和弦 · 轻快步伐",
+      "kind": "melodic",
+      "color": "#369c89",
+      "preset": "prism.tine",
+      "volume": 0.66,
+      "pan": -0.12,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.16,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "walk-t0-p0",
+          "name": "和弦",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 60,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "walk-t0-p0-n0"
+            },
+            {
+              "pitch": 64,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "walk-t0-p0-n1"
+            },
+            {
+              "pitch": 67,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "walk-t0-p0-n2"
+            },
+            {
+              "pitch": 60,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "walk-t0-p0-n3"
+            },
+            {
+              "pitch": 64,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "walk-t0-p0-n4"
+            },
+            {
+              "pitch": 69,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "walk-t0-p0-n5"
+            },
+            {
+              "pitch": 60,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "walk-t0-p0-n6"
+            },
+            {
+              "pitch": 65,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "walk-t0-p0-n7"
+            },
+            {
+              "pitch": 69,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "walk-t0-p0-n8"
+            },
+            {
+              "pitch": 59,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "walk-t0-p0-n9"
+            },
+            {
+              "pitch": 62,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "walk-t0-p0-n10"
+            },
+            {
+              "pitch": 67,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "walk-t0-p0-n11"
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "walk-t0-c0",
+          "patternId": "walk-t0-p0",
+          "bar": 0
+        },
+        {
+          "id": "walk-t0-c1",
+          "patternId": "walk-t0-p0",
+          "bar": 4
+        }
+      ]
+    },
+    {
+      "id": "walk-t1",
+      "name": "圆润低音",
+      "kind": "melodic",
+      "color": "#c48954",
+      "preset": "prism.roundbass",
+      "volume": 0.72,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.16,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "walk-t1-p0",
+          "name": "贝斯",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 36,
+              "start": 0,
+              "duration": 1440,
+              "velocity": 0.77,
+              "id": "walk-t1-p0-n0"
+            },
+            {
+              "pitch": 36,
+              "start": 1920,
+              "duration": 1200,
+              "velocity": 0.62,
+              "id": "walk-t1-p0-n1"
+            },
+            {
+              "pitch": 45,
+              "start": 3840,
+              "duration": 1440,
+              "velocity": 0.77,
+              "id": "walk-t1-p0-n2"
+            },
+            {
+              "pitch": 45,
+              "start": 5760,
+              "duration": 1200,
+              "velocity": 0.62,
+              "id": "walk-t1-p0-n3"
+            },
+            {
+              "pitch": 41,
+              "start": 7680,
+              "duration": 1440,
+              "velocity": 0.77,
+              "id": "walk-t1-p0-n4"
+            },
+            {
+              "pitch": 41,
+              "start": 9600,
+              "duration": 1200,
+              "velocity": 0.62,
+              "id": "walk-t1-p0-n5"
+            },
+            {
+              "pitch": 43,
+              "start": 11520,
+              "duration": 1440,
+              "velocity": 0.77,
+              "id": "walk-t1-p0-n6"
+            },
+            {
+              "pitch": 43,
+              "start": 13440,
+              "duration": 1200,
+              "velocity": 0.62,
+              "id": "walk-t1-p0-n7"
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "walk-t1-c0",
+          "patternId": "walk-t1-p0",
+          "bar": 0
+        },
+        {
+          "id": "walk-t1-c1",
+          "patternId": "walk-t1-p0",
+          "bar": 4
+        }
+      ]
+    },
+    {
+      "id": "walk-t2",
+      "name": "清爽流行",
+      "kind": "drum",
+      "color": "#9b82cd",
+      "preset": "prism.drydrum",
+      "volume": 0.69,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.08,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "walk-t2-p0",
+          "name": "节奏",
+          "bars": 2,
+          "notes": [
+            {
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.91,
+              "id": "walk-t2-p0-n0"
+            },
+            {
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n1"
+            },
+            {
+              "pitch": 42,
+              "start": 480,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n2"
+            },
+            {
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n3"
+            },
+            {
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n4"
+            },
+            {
+              "pitch": 42,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n5"
+            },
+            {
+              "pitch": 36,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n6"
+            },
+            {
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n7"
+            },
+            {
+              "pitch": 36,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n8"
+            },
+            {
+              "pitch": 42,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n9"
+            },
+            {
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n10"
+            },
+            {
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n11"
+            },
+            {
+              "pitch": 42,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n12"
+            },
+            {
+              "pitch": 36,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.91,
+              "id": "walk-t2-p0-n13"
+            },
+            {
+              "pitch": 42,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n14"
+            },
+            {
+              "pitch": 42,
+              "start": 4320,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n15"
+            },
+            {
+              "pitch": 38,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n16"
+            },
+            {
+              "pitch": 42,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n17"
+            },
+            {
+              "pitch": 42,
+              "start": 5280,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n18"
+            },
+            {
+              "pitch": 36,
+              "start": 5760,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n19"
+            },
+            {
+              "pitch": 42,
+              "start": 5760,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n20"
+            },
+            {
+              "pitch": 36,
+              "start": 6240,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n21"
+            },
+            {
+              "pitch": 42,
+              "start": 6240,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n22"
+            },
+            {
+              "pitch": 38,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.76,
+              "id": "walk-t2-p0-n23"
+            },
+            {
+              "pitch": 42,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.57,
+              "id": "walk-t2-p0-n24"
+            },
+            {
+              "pitch": 42,
+              "start": 7200,
+              "duration": 240,
+              "velocity": 0.4,
+              "id": "walk-t2-p0-n25"
+            },
+            {
+              "pitch": 38,
+              "start": 7440,
+              "duration": 240,
+              "velocity": 0.29,
+              "id": "walk-t2-p0-n26"
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "walk-t2-c0",
+          "patternId": "walk-t2-p0",
+          "bar": 0
+        },
+        {
+          "id": "walk-t2-c1",
+          "patternId": "walk-t2-p0",
+          "bar": 2
+        },
+        {
+          "id": "walk-t2-c2",
+          "patternId": "walk-t2-p0",
+          "bar": 4
+        },
+        {
+          "id": "walk-t2-c3",
+          "patternId": "walk-t2-p0",
+          "bar": 6
+        }
+      ]
+    },
+    {
+      "id": "walk-t3",
+      "name": "主旋律",
+      "kind": "melodic",
+      "color": "#6596bc",
+      "preset": "prism.nylon",
+      "volume": 0.7,
+      "pan": 0.15,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.48
+      },
+      "fx": {
+        "reverb": 0.26,
+        "delay": 0.11,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "walk-t3-p0",
+          "name": "旋律",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 64,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p0-n0"
+            },
+            {
+              "pitch": 67,
+              "start": 720,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n1"
+            },
+            {
+              "pitch": 64,
+              "start": 1440,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n2"
+            },
+            {
+              "pitch": 72,
+              "start": 2640,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n3"
+            },
+            {
+              "pitch": 72,
+              "start": 3840,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p0-n4"
+            },
+            {
+              "pitch": 76,
+              "start": 4560,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n5"
+            },
+            {
+              "pitch": 72,
+              "start": 5280,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n6"
+            },
+            {
+              "pitch": 81,
+              "start": 6480,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n7"
+            },
+            {
+              "pitch": 69,
+              "start": 7680,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p0-n8"
+            },
+            {
+              "pitch": 72,
+              "start": 8400,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n9"
+            },
+            {
+              "pitch": 69,
+              "start": 9120,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n10"
+            },
+            {
+              "pitch": 77,
+              "start": 10320,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n11"
+            },
+            {
+              "pitch": 71,
+              "start": 11520,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p0-n12"
+            },
+            {
+              "pitch": 74,
+              "start": 12240,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n13"
+            },
+            {
+              "pitch": 71,
+              "start": 12960,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n14"
+            },
+            {
+              "pitch": 67,
+              "start": 14160,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p0-n15"
+            }
+          ]
+        },
+        {
+          "id": "walk-t3-p1",
+          "name": "旋律 · 回答",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 64,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p1-n0"
+            },
+            {
+              "pitch": 67,
+              "start": 720,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n1"
+            },
+            {
+              "pitch": 64,
+              "start": 1440,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n2"
+            },
+            {
+              "pitch": 72,
+              "start": 2640,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n3"
+            },
+            {
+              "pitch": 72,
+              "start": 3840,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p1-n4"
+            },
+            {
+              "pitch": 76,
+              "start": 4560,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n5"
+            },
+            {
+              "pitch": 72,
+              "start": 5280,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n6"
+            },
+            {
+              "pitch": 81,
+              "start": 6480,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n7"
+            },
+            {
+              "pitch": 69,
+              "start": 7680,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p1-n8"
+            },
+            {
+              "pitch": 72,
+              "start": 8400,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n9"
+            },
+            {
+              "pitch": 69,
+              "start": 9120,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n10"
+            },
+            {
+              "pitch": 77,
+              "start": 10320,
+              "duration": 960,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n11"
+            },
+            {
+              "pitch": 71,
+              "start": 11520,
+              "duration": 480,
+              "velocity": 0.73,
+              "id": "walk-t3-p1-n12"
+            },
+            {
+              "pitch": 74,
+              "start": 12240,
+              "duration": 480,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n13"
+            },
+            {
+              "pitch": 71,
+              "start": 12960,
+              "duration": 720,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n14"
+            },
+            {
+              "pitch": 60,
+              "start": 14160,
+              "duration": 1200,
+              "velocity": 0.59,
+              "id": "walk-t3-p1-n15"
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "walk-t3-c0",
+          "patternId": "walk-t3-p0",
+          "bar": 0
+        },
+        {
+          "id": "walk-t3-c1",
+          "patternId": "walk-t3-p1",
+          "bar": 4
+        }
+      ]
+    }
+  ],
+  "assets": {}
+}

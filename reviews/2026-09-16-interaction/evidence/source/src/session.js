@@ -1,0 +1,128 @@
+/** EditorSession is deliberately outside the serializable musical document.
+ * Browsing and selection never enter song undo history. Pure helpers are testable without DOM. */
+(function (G) {
+    'use strict';
+    const { clamp, clone } = G;
+    function createEditorSession(project) {
+        const t = project.tracks[0];
+        return { view: 'arrange', trackId: t.id, patternId: t.patterns[0].id, clipId: t.clips[0]?.id || null,
+            page: 0, tool: 'draw', chord: 'major', showScale: false, inputSnap: false, selected: [], clipboard: null,
+            tab: '全部', query: '', saveStatus: '正在读取本机工程', sidebar: false, panel: 'properties',
+            modal: null, cursor: 0, viewports: {}, scrolls: {}, editorTab: 'notes', editorGroup: 'view',
+            templateId: null, templateMode: 'new', templateTranspose: 'original', templateBar: 0 };
+    }
+    function createPlaybackContext() { return { target: 'song', loop: true, soloIds: [], selectedTrackIds: [] }; }
+    function reconcileSession(s, p, b) {
+        const t = p.tracks.find(t => t.id === s.trackId) || p.tracks[0];
+        s.trackId = t.id;
+        const pat = t.patterns.find(x => x.id === s.patternId) || t.patterns[0];
+        s.patternId = pat.id;
+        const c = t.clips.find(c => c.id === s.clipId && c.patternId === pat.id);
+        s.clipId = c?.id || t.clips.find(c => c.patternId === pat.id)?.id || null;
+        s.page = clamp(s.page, 0, pat.bars - 1);
+        s.selected = s.selected.filter(id => pat.notes.some(n => n.id === id));
+        if (b) {
+            for (const key of ['soloIds', 'selectedTrackIds'])
+                b[key] = b[key].filter(id => p.tracks.some(t => t.id === id));
+        }
+        return { track: t, pattern: pat, clip: t.clips.find(c => c.id === s.clipId) || null };
+    }
+    function openPatternInSession(s, p, { trackId = s.trackId, patternId, clipId = null, edit = true } = {}) {
+        const t = p.tracks.find(t => t.id === trackId);
+        if (!t)
+            throw Error('音轨已经不存在。');
+        const c = clipId ? t.clips.find(c => c.id === clipId) : null;
+        const pat = t.patterns.find(x => x.id === (c?.patternId || patternId)) || (!patternId && !clipId ? t.patterns[0] : null);
+        if (!pat)
+            throw Error('片段已经不存在。');
+        const changed = s.trackId !== t.id || s.patternId !== pat.id;
+        s.trackId = t.id;
+        s.patternId = pat.id;
+        s.clipId = c?.id || t.clips.find(c => c.patternId === pat.id)?.id || null;
+        if (changed) {
+            s.page = 0;
+            s.selected = [];
+            s.cursor = 0;
+        }
+        if (edit) {
+            s.view = 'edit';
+            s.editorTab = 'notes';
+        }
+        return { changed, track: t, pattern: pat };
+    }
+    function viewportFor(s, t) {
+        if (!s.viewports[t.id]) {
+            const notes = t.patterns.flatMap(p => p.notes), low = notes.length ? Math.max(0, Math.min(...notes.map(n => n.pitch)) - 2) : (t.preset.includes('bass') ? 28 : 48);
+            s.viewports[t.id] = { low: clamp(low, 0, 103), span: 24, rowHeight: 24, zoomX: 1 };
+        }
+        return s.viewports[t.id];
+    }
+    function moveViewport(s, t, delta) { const v = viewportFor(s, t); v.low = clamp(Math.round(v.low + delta), 0, 127 - v.span); return v; }
+    function fitViewport(s, t, pat) {
+        const v = viewportFor(s, t), notes = pat.notes;
+        if (notes.length) {
+            const lo = Math.min(...notes.map(n => n.pitch)), hi = Math.max(...notes.map(n => n.pitch));
+            v.span = clamp(hi - lo + 4, 12, 127);
+            v.low = clamp(lo - 2, 0, 127 - v.span);
+        }
+        else {
+            v.low = t.preset.includes('bass') ? 24 : 48;
+            v.span = 24;
+        }
+        return v;
+    }
+    function scopeFor(p, s, b, { exporting = false } = {}) {
+        const { track: t, pattern: pat } = reconcileSession(s, p, b);
+        if (b.target === 'pattern' || b.target === 'bar')
+            return { kind: b.target, trackId: t.id, patternId: pat.id, ...(b.target === 'bar' ? { page: s.page } : {}), ignoreMute: true };
+        if (b.target === 'tracks')
+            return { kind: 'tracks', trackIds: [...b.selectedTrackIds], ignoreMute: true };
+        return { kind: 'song', soloIds: exporting ? [] : [...b.soloIds] };
+    }
+    function playbackLabel(p, s, b) {
+        if (b.audition)
+            return b.audition;
+        const t = p.tracks.find(t => t.id === s.trackId) || p.tracks[0], pat = t.patterns.find(x => x.id === s.patternId) || t.patterns[0];
+        if (b.target === 'pattern')
+            return `本片段 · ${pat.name} · ${pat.bars} 小节`;
+        if (b.target === 'bar')
+            return `当前小节 · ${pat.name} · 第 ${s.page + 1} 小节`;
+        if (b.target === 'tracks')
+            return `所选 ${b.selectedTrackIds.length} 轨 · ${p.bars} 小节`;
+        return `全曲 · ${p.bars} 小节${b.soloIds.length ? ` · 临时只听 ${b.soloIds.length} 轨` : ''}`;
+    }
+    function saveWorkspace(s, projectId) {
+        try {
+            localStorage.setItem('gridtone.workspace.' + projectId, JSON.stringify({ view: s.view, trackId: s.trackId, patternId: s.patternId, clipId: s.clipId, page: s.page, viewports: s.viewports, sidebar: s.sidebar, showScale: s.showScale, scrolls: s.scrolls }));
+        }
+        catch { /* Optional preferences do not block song saving. */ }
+    }
+    function restoreWorkspace(s, p) {
+        try {
+            const v = JSON.parse(localStorage.getItem('gridtone.workspace.' + p.id));
+            if (!v || typeof v !== 'object')
+                return;
+            if (['arrange', 'edit', 'mix'].includes(v.view))
+                s.view = v.view;
+            for (const k of ['trackId', 'patternId', 'clipId'])
+                if (typeof v[k] === 'string')
+                    s[k] = v[k];
+            s.page = Number.isInteger(v.page) ? v.page : 0;
+            s.sidebar = !!v.sidebar;
+            s.showScale = !!v.showScale;
+            for (const t of p.tracks) {
+                const w = v.viewports?.[t.id];
+                if (w && ['low', 'span', 'rowHeight', 'zoomX'].every(k => Number.isFinite(w[k])))
+                    s.viewports[t.id] = { low: clamp(w.low, 0, 127 - clamp(w.span, 12, 127)), span: clamp(w.span, 12, 127), rowHeight: clamp(w.rowHeight, 18, 42), zoomX: clamp(w.zoomX, 1, 3) };
+            }
+            // Scroll offsets are optional, bounded and never musical data.
+            if (v.scrolls && typeof v.scrolls === 'object')
+                for (const [key, val] of Object.entries(v.scrolls).slice(0, 300))
+                    if (val && Number.isFinite(val.x) && Number.isFinite(val.y))
+                        s.scrolls[key] = { x: clamp(val.x, 0, 100000), y: clamp(val.y, 0, 100000) };
+            reconcileSession(s, p);
+        }
+        catch { /* Ignore damaged workspace preferences; the project is validated separately. */ }
+    }
+    Object.assign(G, { createEditorSession, createPlaybackContext, reconcileSession, openPatternInSession, viewportFor, moveViewport, fitViewport, scopeFor, playbackLabel, saveWorkspace, restoreWorkspace });
+})(globalThis.GridTone ||= {});

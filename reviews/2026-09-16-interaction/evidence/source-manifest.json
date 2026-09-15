@@ -1,0 +1,62 @@
+{
+  "archive": "/Users/zheliu/Downloads/GridTone_v1.3.0.zip",
+  "archive_sha256": "6e260031f435f2b73984a43f181891e94671b705d1131c8a829d38655f334715",
+  "files": [
+    {
+      "archive_entry": "GridTone_v1.3.0/src/app.js",
+      "sha256": "cff4f8adac2bc1cf7d1ab4ce0f3235122af4d0ee296f65cc6579a44af2f64af9"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/ui/editor-gestures.js",
+      "sha256": "fb810dfd61f1c1c7888567b71336627328545bfa03a8eb9a5ba4101958695524"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/piano-roll.js",
+      "sha256": "46971538cc7191869d70f725681ee19cd8ee948792a2502ad0a2a7d0cd47e81f"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/arrange.js",
+      "sha256": "57fb093da32bc0f225a2a729f4cab80c34aae3d76730843695acea1273145f4d"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/editor.js",
+      "sha256": "c86c71a7e2dd2ff3094d73ab31f0a80cb5003d0feed0543297d2d5f30341b2d1"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/shell.js",
+      "sha256": "130deb0a0c1b674b423de1fb426a0acfc6f2ffa4c2c15715c8aa636e5af8fb58"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/ui/focus.js",
+      "sha256": "0496bfd8328847af9604810411be65e9c265b91c62f1349358dccc85f4124475"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/session.js",
+      "sha256": "302de089cd8dfe71cf925e63bf2c69f8f76e8b765566adab6a86f3d6ee7594cd"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/playback.js",
+      "sha256": "367f4f6bb9a1f7089356344be489367be52943b9e03b9f9bb893fedd38edfc6e"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/audio.js",
+      "sha256": "225864de1f88e5f0562a51c9742c4ea5f3dd07cdaa93fa0ae2f1bae52fbcef04"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/model.js",
+      "sha256": "3dfa023eee9b604d7a52503bb200b62a4c2b2148a4795719cd2b127105682d6f"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/io.js",
+      "sha256": "f46d6260ad4e124a36f3746ce7ff622e36ab77c3bc01f6452642bc8ceae15b7c"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/catalog.js",
+      "sha256": "1d1c8bff14d126f08acc2ef931e30f81914ceed71abfe0f0f8eb54f5f4bbc692"
+    },
+    {
+      "archive_entry": "GridTone_v1.3.0/src/views/composer.js",
+      "sha256": "0411e77c7f497b72b1e41fabdbf9da6e8fad7d4e92011a93329c855b978d1c51"
+    }
+  ]
+}

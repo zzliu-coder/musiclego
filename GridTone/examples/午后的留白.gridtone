@@ -1,0 +1,1275 @@
+{
+  "version": 1,
+  "id": "song_lyz6ag1o1lmtzqwkzp",
+  "title": "午后的留白",
+  "bpm": 96,
+  "key": 0,
+  "scale": "major",
+  "swing": 0,
+  "master": 0.8,
+  "bars": 8,
+  "tracks": [
+    {
+      "id": "t_cknh9qijhsvmtzqwkzp",
+      "name": "柔光电钢琴",
+      "kind": "melodic",
+      "color": "#369c89",
+      "preset": "epiano",
+      "volume": 0.56,
+      "pan": -0.12,
+      "mute": false,
+      "solo": false,
+      "octave": 3,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.32,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_pw787ywcnrqmtzqwkzp",
+          "name": "Cmaj7 · 柔光",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_syq9r8a364fmtzqwkzp",
+              "pitch": 48,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.64
+            },
+            {
+              "id": "n_bmqdmf7grwtmtzqwkzp",
+              "pitch": 52,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.61
+            },
+            {
+              "id": "n_sduvtywwl9gmtzqwkzp",
+              "pitch": 55,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.5800000000000001
+            },
+            {
+              "id": "n_zzd28mehhgqmtzqwkzp",
+              "pitch": 59,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.55
+            },
+            {
+              "id": "n_fct07iu05rcmtzqwkzp",
+              "pitch": 48,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.52
+            },
+            {
+              "id": "n_drzmn6icjh6mtzqwkzp",
+              "pitch": 52,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.545
+            },
+            {
+              "id": "n_lqg28wnwaamtzqwkzp",
+              "pitch": 55,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.5700000000000001
+            },
+            {
+              "id": "n_ytg4uleajpcmtzqwkzp",
+              "pitch": 59,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.595
+            }
+          ]
+        },
+        {
+          "id": "p_fsflmlpq9dsmtzqwkzp",
+          "name": "Am7 · 余温",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_oxlesry2v7pmtzqwkzp",
+              "pitch": 45,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.64
+            },
+            {
+              "id": "n_6xjp22xqyc3mtzqwkzp",
+              "pitch": 48,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.61
+            },
+            {
+              "id": "n_ry2pyezeyyhmtzqwkzp",
+              "pitch": 52,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.5800000000000001
+            },
+            {
+              "id": "n_tjx3epdzhnmtzqwkzp",
+              "pitch": 55,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.55
+            },
+            {
+              "id": "n_c2gae9oew7mtzqwkzp",
+              "pitch": 45,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.52
+            },
+            {
+              "id": "n_ubwcbollwucmtzqwkzp",
+              "pitch": 48,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.545
+            },
+            {
+              "id": "n_xwadth155lmtzqwkzp",
+              "pitch": 52,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.5700000000000001
+            },
+            {
+              "id": "n_lb0za9mftdmtzqwkzp",
+              "pitch": 55,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.595
+            }
+          ]
+        },
+        {
+          "id": "p_lc0j4i9gw4mtzqwkzp",
+          "name": "Fmaj7 · 浮云",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_dge96jzanximtzqwkzp",
+              "pitch": 41,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.64
+            },
+            {
+              "id": "n_u71x5xnq2h9mtzqwkzp",
+              "pitch": 45,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.61
+            },
+            {
+              "id": "n_5ddllqa2owpmtzqwkzp",
+              "pitch": 48,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.5800000000000001
+            },
+            {
+              "id": "n_m45de10zpbmtzqwkzp",
+              "pitch": 52,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.55
+            },
+            {
+              "id": "n_qz0ymbm7phrmtzqwkzp",
+              "pitch": 41,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.52
+            },
+            {
+              "id": "n_owcj07q532mtzqwkzp",
+              "pitch": 45,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.545
+            },
+            {
+              "id": "n_43elk2laxcmmtzqwkzp",
+              "pitch": 48,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.5700000000000001
+            },
+            {
+              "id": "n_k9mg50v954fmtzqwkzp",
+              "pitch": 52,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.595
+            }
+          ]
+        },
+        {
+          "id": "p_nd02d7lyodemtzqwkzq",
+          "name": "G7 · 归途",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_4f1yyocnl9nmtzqwkzq",
+              "pitch": 43,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.64
+            },
+            {
+              "id": "n_rm64jqjoqcmtzqwkzq",
+              "pitch": 47,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.61
+            },
+            {
+              "id": "n_396z3y1dkqwmtzqwkzq",
+              "pitch": 50,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.5800000000000001
+            },
+            {
+              "id": "n_owsvzuaencsmtzqwkzq",
+              "pitch": 53,
+              "start": 0,
+              "duration": 1680,
+              "velocity": 0.55
+            },
+            {
+              "id": "n_ybq61r0uhcjmtzqwkzq",
+              "pitch": 43,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.52
+            },
+            {
+              "id": "n_5fdz64ysp9bmtzqwkzq",
+              "pitch": 47,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.545
+            },
+            {
+              "id": "n_9ulpx1ewzuimtzqwkzq",
+              "pitch": 50,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.5700000000000001
+            },
+            {
+              "id": "n_dtclu2yo2njmtzqwkzq",
+              "pitch": 53,
+              "start": 1920,
+              "duration": 1440,
+              "velocity": 0.595
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_du0o0accs5tmtzqwkzp",
+          "patternId": "p_pw787ywcnrqmtzqwkzp",
+          "bar": 0
+        },
+        {
+          "id": "c_pb4gos18iggmtzqwkzp",
+          "patternId": "p_pw787ywcnrqmtzqwkzp",
+          "bar": 4
+        },
+        {
+          "id": "c_jx1dwf73bwrmtzqwkzp",
+          "patternId": "p_fsflmlpq9dsmtzqwkzp",
+          "bar": 1
+        },
+        {
+          "id": "c_ajedn8y0ta9mtzqwkzp",
+          "patternId": "p_fsflmlpq9dsmtzqwkzp",
+          "bar": 5
+        },
+        {
+          "id": "c_frnccrjyloemtzqwkzp",
+          "patternId": "p_lc0j4i9gw4mtzqwkzp",
+          "bar": 2
+        },
+        {
+          "id": "c_wnra74qyv6mtzqwkzp",
+          "patternId": "p_lc0j4i9gw4mtzqwkzp",
+          "bar": 6
+        },
+        {
+          "id": "c_f7avlo6z3umtzqwkzq",
+          "patternId": "p_nd02d7lyodemtzqwkzq",
+          "bar": 3
+        },
+        {
+          "id": "c_fj47n5kzc4cmtzqwkzq",
+          "patternId": "p_nd02d7lyodemtzqwkzq",
+          "bar": 7
+        }
+      ]
+    },
+    {
+      "id": "t_3c7do3oq079mtzqwkzp",
+      "name": "温暖贝斯",
+      "kind": "melodic",
+      "color": "#9b82cd",
+      "preset": "roundbass",
+      "volume": 0.56,
+      "pan": 0,
+      "mute": false,
+      "solo": false,
+      "octave": 1,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_thkbaqyk4ummtzqwkzp",
+          "name": "C · 根音",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_mxux1f7ahymtzqwkzp",
+              "pitch": 36,
+              "start": 0,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_viym7tuwh3mtzqwkzp",
+              "pitch": 43,
+              "start": 1440,
+              "duration": 480,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_rt6v6bf4vigmtzqwkzp",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_ib5ozg74iopmtzqwkzp",
+              "pitch": 48,
+              "start": 3360,
+              "duration": 480,
+              "velocity": 0.76
+            }
+          ]
+        },
+        {
+          "id": "p_e0svwyfxt4gmtzqwkzp",
+          "name": "A · 根音",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_j76uhpe5p1mtzqwkzp",
+              "pitch": 33,
+              "start": 0,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_u0sbvnzqnzsmtzqwkzp",
+              "pitch": 40,
+              "start": 1440,
+              "duration": 480,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_f5a12ofwvumtzqwkzp",
+              "pitch": 33,
+              "start": 1920,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_g7kcuaou46qmtzqwkzp",
+              "pitch": 45,
+              "start": 3360,
+              "duration": 480,
+              "velocity": 0.76
+            }
+          ]
+        },
+        {
+          "id": "p_vkhjcscmgzmtzqwkzp",
+          "name": "F · 根音",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_la2qbw5doemtzqwkzp",
+              "pitch": 29,
+              "start": 0,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_cx47eqxx3gkmtzqwkzp",
+              "pitch": 36,
+              "start": 1440,
+              "duration": 480,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_pyewvpl1jxnmtzqwkzp",
+              "pitch": 29,
+              "start": 1920,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_tzv1492xh4emtzqwkzp",
+              "pitch": 41,
+              "start": 3360,
+              "duration": 480,
+              "velocity": 0.76
+            }
+          ]
+        },
+        {
+          "id": "p_4sll2vgfo7dmtzqwkzq",
+          "name": "G · 根音",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_ubmagtq12omtzqwkzq",
+              "pitch": 31,
+              "start": 0,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_0pqsbi9rl7nemtzqwkzq",
+              "pitch": 38,
+              "start": 1440,
+              "duration": 480,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_yg9rwa71wzsmtzqwkzq",
+              "pitch": 31,
+              "start": 1920,
+              "duration": 1200,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_d8s3u3qjqyimtzqwkzq",
+              "pitch": 43,
+              "start": 3360,
+              "duration": 480,
+              "velocity": 0.76
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_aix1mfeo7hmtzqwkzp",
+          "patternId": "p_thkbaqyk4ummtzqwkzp",
+          "bar": 0
+        },
+        {
+          "id": "c_g1hjha844ymmtzqwkzp",
+          "patternId": "p_thkbaqyk4ummtzqwkzp",
+          "bar": 4
+        },
+        {
+          "id": "c_dtw9ut3k5obmtzqwkzp",
+          "patternId": "p_e0svwyfxt4gmtzqwkzp",
+          "bar": 1
+        },
+        {
+          "id": "c_0qynhi848trqmtzqwkzp",
+          "patternId": "p_e0svwyfxt4gmtzqwkzp",
+          "bar": 5
+        },
+        {
+          "id": "c_zc4uoaajqbmmtzqwkzp",
+          "patternId": "p_vkhjcscmgzmtzqwkzp",
+          "bar": 2
+        },
+        {
+          "id": "c_cxw7g2qzhm4mtzqwkzp",
+          "patternId": "p_vkhjcscmgzmtzqwkzp",
+          "bar": 6
+        },
+        {
+          "id": "c_jy51uzrb3urmtzqwkzq",
+          "patternId": "p_4sll2vgfo7dmtzqwkzq",
+          "bar": 3
+        },
+        {
+          "id": "c_bdt8vya7skemtzqwkzq",
+          "patternId": "p_4sll2vgfo7dmtzqwkzq",
+          "bar": 7
+        }
+      ]
+    },
+    {
+      "id": "t_veash3q0m6nmtzqwkzp",
+      "name": "口袋鼓机",
+      "kind": "drum",
+      "color": "#c48954",
+      "preset": "drums",
+      "volume": 0.68,
+      "pan": 0,
+      "mute": false,
+      "solo": false,
+      "octave": 3,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.09,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_dj233qprh2pmtzqwkzp",
+          "name": "节奏 A",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_7gqfsvytm1umtzqwkzp",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.92
+            },
+            {
+              "id": "n_z6rhuj2pjmhmtzqwkzp",
+              "pitch": 36,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_f19g1nmhubmtzqwkzp",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_evjnlrt4bnhmtzqwkzp",
+              "pitch": 36,
+              "start": 2640,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_6k4tkqgkplmtzqwkzp",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_fvfizisk95kmtzqwkzp",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_lsiilqq0qlrmtzqwkzp",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_1jujwt49hrbmtzqwkzp",
+              "pitch": 42,
+              "start": 480,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_l4i135rrbfmtzqwkzp",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_t27f0xjnjnqmtzqwkzp",
+              "pitch": 42,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_dg2umtltjbomtzqwkzp",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_ezmh9drosnjmtzqwkzp",
+              "pitch": 42,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_wi6vq1qawqfmtzqwkzp",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_dn9xxm89d4tmtzqwkzp",
+              "pitch": 42,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.37
+            }
+          ]
+        },
+        {
+          "id": "p_vgnmc0af5mtzqwkzp",
+          "name": "节奏 B",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_ejwp85cp13qmtzqwkzp",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.92
+            },
+            {
+              "id": "n_3j5svxy6d5cmtzqwkzp",
+              "pitch": 36,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_3mhnsrma0uemtzqwkzp",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_22ha97ed3hzmtzqwkzp",
+              "pitch": 36,
+              "start": 2640,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_wer423coz7mtzqwkzp",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_e648c7kxt8cmtzqwkzp",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_3g3xc8qin9amtzqwkzp",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_ikmygbxxbtsmtzqwkzp",
+              "pitch": 42,
+              "start": 480,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_2ndkqv1qm0hmtzqwkzp",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_uio2bh3p20kmtzqwkzp",
+              "pitch": 42,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_kadq696jkjnmtzqwkzp",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_i4kgbi2hbjhmtzqwkzp",
+              "pitch": 42,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_wpi0lbncpymtzqwkzp",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_311m1r0qbofmtzqwkzp",
+              "pitch": 42,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.37
+            }
+          ]
+        },
+        {
+          "id": "p_qheqt0y052mtzqwkzp",
+          "name": "节奏 C",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_64kvff4m7ytmtzqwkzp",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.92
+            },
+            {
+              "id": "n_gph2i14wf1gmtzqwkzp",
+              "pitch": 36,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_36tanlxdt4amtzqwkzp",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_jlj4ndrya9mmtzqwkzp",
+              "pitch": 36,
+              "start": 2640,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_flee0fqek7kmtzqwkzp",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_2p6tp8avl6imtzqwkzp",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_yyh7ind5symmtzqwkzp",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_sja1a97ovfmtzqwkzp",
+              "pitch": 42,
+              "start": 480,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_53gg7bd9ryymtzqwkzp",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_jo9r0m4e44pmtzqwkzp",
+              "pitch": 42,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_h6zqysecf4omtzqwkzp",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_pnjczpkajemtzqwkzp",
+              "pitch": 42,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_msi8gn6x49mtzqwkzp",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_cwepq67vixmtzqwkzp",
+              "pitch": 42,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.37
+            }
+          ]
+        },
+        {
+          "id": "p_726loqv64ejmtzqwkzp",
+          "name": "节奏 · 转身",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_dwii0sk1gjtmtzqwkzp",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.92
+            },
+            {
+              "id": "n_ng7a9gdp8amtzqwkzp",
+              "pitch": 36,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_7ai769wrhrhmtzqwkzp",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_fnhmjijcgx5mtzqwkzp",
+              "pitch": 36,
+              "start": 2640,
+              "duration": 240,
+              "velocity": 0.74
+            },
+            {
+              "id": "n_3n39e4skdemtzqwkzp",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_dframqna8tjmtzqwkzp",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_ogbm286g8cqmtzqwkzp",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_kdk9fxt2hfmtzqwkzp",
+              "pitch": 42,
+              "start": 480,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_1hbu6mfdbl4mtzqwkzp",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_h5vn66obxcmmtzqwkzp",
+              "pitch": 42,
+              "start": 1440,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_yc5ckhv692mtzqwkzp",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_lesx2pb8hitmtzqwkzp",
+              "pitch": 42,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_90ljbc9gh1smtzqwkzp",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.51
+            },
+            {
+              "id": "n_4xt87syhl1mtzqwkzp",
+              "pitch": 42,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.37
+            },
+            {
+              "id": "n_of2sbbb6lqqmtzqwkzp",
+              "pitch": 37,
+              "start": 3120,
+              "duration": 240,
+              "velocity": 0.4
+            },
+            {
+              "id": "n_r7e0n6qzifqmtzqwkzp",
+              "pitch": 37,
+              "start": 3600,
+              "duration": 240,
+              "velocity": 0.4
+            },
+            {
+              "id": "n_7hmqsyqefnomtzqwkzq",
+              "pitch": 46,
+              "start": 3360,
+              "duration": 240,
+              "velocity": 0.24
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_ixi3i87u5lmtzqwkzp",
+          "patternId": "p_dj233qprh2pmtzqwkzp",
+          "bar": 0
+        },
+        {
+          "id": "c_lqhtkjo241kmtzqwkzp",
+          "patternId": "p_dj233qprh2pmtzqwkzp",
+          "bar": 4
+        },
+        {
+          "id": "c_a7o28qqsf4mtzqwkzp",
+          "patternId": "p_vgnmc0af5mtzqwkzp",
+          "bar": 1
+        },
+        {
+          "id": "c_zzm2kaluqbmtzqwkzp",
+          "patternId": "p_vgnmc0af5mtzqwkzp",
+          "bar": 5
+        },
+        {
+          "id": "c_od7zkvdq1ufmtzqwkzp",
+          "patternId": "p_qheqt0y052mtzqwkzp",
+          "bar": 2
+        },
+        {
+          "id": "c_sofal13a4gmtzqwkzp",
+          "patternId": "p_qheqt0y052mtzqwkzp",
+          "bar": 6
+        },
+        {
+          "id": "c_xfrfl6sqwqmtzqwkzq",
+          "patternId": "p_726loqv64ejmtzqwkzp",
+          "bar": 3
+        },
+        {
+          "id": "c_23jwa7kvv3jmtzqwkzq",
+          "patternId": "p_726loqv64ejmtzqwkzp",
+          "bar": 7
+        }
+      ]
+    },
+    {
+      "id": "t_uio6psugshmtzqwkzp",
+      "name": "木质旋律",
+      "kind": "melodic",
+      "color": "#6596bc",
+      "preset": "marimba",
+      "volume": 0.42,
+      "pan": 0.2,
+      "mute": false,
+      "solo": false,
+      "octave": 4,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.28,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_cxrk0u94my4mtzqwkzp",
+          "name": "旋律 A",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_e3vwzpttgmsmtzqwkzp",
+              "pitch": 76,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_dr7psibpqe9mtzqwkzp",
+              "pitch": 74,
+              "start": 720,
+              "duration": 720,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_p1yyodsmvikmtzqwkzp",
+              "pitch": 71,
+              "start": 1680,
+              "duration": 720,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_1s0pixrm7pemtzqwkzp",
+              "pitch": 67,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.72
+            }
+          ]
+        },
+        {
+          "id": "p_kt9m1fwxtocmtzqwkzp",
+          "name": "旋律 A′",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_x61eknjtfumtzqwkzp",
+              "pitch": 72,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_qkfoe1ry1pmtzqwkzp",
+              "pitch": 71,
+              "start": 720,
+              "duration": 720,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_jldgm3h7fhmtzqwkzp",
+              "pitch": 67,
+              "start": 1680,
+              "duration": 720,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_mt5vbhzvv1mtzqwkzp",
+              "pitch": 64,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.72
+            }
+          ]
+        },
+        {
+          "id": "p_rbvegtazn7mtzqwkzp",
+          "name": "旋律 B",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_qu13riwyv2imtzqwkzp",
+              "pitch": 69,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_kulbn5ibnwmtzqwkzp",
+              "pitch": 72,
+              "start": 720,
+              "duration": 720,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_lsuthxtefnsmtzqwkzp",
+              "pitch": 76,
+              "start": 1680,
+              "duration": 720,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_poqtu59vz1kmtzqwkzp",
+              "pitch": 72,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.72
+            }
+          ]
+        },
+        {
+          "id": "p_l6trxuh39mnmtzqwkzq",
+          "name": "旋律 B′",
+          "bars": 1,
+          "notes": [
+            {
+              "id": "n_7rtc0c6qyblmtzqwkzq",
+              "pitch": 74,
+              "start": 0,
+              "duration": 480,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_hxz7gxapx5tmtzqwkzq",
+              "pitch": 71,
+              "start": 720,
+              "duration": 720,
+              "velocity": 0.72
+            },
+            {
+              "id": "n_woeq2ayhbthmtzqwkzq",
+              "pitch": 69,
+              "start": 1680,
+              "duration": 720,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_nw4if0e67gmtzqwkzq",
+              "pitch": 67,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.72
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_qk6rzwsenojmtzqwkzp",
+          "patternId": "p_cxrk0u94my4mtzqwkzp",
+          "bar": 0
+        },
+        {
+          "id": "c_5cfxkor6agcmtzqwkzp",
+          "patternId": "p_cxrk0u94my4mtzqwkzp",
+          "bar": 4
+        },
+        {
+          "id": "c_o7ursr1gqysmtzqwkzp",
+          "patternId": "p_kt9m1fwxtocmtzqwkzp",
+          "bar": 1
+        },
+        {
+          "id": "c_kgk3vvnt95emtzqwkzp",
+          "patternId": "p_kt9m1fwxtocmtzqwkzp",
+          "bar": 5
+        },
+        {
+          "id": "c_kkqs6mcpvpmtzqwkzp",
+          "patternId": "p_rbvegtazn7mtzqwkzp",
+          "bar": 2
+        },
+        {
+          "id": "c_ucw8avhitv8mtzqwkzp",
+          "patternId": "p_rbvegtazn7mtzqwkzp",
+          "bar": 6
+        },
+        {
+          "id": "c_3puuzsd7vmrmtzqwkzq",
+          "patternId": "p_l6trxuh39mnmtzqwkzq",
+          "bar": 3
+        },
+        {
+          "id": "c_qnq08llbjnmtzqwkzq",
+          "patternId": "p_l6trxuh39mnmtzqwkzq",
+          "bar": 7
+        }
+      ]
+    }
+  ],
+  "assets": {}
+}

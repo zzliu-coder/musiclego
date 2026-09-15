@@ -1,0 +1,46 @@
+{
+  "method": "Isolated Node VM runs unmodified source with stubbed DOM, pointer events, timers and callbacks. No browser rendering or audio hardware.",
+  "results": [
+    {
+      "name": "Right-click handler",
+      "reproduced": true,
+      "error": "target is not defined"
+    },
+    {
+      "name": "Click beat ruler above note rows",
+      "reproduced": true,
+      "notesAdded": 1,
+      "pitch": 72
+    },
+    {
+      "name": "Escape during drawing gesture",
+      "reproduced": true,
+      "gestureStillActiveAfterEscape": true,
+      "notesAfterRelease": 1,
+      "historyCommits": 1
+    },
+    {
+      "name": "Shift-add marquee selection",
+      "reproduced": true,
+      "priorSelectionRetained": false,
+      "newSelectionIncluded": true
+    },
+    {
+      "name": "Sub-threshold movement plus long press",
+      "reproduced": true,
+      "pitchBefore": 72,
+      "pitchAfter": 71,
+      "thresholdReached": false,
+      "historyCommits": 0,
+      "menuOpened": 1
+    },
+    {
+      "name": "120 pointer events within same snap cell",
+      "reproduced": true,
+      "pointerEvents": 120,
+      "gridRedrawRequests": 120,
+      "noteCount": 1,
+      "limit": "Counts handler calls only; does not measure browser frame rate"
+    }
+  ]
+}
