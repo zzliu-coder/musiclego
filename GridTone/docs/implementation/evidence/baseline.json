@@ -1,0 +1,78 @@
+{
+  "commit": "0f9977725a68930aa57f93369828a041de860586",
+  "sha256": "94c6c5b6dcfa33d20b434c8650244a9158bdfadc204e16ebafb21aa8400fe0ad",
+  "date": "2026-09-17T16:50:55.174Z",
+  "results": [
+    {
+      "id": "F01",
+      "status": "CONFIRMED_DEFECT",
+      "method": "baseline runtime validation",
+      "error": "片段长度无效。"
+    },
+    {
+      "id": "F02",
+      "status": "CONFIRMED_DEFECT",
+      "input": 80,
+      "expected": 40,
+      "actual": 240
+    },
+    {
+      "id": "F02",
+      "status": "CONFIRMED_DEFECT",
+      "input": 120,
+      "expected": 60,
+      "actual": 240
+    },
+    {
+      "id": "F04",
+      "status": "CONFIRMED_DEFECT",
+      "method": "baseline progression output",
+      "harmony": null
+    },
+    {
+      "id": "F03",
+      "status": "SOURCE_RECORDED",
+      "file": "src/io.js",
+      "matches": true,
+      "sha256": "ee2b75d9989fdcd9e311a1f08439b226450c649ef016c491d5d0741b8d78f264",
+      "note": ""
+    },
+    {
+      "id": "F06",
+      "status": "SOURCE_RECORDED",
+      "file": "package.json",
+      "matches": true,
+      "sha256": "2d3ba7f372250aa676376e113a6bb1131b241dd1465cc6231fd25502464e23f1",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "status": "SOURCE_RECORDED",
+      "file": "src/views/arrange.js",
+      "matches": true,
+      "sha256": "bf7a818c5dfa9a90bc5c70bfc0ee09583a638641a9b2e1233286f0cade2f323a",
+      "note": ""
+    },
+    {
+      "id": "F05",
+      "status": "DEFERRED_BY_USER",
+      "note": "Small-screen experience deferred to a later dedicated task on 2026-09-18."
+    },
+    {
+      "id": "song_77b39430-bf77-4df6-be44-8c8dd56b3af6",
+      "status": "PASS",
+      "method": "baseline real-origin save/reload and native Web Audio + MIDI rendering",
+      "playing": true,
+      "stopped": true,
+      "wavBytes": 2222684,
+      "peak": 0.02361820638179779,
+      "midiBytes": 93
+    },
+    {
+      "id": "R1-T09",
+      "status": "PASS",
+      "note": "v1 fixture musical events equal baseline after v3 migration; validation is idempotent."
+    }
+  ],
+  "scope": "Reproduced baseline defects, not current application PASS count."
+}

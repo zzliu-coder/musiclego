@@ -1,210 +1,534 @@
 {
   "app": "乐构",
-  "version": "1.5.0",
-  "date": "2026-09-16",
+  "version": "1.6.0",
+  "status": "ENGINEERING_CANDIDATE",
+  "date": "2026-09-17T17:12:07.794Z",
   "artifact": {
     "app": "乐构",
-    "version": "1.5.0",
-    "bytes": 598592,
-    "sha256": "94c6c5b6dcfa33d20b434c8650244a9158bdfadc204e16ebafb21aa8400fe0ad",
+    "version": "1.6.0",
+    "bytes": 666283,
+    "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
     "runtimeDependencies": [],
     "entry": "index.html"
   },
+  "sourceCommit": "b66ed704141fced99a7b62d74df381fcaa8acec8",
   "coreTests": {
-    "passed": 127,
+    "passed": 156,
     "failed": 0,
-    "evidence": "design/legou/core-tests.tap"
+    "evidence": "docs/implementation/evidence/core.txt"
   },
-  "browserAudio": {
-    "date": "2026-09-16T01:50:45.425Z",
-    "method": "Actual local Chromium DOM events, Web Audio, IndexedDB and offline export; hardware listening not assessed",
+  "engineering": {
+    "date": "2026-09-17T16:59:01.484Z",
+    "status": "PASS",
+    "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+    "node": "v22.22.3",
+    "browserChannel": "chrome",
     "results": [
       {
-        "name": "solo preserves graph and compiled plan",
-        "result": "PASS"
+        "name": "catalog",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 37,
+        "log": "catalog.txt"
       },
       {
-        "name": "tempo change keeps playback and graph",
-        "result": "PASS"
+        "name": "build",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 44,
+        "log": "build.txt"
       },
       {
-        "name": "undo while playing",
-        "result": "PASS"
+        "name": "core",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 851,
+        "log": "core.txt"
       },
       {
-        "name": "shell render retains musical grid",
-        "result": "PASS"
+        "name": "storage",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 3177,
+        "log": "storage.txt"
       },
       {
-        "name": "volume bypasses score compile",
-        "result": "PASS"
+        "name": "workflow",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 14929,
+        "log": "workflow.txt"
       },
       {
-        "detail": {
-          "lateWindows": 0,
-          "peak": 0.3221471905708313,
-          "skippedEvents": 0
-        },
-        "name": "audio output contains signal",
-        "result": "PASS"
+        "name": "release-flow",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 19942,
+        "log": "release-flow.txt"
       },
       {
-        "name": "loop position is not double-offset",
-        "result": "PASS"
+        "name": "interactions",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 16816,
+        "log": "interactions.txt"
       },
       {
-        "name": "first stop returns to origin",
-        "result": "PASS"
+        "name": "visual",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 11904,
+        "log": "visual.txt"
       },
       {
-        "name": "second stop returns to zero",
-        "result": "PASS"
-      },
-      {
-        "name": "IndexedDB round trip",
-        "result": "PASS"
-      },
-      {
-        "name": "recovery snapshot is readable",
-        "result": "PASS"
-      },
-      {
-        "name": "MIDI export header",
-        "result": "PASS"
-      },
-      {
-        "detail": {
-          "bytes": 2369940
-        },
-        "name": "WAV export",
-        "result": "PASS"
-      },
-      {
-        "name": "project export/reopen keeps music",
-        "result": "PASS"
+        "name": "audio",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 17260,
+        "log": "audio.txt"
       }
-    ]
+    ],
+    "scope": "Current automated engineering suites. Full release gate additionally requires soak and acceptance.json; small-screen work deferred by user."
   },
-  "browserUI": {
-    "date": "2026-09-16T01:50:45.517Z",
-    "results": [
-      {
-        "name": "view switch preserves audio graph, origin and compilation",
-        "result": "PASS"
-      },
-      {
-        "name": "view switch preserves current phrase",
-        "result": "PASS"
-      },
-      {
-        "name": "arrangement and phrase views remain directly reachable",
-        "result": "PASS"
-      },
-      {
-        "name": "playback lights notes without geometric transforms",
-        "result": "PASS"
-      },
-      {
-        "name": "stopping clears note lighting",
-        "result": "PASS"
-      },
-      {
-        "name": "reduced motion disables animation and retains geometry",
-        "result": "PASS"
-      },
-      {
-        "name": "motion preference exposed in settings",
-        "result": "PASS"
-      },
-      {
-        "name": "mix navigation closes overlay and leaves workspace operable",
-        "result": "PASS"
-      },
-      {
-        "name": "editor can collapse",
-        "result": "PASS"
-      },
-      {
-        "name": "phrase navigation reopens collapsed editor",
-        "result": "PASS"
-      },
-      {
-        "name": "branding is consistent in page and export",
-        "result": "PASS"
-      },
-      {
-        "name": "all export formats remain available",
-        "result": "PASS"
-      }
-    ]
-  },
-  "nativePointer": [
-    {
-      "name": "native note drag Escape restores notes and undo history",
-      "result": "PASS"
-    },
-    {
-      "name": "native clip pickup shows origin and valid snap destination",
-      "result": "PASS"
-    },
-    {
-      "name": "native clip drop commits exactly once at snapped bar",
-      "result": "PASS"
-    },
-    {
-      "name": "cross-kind target explains rejection before dropping",
-      "result": "PASS"
-    },
-    {
-      "name": "invalid drop retains original clip and history",
-      "result": "PASS"
-    },
-    {
-      "name": "phrase divider follows pointer and resizes the actual canvas",
-      "result": "PASS"
-    },
-    {
-      "name": "arrangement divider adjusts its independent editor height",
-      "result": "PASS"
-    },
-    {
-      "name": "same snap destination validates once across four pointer frames",
-      "result": "PASS",
-      "previewCount": 1
+  "acceptance": {
+    "file": "docs/implementation/acceptance.json",
+    "counts": {
+      "PASS": 82,
+      "FAIL": 0,
+      "NOT_RUN": 4,
+      "BLOCKED": 0,
+      "NOT_APPLICABLE": 1
     }
-  ],
-  "userProjectPreservation": {
-    "comparison": "Recursive sorted-key comparison; presentation color excluded",
-    "sameMusicalDocument": true,
-    "title": "玻璃小夜曲",
-    "trackCount": 5,
-    "version": "1.5.0",
-    "view": "arrange"
   },
-  "designQA": "passed",
-  "consoleErrors": 0,
-  "viewports": [
-    [
-      1500,
-      1049
-    ],
-    [
-      1280,
-      800
-    ],
-    [
-      390,
-      844
-    ]
-  ],
   "limitations": [
-    "Physical touchscreen not tested",
-    "Long-running heavy-project performance not measured",
-    "Hardware latency and subjective listening not assessed"
+    "人工音乐听感未评审；工程音频检查与听感分开记录。",
+    "小屏和触屏体验按用户要求留到后续专题。",
+    "物理声卡延迟未实测；结构上限不代表所有设备的实时负载保证。"
   ],
-  "compatibility": [
-    "GridTone internal API and .gridtone document format retained",
-    "Local storage keys retained",
-    "声格.html remains a compatibility entry"
-  ]
+  "soak": {
+    "status": "PASS",
+    "sha256": "42423bf30076a0be867016ec9c11e5e534d0293a2c02e1fee4cbf0e6d45b1312",
+    "date": "2026-09-17T17:11:57.434Z",
+    "durationMs": 1800847,
+    "cycles": 567,
+    "samples": [
+      {
+        "elapsedMs": 34603,
+        "cycles": 12,
+        "heap": 4053460,
+        "nodes": 15934,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 73931,
+        "cycles": 24,
+        "heap": 3936788,
+        "nodes": 15905,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 113582,
+        "cycles": 36,
+        "heap": 4302772,
+        "nodes": 15948,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 153737,
+        "cycles": 48,
+        "heap": 4017268,
+        "nodes": 15877,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 191680,
+        "cycles": 60,
+        "heap": 4487332,
+        "nodes": 15941,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 229699,
+        "cycles": 72,
+        "heap": 3993304,
+        "nodes": 15920,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 267025,
+        "cycles": 84,
+        "heap": 4001156,
+        "nodes": 15913,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 304334,
+        "cycles": 96,
+        "heap": 4379324,
+        "nodes": 15938,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 341560,
+        "cycles": 108,
+        "heap": 4131908,
+        "nodes": 15932,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 378931,
+        "cycles": 120,
+        "heap": 4512916,
+        "nodes": 15920,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 416397,
+        "cycles": 132,
+        "heap": 4275808,
+        "nodes": 15925,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 456143,
+        "cycles": 144,
+        "heap": 4000260,
+        "nodes": 15933,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 499277,
+        "cycles": 156,
+        "heap": 4465316,
+        "nodes": 15920,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 536618,
+        "cycles": 168,
+        "heap": 4160596,
+        "nodes": 15917,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 573957,
+        "cycles": 180,
+        "heap": 4609644,
+        "nodes": 15908,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 611382,
+        "cycles": 192,
+        "heap": 4298320,
+        "nodes": 15938,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 648819,
+        "cycles": 204,
+        "heap": 4126356,
+        "nodes": 15919,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 690420,
+        "cycles": 216,
+        "heap": 4535492,
+        "nodes": 15905,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 727919,
+        "cycles": 228,
+        "heap": 4216840,
+        "nodes": 15946,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 765268,
+        "cycles": 240,
+        "heap": 4661648,
+        "nodes": 15931,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 802624,
+        "cycles": 252,
+        "heap": 4392460,
+        "nodes": 15920,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 840617,
+        "cycles": 264,
+        "heap": 4250220,
+        "nodes": 15949,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 879105,
+        "cycles": 276,
+        "heap": 4609920,
+        "nodes": 15904,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 916503,
+        "cycles": 288,
+        "heap": 4295856,
+        "nodes": 15878,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 957109,
+        "cycles": 300,
+        "heap": 4754260,
+        "nodes": 15887,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 998591,
+        "cycles": 312,
+        "heap": 4449576,
+        "nodes": 15949,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1036973,
+        "cycles": 324,
+        "heap": 3887456,
+        "nodes": 15934,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 1074216,
+        "cycles": 336,
+        "heap": 4636432,
+        "nodes": 15933,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1111649,
+        "cycles": 348,
+        "heap": 4320720,
+        "nodes": 15892,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1148992,
+        "cycles": 360,
+        "heap": 4755400,
+        "nodes": 15882,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1186714,
+        "cycles": 372,
+        "heap": 4455868,
+        "nodes": 15914,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1226575,
+        "cycles": 384,
+        "heap": 4279200,
+        "nodes": 15954,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 1265736,
+        "cycles": 396,
+        "heap": 4648324,
+        "nodes": 15932,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1303001,
+        "cycles": 408,
+        "heap": 4318852,
+        "nodes": 15862,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1340279,
+        "cycles": 420,
+        "heap": 4775768,
+        "nodes": 15906,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1377554,
+        "cycles": 432,
+        "heap": 4460888,
+        "nodes": 15918,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1415297,
+        "cycles": 444,
+        "heap": 4297264,
+        "nodes": 15939,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 1452581,
+        "cycles": 456,
+        "heap": 4656816,
+        "nodes": 15847,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1489884,
+        "cycles": 468,
+        "heap": 4361528,
+        "nodes": 15906,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1527193,
+        "cycles": 480,
+        "heap": 4798340,
+        "nodes": 15918,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1564502,
+        "cycles": 492,
+        "heap": 4489900,
+        "nodes": 15913,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1601815,
+        "cycles": 504,
+        "heap": 4330844,
+        "nodes": 15921,
+        "listeners": 33
+      },
+      {
+        "elapsedMs": 1639058,
+        "cycles": 516,
+        "heap": 4728896,
+        "nodes": 15934,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1676381,
+        "cycles": 528,
+        "heap": 4420408,
+        "nodes": 15862,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1713675,
+        "cycles": 540,
+        "heap": 4855460,
+        "nodes": 15904,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1751041,
+        "cycles": 552,
+        "heap": 4541068,
+        "nodes": 15916,
+        "listeners": 34
+      },
+      {
+        "elapsedMs": 1788380,
+        "cycles": 564,
+        "heap": 4303280,
+        "nodes": 15926,
+        "listeners": 33
+      }
+    ],
+    "checks": [
+      "final real-origin reload matches document"
+    ],
+    "errors": [],
+    "scope": "30-minute automated 8-track 32-bar creation, undo/redo, save, project switch and playback. Heap after explicit GC; physical audio quality not measured."
+  },
+  "runtimeEquivalence": {
+    "status": "PASS",
+    "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+    "soak_build_sha256": "42423bf30076a0be867016ec9c11e5e534d0293a2c02e1fee4cbf0e6d45b1312",
+    "javascript_sha256": "be0f92283c8f6a814a78688933fc1ea9bcb9e985694c8f337502360ce29c0016",
+    "script_count": 36,
+    "note": "Only CSS differs. All executable scripts and HTML structure are byte-identical. The long test covers this music/storage/playback implementation; final CSS is checked by the final desktop visual/interaction suites."
+  },
+  "cleanBuild": {
+    "status": "PASS",
+    "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+    "source_commit": "b66ed704141fced99a7b62d74df381fcaa8acec8",
+    "method": "git archive HEAD GridTone to a new temporary directory; npm ci; complete BROWSER_CHANNEL=chrome npm run verify",
+    "checks": [
+      {
+        "name": "catalog",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 46,
+        "log": "catalog.txt"
+      },
+      {
+        "name": "build",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 53,
+        "log": "build.txt"
+      },
+      {
+        "name": "core",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 1259,
+        "log": "core.txt"
+      },
+      {
+        "name": "storage",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 3659,
+        "log": "storage.txt"
+      },
+      {
+        "name": "workflow",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 11085,
+        "log": "workflow.txt"
+      },
+      {
+        "name": "release-flow",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 20133,
+        "log": "release-flow.txt"
+      },
+      {
+        "name": "interactions",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 9946,
+        "log": "interactions.txt"
+      },
+      {
+        "name": "visual",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 9711,
+        "log": "visual.txt"
+      },
+      {
+        "name": "audio",
+        "status": "PASS",
+        "exitCode": 0,
+        "ms": 14207,
+        "log": "audio.txt"
+      }
+    ],
+    "private_workspace_files_included": false
+  },
+  "package": {
+    "status": "NOT_RUN"
+  }
 }

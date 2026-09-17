@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "date": "2026-09-17T16:58:14.580Z",
+  "checks": [
+    {
+      "name": "R9-T03 recipe → melody → retained range → variation → mix → save",
+      "status": "PASS"
+    },
+    {
+      "name": "R9-T03 browser downloads engineering project, MIDI events and complete WAV",
+      "status": "PASS"
+    },
+    {
+      "name": "R9-T04 real-origin A/B reload preserves generated sources and retained silence",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T09 recovery and clean-context import retain custom sample sound",
+      "status": "PASS"
+    },
+    {
+      "name": "R4-T06 manual harmony fields commit actual root, quality and duration",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

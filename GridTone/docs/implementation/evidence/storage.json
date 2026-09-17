@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "date": "2026-09-17T16:57:40.377Z",
+  "origin": "http://127.0.0.1:63442/dist/index.html",
+  "checks": [
+    {
+      "name": "R2-T01 real-origin A/B save and refresh",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T02/T03 queued snapshot cannot follow later edits",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T07 independent database connections reject stale revision",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T05 legacy migration is idempotent and retains raw backup",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T06 recovery isolation and deletion preserve other project",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T04 aborted transaction cannot publish a saved revision",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T04 budget rejection is atomic and leaves the active song available",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T06 each project keeps at most ten recovery records at thirty-second intervals",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T07 real second tab rejects stale save and can create an independent copy",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T08 same-ID import copies identities and rapid switches serialize",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

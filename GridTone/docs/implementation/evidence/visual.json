@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "date": "2026-09-17T16:58:43.948Z",
+  "results": [
+    {
+      "skin": "crystal",
+      "width": 1440,
+      "view": "edit",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "crystal",
+      "width": 1440,
+      "view": "arrange",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "crystal",
+      "width": 1440,
+      "view": "mix",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1440,
+      "view": "edit",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1440,
+      "view": "arrange",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1440,
+      "view": "mix",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "crystal",
+      "width": 1280,
+      "view": "edit",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "crystal",
+      "width": 1280,
+      "view": "arrange",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "crystal",
+      "width": 1280,
+      "view": "mix",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1280,
+      "view": "edit",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1280,
+      "view": "arrange",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    },
+    {
+      "skin": "pearl",
+      "width": 1280,
+      "view": "mix",
+      "overflow": false,
+      "stop": 34,
+      "status": "block",
+      "label": "block"
+    }
+  ],
+  "errors": [],
+  "scope": "DOM geometry and browser screenshots. Human review recorded separately."
+}

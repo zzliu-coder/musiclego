@@ -1,0 +1,8 @@
+PASS recipe.pop peak 0.290 rms 0.0257
+PASS recipe.lofi peak 0.316 rms 0.0332
+PASS recipe.dance peak 0.369 rms 0.0333
+PASS recipe.halftime peak 0.282 rms 0.0237
+PASS recipe.rock peak 0.279 rms 0.0342
+PASS recipe.penta peak 0.276 rms 0.0262
+PASS recipe.canon peak 0.271 rms 0.0257
+PASS recipe.dialogue peak 0.287 rms 0.0270

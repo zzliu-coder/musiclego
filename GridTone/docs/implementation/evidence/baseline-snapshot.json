@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "archive": "../\u4e50\u6784_v1.5.0.zip",
+  "archive_sha256": "07295eb8aa68744b814bbfb5d0bcd7dbab02e24a9d0bc2904de9638078e429e6",
+  "baseline_html_sha256": "94c6c5b6dcfa33d20b434c8650244a9158bdfadc204e16ebafb21aa8400fe0ad",
+  "bad_member": null,
+  "baseline_commit": "0f9977725a68930aa57f93369828a041de860586"
+}

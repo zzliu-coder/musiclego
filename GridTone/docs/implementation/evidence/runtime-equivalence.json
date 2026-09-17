@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "soak_build_sha256": "42423bf30076a0be867016ec9c11e5e534d0293a2c02e1fee4cbf0e6d45b1312",
+  "javascript_sha256": "be0f92283c8f6a814a78688933fc1ea9bcb9e985694c8f337502360ce29c0016",
+  "script_count": 36,
+  "note": "Only CSS differs. All executable scripts and HTML structure are byte-identical. The long test covers this music/storage/playback implementation; final CSS is checked by the final desktop visual/interaction suites."
+}

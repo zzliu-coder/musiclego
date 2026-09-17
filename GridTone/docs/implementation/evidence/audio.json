@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "date": "2026-09-17T16:59:01.177Z",
+  "results": [
+    {
+      "id": "recipe.pop",
+      "peak": 0.28956371545791626,
+      "rms": 0.02574081277173602,
+      "clipped": 0,
+      "seconds": 11.88888888888889,
+      "events": 83,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.pop.wav"
+    },
+    {
+      "id": "recipe.lofi",
+      "peak": 0.3159279525279999,
+      "rms": 0.03324217189411997,
+      "clipped": 0,
+      "seconds": 14.707324263038549,
+      "events": 65,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.lofi.wav"
+    },
+    {
+      "id": "recipe.dance",
+      "peak": 0.3694222867488861,
+      "rms": 0.03333154055367206,
+      "clipped": 0,
+      "seconds": 10.741950113378685,
+      "events": 146,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.dance.wav"
+    },
+    {
+      "id": "recipe.halftime",
+      "peak": 0.2816721796989441,
+      "rms": 0.02372753954679679,
+      "clipped": 0,
+      "seconds": 13,
+      "events": 73,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.halftime.wav"
+    },
+    {
+      "id": "recipe.rock",
+      "peak": 0.27934175729751587,
+      "rms": 0.03420742543831487,
+      "clipped": 0,
+      "seconds": 11.275873015873016,
+      "events": 142,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.rock.wav"
+    },
+    {
+      "id": "recipe.penta",
+      "peak": 0.2758077383041382,
+      "rms": 0.02619391458683261,
+      "clipped": 0,
+      "seconds": 12.411768707482993,
+      "events": 81,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.penta.wav"
+    },
+    {
+      "id": "recipe.canon",
+      "peak": 0.27137014269828796,
+      "rms": 0.025667479058373122,
+      "clipped": 0,
+      "seconds": 24.818185941043083,
+      "events": 164,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.canon.wav"
+    },
+    {
+      "id": "recipe.dialogue",
+      "peak": 0.2868010401725769,
+      "rms": 0.026969125358818378,
+      "clipped": 0,
+      "seconds": 22.2,
+      "events": 124,
+      "engineering": "PASS",
+      "listening": "NOT_RUN",
+      "file": "audio/recipe.dialogue.wav"
+    },
+    {
+      "name": "R6-T13 computation benchmark",
+      "samples": 100,
+      "p50": 0.2999999523162842,
+      "p95": 0.6000000238418579,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 8
+    }
+  ],
+  "errors": [],
+  "scope": "Offline Web Audio rendering and measurements. Human listening and physical-device latency not measured."
+}

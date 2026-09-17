@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "source_commit": "b66ed704141fced99a7b62d74df381fcaa8acec8",
+  "method": "git archive HEAD GridTone to a new temporary directory; npm ci; complete BROWSER_CHANNEL=chrome npm run verify",
+  "checks": [
+    {
+      "name": "catalog",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 46,
+      "log": "catalog.txt"
+    },
+    {
+      "name": "build",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 53,
+      "log": "build.txt"
+    },
+    {
+      "name": "core",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 1259,
+      "log": "core.txt"
+    },
+    {
+      "name": "storage",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 3659,
+      "log": "storage.txt"
+    },
+    {
+      "name": "workflow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 11085,
+      "log": "workflow.txt"
+    },
+    {
+      "name": "release-flow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 20133,
+      "log": "release-flow.txt"
+    },
+    {
+      "name": "interactions",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 9946,
+      "log": "interactions.txt"
+    },
+    {
+      "name": "visual",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 9711,
+      "log": "visual.txt"
+    },
+    {
+      "name": "audio",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 14207,
+      "log": "audio.txt"
+    }
+  ],
+  "private_workspace_files_included": false
+}

@@ -1,5 +1,7 @@
 # 乐构 1.5 · Design QA
 
+> 历史报告，不计入 1.6 的通过数量。当前桌面检查见 `docs/implementation/VISUAL_REVIEW.md` 与 `evidence/visual.json`；小屏专题已由用户推迟。
+
 **final result: passed**
 
 ## 对照目标与范围

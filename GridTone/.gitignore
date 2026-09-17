@@ -4,3 +4,5 @@ __pycache__/
 *.log
 
 checkpoints/*.bundle
+docs/implementation/evidence/soak-progress.json
+docs/implementation/evidence/exploratory/

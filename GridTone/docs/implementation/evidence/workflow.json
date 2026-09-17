@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "date": "2026-09-17T16:57:55.361Z",
+  "checks": [
+    {
+      "name": "R1-T01 sixteen bars save and reload through app",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T01 templates and progressions immediately reachable",
+      "status": "PASS"
+    },
+    {
+      "name": "R5-T03/T07 recipe preview and atomic apply share identical candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "R6-T06/T09 melody candidates cancel without music or history writes",
+      "status": "PASS"
+    },
+    {
+      "name": "R6-T03 retention persists and regeneration changes only unprotected fields",
+      "status": "PASS"
+    },
+    {
+      "name": "R6-T10 stale candidate is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "R2-T01/T08 UI project list and independent history after switching",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T05 large arrangement retains usable bar width",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

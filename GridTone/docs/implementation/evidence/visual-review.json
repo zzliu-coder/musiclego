@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "scope": "Desktop 1280/1440 only; small-screen work deferred by user",
+  "reviewed": [
+    "crystal-1440-edit.png",
+    "crystal-1440-arrange.png",
+    "crystal-1280-sound.png",
+    "pearl-1280-pipeline.png",
+    "pearl-1440-mix.png",
+    "crystal-1280-catalog.png",
+    "pearl-1440-creation.png",
+    "crystal-1280-project-menu.png",
+    "components.png"
+  ],
+  "notes": "Per-page layout, hierarchy, scroll boundaries, modal readability and production component states inspected. Geometry on both themes and desktop sizes is separately automated."
+}

@@ -1,0 +1,1673 @@
+{
+  "version": 3,
+  "id": "song_ca35f1c6-31fe-43d9-b4ec-addd11657ebf",
+  "title": "验收 A · 模板与旋律",
+  "bpm": 82,
+  "key": 0,
+  "scale": "major",
+  "swing": 0.12,
+  "master": 0.8,
+  "bars": 12,
+  "tracks": [
+    {
+      "id": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+      "name": "和弦",
+      "kind": "melodic",
+      "color": "#ee9552",
+      "preset": "prism.tine",
+      "volume": 0.4,
+      "pan": -0.12,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_0a8501af-75c8-4381-9d67-af55ae271173",
+          "name": "和弦 A",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 59,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_e1652659-ad57-439f-8b56-99888971098f"
+            },
+            {
+              "pitch": 60,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_6ce365c1-6d61-498e-8b84-6cf8e9c7a91d"
+            },
+            {
+              "pitch": 64,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_18eb0549-701e-4d67-8b54-8ed89b501d8e"
+            },
+            {
+              "pitch": 67,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_5a18e9b8-2775-4358-9de8-c614d1aeaf22"
+            },
+            {
+              "pitch": 57,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_bad8c926-ae2e-4c76-9f73-62ad51501070"
+            },
+            {
+              "pitch": 60,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_2765f848-bd34-4251-8139-223fb76a7a02"
+            },
+            {
+              "pitch": 64,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_06cdad11-c187-428b-86bc-53394ac9d1ba"
+            },
+            {
+              "pitch": 67,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_2d7acb59-7316-4b18-8b38-6c44ed623214"
+            },
+            {
+              "pitch": 57,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_649d8ca5-cce6-442b-b190-5242ceb918ec"
+            },
+            {
+              "pitch": 60,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_d63daaf9-11fa-49f7-8fe2-307ccb1ecbef"
+            },
+            {
+              "pitch": 62,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_a0990232-35ad-4e49-97fb-784017bef30d"
+            },
+            {
+              "pitch": 65,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_3dfef655-fd49-458b-ac8c-d3cc6287e583"
+            },
+            {
+              "pitch": 55,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_00427c9c-26a6-4b9e-ba92-23385d8fe17b"
+            },
+            {
+              "pitch": 59,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_7a438126-f54a-4ab0-865f-78ae9ecdce29"
+            },
+            {
+              "pitch": 62,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_be4d831e-f9c3-48b2-b04f-d2c41d54c710"
+            },
+            {
+              "pitch": 65,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_5c408e65-72b4-4d44-b55b-8e46a12a6b6c"
+            }
+          ],
+          "harmony": {
+            "version": 1,
+            "events": [
+              {
+                "start": 0,
+                "duration": 3840,
+                "rootPitchClass": 0,
+                "quality": "maj7"
+              },
+              {
+                "start": 3840,
+                "duration": 3840,
+                "rootPitchClass": 9,
+                "quality": "min7"
+              },
+              {
+                "start": 7680,
+                "duration": 3840,
+                "rootPitchClass": 2,
+                "quality": "min7"
+              },
+              {
+                "start": 11520,
+                "duration": 3840,
+                "rootPitchClass": 7,
+                "quality": "dom7"
+              }
+            ],
+            "source": {
+              "recipeId": "progression.soft",
+              "recipeVersion": 1
+            },
+            "confirmedMusicHash": "4734ac2cdda10256"
+          }
+        },
+        {
+          "id": "p_7c7548a5-04ad-41d0-ab69-376e2150e2ad",
+          "name": "和弦 A · 结尾",
+          "bars": 4,
+          "notes": [
+            {
+              "pitch": 59,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_154a9ca2-5f3e-4ce7-9867-ecaedf618089"
+            },
+            {
+              "pitch": 60,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_fc823763-38f6-4c3e-b51e-9756068981a5"
+            },
+            {
+              "pitch": 64,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_8ab285cb-47d0-450c-b481-65562c2c91ae"
+            },
+            {
+              "pitch": 67,
+              "start": 0,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_0599983d-8d67-4d2a-b050-a0d8c44dce1b"
+            },
+            {
+              "pitch": 57,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_a0553eb3-d501-4ad0-a8d6-8e18885c5dbe"
+            },
+            {
+              "pitch": 60,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_0b78c44d-d432-4ae6-8967-f10be79841f1"
+            },
+            {
+              "pitch": 64,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_0fd82051-39d4-4513-971e-c3d68a154b9d"
+            },
+            {
+              "pitch": 67,
+              "start": 3840,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_44a23398-474c-4fe2-afb1-bcec3b164e88"
+            },
+            {
+              "pitch": 57,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_ec24b2b7-8b8a-4db9-94fa-f3802c3152e3"
+            },
+            {
+              "pitch": 60,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_a260e960-0408-4dda-a7e6-5e6d0c56968a"
+            },
+            {
+              "pitch": 62,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_1f8d57e3-7591-43a3-b11a-c364c71d1b49"
+            },
+            {
+              "pitch": 65,
+              "start": 7680,
+              "duration": 3792,
+              "velocity": 0.585,
+              "id": "n_fe2fb188-2da9-4dd4-8d84-bac14c8ae172"
+            },
+            {
+              "pitch": 55,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.72,
+              "id": "n_115d7738-fc98-4ec6-ad1c-994c007ce0ef"
+            },
+            {
+              "pitch": 59,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.6749999999999999,
+              "id": "n_9535e8fa-7aab-4daf-b547-f22a496327a5"
+            },
+            {
+              "pitch": 62,
+              "start": 11520,
+              "duration": 3792,
+              "velocity": 0.63,
+              "id": "n_435b9eb4-b56a-4a72-b87b-7216a20d13bd"
+            },
+            {
+              "pitch": 65,
+              "start": 11520,
+              "duration": 3840,
+              "velocity": 0.46799999999999997,
+              "id": "n_df9286b0-9e34-47b9-81d9-d5fb8ff80e6d"
+            }
+          ],
+          "harmony": {
+            "version": 1,
+            "events": [
+              {
+                "start": 0,
+                "duration": 3840,
+                "rootPitchClass": 0,
+                "quality": "maj7"
+              },
+              {
+                "start": 3840,
+                "duration": 3840,
+                "rootPitchClass": 9,
+                "quality": "min7"
+              },
+              {
+                "start": 7680,
+                "duration": 3840,
+                "rootPitchClass": 2,
+                "quality": "min7"
+              },
+              {
+                "start": 11520,
+                "duration": 3840,
+                "rootPitchClass": 7,
+                "quality": "dom7"
+              }
+            ],
+            "source": {
+              "recipeId": "progression.soft",
+              "recipeVersion": 1
+            },
+            "confirmedMusicHash": "0ee0426baea145b5"
+          }
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_13e55979-9324-44ca-a94f-1154b0c854a8",
+          "patternId": "p_0a8501af-75c8-4381-9d67-af55ae271173",
+          "bar": 0
+        },
+        {
+          "id": "c_97510db1-505c-4264-bee0-a592d041747e",
+          "patternId": "p_0a8501af-75c8-4381-9d67-af55ae271173",
+          "bar": 4
+        },
+        {
+          "id": "c_c55e4b6d-b9e9-4272-9450-db35ca74ae64",
+          "patternId": "p_7c7548a5-04ad-41d0-ab69-376e2150e2ad",
+          "bar": 8
+        }
+      ],
+      "role": "chords"
+    },
+    {
+      "id": "t_8317be12-fcd1-404b-8b47-00dd13a14840",
+      "name": "鼓点",
+      "kind": "drum",
+      "color": "#f66570",
+      "preset": "drums",
+      "volume": 0.55,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.09,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_631847b8-379e-4a59-853c-a5b8daa6b2e4",
+          "name": "鼓点 A",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_6479287f-dbfa-4d3c-85fa-9896999cde75",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_41c43a9c-350f-489c-a603-df6b3c2cac02",
+              "pitch": 36,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_24e71f5b-4ea7-428b-8b66-145262134643",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_d3bf9f66-0705-4950-a1bf-b2eb90c96613",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_2d29d0ff-3d8d-49ab-8396-66f32a9a9cc0",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_eb1c367d-7ab6-4034-808f-45abb120868e",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_72b07cc2-9177-4e11-8e2f-fce2f7fd6db4",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_a3d6c192-b12e-4b0a-87f5-21eb5734c99e",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_99d45bed-d5fb-47de-955c-102f6919e53a",
+              "pitch": 36,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_dff5e96e-2f94-4bde-bac0-93e3e80eaac0",
+              "pitch": 36,
+              "start": 6240,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_8d7efbc0-4def-437e-b84c-0a02f6e058cb",
+              "pitch": 38,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_274bd1d6-06b4-4a05-92b3-b1ca8b3fe605",
+              "pitch": 38,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_ab811e64-e1f4-4969-bea2-0d972805f5bb",
+              "pitch": 42,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_1f10fa89-75d9-4ff9-841c-81702408139f",
+              "pitch": 42,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_1020a4d1-21c2-42f7-9902-d79614969181",
+              "pitch": 42,
+              "start": 5760,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_39dd64b8-f2ae-4191-827d-9e58d3c939af",
+              "pitch": 42,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_070dafdb-1a69-4bb7-b701-df756efa091e",
+              "pitch": 36,
+              "start": 7680,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_89be37b0-7a55-4ad9-9bc6-040672fbdd65",
+              "pitch": 36,
+              "start": 10080,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_2a6e71c1-8400-4bf0-a2d5-013ec87deb0c",
+              "pitch": 38,
+              "start": 8640,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_e37d95b1-44c5-4a7d-bcd6-58d0552cfc75",
+              "pitch": 38,
+              "start": 10560,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_18f98c64-b14a-445c-8aa9-43ebc2922601",
+              "pitch": 42,
+              "start": 7680,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_769ff1ce-5acf-4215-aa47-b8e3a09a94b2",
+              "pitch": 42,
+              "start": 8640,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_0e73fb60-b55a-45df-a5e5-5197beb0d207",
+              "pitch": 42,
+              "start": 9600,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_3595a64c-eac6-418f-8656-b2d691fa13e4",
+              "pitch": 42,
+              "start": 10560,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_316af7bf-2af3-480d-9c99-2e45e6457f7e",
+              "pitch": 36,
+              "start": 11520,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_4a78d924-5837-4e34-8bfc-42fd15bfa167",
+              "pitch": 36,
+              "start": 13920,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_437b7381-3f58-4ab6-a0cc-5dd35261a6fe",
+              "pitch": 38,
+              "start": 12480,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_d4c020bc-fea4-4d77-9646-1258ab86f8f9",
+              "pitch": 38,
+              "start": 14400,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_639c41c4-a269-474d-8edd-56d4f7f8a3c1",
+              "pitch": 42,
+              "start": 11520,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_24213635-276d-41ba-884e-62fdc457778e",
+              "pitch": 42,
+              "start": 12480,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_c83adf92-e8ea-41f8-b056-24421156331f",
+              "pitch": 42,
+              "start": 13440,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_951dabac-bfd7-4d29-bc70-a89074919c48",
+              "pitch": 42,
+              "start": 14400,
+              "duration": 240,
+              "velocity": 0.38
+            }
+          ]
+        },
+        {
+          "id": "p_0bd25f63-8d39-433a-8e4f-731e2e6e509f",
+          "name": "鼓点 A · 结尾",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_0e407f9d-16f2-4133-960f-1139e9f328be",
+              "pitch": 36,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_3c257915-fa04-4d31-adb0-9d8bd8fc2d67",
+              "pitch": 36,
+              "start": 2400,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_9212446e-eb8b-4cb0-b419-7bae976ef252",
+              "pitch": 38,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_9d5dcbcf-a9a5-49bc-9ca4-6793b40650f7",
+              "pitch": 38,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_53717e47-1385-4569-9f10-dd73bb74b554",
+              "pitch": 42,
+              "start": 0,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_fbc83cf1-3e1d-4934-a7b8-4c0a02c75866",
+              "pitch": 42,
+              "start": 960,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_f620ce3c-817e-4562-a0e0-439c0213fede",
+              "pitch": 42,
+              "start": 1920,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_730d936b-7d9a-462a-974c-ca8498d36d23",
+              "pitch": 42,
+              "start": 2880,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_28938a75-4df6-4e59-9ffe-3a7295f238f9",
+              "pitch": 36,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_069512e5-855a-40a6-a96f-dce45f7592ef",
+              "pitch": 36,
+              "start": 6240,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_ed52989a-4366-4902-adf5-4d404281bf39",
+              "pitch": 38,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_75185d33-a9a0-47dc-916e-4a5592e0b93b",
+              "pitch": 38,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_069970f0-4fb7-4092-a893-0628494908eb",
+              "pitch": 42,
+              "start": 3840,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_9249fd9a-4ce8-4093-bfc8-9a31ac60b001",
+              "pitch": 42,
+              "start": 4800,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_1cfdcf13-efc8-4978-92ed-ec5ca8fefdc7",
+              "pitch": 42,
+              "start": 5760,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_5bfae232-23ef-47de-9f0c-0274873ce213",
+              "pitch": 42,
+              "start": 6720,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_1c47640b-a8a1-444b-80e5-bff2331ef5d3",
+              "pitch": 36,
+              "start": 7680,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_700a9c90-bb3d-446b-bc82-ed17d1445c53",
+              "pitch": 36,
+              "start": 10080,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_7c250762-5524-499d-9b54-f48f7fc93f2e",
+              "pitch": 38,
+              "start": 8640,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_392fab05-7b5b-4ea6-b0f3-463b3823c833",
+              "pitch": 38,
+              "start": 10560,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_fde0da29-18c3-4b87-b153-b984547506e3",
+              "pitch": 42,
+              "start": 7680,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_24e22e66-1e18-4821-8944-616187a38e81",
+              "pitch": 42,
+              "start": 8640,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_ff5b3c0a-d3ad-4604-8a41-0bf70f0fa49b",
+              "pitch": 42,
+              "start": 9600,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_6e38418b-6f01-4360-ab9d-33e1d23900d8",
+              "pitch": 42,
+              "start": 10560,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_f20639ef-705b-4d6b-be9f-a3a7ff6da0e8",
+              "pitch": 36,
+              "start": 11520,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_27860da1-6d63-4a29-a004-6687f592fbc5",
+              "pitch": 36,
+              "start": 13920,
+              "duration": 240,
+              "velocity": 0.76
+            },
+            {
+              "id": "n_a3e629ed-f7c7-45dd-bd1d-14b5bcafbf2f",
+              "pitch": 38,
+              "start": 12480,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_ff370e8a-87d5-4950-b1fe-033caf40747c",
+              "pitch": 38,
+              "start": 14400,
+              "duration": 240,
+              "velocity": 0.6
+            },
+            {
+              "id": "n_8e9d7c2e-a073-442a-9072-26e4afa83d7c",
+              "pitch": 42,
+              "start": 11520,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_d5d16b94-c497-415e-b802-0c79992a9cda",
+              "pitch": 42,
+              "start": 12480,
+              "duration": 240,
+              "velocity": 0.38
+            },
+            {
+              "id": "n_7bc482c5-586c-4c04-b0ef-72bd5a71571d",
+              "pitch": 42,
+              "start": 13440,
+              "duration": 240,
+              "velocity": 0.38
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_4e3ae903-8daf-4a68-9791-b899e09d910e",
+          "patternId": "p_631847b8-379e-4a59-853c-a5b8daa6b2e4",
+          "bar": 0
+        },
+        {
+          "id": "c_71a9f41e-0e11-4cc3-bd17-e83b74f93de9",
+          "patternId": "p_631847b8-379e-4a59-853c-a5b8daa6b2e4",
+          "bar": 4
+        },
+        {
+          "id": "c_3f888a9f-e85b-40fe-9756-a548822fc079",
+          "patternId": "p_0bd25f63-8d39-433a-8e4f-731e2e6e509f",
+          "bar": 8
+        }
+      ],
+      "role": "drums"
+    },
+    {
+      "id": "t_bfca355c-a94b-4f29-a987-4c2b7f8b2ba5",
+      "name": "贝斯",
+      "kind": "melodic",
+      "color": "#34b995",
+      "preset": "roundbass",
+      "volume": 0.58,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_7025ce25-01da-4ce1-a9f4-f82f0fe42e35",
+          "name": "贝斯 A",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_993ad462-c053-4670-b2b0-0daa33484b0f",
+              "pitch": 36,
+              "start": 0,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_22c70b9b-38a9-43e8-a696-47fc3ae85a82",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_763c56d8-e098-4c7f-9551-54398896fd58",
+              "pitch": 45,
+              "start": 3840,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_56fb8839-4088-4d49-b35a-f1eb499e8736",
+              "pitch": 45,
+              "start": 5760,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_d9b850d4-f53a-4956-84d8-86414d009403",
+              "pitch": 38,
+              "start": 7680,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_04709216-aaaf-4dd3-b524-c6b9a67d0a63",
+              "pitch": 38,
+              "start": 9600,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_2ece71b2-efea-489b-b9ba-f3f69e14ae09",
+              "pitch": 43,
+              "start": 11520,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_3d9f0b6c-18e9-4cac-b74c-fffdb8607dac",
+              "pitch": 43,
+              "start": 13440,
+              "duration": 672,
+              "velocity": 0.7
+            }
+          ],
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "bass",
+            "seed": 1,
+            "templateVersion": 1,
+            "inputHash": "95a8294618d7bc34",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "a259c5f022e20f7c"
+              }
+            ],
+            "settings": {
+              "mode": "bass",
+              "start": 0,
+              "end": 15360,
+              "strategy": "align",
+              "drumRole": "closedHat",
+              "density": "normal"
+            }
+          }
+        },
+        {
+          "id": "p_50146f31-197c-4f24-805e-ce953a0f17ea",
+          "name": "贝斯 A · 结尾",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_e7e4c1d6-25a9-4042-842b-8225e3ddaffb",
+              "pitch": 36,
+              "start": 0,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_6b1fcc1e-2958-4749-9095-e05e8fd04f24",
+              "pitch": 36,
+              "start": 1920,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_01f8e27c-66b0-492a-ac86-0a385e2c0322",
+              "pitch": 45,
+              "start": 3840,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_12021592-752d-454f-ba7c-9d74ed61f940",
+              "pitch": 45,
+              "start": 5760,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_71c1b86e-3925-4292-b961-01b73149ac76",
+              "pitch": 38,
+              "start": 7680,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_0c053d6c-1717-4d53-9743-87f7c32f280c",
+              "pitch": 38,
+              "start": 9600,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_1b644ab0-1323-4928-963c-8d7129d7d6a4",
+              "pitch": 43,
+              "start": 11520,
+              "duration": 672,
+              "velocity": 0.7
+            },
+            {
+              "id": "n_16bf5581-3198-4332-a35d-19f65cefa5bc",
+              "pitch": 43,
+              "start": 13440,
+              "duration": 1008,
+              "velocity": 0.5599999999999999
+            }
+          ],
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "bass",
+            "seed": 1,
+            "templateVersion": 1,
+            "inputHash": "95a8294618d7bc34",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "a259c5f022e20f7c"
+              }
+            ],
+            "settings": {
+              "mode": "bass",
+              "start": 0,
+              "end": 15360,
+              "strategy": "align",
+              "drumRole": "closedHat",
+              "density": "normal"
+            }
+          }
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_eabce205-d953-48f8-b824-8e7a99a6224d",
+          "patternId": "p_7025ce25-01da-4ce1-a9f4-f82f0fe42e35",
+          "bar": 0
+        },
+        {
+          "id": "c_b59b7566-aa8f-49aa-83af-a4728d8fd5e0",
+          "patternId": "p_7025ce25-01da-4ce1-a9f4-f82f0fe42e35",
+          "bar": 4
+        },
+        {
+          "id": "c_5ab585b0-8d25-4f18-abf4-05e770e98e39",
+          "patternId": "p_50146f31-197c-4f24-805e-ce953a0f17ea",
+          "bar": 8
+        }
+      ],
+      "role": "bass"
+    },
+    {
+      "id": "t_2636cb01-d571-49c4-bbe8-13c066b32402",
+      "name": "示范旋律",
+      "kind": "melodic",
+      "color": "#2875f5",
+      "preset": "bell",
+      "volume": 0.55,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_7621e174-aeb1-4d0c-bf4f-788abfe1143e",
+          "name": "示范旋律 A",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_d522280a-618a-4109-afc0-fdebaa1a5400",
+              "pitch": 71,
+              "start": 0,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_29470869-9f61-4591-a133-283ffb23248c",
+              "pitch": 71,
+              "start": 1920,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_7a69c0be-98d7-4dd4-8700-0573fd319219",
+              "pitch": 72,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_58e6436c-8a87-4a61-b4f2-9ce3200de069",
+              "pitch": 72,
+              "start": 3840,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_190a92b8-b1db-44b6-84c0-b94274879575",
+              "pitch": 72,
+              "start": 4800,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_62694d5b-92c6-4268-9659-7c43bb21bea2",
+              "pitch": 72,
+              "start": 5760,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_e96c017d-c647-4b74-bd19-e9bb6e575046",
+              "pitch": 69,
+              "start": 7680,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_b37ffd92-d9c5-4436-920b-890b413cc6be",
+              "pitch": 67,
+              "start": 11520,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_362704b9-eb78-4b00-bcb9-e6d736f6d9cf",
+              "pitch": 65,
+              "start": 14400,
+              "duration": 720,
+              "velocity": 0.63
+            }
+          ],
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "generate",
+            "seed": 1,
+            "templateVersion": 1,
+            "inputHash": "8c58c1bca360c5c4",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "a259c5f022e20f7c"
+              }
+            ],
+            "settings": {
+              "mode": "generate",
+              "low": 60,
+              "high": 84,
+              "start": 0,
+              "end": 15360,
+              "density": "sparse"
+            }
+          }
+        },
+        {
+          "id": "p_44586fca-be58-4957-b096-11a62dfd2954",
+          "name": "示范旋律 A · 结尾",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_29440341-6e6f-472f-b4f1-d81ae77b891a",
+              "pitch": 71,
+              "start": 0,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_7d1e35cd-fad6-4302-b9ad-343266a176e3",
+              "pitch": 71,
+              "start": 1920,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_4fbe8be5-7470-46e3-9ba1-8d2050578b09",
+              "pitch": 72,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_bbe10dc9-6c9c-47d3-98dd-49cb031b0cb6",
+              "pitch": 72,
+              "start": 3840,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_f596c96c-cbdc-40f9-8f03-a6e0ebc3bb7b",
+              "pitch": 72,
+              "start": 4800,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_f9a5497f-0ca1-485b-91d7-709712f492b9",
+              "pitch": 72,
+              "start": 5760,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_acacdb9b-21df-4cb2-be5d-cded64217aea",
+              "pitch": 69,
+              "start": 7680,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_8aee2fa1-1d4e-4b4b-bc9e-c824f95c15bb",
+              "pitch": 67,
+              "start": 11520,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_4b1969b5-9dd5-4cb1-9532-acabe84af526",
+              "pitch": 67,
+              "start": 12480,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_c4406752-dc27-4fad-9fd1-1b32f8ad0310",
+              "pitch": 67,
+              "start": 13440,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_5d830b2e-6d23-4374-981f-f4c6cf066098",
+              "pitch": 67,
+              "start": 14400,
+              "duration": 720,
+              "velocity": 0.63
+            }
+          ],
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "ending",
+            "seed": 35,
+            "templateVersion": 1,
+            "inputHash": "4fc14c2345de02b9",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "0f68f183e4bfbfe5"
+              }
+            ],
+            "settings": {
+              "mode": "ending",
+              "low": 62,
+              "high": 75,
+              "start": 11520,
+              "end": 15360,
+              "density": "normal"
+            }
+          }
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_ad433f1c-0c1d-456b-b861-2509e8b6252c",
+          "patternId": "p_7621e174-aeb1-4d0c-bf4f-788abfe1143e",
+          "bar": 0
+        },
+        {
+          "id": "c_f92aacc1-38ef-42e4-8e03-27150d304424",
+          "patternId": "p_7621e174-aeb1-4d0c-bf4f-788abfe1143e",
+          "bar": 4
+        },
+        {
+          "id": "c_01ec0e81-0756-4279-a65b-f1685bc61e2d",
+          "patternId": "p_44586fca-be58-4957-b096-11a62dfd2954",
+          "bar": 8
+        }
+      ],
+      "role": "melody"
+    },
+    {
+      "id": "t_a051de4c-33cf-49ed-8361-63ce134ca8d9",
+      "name": "我的旋律",
+      "kind": "melodic",
+      "color": "#2875f5",
+      "preset": "bell",
+      "volume": 0.55,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "transpose": 0,
+        "arp": "off",
+        "rate": 240,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_4bf31780-1eeb-4de9-811a-c6e93e41f1e3",
+          "name": "我的旋律 A",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_fed3cb8b-e44b-4cc9-8a49-bacba0cebc11",
+              "pitch": 72,
+              "start": 0,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_c6a1a1fc-9358-40c3-82c3-257ee114e9b5",
+              "pitch": 72,
+              "start": 960,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_e476e55e-0bac-4129-bcde-31ed6ea49473",
+              "pitch": 71,
+              "start": 1920,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_2fc70423-fc30-42d5-966d-ea9cf143edc6",
+              "pitch": 71,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_692b98b0-aaa9-484c-b1f0-c8e6dbd1625c",
+              "pitch": 72,
+              "start": 3840,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_fcb27b16-f648-41d1-9129-aa8ed1b6d9b3",
+              "pitch": 72,
+              "start": 4800,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_36899b28-1a78-4164-a9e1-4ccf89d24070",
+              "pitch": 72,
+              "start": 5760,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_59e465bf-daec-48da-b109-e3dc0f79bf74",
+              "pitch": 76,
+              "start": 6720,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_c6fe5d56-e6f7-4dad-9a5f-3d9d3611560d",
+              "pitch": 77,
+              "start": 7680,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_65a493ed-caf2-4d5d-b2ad-d1044dc3c553",
+              "pitch": 74,
+              "start": 8640,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_fa1e78a8-f3ed-4216-8946-662a47ff43db",
+              "pitch": 74,
+              "start": 9600,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_aac08f52-3540-43f9-aae1-1423a336d511",
+              "pitch": 72,
+              "start": 10560,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_f482ac8d-f350-43bd-ac34-ceb75e105833",
+              "pitch": 74,
+              "start": 11520,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_cd9750b5-842f-4110-9ea0-489b310cefaa",
+              "pitch": 74,
+              "start": 12480,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_d3bdc4af-4d52-4e50-8488-50f1353a7851",
+              "pitch": 71,
+              "start": 13440,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_e81edb74-b87a-43ff-8b9c-91d787e2f034",
+              "pitch": 67,
+              "start": 14400,
+              "duration": 960,
+              "velocity": 0.63
+            }
+          ],
+          "retention": {
+            "notes": [],
+            "ranges": [
+              {
+                "start": 0,
+                "end": 3840
+              }
+            ]
+          },
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "generate",
+            "seed": 42,
+            "templateVersion": 1,
+            "inputHash": "222ad7be9352308e",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "a259c5f022e20f7c"
+              }
+            ],
+            "settings": {
+              "mode": "generate",
+              "low": 60,
+              "high": 84,
+              "start": 0,
+              "end": 15360,
+              "density": "normal"
+            }
+          }
+        },
+        {
+          "id": "p_148c2f66-ee84-4087-a472-e74941ebb14f",
+          "name": "我的旋律 A · 结尾",
+          "bars": 4,
+          "notes": [
+            {
+              "id": "n_3180070b-4773-488a-aabf-22d3f171cf3e",
+              "pitch": 72,
+              "start": 0,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_598e233f-f15b-49cc-9b5e-253b26241ba0",
+              "pitch": 72,
+              "start": 960,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_717ae811-6ebb-4247-927a-cc61911d99be",
+              "pitch": 71,
+              "start": 1920,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_90131b1c-6a2c-4922-b5b3-80bf77e1c3ce",
+              "pitch": 71,
+              "start": 2880,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_0ea43357-4865-4f02-abb5-3058421a9818",
+              "pitch": 72,
+              "start": 3840,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_d6c5841b-827c-4688-9fbe-7eb6be894470",
+              "pitch": 72,
+              "start": 4800,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_aed2319c-72a3-4ad9-a1d6-249c927bb271",
+              "pitch": 72,
+              "start": 5760,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_0e1338a4-e576-4723-86cc-269456e9298d",
+              "pitch": 76,
+              "start": 6720,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_3c6d1803-b552-4004-be05-61631b5bac14",
+              "pitch": 77,
+              "start": 7680,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_06eeba89-7951-449b-bb12-6bdb83b61fff",
+              "pitch": 74,
+              "start": 8640,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_ba6f57a1-d1f1-458f-8b24-eb328d0c5319",
+              "pitch": 74,
+              "start": 9600,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_a09bd73d-bd36-4929-88a7-b6a9e6323fbc",
+              "pitch": 72,
+              "start": 10560,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_998c5fa5-78aa-4083-8675-55ae392e7ba7",
+              "pitch": 74,
+              "start": 11520,
+              "duration": 720,
+              "velocity": 0.78
+            },
+            {
+              "id": "n_b44aa31d-5d39-4f87-8133-f654846af825",
+              "pitch": 74,
+              "start": 12480,
+              "duration": 960,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_36032709-b7d0-4419-96f3-7f45c7eb7240",
+              "pitch": 77,
+              "start": 13440,
+              "duration": 720,
+              "velocity": 0.63
+            },
+            {
+              "id": "n_92b405f0-e425-4ced-905b-f7b5a9ed4b99",
+              "pitch": 79,
+              "start": 14400,
+              "duration": 720,
+              "velocity": 0.63
+            }
+          ],
+          "retention": {
+            "notes": [],
+            "ranges": [
+              {
+                "start": 0,
+                "end": 3840
+              }
+            ]
+          },
+          "generation": {
+            "version": 1,
+            "algorithm": "legou.rules.1",
+            "kind": "ending",
+            "seed": 35,
+            "templateVersion": 1,
+            "inputHash": "eed7c04669cccc1a",
+            "sources": [
+              {
+                "trackId": "t_362c0c74-a083-4664-a9fe-76f209c20268",
+                "hash": "0f68f183e4bfbfe5"
+              }
+            ],
+            "settings": {
+              "mode": "ending",
+              "low": 64,
+              "high": 80,
+              "start": 11520,
+              "end": 15360,
+              "density": "normal"
+            }
+          }
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_b6d0f0d6-60b7-47d3-a546-6b79e79830b2",
+          "patternId": "p_4bf31780-1eeb-4de9-811a-c6e93e41f1e3",
+          "bar": 0
+        },
+        {
+          "id": "c_2c2667a9-85cd-4b8b-b403-62876b9205aa",
+          "patternId": "p_4bf31780-1eeb-4de9-811a-c6e93e41f1e3",
+          "bar": 4
+        },
+        {
+          "id": "c_32516940-d275-41cc-bcee-e5b8a97c9fed",
+          "patternId": "p_148c2f66-ee84-4087-a472-e74941ebb14f",
+          "bar": 8
+        }
+      ],
+      "role": "melody"
+    }
+  ],
+  "assets": {}
+}

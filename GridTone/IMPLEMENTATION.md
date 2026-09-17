@@ -1,5 +1,7 @@
 # 乐构 1.5 实现说明
 
+> 历史记录：本文描述 1.5。当前 1.6 实现合同、功能清单和验收记录见 `docs/implementation/CONTRACTS.md`、`RELEASE_NOTES.md` 与 `acceptance.json`。
+
 在原 GridTone 工程与 `codex/gridtone-studio` 分支持续修改，无新建完整副本。现有音频引擎、撤销、工程格式、离线发布机制继续使用。
 
 ## 本次改动
