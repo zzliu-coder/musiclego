@@ -2,7 +2,7 @@
   "app": "乐构",
   "version": "1.6.0",
   "status": "ENGINEERING_CANDIDATE",
-  "date": "2026-09-17T17:12:07.794Z",
+  "date": "2026-09-17T17:13:18.966Z",
   "artifact": {
     "app": "乐构",
     "version": "1.6.0",
@@ -11,7 +11,7 @@
     "runtimeDependencies": [],
     "entry": "index.html"
   },
-  "sourceCommit": "b66ed704141fced99a7b62d74df381fcaa8acec8",
+  "sourceCommit": "e054b80a0249055754d32f334ee9696281a3e9e8",
   "coreTests": {
     "passed": 156,
     "failed": 0,
@@ -93,9 +93,9 @@
   "acceptance": {
     "file": "docs/implementation/acceptance.json",
     "counts": {
-      "PASS": 82,
+      "PASS": 83,
       "FAIL": 0,
-      "NOT_RUN": 4,
+      "NOT_RUN": 3,
       "BLOCKED": 0,
       "NOT_APPLICABLE": 1
     }
@@ -529,6 +529,15 @@
     "private_workspace_files_included": false
   },
   "package": {
-    "status": "NOT_RUN"
+    "status": "PASS",
+    "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+    "source_commit": "e054b80a0249055754d32f334ee9696281a3e9e8",
+    "archive": "乐构_v1.6.0_candidate.zip",
+    "archive_sha256": "91ed8a7a630c43010e43de5b6f76795ef4f1d0abbdcb71247c472927ff5daabd",
+    "bytes": 36413066,
+    "zip_integrity": "PASS",
+    "extracted_source_install_build_and_core_tests": "PASS",
+    "html_aliases_match": true,
+    "note": "The archive contains committed source and the validation snapshot at source_commit. The final archive receipt and acceptance updates are stored alongside it in the repository."
   }
 }

@@ -1866,7 +1866,7 @@
       "action": "解压再构建比对哈希，打开交付HTML并重开测试工程",
       "expected": "文件确实存在且匹配已验收代码；离线能力／下载依赖说明准确。",
       "priority": "required",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "evidence": [
         "evidence/package.json"
       ],
@@ -1874,7 +1874,7 @@
         "scripts/verify.mjs",
         "tests/verify-*.mjs"
       ],
-      "notes": "Missing evidence: evidence/package.json"
+      "notes": ""
     },
     {
       "id": "R9-T09",
@@ -1905,13 +1905,13 @@
     "NOT_APPLICABLE"
   ],
   "note": "本文件是验收设计，全部NOT_RUN；自动化脚本及实际执行报告由后续施工产生。",
-  "date": "2026-09-17T17:12:07.759Z",
+  "date": "2026-09-17T17:13:18.926Z",
   "version": "1.6.0",
   "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
   "counts": {
-    "PASS": 82,
+    "PASS": 83,
     "FAIL": 0,
-    "NOT_RUN": 4,
+    "NOT_RUN": 3,
     "BLOCKED": 0,
     "NOT_APPLICABLE": 1
   },
