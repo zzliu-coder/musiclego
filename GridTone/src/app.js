@@ -5,9 +5,12 @@
     const { esc, icon, button, ib, miniPattern, slider } = G.ui;
     const engine = new AudioEngine();
     let project = G.applyTemplate(blankProject(), G.getTemplate('prism.song.glass')).project;
+    function refreshPalette(p){const old=['#9a79dd','#e99b6c','#a28cce','#86909e','#cb819a','#8da289','#b79a83','#799fba'];p.tracks.forEach(t=>{if(old.includes(t.color.toLowerCase()))t.color=t.kind==='drum'?'#f66570':/bass/.test(t.preset)?'#34b995':/和弦/.test(t.name)?'#ee9552':'#2875f5';});return p;}
     let pendingPitch = null;
     const S = G.createEditorSession(project), B = G.createPlaybackContext();
-    S.continuous=innerWidth>700;S.editorHeight=260;project.tracks.forEach((t,i)=>t.color=['#9a79dd','#e99b6c','#a28cce','#86909e'][i%4]);G.fitViewport(S,project.tracks[0],project.tracks[0].patterns[0]);G.viewportFor(S,project.tracks[0]).rowHeight=12;
+    S.continuous=innerWidth>700;S.editorHeight=Math.max(400,Math.min(580,innerHeight-340));
+    project.tracks.forEach(t=>t.color=t.kind==='drum'?'#f66570':/bass/.test(t.preset)?'#34b995':/和弦/.test(t.name)?'#ee9552':'#2875f5');
+    const lead=project.tracks.find(t=>/旋律/.test(t.name))||project.tracks[0];G.openPatternInSession(S,project,{trackId:lead.id});G.fitViewport(S,lead,lead.patterns[0]);
     const playback = new G.PlaybackController(engine, () => project, () => S, B, () => { updateTransport(); const l = $('#playback-label'); if (l)
         l.textContent = G.playbackLabel(project, S, B); }, message => toast(message));
     function snapshot() { const copy = clone({ ...project, assets: {} }); copy.assets = Object.fromEntries(Object.entries(project.assets).map(([id, a]) => [id, { ...a }])); return copy; }
@@ -101,14 +104,15 @@
         render();
     }
     function changeView(view) {
+        if(S.modal)closeModal();
+        if(view==='edit')S.editorOpen=true;
         if (view === 'sound') {
             S.view = 'edit';
             S.editorTab = 'sound';
             render();
             return;
         }
-        if (['arrange', 'mix'].includes(view))
-            playback.leaveEditor();
+        // View changes preserve the active listening scope and audio clock.
         S.view = view === 'edit' ? 'edit' : view === 'mix' ? 'mix' : 'arrange';
         render();
     }
@@ -124,7 +128,7 @@
             const wholeSong = result.project.id !== project.id;
             if(wholeSong)playback.stop();else playback.endAudition();
             mutate(() => {
-                project = result.project;
+                project = refreshPalette(result.project);
                 if (wholeSong) {
                     Object.assign(S, G.createEditorSession(project));
                     Object.assign(B, G.createPlaybackContext());
@@ -165,6 +169,7 @@
             }
         }
         G.ui.restoreFocus(focusToken);
+        G.motion?.afterRender(S);
         if (S.modal) document.querySelector('#app').inert = true;
         G.saveWorkspace(S, project.id);
     }
@@ -303,7 +308,7 @@
         pendingPitch = { candidate, tid, pid };
         openModal('移调与调式适配', `<p class="modal-copy">作用于 ${ids.length ? '选中的 ' + ids.length + ' 个音符' : '本片段全部音符'}。预听保持原稿；确认后写入实际音符，可一次撤销。</p><label class="form-label">方式<select id="transpose-mode"><option value="semitone">整体移动半音 · 保持音程</option><option value="key">整体换主音 · 最近方向</option><option value="adapt">按级数适配调式 · 保留原有变化音偏移</option></select></label><div class="form-grid"><label class="form-label">移动半音（方式一）<input id="transpose-amount" type="number" min="-24" max="24" step="1" value="2"></label><label class="form-label">目标主音（方式二、三）<select id="transpose-key">${KEYS.map((v, i) => `<option value="${i}" ${i === sourceKey ? 'selected' : ''}>${v}</option>`).join('')}</select></label><label class="form-label">目标调式（方式三）<select id="transpose-scale">${Object.entries({ major: '大调', minor: '小调', pentatonic: '五声音阶', chromatic: '半音阶' }).map(([k, l]) => `<option value="${k}" ${k === sourceScale ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div><p class="modal-copy">级数适配适用于同音级数的音阶（例如大调到小调）；原调外音保留相对最近调内音的半音偏移。参考调性保持原设置。</p><div class="modal-actions">${button('preview-pitch', '预听结果', 'headphones', 'soft-btn')}${button('stop', '停止试听', 'stop', 'quiet')}${button('apply-pitch', '确认修改', 'check', 'dark-btn')}</div>`);
     }
-    function exportDialog() { openModal('导出作品', `<label class="field-row export-scope">导出范围<select id="export-scope"><option value="song">整首作品 · ${project.bars} 小节</option><option value="pattern">当前片段 · ${pattern().bars} 小节</option><option value="current">当前试听范围（含临时只听）</option></select></label><div class="export-options">${button('export-wav', 'WAV 音频', 'wave', 'export-option')}${button('export-midi', 'MIDI 乐谱', 'piano', 'export-option')}${button('export-project', '声格工程', 'file', 'export-option')}</div><div class="export-descriptions"><p>默认导出作品混音，保留作品静音设置，忽略临时只听。工程文件始终包含全曲。</p><p><b>WAV</b>：44.1 kHz / 16-bit 立体声，包含音色与效果，附 3 秒尾音。单次最多 3 分钟。</p><p><b>MIDI</b>：导出音符、速度、移调、琶音和律动，供其他编曲软件继续编辑；具体音色与音频效果不会随 MIDI 保留。</p><p><b>声格工程</b>：保存整首作品的所有音符、设置和自定义音源，可重新打开接着写。</p></div><p id="export-progress" class="export-progress" role="status"></p>`); }
+    function exportDialog() { openModal('导出作品', `<label class="field-row export-scope">导出范围<select id="export-scope"><option value="song">整首作品 · ${project.bars} 小节</option><option value="pattern">当前片段 · ${pattern().bars} 小节</option><option value="current">当前试听范围（含临时只听）</option></select></label><div class="export-options">${button('export-wav', 'WAV 音频', 'wave', 'export-option')}${button('export-midi', 'MIDI 乐谱', 'piano', 'export-option')}${button('export-project', '乐构工程', 'file', 'export-option')}</div><div class="export-descriptions"><p>默认导出作品混音，保留作品静音设置，忽略临时只听。工程文件始终包含全曲。</p><p><b>WAV</b>：44.1 kHz / 16-bit 立体声，包含音色与效果，附 3 秒尾音。单次最多 3 分钟。</p><p><b>MIDI</b>：导出音符、速度、移调、琶音和律动，供其他编曲软件继续编辑；具体音色与音频效果不会随 MIDI 保留。</p><p><b>乐构工程</b>：保存整首作品的所有音符、设置和自定义音源，可重新打开接着写。</p></div><p id="export-progress" class="export-progress" role="status"></p>`); }
     async function doExport(type) {
         const exportProject = snapshot(), range = $('#export-scope')?.value || 'song', scope = playback.exportScope(range), name = safeFilename(project.title) + (range === 'song' ? '' : '_' + safeFilename(range === 'pattern' ? pattern().name : G.playbackLabel(project, S, B)));
         try {
@@ -354,7 +359,7 @@
         input.click();
     }
     function loadProject(raw) {
-        const checked = G.pinDocument(validateProject(raw));
+        const checked = refreshPalette(G.pinDocument(validateProject(raw)));
         playback.stop();
         history.push(snapshot());
         if (history.length > 60)
@@ -464,7 +469,7 @@
     function noteMenu() { openModal('音符操作', `<p class="modal-copy">已选择 ${S.selected.length} 个音符。拖动音符可以移动，拖右边缘可以改长度。</p><div class="menu-grid">${button('menu-copy', '复制', 'copy', 'soft-btn')}${button('menu-split', '从中间拆开', 'split', 'soft-btn')}${button('menu-delete', '删除', 'trash', 'soft-btn')}${button('select-all', '全选', '', 'soft-btn')}</div>`); }
     function appearanceDialog() {
         const a=G.appearance.get();
-        openModal('外观 · Prism', `<div class="appearance-grid">${[['crystal','冰晶','清透冷白 · 海蓝色控制'],['pearl','暖珠','珍珠暖白 · 玫紫色控制']].map(([id,name,desc])=>`<button class="skin-card ${a.skin===id?'active':''}" data-action="choose-skin" data-skin="${id}" aria-pressed="${a.skin===id}"><span class="skin-swatch ${id}" aria-hidden="true"></span><strong>${name}</strong><small>${desc}</small></button>`).join('')}</div><label class="field-row"><span>减少透明度，优先清晰与性能</span><input type="checkbox" data-field="reduce-transparency" ${a.transparency==='reduced'?'checked':''}></label><p class="appearance-note">通透材质用于播放台与浮层；画板保持清晰。外观偏好仅保存在本机，换肤不会修改作品。系统开启“减少动态”时，界面自动停用过渡动画。</p>`, '同一套排版和控件，两种光线。');
+        openModal('外观与动效', `<div class="appearance-grid">${[['crystal','清白','清爽白色 · 彩色键帽'],['pearl','暖白','柔和暖白 · 彩色键帽']].map(([id,name,desc])=>`<button class="skin-card ${a.skin===id?'active':''}" data-action="choose-skin" data-skin="${id}" aria-pressed="${a.skin===id}"><span class="skin-swatch ${id}" aria-hidden="true"></span><strong>${name}</strong><small>${desc}</small></button>`).join('')}</div><label class="field-row"><span>减少透明度</span><input type="checkbox" data-field="reduce-transparency" ${a.transparency==='reduced'?'checked':''}></label><label class="field-row"><span>减少动态效果</span><input type="checkbox" data-field="reduce-motion" ${a.motion==='reduced'?'checked':''}></label><p class="appearance-note">音符与乐句保留轻微厚度，网格保持稳定。减少动态时保留选中、吸附和播放位置提示；系统的减少动态设置也会自动生效。</p>`, '轻触、拿起、落定。');
     }
     let bankRequest=null;
     async function loadSampleBank(id){
@@ -527,12 +532,14 @@
         return next;
     }
     function editorMore(){const t=track(),p=pattern();
-        openModal('编辑工具',`<h3>片段</h3><div class="studio-tools-menu">${t.patterns.map(x=>button('pattern',esc(x.name),'','soft-btn',`data-id="${x.id}"`)).join('')}${button('add-pattern','新片段','plus')}${button('duplicate-pattern','创建独立副本','copy')}</div><label>片段长度 <select data-field="pattern-length">${[1,2,4,8,16].map(n=>`<option value="${n}" ${p.bars===n?'selected':''}>${n} 小节</option>`).join('')}</select></label><h3>创作辅助</h3><div class="studio-tools-menu">${button('composer','和弦进行','chord','soft-btn')}${button('catalog','素材模板','folder','soft-btn')}${button('groove','Swing / 律动','wave')}${button('transpose-dialog','移调 / 调式适配','piano')}${button('scale-lock','简化音阶显示','grid')}${button('octave-down','浏览低八度','minus')}${button('octave-up','浏览高八度','plus')}</div><div class="studio-tools-menu"><label>参考主音 <select data-field="key">${KEYS.map((k,i)=>`<option value="${i}" ${project.key===i?'selected':''}>${k}</option>`).join('')}</select></label><label>参考音阶 <select data-field="scale">${Object.keys(SCALES).map(k=>`<option value="${k}" ${project.scale===k?'selected':''}>${({major:'大调',minor:'小调',pentatonic:'五声音阶',chromatic:'半音阶'})[k]}</option>`).join('')}</select></label><label><input data-field="input-snap" type="checkbox" ${S.inputSnap?'checked':''}>新音符吸附调内</label></div><h3>音符操作</h3><div class="studio-tools-menu">${[['up','升八度'],['down','降八度'],['mirror','半音镜像'],['mirror-scale','调内镜像'],['reverse','时间反转'],['humanize','力度变化']].map(([v,l])=>button('transform',l,'','quiet',`data-transform="${v}"`)).join('')}${button('shorten-notes','时长减半')}${button('lengthen-notes','时长加倍')}${button('split-notes','拆分音符')}${button('clear-pattern','清空片段','trash')}</div><h3>试听范围</h3><div class="studio-tools-menu">${button('listen-pattern','当前片段')}${button('listen-bar','当前小节')}${button('clear-solo','全曲')}</div><p>参考调性不改变已有音符。共享片段的修改会同步到全部引用。</p>`);
+        openModal('编辑工具',`<h3>画布</h3><div class="studio-tools-menu"><label><input data-field="continuous" type="checkbox" ${S.continuous?'checked':''}>连续显示全部小节</label>${button('fit-notes','适配音符','grid')}${button('zoom-out','缩小','minus')}${button('zoom-in','放大','plus')}${button('note-inspector','精细编辑','pencil')}</div><h3>片段</h3><div class="studio-tools-menu">${t.patterns.map(x=>button('pattern',esc(x.name),'','soft-btn',`data-id="${x.id}"`)).join('')}${button('add-pattern','新片段','plus')}${button('duplicate-pattern','创建独立副本','copy')}</div><label>片段长度 <select data-field="pattern-length">${[1,2,4,8,16].map(n=>`<option value="${n}" ${p.bars===n?'selected':''}>${n} 小节</option>`).join('')}</select></label><h3>创作辅助</h3><div class="studio-tools-menu">${button('composer','和弦进行','chord','soft-btn')}${button('catalog','素材模板','folder','soft-btn')}${button('groove','Swing / 律动','wave')}${button('transpose-dialog','移调 / 调式适配','piano')}${button('scale-lock','简化音阶显示','grid')}${button('octave-down','浏览低八度','minus')}${button('octave-up','浏览高八度','plus')}</div><div class="studio-tools-menu"><label>参考主音 <select data-field="key">${KEYS.map((k,i)=>`<option value="${i}" ${project.key===i?'selected':''}>${k}</option>`).join('')}</select></label><label>参考音阶 <select data-field="scale">${Object.keys(SCALES).map(k=>`<option value="${k}" ${project.scale===k?'selected':''}>${({major:'大调',minor:'小调',pentatonic:'五声音阶',chromatic:'半音阶'})[k]}</option>`).join('')}</select></label><label><input data-field="input-snap" type="checkbox" ${S.inputSnap?'checked':''}>新音符吸附调内</label></div><h3>音符操作</h3><div class="studio-tools-menu">${[['up','升八度'],['down','降八度'],['mirror','半音镜像'],['mirror-scale','调内镜像'],['reverse','时间反转'],['humanize','力度变化']].map(([v,l])=>button('transform',l,'','quiet',`data-transform="${v}"`)).join('')}${button('shorten-notes','时长减半')}${button('lengthen-notes','时长加倍')}${button('split-notes','拆分音符')}${button('clear-pattern','清空片段','trash')}</div><h3>试听范围</h3><div class="studio-tools-menu">${button('listen-pattern','当前片段')}${button('listen-bar','当前小节')}${button('clear-solo','全曲')}</div><p>参考调性不改变已有音符。共享片段的修改会同步到全部引用。</p>`);
     }
     async function showRecoveries(){try{const rows=await G.listRecoveries();openModal('恢复版本',`<p>保留最近 10 个自动恢复点，间隔至少 30 秒。恢复可以撤销。</p><div class="recovery-list">${rows.length?rows.map(r=>button('restore-recovery',esc(r.title)+' · '+new Date(r.time).toLocaleString(),'undo','soft-btn',`data-id="${r.id}"`)).join(''):'修改作品后会生成恢复点。'}</div>`);}catch(e){toast(e.message);}}
 
     function handleAction(action, el) {
-        if(S.modal&&['pattern','duplicate-pattern','duplicate-clip','unlink-clip','transform','shorten-notes','lengthen-notes','split-notes','octave-up','octave-down','scale-lock','listen-pattern','listen-bar','clear-solo'].includes(action))closeModal();
+        if(S.modal&&['fit-notes','zoom-out','zoom-in','pattern','duplicate-pattern','duplicate-clip','unlink-clip','transform','shorten-notes','lengthen-notes','split-notes','octave-up','octave-down','scale-lock','listen-pattern','listen-bar','clear-solo'].includes(action))closeModal();
+        if(action==='workspace-menu'){openModal('乐构 · 工作台',`<div class="studio-tools-menu">${button('project-menu','工程','folder')}${button('catalog','模板与素材','grid')}${button('view','混音台','mix','','data-view="mix"')}${button('appearance','外观与动效','spark')}${button('help','操作帮助','help')}</div>`);return;}
+        if(action==='preview-track'){const t=project.tracks.find(t=>t.id===el.dataset.id);if(t){openPattern({trackId:t.id});playback.start('pattern').then(render);}return;}
         if(action==='close-editor'){S.editorOpen=false;render();return;}
         if(action==='expand-editor'){S.editorExpanded=!S.editorExpanded;render();return;}
         if(action==='clear-range'){playback.setRange(null);render();return;}
@@ -580,7 +587,7 @@
             render();
         }
         else if (action === 'fit-notes') {
-            const v=G.fitViewport(S, track(), pattern());v.rowHeight=clamp(Math.floor((($('.grid-scroll')?.clientHeight||240)-35)/v.span),10,32);
+            const v=G.fitViewport(S, track(), pattern());v.rowHeight=clamp(Math.floor((($('.grid-scroll')?.clientHeight||360)-110)/v.span),14,32);v.zoomX=1;
             render();const sc=$('.grid-scroll');if(sc)sc.scrollTop=0;
         }
         else if (action === 'zoom-in' || action === 'zoom-out') {
@@ -905,6 +912,7 @@
         }
     });
     function handleField(el) {
+        if(el.dataset.field==='reduce-motion'){G.appearance.set({motion:el.checked?'reduced':'normal'});return;}
         if(el.dataset.field==='reduce-transparency'){G.appearance.set({transparency:el.checked?'reduced':'normal'});return;}
         if (composer.handleField(el) || materials.handleField(el))
             return;
@@ -1072,7 +1080,7 @@
     let animationLast = 0;
     function animation(time) {
         requestAnimationFrame(animation);
-        if (!document.hidden) { updatePlayhead(); const line=$('#arrange-playhead'),lane=$('.arrange-lane');if(line&&lane){line.style.left=($('.ruler-label')?.offsetWidth||G.UI_METRICS.trackHead)+'px';line.style.transform='translateX('+(playback.position()/BAR/project.bars*lane.clientWidth)+'px)';line.style.display=!B.audition&&['song','tracks'].includes(B.target)?'block':'none';}}
+        if (!document.hidden) { updatePlayhead();G.motion?.playback({project,S,B,engine,position:playback.position()}); const line=$('#arrange-playhead'),lane=$('.arrange-lane');if(line&&lane){line.style.left=($('.ruler-label')?.offsetWidth||G.UI_METRICS.trackHead)+'px';line.style.transform='translateX('+(playback.position()/BAR/project.bars*lane.clientWidth)+'px)';line.style.display=!B.audition&&['song','tracks'].includes(B.target)?'block':'none';}}
         // Keep audio scheduling independent; only throttle visual work while idle or hidden.
         if (document.hidden || time - animationLast < (engine.playing ? 100 : 300)) return;
         animationLast = time;
@@ -1126,7 +1134,7 @@
         }
     });
     /** Small public API for automated testing and future integrations. */
-    globalThis.GridToneApp = { version: '1.4.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, openPattern, changeView, engine, playback, render };
+    globalThis.GridToneApp = { version: '1.5.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, openPattern, changeView, engine, playback, render };
     render();
     requestAnimationFrame(animation);
     (async () => {
@@ -1142,7 +1150,7 @@
             }
             const saved = await loadLocal();
             if (saved && !interacted) {
-                project = G.pinDocument(validateProject(saved));
+                project = refreshPalette(G.pinDocument(validateProject(saved)));
                 S.trackId = project.tracks[0].id;
                 S.patternId = project.tracks[0].patterns[0].id;
                 G.restoreWorkspace(S, project);

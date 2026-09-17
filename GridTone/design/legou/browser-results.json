@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-16T01:50:45.517Z",
+  "results": [
+    {
+      "name": "view switch preserves audio graph, origin and compilation",
+      "result": "PASS"
+    },
+    {
+      "name": "view switch preserves current phrase",
+      "result": "PASS"
+    },
+    {
+      "name": "arrangement and phrase views remain directly reachable",
+      "result": "PASS"
+    },
+    {
+      "name": "playback lights notes without geometric transforms",
+      "result": "PASS"
+    },
+    {
+      "name": "stopping clears note lighting",
+      "result": "PASS"
+    },
+    {
+      "name": "reduced motion disables animation and retains geometry",
+      "result": "PASS"
+    },
+    {
+      "name": "motion preference exposed in settings",
+      "result": "PASS"
+    },
+    {
+      "name": "mix navigation closes overlay and leaves workspace operable",
+      "result": "PASS"
+    },
+    {
+      "name": "editor can collapse",
+      "result": "PASS"
+    },
+    {
+      "name": "phrase navigation reopens collapsed editor",
+      "result": "PASS"
+    },
+    {
+      "name": "branding is consistent in page and export",
+      "result": "PASS"
+    },
+    {
+      "name": "all export formats remain available",
+      "result": "PASS"
+    }
+  ]
+}

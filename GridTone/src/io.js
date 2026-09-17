@@ -54,7 +54,7 @@
         return result;
     }
     function downloadBlob(blob, name) { const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = name; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 10000); }
-    const safeFilename = name => String(name).replace(/[\\/:*?"<>|]/g, '_').slice(0, 70) || '声格作品';
+    const safeFilename = name => String(name).replace(/[\\/:*?"<>|]/g, '_').slice(0, 70) || '乐构作品';
     let dbPromise = null;
     function openDB() {
         if (!globalThis.indexedDB)

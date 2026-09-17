@@ -4,7 +4,7 @@
     'use strict';
     const PPQ = 960, BAR = 3840, STEP = 240;
     const LIMITS = { tracks: 64, bars: 256, notes: 100000, assetsBytes: 24 * 1024 * 1024 };
-    const COLORS = ['#9a79dd', '#e99b6c', '#a28cce', '#86909e', '#cb819a', '#8da289', '#b79a83', '#799fba'];
+    const COLORS = ['#2875f5', '#f66570', '#34b995', '#ee9552', '#9774cf', '#419caf', '#bb7483', '#7488ad'];
     const SCALES = { major: [0, 2, 4, 5, 7, 9, 11], minor: [0, 2, 3, 5, 7, 8, 10], pentatonic: [0, 2, 4, 7, 9], chromatic: Array.from({ length: 12 }, (_, i) => i) };
     const KEYS = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
     const DRUMS = [{ pitch: 36, name: '底鼓', en: 'KICK' }, { pitch: 38, name: '军鼓', en: 'SNARE' }, { pitch: 42, name: '闭镲', en: 'CLOSED HAT' }, { pitch: 46, name: '开镲', en: 'OPEN HAT' }, { pitch: 39, name: '拍手', en: 'CLAP' }, { pitch: 45, name: '低嗵鼓', en: 'LOW TOM' }, { pitch: 49, name: '吊镲', en: 'CRASH' }, { pitch: 37, name: '鼓边', en: 'RIM' }];
@@ -28,7 +28,7 @@
     const newPattern = (name = '片段 A', bars = 1) => ({ id: uid('p'), name, bars, notes: [] });
     function newTrack(kind = 'melodic', index = 0, preset = 'epiano') {
         const p = newPattern();
-        return { id: uid('t'), name: kind === 'drum' ? '节奏鼓组' : '新音轨', kind, color: COLORS[index % COLORS.length], preset: kind === 'drum' && preset === 'epiano' ? 'drums' : preset, volume: kind === 'drum' ? .68 : .65, pan: 0, mute: false,
+        return { id: uid('t'), name: kind === 'drum' ? '节奏鼓组' : '新音轨', kind, color: kind==='drum'?'#f66570':/bass/.test(preset)?'#34b995':/piano|keys|pad/.test(preset)?'#ee9552':'#2875f5', preset: kind === 'drum' && preset === 'epiano' ? 'drums' : preset, volume: kind === 'drum' ? .68 : .65, pan: 0, mute: false,
             sound: { brightness: .55, attack: .01, release: .32 }, fx: { reverb: kind === 'drum' ? .09 : .24, delay: 0, drive: 0 }, pipeline: { transpose: 0, arp: 'off', rate: STEP, humanize: 0 },
             patterns: [p], clips: [{ id: uid('c'), patternId: p.id, bar: 0 }] };
     }
@@ -81,7 +81,7 @@
     }
     function validateProject(input) {
         if (!input || typeof input !== 'object' || ![1, 2].includes(input.version))
-            throw Error('工程格式不支持：支持声格 v1 / v2 工程。');
+            throw Error('工程格式不支持：支持乐构 / 声格 v1、v2 工程。');
         if (G.assertDataTree)
             G.assertDataTree(input);
         const p = clone(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;

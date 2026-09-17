@@ -1,50 +1,56 @@
-# GridTone 1.4 · Design QA
+# 乐构 1.5 · Design QA
 
-final result: passed
+**final result: passed**
 
-## Visual truth and evidence
+## 对照目标与范围
 
-- Selected reference: `design/selected-reference.png` (1586 × 992 pixels).
-- Running implementation: `design/qa/desktop-final.png` (1586 × 992 capture; measured CSS viewport 1586 × 992). Browser zoom/DPR was 1.1. The capture provider additionally scales the page within its canvas; retained raw captures and normalized the 1442 × 902 content area to 1586 × 992 for comparison. This normalization does not prove native text antialiasing fidelity.
-- Full paired view: `design/qa/comparison.png`; focused transport/track comparison: `design/qa/detail-comparison.png`.
-- Other viewports: `laptop.png` (1280 × 720 CSS), `mobile.png` (390 × 843 CSS), in `design/qa/`. Temporary viewport overrides reset after QA.
-- State: stopped, 92 BPM, glass-night demo, arrangement above the note editor. Actual project contains repeated 4-bar patterns; the reference has visually continuous 8-bar clips. The implementation exposes real pattern boundaries and shared references.
+- Source visual truth：`design/legou/reference.png`，用户最近选中的方向 1“细磨砂键帽”。
+- Implementation：`design/legou/phrase-desktop.png`；编排视图：`arrange-desktop.png`。
+- Viewport：1500 × 1049 CSS px。源图和浏览器截图均为 1500 × 1049 px，无密度重采样。
+- Full-view combined evidence：`design/legou/comparison.png`（3000 × 1087，包含标题栏）。
+- Focused combined evidence：`design/legou/detail-comparison.png`（1120 × 200，实际音符区域裁剪，无拉伸）。
+- 状态：四轨、4 小节，旋律编辑视图；独立 QA 工程，不替换用户工程作为交付。
+- 参考图是材质和视觉方向。用户追问布局后，保留编排与乐句两个工作视图；现有音轨音量、处理、缩放、保存/恢复等入口继续保留。图中示意音符和真实 QA 工程不是同一段乐谱，不把音符数量、实际音高和片段命名差异计为还原错误。正式交付恢复用户原作品。
 
-## Findings and fixes
+## Findings / 已修复
 
-1. **P1, resolved — editor/arrangement sizing.** Initial layout hid the dock at laptop sizes. Fixed the flex height chain and independent scroll regions. Dock remains visible at 1280 × 720 and 390 × 843. On small screens the track list scrolls intentionally; persistent controls stay inside the viewport.
-2. **P2, resolved — four-track layout clipped the last row on desktop.** Track height now accounts for the resizable dock, transport and footer. All four default tracks fit at the reference viewport. Evidence: desktop-final.png.
-3. **P2, resolved — stale canvas width after resize.** Resize redraw applies whenever the notes dock is open, including arrangement mode. Note grid fills the available width.
-4. **P2, resolved — small-screen hidden controls.** Restored the mixing navigation, project folder and export icon. Evidence: mobile.png.
-5. **P2, resolved — sound and pipeline panes cramped in a short dock.** Selecting them expands the editor; returning to notes restores the split workspace. Existing library, audition, sound parameters and processing controls remain functional.
-6. **P2, resolved — old gradients and track palettes remained in secondary surfaces.** Updated the shared controls, mixer, sound panels and built-in starter palette. Slider thumbs now have a light raised surface; filled tracks indicate values. No decorative scene background.
-7. **P2, resolved — dense track labels and weak hierarchy.** Enlarged desktop track names and brand, widened the fixed track header, and preserved truncation and hover titles.
+1. [P1] 乐句侧栏被音轨数量撑高，编排区与标题受到旧高度约束影响。
+   - 修复：给创作区独立高度，轨道列表独立滚动，编排区恢复自然文档高度；旧滚动/弹性约束被明确覆盖。
+2. [P2] 旧默认配色残留、素材面板控件沿用旧色。
+   - 修复：旧默认轨道色按角色迁移，保留自定义颜色；按钮、滑块、混音、弹层统一颜色与表面令牌。
+3. [P2] 音符材质偏平，主要标签字号偏小。
+   - 修复：增加音符上沿、下沿和短接触阴影，细磨砂面保持真实坐标；增加桌面主操作、轨道名称和品牌字号。
+4. [P2] 窄屏底栏被旧 clock 宽度规则撑成三行，轨道列继承过宽 flex-basis。
+   - 修复：底栏恢复 49px，轨道头 116px，当前轨道自动滚入可见范围；390px 无页面级横向溢出。
+5. [P2] 编排分隔条被固定最大高度限制。
+   - 修复：分别保存编排/乐句编辑高度；原生鼠标验证拖动方向和真实画布尺寸一致。
 
-## Required fidelity surfaces
+## Comparison history
 
-- **Typography:** native macOS/PingFang fallback; desktop brand 28/21px, track names 16px, auxiliary text 12px. The reference has slightly larger musical labels. Secondary editor controls are denser to accommodate actual precision tools. Browser capture resampling softens text; exact pixel antialiasing is unverified.
-- **Spacing/layout:** aligned sticky track labels, eight-bar ruler, split dock and continuous editing. Deliberate functional differences: precision toolbar, dock resizing handle, pattern reference marks, and separate audition controls. Dock defaults to 260px rather than the reference's shorter visual-only piano panel.
-- **Color/tokens:** cool gray background, purple selection, apricot/orange transport and bass, neutral gray melody. Glass is limited to transport and floating surfaces. Music content is substantially opaque for reliable reading. Reference's stronger glossy highlights are restrained here to keep the canvas calm.
-- **Images/assets:** no photographic or illustrative assets are required in this functional workspace. Retained supplied app logo/icon set; the score and keyboard are actual interactive musical data. Did not replace music with a background screenshot. Raw and normalized QA captures are retained.
-- **Copy/content:** actual project names, instruments, bar counts and states. Shared references are explicit; key context is distinguished from transposition; audition and apply are separate. No implementation instructions exposed as product copy.
+- 第一轮：查看参考图及实际页，发现侧栏伸长、旧配色和区域重叠，修复后重拍。
+- 第二轮：生成全图与局部组合对照，发现主字号和键帽深度不足；加强可操作对象的材质，背景保持安定。
+- 第三轮：重新截图并生成上述最终组合对照，检查主视图、音色、演奏处理、混音和手机尺寸。没有剩余阻断功能或可达性的 P0/P1/P2。
 
-## Interaction and runtime checks
+## Five fidelity surfaces
 
-- 123/123 Node tests, including the five original gesture failures and event coalescing.
-- 14/14 actual browser checks on the single-file release: solo/volume without graph or score rebuild, playing undo/tempo changes, stable grid DOM, audio output, loop/stop origins, IndexedDB/recovery, MIDI/WAV generation, project reopen.
-- Direct UI checks: right-click note menu; before/after preview and atomic apply; template preview/use; sound/pipeline panels; resize; actual pointer drag plus Escape returns the document and history unchanged.
-- Browser console error list empty at final runtime check.
-- Screenshot comparison repeated after sizing, palette, navigation and control refinements.
+- **Typography**：系统中文字体，主控 13–16px，品牌 38px；辅助 10–12px。文字可读，长音色名称截断且 title 可查看。参考图更大、更稀疏的展示型字号未逐像素复刻，生产界面保留更多既有操作。
+- **Spacing/layout**：乐句为主时左侧声音列表、中央网格、下方编排；编排视图反转任务重心。可调高度、局部滚动、独立底栏使工具保持可达。参考的装饰性外框没有加入。
+- **Colors/tokens**：清白/暖白底，蓝/珊瑚/薄荷/杏橙的角色色。选择保留原色并加边界，错误使用虚线加文字。材质只用于控件与音乐对象。
+- **Assets**：复用现有源项目的矢量图标，无新增下载图片。音符、网格、速度条和缩略乐谱是可编辑的数据可视化，非截图或装饰贴图。局部对照确认浅高光与接触阴影；无模糊背景、反光大块或位图缩放问题。
+- **Copy**：品牌与导出改为乐构；内部 GridTone API、存储键和 `.gridtone` 格式保留兼容。标题采用“把音乐搭起来”；错误文案给出可操作原因。
+
+## Verification
+
+- 127/127 Node tests：`design/legou/core-tests.tap`。
+- 14/14 音频/保存/导出浏览器回归：`audio-results.json`。
+- 12/12 UI 状态回归：`browser-results.json`。
+- 8/8 原生 CDP 鼠标/键盘检查：`pointer-results.json`。包含取消、原位/目标轮廓、一次提交、跨类型拒绝、分隔条和验证缓存。
+- 响应尺寸：1500×1049、1280×800、390×844。后两者没有页面级横向溢出，时间轴保留内部滚动。
+- 检查到的浏览器 console errors：0。
+- 材质、焦点、禁用、静音、播放高亮和减少动态状态已检查；减少动态不删除落点/选择反馈。
 
 ## Follow-up polish / limits
 
-- P3: exact highlight strength and hover feel remain a subjective iteration with the user.
-- Physical touch hardware, output-device latency, long-duration stress and subjective listening are not certified. Browser audio signal and a short zero-late/zero-skipped sample are evidence of this run, not universal performance guarantees.
-
-## Implementation checklist
-
-- [x] Compare complete view and focused region with selected reference.
-- [x] Resolve actionable P0/P1/P2 issues found in this pass.
-- [x] Test primary editing/listening/saving/export flows.
-- [x] Check small screens and console errors.
-- [x] Keep local preview open; no external deployment.
+- [P3] 辅助标签保留较紧凑的信息密度，与效果图的展示型字号有差异。
+- [P3] 当前图标沿用已有矢量资产，未来可制作统一的品牌图标集。
+- 未实测物理触屏、所有操作系统、长时间高负载、硬件音频延迟及主观听感；不把短时信号检查等同于这些结果。

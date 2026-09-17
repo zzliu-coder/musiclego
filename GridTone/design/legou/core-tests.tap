@@ -1,0 +1,772 @@
+TAP version 13
+# Subtest: built-in templates and 47 presets come from validated catalog configuration
+ok 1 - built-in templates and 47 presets come from validated catalog configuration
+  ---
+  duration_ms: 10.237084
+  type: 'test'
+  ...
+# Subtest: example pack installs one sound, nine-row kit, three templates, and a real WAV
+ok 2 - example pack installs one sound, nine-row kit, three templates, and a real WAV
+  ---
+  duration_ms: 1.140292
+  type: 'test'
+  ...
+# Subtest: reimporting identical material is idempotent
+ok 3 - reimporting identical material is idempotent
+  ---
+  duration_ms: 6.31275
+  type: 'test'
+  ...
+# Subtest: changed library id cannot replace sound already used in a project
+ok 4 - changed library id cannot replace sound already used in a project
+  ---
+  duration_ms: 0.878667
+  type: 'test'
+  ...
+# Subtest: unknown engine and malicious data fail before any library mutation
+ok 5 - unknown engine and malicious data fail before any library mutation
+  ---
+  duration_ms: 3.957542
+  type: 'test'
+  ...
+# Subtest: missing dependency is reported atomically
+ok 6 - missing dependency is reported atomically
+  ---
+  duration_ms: 0.181958
+  type: 'test'
+  ...
+# Subtest: duplicate ids, unsafe ids, invalid timing, and oversized rows rejected
+ok 7 - duplicate ids, unsafe ids, invalid timing, and oversized rows rejected
+  ---
+  duration_ms: 2.70925
+  type: 'test'
+  ...
+# Subtest: custom sound applied to new track is pinned in project, original stays unchanged
+ok 8 - custom sound applied to new track is pinned in project, original stays unchanged
+  ---
+  duration_ms: 2.5365
+  type: 'test'
+  ...
+# Subtest: drum kit application pins sample and exposes ninth row for editing
+ok 9 - drum kit application pins sample and exposes ninth row for editing
+  ---
+  duration_ms: 0.834375
+  type: 'test'
+  ...
+# Subtest: two uses of a template create distinct independent pattern and note ids
+ok 10 - two uses of a template create distinct independent pattern and note ids
+  ---
+  duration_ms: 0.472042
+  type: 'test'
+  ...
+# Subtest: new insertion validates collisions without altering original arrangement
+ok 11 - new insertion validates collisions without altering original arrangement
+  ---
+  duration_ms: 0.163666
+  type: 'test'
+  ...
+# Subtest: template replacement retains shared references and repeats a shorter template
+ok 12 - template replacement retains shared references and repeats a shorter template
+  ---
+  duration_ms: 0.305041
+  type: 'test'
+  ...
+# Subtest: oversized replacement never truncates or shifts existing clips silently
+ok 13 - oversized replacement never truncates or shifts existing clips silently
+  ---
+  duration_ms: 0.085083
+  type: 'test'
+  ...
+# Subtest: existing track retains sound unless explicit sound replacement requested
+ok 14 - existing track retains sound unless explicit sound replacement requested
+  ---
+  duration_ms: 0.1785
+  type: 'test'
+  ...
+# Subtest: template pitch conversion is explicit; source template and global reference retained
+ok 15 - template pitch conversion is explicit; source template and global reference retained
+  ---
+  duration_ms: 0.176834
+  type: 'test'
+  ...
+# Subtest: whole-song template regenerates identity and embeds custom dependencies
+ok 16 - whole-song template regenerates identity and embeds custom dependencies
+  ---
+  duration_ms: 1.64325
+  type: 'test'
+  ...
+# Subtest: saved project opens in clean runtime with custom sound and drum samples, without imported library
+ok 17 - saved project opens in clean runtime with custom sound and drum samples, without imported library
+  ---
+  duration_ms: 7.274458
+  type: 'test'
+  ...
+# Subtest: missing sound opens with explicit diagnostic and never falls back to piano
+ok 18 - missing sound opens with explicit diagnostic and never falls back to piano
+  ---
+  duration_ms: 0.198125
+  type: 'test'
+  ...
+# Subtest: missing sample stays editable and is blocked only for an audible target
+ok 19 - missing sample stays editable and is blocked only for an audible target
+  ---
+  duration_ms: 1.019375
+  type: 'test'
+  ...
+# Subtest: track and note ids cannot escape HTML attributes in imported projects
+ok 20 - track and note ids cannot escape HTML attributes in imported projects
+  ---
+  duration_ms: 0.0695
+  type: 'test'
+  ...
+# Subtest: a project cannot silently shadow a built-in kit
+ok 21 - a project cannot silently shadow a built-in kit
+  ---
+  duration_ms: 0.114917
+  type: 'test'
+  ...
+# Subtest: opening a kit with missing sample preserves repairable content and reports it
+ok 22 - opening a kit with missing sample preserves repairable content and reports it
+  ---
+  duration_ms: 0.142959
+  type: 'test'
+  ...
+# Subtest: catalog refuses a drum pattern with melodic engine atomically
+ok 23 - catalog refuses a drum pattern with melodic engine atomically
+  ---
+  duration_ms: 3.769916
+  type: 'test'
+  ...
+# Subtest: timebase: a 4/4 bar contains sixteen 240-tick cells
+ok 24 - timebase: a 4/4 bar contains sixteen 240-tick cells
+  ---
+  duration_ms: 1.143708
+  type: 'test'
+  ...
+# Subtest: original demo validates and has four tracks, eight bars
+ok 25 - original demo validates and has four tracks, eight bars
+  ---
+  duration_ms: 7.709208
+  type: 'test'
+  ...
+# Subtest: blank project is playable, valid, and contains one empty pattern
+ok 26 - blank project is playable, valid, and contains one empty pattern
+  ---
+  duration_ms: 0.112209
+  type: 'test'
+  ...
+# Subtest: preset library retains 26 legacy definitions and adds 21 distinct instrument presets
+ok 27 - preset library retains 26 legacy definitions and adds 21 distinct instrument presets
+  ---
+  duration_ms: 0.120959
+  type: 'test'
+  ...
+# Subtest: MIDI pitch naming uses C4 = 60
+ok 28 - MIDI pitch naming uses C4 = 60
+  ---
+  duration_ms: 0.056958
+  type: 'test'
+  ...
+# Subtest: scale membership and nearest-pitch snapping
+ok 29 - scale membership and nearest-pitch snapping
+  ---
+  duration_ms: 0.148833
+  type: 'test'
+  ...
+# Subtest: chord input expands into independent editable notes
+ok 30 - chord input expands into independent editable notes
+  ---
+  duration_ms: 0.425833
+  type: 'test'
+  ...
+# Subtest: chord input never exceeds MIDI pitch 127
+ok 31 - chord input never exceeds MIDI pitch 127
+  ---
+  duration_ms: 0.047667
+  type: 'test'
+  ...
+# Subtest: time reversal accounts for the full note duration
+ok 32 - time reversal accounts for the full note duration
+  ---
+  duration_ms: 0.272375
+  type: 'test'
+  ...
+# Subtest: applying time reversal twice restores the original
+ok 33 - applying time reversal twice restores the original
+  ---
+  duration_ms: 0.318791
+  type: 'test'
+  ...
+# Subtest: pitch reflection is centred on the first selected note
+ok 34 - pitch reflection is centred on the first selected note
+  ---
+  duration_ms: 0.121375
+  type: 'test'
+  ...
+# Subtest: scale-locked reflection yields in-scale pitches
+ok 35 - scale-locked reflection yields in-scale pitches
+  ---
+  duration_ms: 0.056542
+  type: 'test'
+  ...
+# Subtest: octave movement clamps at MIDI endpoints
+ok 36 - octave movement clamps at MIDI endpoints
+  ---
+  duration_ms: 0.092708
+  type: 'test'
+  ...
+# Subtest: circular shift wraps starts and clips tails at pattern end
+ok 37 - circular shift wraps starts and clips tails at pattern end
+  ---
+  duration_ms: 0.043417
+  type: 'test'
+  ...
+# Subtest: doubling creates fresh ids and a second copy one pattern later
+ok 38 - doubling creates fresh ids and a second copy one pattern later
+  ---
+  duration_ms: 0.052792
+  type: 'test'
+  ...
+# Subtest: variation copy is independent of original
+ok 39 - variation copy is independent of original
+  ---
+  duration_ms: 0.04925
+  type: 'test'
+  ...
+# Subtest: compilation respects mute and solo
+ok 40 - compilation respects mute and solo
+  ---
+  duration_ms: 0.411959
+  type: 'test'
+  ...
+# Subtest: compiling a single pattern has its own duration and no other tracks
+ok 41 - compiling a single pattern has its own duration and no other tracks
+  ---
+  duration_ms: 0.183
+  type: 'test'
+  ...
+# Subtest: repeated clips share musical content at distinct positions
+ok 42 - repeated clips share musical content at distinct positions
+  ---
+  duration_ms: 0.054583
+  type: 'test'
+  ...
+# Subtest: arpeggiator unfolds simultaneous notes without mutating source
+ok 43 - arpeggiator unfolds simultaneous notes without mutating source
+  ---
+  duration_ms: 0.127375
+  type: 'test'
+  ...
+# Subtest: descending and bouncing arpeggio orders
+ok 44 - descending and bouncing arpeggio orders
+  ---
+  duration_ms: 0.121334
+  type: 'test'
+  ...
+# Subtest: arpeggio leaves single-note phrases unchanged
+ok 45 - arpeggio leaves single-note phrases unchanged
+  ---
+  duration_ms: 0.046
+  type: 'test'
+  ...
+# Subtest: humanization is deterministic and within pattern bounds
+ok 46 - humanization is deterministic and within pattern bounds
+  ---
+  duration_ms: 0.06275
+  type: 'test'
+  ...
+# Subtest: swing delays alternate sixteenth cells, preserving raw note data
+ok 47 - swing delays alternate sixteenth cells, preserving raw note data
+  ---
+  duration_ms: 0.044334
+  type: 'test'
+  ...
+# Subtest: drum pipeline preserves drum keys and bypasses arpeggio
+ok 48 - drum pipeline preserves drum keys and bypasses arpeggio
+  ---
+  duration_ms: 0.055083
+  type: 'test'
+  ...
+# Subtest: placement rejects overlaps and supports moving its own clip
+ok 49 - placement rejects overlaps and supports moving its own clip
+  ---
+  duration_ms: 0.072833
+  type: 'test'
+  ...
+# Subtest: validation rejects version, tempo and track-count corruption
+ok 50 - validation rejects version, tempo and track-count corruption
+  ---
+  duration_ms: 0.164459
+  type: 'test'
+  ...
+# Subtest: validation rejects invalid, out-of-bounds and duplicate note ids
+ok 51 - validation rejects invalid, out-of-bounds and duplicate note ids
+  ---
+  duration_ms: 0.562583
+  type: 'test'
+  ...
+# Subtest: validation rejects overlapping arrangement clips
+ok 52 - validation rejects overlapping arrangement clips
+  ---
+  duration_ms: 0.081834
+  type: 'test'
+  ...
+# Subtest: v2 preserves missing sample reference for explicit repair
+ok 53 - v2 preserves missing sample reference for explicit repair
+  ---
+  duration_ms: 0.044875
+  type: 'test'
+  ...
+# Subtest: maximum track count and project length retain valid structure
+ok 54 - maximum track count and project length retain valid structure
+  ---
+  duration_ms: 1.252167
+  type: 'test'
+  ...
+# Subtest: project JSON round trip preserves complete musical data
+ok 55 - project JSON round trip preserves complete musical data
+  ---
+  duration_ms: 0.63125
+  type: 'test'
+  ...
+# Subtest: MIDI has a valid format-1 header and 960 PPQ division
+ok 56 - MIDI has a valid format-1 header and 960 PPQ division
+  ---
+  duration_ms: 0.4105
+  type: 'test'
+  ...
+# Subtest: MIDI timing and note events match compiled musical events
+ok 57 - MIDI timing and note events match compiled musical events
+  ---
+  duration_ms: 3.607958
+  type: 'test'
+  ...
+# Subtest: MIDI reserves channel 10 for percussion and encodes tempo
+ok 58 - MIDI reserves channel 10 for percussion and encodes tempo
+  ---
+  duration_ms: 1.811334
+  type: 'test'
+  ...
+# Subtest: MIDI export includes note pipeline and swing
+ok 59 - MIDI export includes note pipeline and swing
+  ---
+  duration_ms: 0.146
+  type: 'test'
+  ...
+# Subtest: MIDI export explicitly rejects more than 15 melodic channels
+ok 60 - MIDI export explicitly rejects more than 15 melodic channels
+  ---
+  duration_ms: 0.504125
+  type: 'test'
+  ...
+# Subtest: 16-bit WAV header is stereo, interleaved, and correctly sized
+ok 61 - 16-bit WAV header is stereo, interleaved, and correctly sized
+  ---
+  duration_ms: 0.361792
+  type: 'test'
+  ...
+# Subtest: WAV scaling and clipping avoid int16 overflow
+ok 62 - WAV scaling and clipping avoid int16 overflow
+  ---
+  duration_ms: 0.225584
+  type: 'test'
+  ...
+# Subtest: custom instruments can register a new renderer
+ok 63 - custom instruments can register a new renderer
+  ---
+  duration_ms: 0.176666
+  type: 'test'
+  ...
+# Subtest: fixed viewport is a window, never forced to include distant notes
+ok 64 - fixed viewport is a window, never forced to include distant notes
+  ---
+  duration_ms: 5.034125
+  type: 'test'
+  ...
+# Subtest: simplified rows retain chromatic notes within view without rewriting data
+ok 65 - simplified rows retain chromatic notes within view without rewriting data
+  ---
+  duration_ms: 0.825875
+  type: 'test'
+  ...
+# Subtest: view pan zoom and fit leave compiled music untouched
+ok 66 - view pan zoom and fit leave compiled music untouched
+  ---
+  duration_ms: 0.798083
+  type: 'test'
+  ...
+# Subtest: semitone mirror does not depend on visible scale or reference key
+ok 67 - semitone mirror does not depend on visible scale or reference key
+  ---
+  duration_ms: 0.341625
+  type: 'test'
+  ...
+# Subtest: diatonic reflection uses degree distance and is reversible for in-scale data
+ok 68 - diatonic reflection uses degree distance and is reversible for in-scale data
+  ---
+  duration_ms: 0.534125
+  type: 'test'
+  ...
+# Subtest: diatonic reflection refuses to silently alter chromatic notes
+ok 69 - diatonic reflection refuses to silently alter chromatic notes
+  ---
+  duration_ms: 0.425708
+  type: 'test'
+  ...
+# Subtest: explicit transpose changes pitches while preserving times, ids and intervals
+ok 70 - explicit transpose changes pitches while preserving times, ids and intervals
+  ---
+  duration_ms: 0.42575
+  type: 'test'
+  ...
+# Subtest: key transpose uses nearest direction and scale adaptation is explicit
+ok 71 - key transpose uses nearest direction and scale adaptation is explicit
+  ---
+  duration_ms: 0.534709
+  type: 'test'
+  ...
+# Subtest: invalid pitch and incompatible scales reject without partially changing source
+ok 72 - invalid pitch and incompatible scales reject without partially changing source
+  ---
+  duration_ms: 0.557417
+  type: 'test'
+  ...
+# Subtest: candidate selection changes only selected notes, preserves reference and document
+ok 73 - candidate selection changes only selected notes, preserves reference and document
+  ---
+  duration_ms: 0.851167
+  type: 'test'
+  ...
+# Subtest: ruler click never writes music
+ok 74 - ruler click never writes music
+  ---
+  duration_ms: 8.320125
+  type: 'test'
+  ...
+# Subtest: Escape rolls back live drawing without an undo item
+ok 75 - Escape rolls back live drawing without an undo item
+  ---
+  duration_ms: 7.564042
+  type: 'test'
+  ...
+# Subtest: right click on a note opens menu without ReferenceError
+ok 76 - right click on a note opens menu without ReferenceError
+  ---
+  duration_ms: 1.532834
+  type: 'test'
+  ...
+# Subtest: Shift marquee adds to prior selection
+ok 77 - Shift marquee adds to prior selection
+  ---
+  duration_ms: 3.201125
+  type: 'test'
+  ...
+# Subtest: touch movement below threshold cannot silently alter pitch
+ok 78 - touch movement below threshold cannot silently alter pitch
+  ---
+  duration_ms: 0.936959
+  type: 'test'
+  ...
+# Subtest: 120 pointer events coalesce to one animation update and one undo
+ok 79 - 120 pointer events coalesce to one animation update and one undo
+  ---
+  duration_ms: 1.840834
+  type: 'test'
+  ...
+# Subtest: pointercancel restores original note geometry and prior selection
+ok 80 - pointercancel restores original note geometry and prior selection
+  ---
+  duration_ms: 0.82075
+  type: 'test'
+  ...
+# Subtest: subthreshold note movement is selection only
+ok 81 - subthreshold note movement is selection only
+  ---
+  duration_ms: 1.316583
+  type: 'test'
+  ...
+# Subtest: one committed drag snaps timing and keeps duration unchanged
+ok 82 - one committed drag snaps timing and keeps duration unchanged
+  ---
+  duration_ms: 1.007
+  type: 'test'
+  ...
+# Subtest: window blur cancels the drawing transaction
+ok 83 - window blur cancels the drawing transaction
+  ---
+  duration_ms: 0.79875
+  type: 'test'
+  ...
+# Subtest: isolated pattern ignores project mute and unrelated temporary solo
+ok 84 - isolated pattern ignores project mute and unrelated temporary solo
+  ---
+  duration_ms: 5.313292
+  type: 'test'
+  ...
+# Subtest: bar audition clips and carries sustained notes at its local zero
+ok 85 - bar audition clips and carries sustained notes at its local zero
+  ---
+  duration_ms: 2.427375
+  type: 'test'
+  ...
+# Subtest: selected tracks isolate two tracks, independent from mute and solo
+ok 86 - selected tracks isolate two tracks, independent from mute and solo
+  ---
+  duration_ms: 1.034709
+  type: 'test'
+  ...
+# Subtest: invalid local scope fails explicitly rather than quietly playing all
+ok 87 - invalid local scope fails explicitly rather than quietly playing all
+  ---
+  duration_ms: 0.281209
+  type: 'test'
+  ...
+# Subtest: playback controller follows editor pattern, returns to song without stopping, keeps full song across workspaces
+ok 88 - playback controller follows editor pattern, returns to song without stopping, keeps full song across workspaces
+  ---
+  duration_ms: 0.410125
+  type: 'test'
+  ...
+# Subtest: whole-song export ignores temporary solo but respects project mute
+ok 89 - whole-song export ignores temporary solo but respects project mute
+  ---
+  duration_ms: 0.755167
+  type: 'test'
+  ...
+# Subtest: candidate audition does not mutate document, and stop restores original target
+ok 90 - candidate audition does not mutate document, and stop restores original target
+  ---
+  duration_ms: 0.7265
+  type: 'test'
+  ...
+# Subtest: stop during pending audio initialization invalidates a main start
+ok 91 - stop during pending audio initialization invalidates a main start
+  ---
+  duration_ms: 0.1845
+  type: 'test'
+  ...
+# Subtest: stop during pending note preview invalidates preview generation
+ok 92 - stop during pending note preview invalidates preview generation
+  ---
+  duration_ms: 0.384166
+  type: 'test'
+  ...
+# Subtest: idle seek after leaving a loop is not clamped to a stale plan
+ok 93 - idle seek after leaving a loop is not clamped to a stale plan
+  ---
+  duration_ms: 0.449833
+  type: 'test'
+  ...
+# Subtest: restore whole song clears solo without restarting an existing song clock
+ok 94 - restore whole song clears solo without restarting an existing song clock
+  ---
+  duration_ms: 0.312875
+  type: 'test'
+  ...
+# Subtest: fingerprint has semantic skins, transparency fallback, and touch sizing in shared manifest
+ok 95 - fingerprint has semantic skins, transparency fallback, and touch sizing in shared manifest
+  ---
+  duration_ms: 1.860666
+  type: 'test'
+  ...
+# Subtest: new presets use seven different synthesis families, legacy 26 remain addressable
+ok 96 - new presets use seven different synthesis families, legacy 26 remain addressable
+  ---
+  duration_ms: 0.297833
+  type: 'test'
+  ...
+# Subtest: 24 harmonic recipes are independently named and fit the supported clip lengths
+ok 97 - 24 harmonic recipes are independently named and fit the supported clip lengths
+  ---
+  duration_ms: 0.392584
+  type: 'test'
+  ...
+# Subtest: every progression in twelve keys, three voicings and four rhythms produces valid ordinary notes
+ok 98 - every progression in twelve keys, three voicings and four rhythms produces valid ordinary notes
+  ---
+  duration_ms: 109.661584
+  type: 'test'
+  ...
+# Subtest: voicing preserves chord pitch classes and never invents a scale correction
+ok 99 - voicing preserves chord pitch classes and never invents a scale correction
+  ---
+  duration_ms: 4.14075
+  type: 'test'
+  ...
+# Subtest: minor dominant retains raised leading tone; half diminished chord has flat fifth
+ok 100 - minor dominant retains raised leading tone; half diminished chord has flat fifth
+  ---
+  duration_ms: 0.101667
+  type: 'test'
+  ...
+# Subtest: a smooth four-chord loop moves less than root-position in the standard pop example
+ok 101 - a smooth four-chord loop moves less than root-position in the standard pop example
+  ---
+  duration_ms: 0.137542
+  type: 'test'
+  ...
+# Subtest: progression invalid options are rejected rather than silently changing pitches
+ok 102 - progression invalid options are rejected rather than silently changing pitches
+  ---
+  duration_ms: 0.131834
+  type: 'test'
+  ...
+# Subtest: generated chord pattern can be applied, independently edited, saved and reopened
+ok 103 - generated chord pattern can be applied, independently edited, saved and reopened
+  ---
+  duration_ms: 2.173333
+  type: 'test'
+  ...
+# Subtest: short existing clip refuses long harmonic replacement and preserves shared references
+ok 104 - short existing clip refuses long harmonic replacement and preserves shared references
+  ---
+  duration_ms: 0.493875
+  type: 'test'
+  ...
+# Subtest: new catalog has exact starter roles and all old seven template ids still exist
+ok 105 - new catalog has exact starter roles and all old seven template ids still exist
+  ---
+  duration_ms: 0.948917
+  type: 'test'
+  ...
+# Subtest: every template can be applied to a fresh song, compiled, serialized and reopened
+ok 106 - every template can be applied to a fresh song, compiled, serialized and reopened
+  ---
+  duration_ms: 15.520917
+  type: 'test'
+  ...
+# Subtest: new drum templates use 16-cell grid, distinguish velocities, and contain no duplicate hit
+ok 107 - new drum templates use 16-cell grid, distinguish velocities, and contain no duplicate hit
+  ---
+  duration_ms: 0.930541
+  type: 'test'
+  ...
+# Subtest: starter songs have matching four tracks, eight bars, no overlapping clips
+ok 108 - starter songs have matching four tracks, eight bars, no overlapping clips
+  ---
+  duration_ms: 1.651208
+  type: 'test'
+  ...
+# Subtest: multi-sample registry validates zones before importing anything
+ok 109 - multi-sample registry validates zones before importing anything
+  ---
+  duration_ms: 0.413042
+  type: 'test'
+  ...
+# Subtest: multi-sample missing dependency cannot partially install a sound
+ok 110 - multi-sample missing dependency cannot partially install a sound
+  ---
+  duration_ms: 0.083583
+  type: 'test'
+  ...
+# Subtest: multi-sample assets pin to a project and survive a clean runtime without its library
+ok 111 - multi-sample assets pin to a project and survive a clean runtime without its library
+  ---
+  duration_ms: 6.000875
+  type: 'test'
+  ...
+# Subtest: missing embedded multi-sample remains openable and repairable without silent fallback
+ok 112 - missing embedded multi-sample remains openable and repairable without silent fallback
+  ---
+  duration_ms: 0.177959
+  type: 'test'
+  ...
+# Subtest: R1: migrates v1 without mutating source or musical notes
+ok 113 - R1: migrates v1 without mutating source or musical notes
+  ---
+  duration_ms: 11.952708
+  type: 'test'
+  ...
+# Subtest: R1: view-only browsing does not change project or compiled notes
+ok 114 - R1: view-only browsing does not change project or compiled notes
+  ---
+  duration_ms: 6.26625
+  type: 'test'
+  ...
+# Subtest: R1: all clip openings resolve coherent track/pattern/instance
+ok 115 - R1: all clip openings resolve coherent track/pattern/instance
+  ---
+  duration_ms: 0.92425
+  type: 'test'
+  ...
+# Subtest: R1: deleted selections and monitoring ids reconcile
+ok 116 - R1: deleted selections and monitoring ids reconcile
+  ---
+  duration_ms: 2.948375
+  type: 'test'
+  ...
+# Subtest: R1: local scope and labels use actual pattern length
+ok 117 - R1: local scope and labels use actual pattern length
+  ---
+  duration_ms: 0.297416
+  type: 'test'
+  ...
+# Subtest: triplet and free timing have distinct quantization
+ok 118 - triplet and free timing have distinct quantization
+  ---
+  duration_ms: 0.44575
+  type: 'test'
+  ...
+# Subtest: continuous and paged windows preserve musical coordinates
+ok 119 - continuous and paged windows preserve musical coordinates
+  ---
+  duration_ms: 0.375542
+  type: 'test'
+  ...
+# Subtest: empty clip selection returns a consistent transaction
+ok 120 - empty clip selection returns a consistent transaction
+  ---
+  duration_ms: 1.941042
+  type: 'test'
+  ...
+# Subtest: copy creates independent musical pattern while preserving source
+ok 121 - copy creates independent musical pattern while preserving source
+  ---
+  duration_ms: 1.030625
+  type: 'test'
+  ...
+# Subtest: collision rejects an entire multi-clip transaction without mutation
+ok 122 - collision rejects an entire multi-clip transaction without mutation
+  ---
+  duration_ms: 0.540417
+  type: 'test'
+  ...
+# Subtest: incompatible track move is rejected without losing source clips
+ok 123 - incompatible track move is rejected without losing source clips
+  ---
+  duration_ms: 0.455125
+  type: 'test'
+  ...
+# Subtest: each pattern keeps an independent viewport
+ok 124 - each pattern keeps an independent viewport
+  ---
+  duration_ms: 0.220916
+  type: 'test'
+  ...
+# Subtest: idle loop selection starts at absolute start exactly once
+ok 125 - idle loop selection starts at absolute start exactly once
+  ---
+  duration_ms: 0.401125
+  type: 'test'
+  ...
+# Subtest: first stop returns to seek origin; second clears range and returns to song zero
+ok 126 - first stop returns to seek origin; second clears range and returns to song zero
+  ---
+  duration_ms: 0.5815
+  type: 'test'
+  ...
+# Subtest: audition close restores local position and active playback
+ok 127 - audition close restores local position and active playback
+  ---
+  duration_ms: 1.820375
+  type: 'test'
+  ...
+1..127
+# tests 127
+# suites 0
+# pass 127
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 237.140375

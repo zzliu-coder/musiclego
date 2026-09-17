@@ -1,0 +1,4 @@
+/** Isolated visual/gesture fixture; never used as the user's default project. */
+(()=>{const G=GridTone,p=G.blankProject();p.id='legou-qa-fixture';p.title='一点小灵感';p.bpm=92;p.bars=8;p.tracks=[];
+const names=['鼓点','贝斯','和弦','旋律'],presets=['drums','roundbass','epiano','marimba'],colors=['#f66570','#34b995','#ee9552','#2875f5'];
+for(let i=0;i<4;i++){const t=G.newTrack(i===0?'drum':'melodic',i,presets[i]);t.name=names[i];t.color=colors[i];const pat=G.newPattern('A 段',2);pat.bars=2;pat.notes=[];const pitches=i===0?[36,42,38,42,36,42,38,42]:i===1?[36,36,43,36,41,41,48,41]:i===2?[60,64,67,60,57,60,64,57]:[72,71,69,69,72,74,76,72];pitches.forEach((pitch,n)=>pat.notes.push(G.newNote(pitch,n*G.STEP*4,G.STEP*2,.65+(n%3)*.1)));t.patterns=[pat];t.clips=[{id:G.uid('c'),patternId:pat.id,bar:0},{id:G.uid('c'),patternId:pat.id,bar:4}];p.tracks.push(t);}return p;})();

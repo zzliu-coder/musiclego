@@ -1,8 +1,8 @@
 {
   "name": "gridtone",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
-  "description": "声格：可离线运行的音乐绘画编辑器，零运行时依赖。",
+  "description": "乐构：把音乐搭起来。可离线运行的音乐创作工作台。",
   "scripts": {
     "start": "node scripts/server.mjs",
     "catalog": "node scripts/catalog-build.mjs",

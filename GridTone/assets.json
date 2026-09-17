@@ -17,6 +17,7 @@
     "src/ui/appearance.js",
     "src/ui/focus.js",
     "src/ui/editor-gestures.js",
+    "src/ui/motion.js",
     "src/views/properties.js",
     "src/views/shell.js",
     "src/views/piano-roll.js",
@@ -41,6 +42,7 @@
     "src/styles/responsive.css",
     "src/styles/responsive-sound.css",
     "src/styles/material.css",
-    "src/styles/studio.css"
+    "src/styles/studio.css",
+    "src/styles/legou.css"
   ]
 }

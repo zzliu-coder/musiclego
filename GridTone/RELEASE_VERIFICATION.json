@@ -1,21 +1,210 @@
 {
-  "version": "1.4.0",
-  "baseline": "c28eabe",
-  "coreTests": 123,
-  "corePassed": true,
-  "browserChecks": 14,
-  "browserAllPassed": true,
-  "browserEntry": "dist/index.html",
-  "htmlBytes": 560201,
-  "htmlSHA256": "578df7c18aad72596157bae762737ec68f717b42797258774a3c7cefef47b71a",
-  "rebuildMatchesDeliveredHTML": true,
-  "runtimeDependencies": [],
-  "visualQA": "design-qa.md",
-  "browserEvidence": "design/qa/browser-results.json",
+  "app": "乐构",
+  "version": "1.5.0",
+  "date": "2026-09-16",
+  "artifact": {
+    "app": "乐构",
+    "version": "1.5.0",
+    "bytes": 598592,
+    "sha256": "94c6c5b6dcfa33d20b434c8650244a9158bdfadc204e16ebafb21aa8400fe0ad",
+    "runtimeDependencies": [],
+    "entry": "index.html"
+  },
+  "coreTests": {
+    "passed": 127,
+    "failed": 0,
+    "evidence": "design/legou/core-tests.tap"
+  },
+  "browserAudio": {
+    "date": "2026-09-16T01:50:45.425Z",
+    "method": "Actual local Chromium DOM events, Web Audio, IndexedDB and offline export; hardware listening not assessed",
+    "results": [
+      {
+        "name": "solo preserves graph and compiled plan",
+        "result": "PASS"
+      },
+      {
+        "name": "tempo change keeps playback and graph",
+        "result": "PASS"
+      },
+      {
+        "name": "undo while playing",
+        "result": "PASS"
+      },
+      {
+        "name": "shell render retains musical grid",
+        "result": "PASS"
+      },
+      {
+        "name": "volume bypasses score compile",
+        "result": "PASS"
+      },
+      {
+        "detail": {
+          "lateWindows": 0,
+          "peak": 0.3221471905708313,
+          "skippedEvents": 0
+        },
+        "name": "audio output contains signal",
+        "result": "PASS"
+      },
+      {
+        "name": "loop position is not double-offset",
+        "result": "PASS"
+      },
+      {
+        "name": "first stop returns to origin",
+        "result": "PASS"
+      },
+      {
+        "name": "second stop returns to zero",
+        "result": "PASS"
+      },
+      {
+        "name": "IndexedDB round trip",
+        "result": "PASS"
+      },
+      {
+        "name": "recovery snapshot is readable",
+        "result": "PASS"
+      },
+      {
+        "name": "MIDI export header",
+        "result": "PASS"
+      },
+      {
+        "detail": {
+          "bytes": 2369940
+        },
+        "name": "WAV export",
+        "result": "PASS"
+      },
+      {
+        "name": "project export/reopen keeps music",
+        "result": "PASS"
+      }
+    ]
+  },
+  "browserUI": {
+    "date": "2026-09-16T01:50:45.517Z",
+    "results": [
+      {
+        "name": "view switch preserves audio graph, origin and compilation",
+        "result": "PASS"
+      },
+      {
+        "name": "view switch preserves current phrase",
+        "result": "PASS"
+      },
+      {
+        "name": "arrangement and phrase views remain directly reachable",
+        "result": "PASS"
+      },
+      {
+        "name": "playback lights notes without geometric transforms",
+        "result": "PASS"
+      },
+      {
+        "name": "stopping clears note lighting",
+        "result": "PASS"
+      },
+      {
+        "name": "reduced motion disables animation and retains geometry",
+        "result": "PASS"
+      },
+      {
+        "name": "motion preference exposed in settings",
+        "result": "PASS"
+      },
+      {
+        "name": "mix navigation closes overlay and leaves workspace operable",
+        "result": "PASS"
+      },
+      {
+        "name": "editor can collapse",
+        "result": "PASS"
+      },
+      {
+        "name": "phrase navigation reopens collapsed editor",
+        "result": "PASS"
+      },
+      {
+        "name": "branding is consistent in page and export",
+        "result": "PASS"
+      },
+      {
+        "name": "all export formats remain available",
+        "result": "PASS"
+      }
+    ]
+  },
+  "nativePointer": [
+    {
+      "name": "native note drag Escape restores notes and undo history",
+      "result": "PASS"
+    },
+    {
+      "name": "native clip pickup shows origin and valid snap destination",
+      "result": "PASS"
+    },
+    {
+      "name": "native clip drop commits exactly once at snapped bar",
+      "result": "PASS"
+    },
+    {
+      "name": "cross-kind target explains rejection before dropping",
+      "result": "PASS"
+    },
+    {
+      "name": "invalid drop retains original clip and history",
+      "result": "PASS"
+    },
+    {
+      "name": "phrase divider follows pointer and resizes the actual canvas",
+      "result": "PASS"
+    },
+    {
+      "name": "arrangement divider adjusts its independent editor height",
+      "result": "PASS"
+    },
+    {
+      "name": "same snap destination validates once across four pointer frames",
+      "result": "PASS",
+      "previewCount": 1
+    }
+  ],
+  "userProjectPreservation": {
+    "comparison": "Recursive sorted-key comparison; presentation color excluded",
+    "sameMusicalDocument": true,
+    "title": "玻璃小夜曲",
+    "trackCount": 5,
+    "version": "1.5.0",
+    "view": "arrange"
+  },
+  "designQA": "passed",
+  "consoleErrors": 0,
+  "viewports": [
+    [
+      1500,
+      1049
+    ],
+    [
+      1280,
+      800
+    ],
+    [
+      390,
+      844
+    ]
+  ],
   "limitations": [
-    "Physical touch hardware and subjective listening not assessed",
-    "No long-duration stress or end-to-end audio latency certification",
-    "Browser capture resampling prevents exact antialiasing comparison",
-    "Legacy 1.3 Python browser suites were not used as 1.4 acceptance evidence"
+    "Physical touchscreen not tested",
+    "Long-running heavy-project performance not measured",
+    "Hardware latency and subjective listening not assessed"
+  ],
+  "compatibility": [
+    "GridTone internal API and .gridtone document format retained",
+    "Local storage keys retained",
+    "声格.html remains a compatibility entry"
   ]
 }

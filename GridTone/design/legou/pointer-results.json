@@ -1,0 +1,35 @@
+[
+  {
+    "name": "native note drag Escape restores notes and undo history",
+    "result": "PASS"
+  },
+  {
+    "name": "native clip pickup shows origin and valid snap destination",
+    "result": "PASS"
+  },
+  {
+    "name": "native clip drop commits exactly once at snapped bar",
+    "result": "PASS"
+  },
+  {
+    "name": "cross-kind target explains rejection before dropping",
+    "result": "PASS"
+  },
+  {
+    "name": "invalid drop retains original clip and history",
+    "result": "PASS"
+  },
+  {
+    "name": "phrase divider follows pointer and resizes the actual canvas",
+    "result": "PASS"
+  },
+  {
+    "name": "arrangement divider adjusts its independent editor height",
+    "result": "PASS"
+  },
+  {
+    "name": "same snap destination validates once across four pointer frames",
+    "result": "PASS",
+    "previewCount": 1
+  }
+]
