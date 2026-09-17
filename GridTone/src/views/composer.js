@@ -5,11 +5,11 @@
   open(){
    const p=this.c.getProject(),s=this.c.getSession(),t=p.tracks.find(x=>x.id===s.trackId);
    if(t.kind==='drum')throw Error('请先进入旋律音轨，再生成和弦进行。');
-   this.options={key:p.key,voicing:'smooth',rhythm:'whole',mode:'new',trackId:t.id,patternId:s.patternId,bar:0,adapt:'original',applySound:false};this.place();this.render();
+   this.frozen=null;this.options={key:p.key,voicing:'smooth',rhythm:'whole',mode:'new',trackId:t.id,patternId:s.patternId,bar:0,adapt:'original',applySound:false};this.place();this.render();
   }
   place(){const p=this.c.getProject(),t=p.tracks.find(x=>x.id===this.options.trackId),r=G.PROGRESSIONS.find(x=>x.id===this.id);const free=G.firstFreeBar(t,{bars:r.bars},p.bars);this.options.bar=free<0?p.bars:free;}
   generated(){return G.generateProgression(this.id,this.options);}
-  candidate(){const g=this.generated();return G.applyTemplate(this.c.getProject(),g.template,this.options);}
+  candidate(){const token=G.contentHash(this.c.getProject()),key=JSON.stringify([this.id,this.options]);if(this.frozen?.key===key){if(this.frozen.token!==token)throw Error('原稿已变化，请重新打开和弦进行。');return G.clone(this.frozen.result);}const g=this.generated(),result=G.applyTemplate(this.c.getProject(),g.template,this.options);this.frozen={token,key,result:G.clone(result)};return result;}
   render(){
    const {button,esc,openModal}=this.c,o=this.options,g=this.generated(),r=g.recipe,p=this.c.getProject(),t=p.tracks.find(x=>x.id===o.trackId),pat=t.patterns.find(x=>x.id===o.patternId),refs=t.clips.filter(x=>x.patternId===pat?.id).length;
    const token=G.ui.captureFocus();

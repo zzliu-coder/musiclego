@@ -1,0 +1,22 @@
+/** Read-only reproduction against the fixed 1.5.0 HTML, isolated from user storage. */
+import {execFileSync} from 'node:child_process';import {readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';import {harness,root} from './browser-harness.mjs';
+const commit='0f9977725a68930aa57f93369828a041de860586',show=path=>execFileSync('git',['show',commit+':GridTone/'+path],{cwd:root,maxBuffer:8*1024*1024}).toString();
+const html=show('dist/index.html'),h=await harness({html}),results=[];
+try{
+ const error=await h.page.evaluate(()=>{const G=GridTone,p=G.blankProject();p.bars=16;p.tracks[0].patterns[0].bars=16;try{G.validateProject(p);return null;}catch(e){return e.message;}});assert.ok(error);results.push({id:'F01',status:'CONFIRMED_DEFECT',method:'baseline runtime validation',error});
+ for(const duration of [80,120]){
+  await h.page.evaluate(duration=>{const G=GridTone,p=G.blankProject();p.tracks[0].patterns[0].notes=[G.newNote(60,0,duration)];GridToneApp.loadProject(p);},duration);
+  await h.page.locator('#gridframe').focus();await h.page.keyboard.press('Meta+a');await h.page.locator('[data-action="editor-more"]').click();await h.page.locator('[data-action="shorten-notes"]').click();const actual=await h.page.evaluate(()=>GridToneApp.getProject().tracks[0].patterns[0].notes[0].duration);assert.equal(actual,240);results.push({id:'F02',status:'CONFIRMED_DEFECT',input:duration,expected:duration/2,actual});
+ }
+ const harmony=await h.page.evaluate(()=>GridTone.generateProgression('progression.pop').template.harmony??null);assert.equal(harmony,null);results.push({id:'F04',status:'CONFIRMED_DEFECT',method:'baseline progression output',harmony});
+ for(const [id,file,pattern] of [['F03','src/io.js',/'autosave'/],['F06','package.json',/run_browser_tests.py/],['F07','src/views/arrange.js',/Math.min\(w\+G.UI_METRICS.trackHead,1200\)/]]){
+  const source=show(file);const matches=pattern.test(source);results.push({id,status:'SOURCE_RECORDED',file,matches,sha256:createHash('sha256').update(source).digest('hex'),note:id==='F04'?'Baseline progression output has no explicit harmony metadata.':''});
+ }
+ results.push({id:'F05',status:'DEFERRED_BY_USER',note:'Small-screen experience deferred to a later dedicated task on 2026-09-18.'});
+ const basic=await h.page.evaluate(async()=>{const G=GridTone,A=GridToneApp,p=G.blankProject();p.title='基线基础路径';p.tracks[0].patterns[0].notes=[G.newNote(60,0,480,.7)];A.loadProject(p);await G.saveLocal(A.getProject());await A.playback.start('song');const playing=A.engine.playing;A.playback.stop();const wav=await A.engine.exportWav(A.getProject()),midi=G.encodeMidi(A.getProject());return {id:A.getProject().id,playing,stopped:!A.engine.playing,wavBytes:wav.blob.size,peak:wav.peak,midiBytes:midi.length,project:A.getProject()};});assert.ok(basic.playing&&basic.stopped&&basic.peak>0&&basic.wavBytes>44&&basic.midiBytes>20);await h.page.reload();await h.page.waitForFunction(id=>window.GridToneApp?.getProject().id===id,basic.id);assert.deepEqual(await h.page.evaluate(()=>GridToneApp.getProject()),basic.project);delete basic.project;results.push({id:'R0-T04',status:'PASS',method:'baseline real-origin save/reload and native Web Audio + MIDI rendering',...basic});
+ const v1=JSON.parse(await readFile(root+'examples/午后的留白.gridtone','utf8'));
+ const expected=await h.page.evaluate(p=>{const G=GridTone,doc=G.validateProject(p);return {document:doc,events:G.compileSong(doc).events};},v1);
+ await writeFile(h.output+'/fixtures/legacy-v1.gridtone',JSON.stringify(v1,null,2));
+ await writeFile(h.output+'/fixtures/legacy-v2.gridtone',JSON.stringify(expected.document,null,2));
+ const current=await harness();try{const migrated=await current.page.evaluate(p=>{const G=GridTone,doc=G.validateProject(p);return {document:doc,events:G.compileSong(doc).events,again:G.validateProject(doc)};},v1);assert.deepEqual(migrated.events,expected.events);assert.deepEqual(migrated.again,migrated.document);assert.equal(migrated.document.version,3);results.push({id:'R1-T09',status:'PASS',note:'v1 fixture musical events equal baseline after v3 migration; validation is idempotent.'});}finally{await current.close();}
+}finally{await writeFile(h.output+'/baseline.json',JSON.stringify({commit,sha256:h.sha256,date:new Date().toISOString(),results,scope:'Reproduced baseline defects, not current application PASS count.'},null,2));await h.close();}

@@ -54,5 +54,38 @@
         pat.notes = pat.notes.map(n => byId.get(n.id) || n);
         return p;
     }
-    Object.assign(G, { visiblePitches, degreePosition, degreePitch, mirrorDegree, changeNotePitches, pitchCandidate });
+    function durationNotes(notes, mode, length, cursor) {
+        if (!['split','cursor','half','double'].includes(mode)) throw Error('时长操作无效。');
+        return notes.flatMap(n => {
+            if (mode === 'split' || mode === 'cursor') {
+                if (mode === 'cursor' && !(cursor > n.start && cursor < n.start + n.duration)) return [{...n}];
+                if (n.duration < 2) throw Error('音符短于 2 ticks，无法拆成两个有效音符。');
+                const half = mode === 'cursor' ? cursor - n.start : n.duration / 2;
+                if (half < 1 || n.duration-half < 1) throw Error('拆分位置两侧都需要至少 1 tick。');
+                return [{ ...n, duration: half }, { ...n, id: G.uid('n'), start: n.start + half, duration: n.duration - half }];
+            }
+            const duration = mode === 'half' ? Math.max(1, n.duration / 2) : n.duration * 2;
+            if (n.start + duration > length) throw Error('加倍后超出片段，请先扩展片段长度。');
+            return [{ ...n, duration }];
+        });
+    }
+    function duplicateTrack(project, trackId) {
+        const p = G.clone(project), source = p.tracks.find(t => t.id === trackId);
+        if (!source) throw Error('音轨不存在。');
+        if (p.tracks.length >= G.LIMITS.tracks) throw Error('最多支持 64 条音轨。');
+        const t = G.clone(source), ids = new Map();
+        t.id = G.uid('t'); t.name += ' · 副本';
+        t.patterns = source.patterns.map(pat => { const copy = G.copyPattern(pat); copy.name = pat.name; ids.set(pat.id, copy.id); return copy; });
+        for (const pat of t.patterns) for (const ref of pat.generation?.sources || []) if (ref.trackId === source.id) ref.trackId = t.id;
+        t.clips = source.clips.map(c => ({ ...c, id: G.uid('c'), patternId: ids.get(c.patternId) }));
+        p.tracks.splice(p.tracks.indexOf(source) + 1, 0, t);
+        return { project: G.validateProject(p), trackId: t.id, patternId: t.patterns[0].id, clipId: t.clips[0]?.id };
+    }
+    function copyProject(project) {
+        const p=G.clone(project),ids=new Map([[p.id,G.uid('song')]]);
+        for(const t of p.tracks){ids.set(t.id,G.uid('t'));for(const pat of t.patterns){ids.set(pat.id,G.uid('p'));for(const n of pat.notes)ids.set(n.id,G.uid('n'));}for(const c of t.clips)ids.set(c.id,G.uid('c'));}
+        const remap=x=>Array.isArray(x)?x.map(remap):x&&typeof x==='object'?Object.fromEntries(Object.entries(x).map(([k,v])=>[ids.get(k)||k,remap(v)])):typeof x==='string'?(ids.get(x)||x):x;
+        const copy=remap(p);copy.title=p.title+' · 副本';return G.validateProject(copy);
+    }
+    Object.assign(G, { copyProject, durationNotes, duplicateTrack, visiblePitches, degreePosition, degreePitch, mirrorDegree, changeNotePitches, pitchCandidate });
 })(globalThis.GridTone ||= {});

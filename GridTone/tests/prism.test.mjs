@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
 import '../src/model.js';import '../src/presets.js';import '../src/session.js';import '../src/editing.js';import '../src/music/progressions.js';import '../src/catalog-data.js';import '../src/catalog.js';
+import '../src/music/harmony.js';
 const G=globalThis.GridTone;
 const pack=(id)=>({format:'gridtone.catalog',version:1,id,name:id,presets:[],drumkits:[],templates:[],assets:{}});
 const multi=(id,asset)=>({...G.PRESETS[0],id,engine:'multisample',zones:[{root:60,assetId:asset,gain:1}],profile:undefined,origin:'Test fixture only'});

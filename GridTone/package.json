@@ -1,6 +1,6 @@
 {
   "name": "gridtone",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "description": "乐构：把音乐搭起来。可离线运行的音乐创作工作台。",
   "scripts": {
@@ -9,10 +9,17 @@
     "build": "node scripts/build.mjs",
     "pretest": "node scripts/catalog-build.mjs",
     "test": "node --test tests/*.test.mjs tests/*.test.cjs",
-    "test:e2e": "npm run build && python3 tests/run_browser_tests.py",
-    "verify": "npm test && npm run test:e2e",
+    "test:e2e": "node tests/verify-storage.mjs && node tests/verify-workflow.mjs && node tests/verify-release-flow.mjs && node tests/verify-interactions.mjs",
+    "verify": "node scripts/verify.mjs",
     "prebuild": "node scripts/catalog-build.mjs",
     "catalog:generate": "node scripts/content-build.mjs && node scripts/catalog-build.mjs",
-    "test:prism": "npm run build && python3 tests/prism_browser.py"
+    "test:prism": "npm run build && python3 tests/prism_browser.py",
+    "verify:visual": "node tests/verify-visual.mjs",
+    "verify:audio": "node tests/verify-audio.mjs",
+    "verify:soak": "node tests/verify-soak.mjs",
+    "verify:release": "npm run verify && npm run verify:soak && node scripts/verify-acceptance.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }

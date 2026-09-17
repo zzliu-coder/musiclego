@@ -34,10 +34,11 @@
     open(title,body,subtitle='') {
       const overlay=document.querySelector('#overlay');
       if (!overlay.children.length) returnFocus=captureFocus();
-      overlay.innerHTML=`<div class="modal-backdrop" data-action="close-modal"></div><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><header><div><h2 id="modal-title" tabindex="-1">${G.ui.esc(title)}</h2>${subtitle?`<p>${G.ui.esc(subtitle)}</p>`:''}</div>${G.ui.ib('close-modal','关闭','close')}</header><div class="modal-body">${body}</div></section>`;
+      const focus=overlay.children.length?captureFocus():null;
+      overlay.innerHTML=G.ui.Dialog({title,body,subtitle});
       document.querySelector('#app').inert=true;
       const node=overlay.querySelector('#form-value,[autofocus]') || overlay.querySelector('#modal-title');
-      requestAnimationFrame(()=>{if(node?.isConnected)node.focus({preventScroll:true});});
+      requestAnimationFrame(()=>{if(!restoreFocus(focus)&&node?.isConnected)node.focus({preventScroll:true});});
     },
     close() {
       document.querySelector('#overlay').replaceChildren();

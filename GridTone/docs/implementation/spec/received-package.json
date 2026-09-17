@@ -1,0 +1,36 @@
+{
+  "source_name": "musiclego_模板优先_施工计划包.zip",
+  "sha256": "8f8fb12bdad43e759d4d8763c977e5887457f3b6ae8ef9bdc30299b050945ce9",
+  "files": [
+    {
+      "name": "musiclego_施工计划/README.md",
+      "bytes": 566,
+      "sha256": "978a25b54c8ea76ff2428bc3e9e9a56691e0d7b556a8cd01d3373ec941e78c4c"
+    },
+    {
+      "name": "musiclego_施工计划/SHA256SUMS.txt",
+      "bytes": 448,
+      "sha256": "c8928da3bc71c77f9a14d3f8a45c40a01bd8f438bdf84baaaf990594d308eb2a"
+    },
+    {
+      "name": "musiclego_施工计划/musiclego_详细施工计划.html",
+      "bytes": 90578,
+      "sha256": "ec26d38ded89b25bda3eddde64297ed51d934c11c7c8caaa4f10babff90ba164"
+    },
+    {
+      "name": "musiclego_施工计划/musiclego_详细施工计划.md",
+      "bytes": 73235,
+      "sha256": "b087b6dfd1cd0ba7e1cca80928519817c39c66c23074ae85ff280bb34433e856"
+    },
+    {
+      "name": "musiclego_施工计划/计划文件校验.json",
+      "bytes": 393,
+      "sha256": "ef3cb0384c9f2387ece217f7b306d06b05d6ca2ed2d9402df33c89fbdaadbb9d"
+    },
+    {
+      "name": "musiclego_施工计划/验收清单.json",
+      "bytes": 40920,
+      "sha256": "7c6e41a7d1e5cb5c7b266f01ff44fd7da72614150d1e7565c9474aff968e6266"
+    }
+  ]
+}

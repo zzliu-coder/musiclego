@@ -60,7 +60,8 @@
             }
             else
                 s = { type: 'sample', assetId: identifier(source.assetId, '采样编号') };
-            return { pitch: r.pitch, name: text(r.name, '鼓件', 40), en: text(r.en, '', 30), velocity: number(r.velocity ?? 1, .01, 1, '鼓件力度'), source: s };
+            if(r.role!==undefined&&!Object.keys(G.DRUM_ROLE_PITCH||{kick:36,snare:38,closedHat:42,openHat:46,clap:39,tom:45,crash:49,rim:37}).includes(r.role))throw Error('鼓件角色无效。');
+            return { ...(r.role?{role:r.role}:{}), pitch: r.pitch, name: text(r.name, '鼓件', 40), en: text(r.en, '', 30), velocity: number(r.velocity ?? 1, .01, 1, '鼓件力度'), source: s };
         });
         return { id: k.id, version: 1, name: text(k.name, '我的鼓组', 80), rows };
     }
@@ -232,10 +233,11 @@
         const common = { ...metadata, id: t.id, version: 1, type: t.type, name: text(t.name, '未命名模板', 80), description: text(t.description, '可以继续编辑的音乐素材。', 240) };
         if (t.type === 'song')
             return { ...common, project: G.validateProject(t.project) };
-        if (!['melodic', 'drum'].includes(t.kind) || ![1, 2, 4, 8].includes(t.bars) || !Array.isArray(t.notes) || t.notes.length > 10000)
+        if (!['melodic', 'drum'].includes(t.kind) || !G.PATTERN_BARS.includes(t.bars) || !Array.isArray(t.notes) || t.notes.length > 10000)
             throw Error('片段模板轨道类型、长度或音符数量无效。');
         if (!Number.isInteger(t.key) || t.key < 0 || t.key > 11 || !G.SCALES[t.scale])
             throw Error('模板参考调性无效。');
+        if(t.harmony){const hp={bars:t.bars,notes:t.notes,harmony:t.harmony};G.validateCreativeMetadata(hp);common.harmony=clone(t.harmony);}
         const notes = t.notes.map(n => { number(n.pitch, 0, 127, '音高'); if (!Number.isInteger(n.pitch))
             throw Error('音高必须是整数。'); number(n.start, 0, t.bars * BAR - 1, '开始位置'); number(n.duration, 1, t.bars * BAR - n.start, '时长'); number(n.velocity, .01, 1, '力度'); return { pitch: n.pitch, start: n.start, duration: n.duration, velocity: n.velocity }; });
         return { ...common, kind: t.kind, bars: t.bars, key: t.key, scale: t.scale, presetId: identifier(t.presetId || (t.kind === 'drum' ? 'drums' : 'epiano')), drumkitId: t.kind === 'drum' ? identifier(t.drumkitId || 'builtin.standard') : undefined, notes };
@@ -318,23 +320,9 @@
     function catalogContents() { return { presets: [...library.presets.values()].map(clone), drumkits: [...library.drumkits.values()].map(clone), templates: [...library.templates.values()].map(clone), packs: [...library.packs.values()].map(clone) }; }
     function getTemplate(id) { const t = library.templates.get(id); if (!t)
         throw Error('找不到这个模板。'); return clone(t); }
-    function newIdentity(p) { p.id = G.uid('song'); for (const t of p.tracks) {
-        t.id = G.uid('t');
-        const ids = new Map();
-        for (const pat of t.patterns) {
-            const old = pat.id;
-            pat.id = G.uid('p');
-            ids.set(old, pat.id);
-            for (const n of pat.notes)
-                n.id = G.uid('n');
-        }
-        for (const c of t.clips) {
-            c.id = G.uid('c');
-            c.patternId = ids.get(c.patternId);
-        }
-    } return p; }
-    function templateNotes(t, p, adapt) { let notes = t.notes.map(n => ({ ...n, id: G.uid('n') })); if (t.kind === 'melodic' && adapt !== 'original')
-        notes = G.changeNotePitches(notes, { mode: adapt === 'adapt' ? 'adapt' : 'key', sourceKey: t.key, sourceScale: t.scale, targetKey: p.key, targetScale: p.scale }); return notes; }
+    function newIdentity(p) { const copy=G.copyProject(p);copy.title=p.title;return copy; }
+    function templateNotes(t, p, adapt, target) { let notes = t.notes.map(n => ({ ...n, id: G.uid('n') })); if (t.kind === 'melodic' && adapt !== 'original')
+        notes = G.changeNotePitches(notes, { mode: adapt === 'adapt' ? 'adapt' : 'key', sourceKey: t.key, sourceScale: t.scale, targetKey: p.key, targetScale: p.scale }); if(t.kind==='drum' && (target.drumkitId||'builtin.standard')!==t.drumkitId){if(!G.remapDrums)throw Error('鼓角色映射模块未载入。');notes=G.remapDrums(notes,G.resolveKit(t.drumkitId,p).rows,G.drumsFor(p,target));}return notes; }
     function applyTemplate(project, template, options = {}) {
         const t = normalizeTemplate(template);
         if (t.type === 'song') {
@@ -375,7 +363,7 @@
             }
         }
         let pat, clip;
-        const notes = templateNotes(t, p, adapt);
+        const notes = templateNotes(t, p, adapt, track);
         if (mode === 'replace') {
             pat = track.patterns.find(x => x.id === options.patternId);
             if (!pat)
@@ -398,6 +386,14 @@
             clip = { id: G.uid('c'), patternId: pat.id, bar };
             track.clips.push(clip);
         }
+        if(t.harmony){
+            if(adapt==='adapt')throw Error('带和声说明的模板请保持原调或整体移调；级数适配需要重新确认和弦。');
+            const h=clone(t.harmony),delta=adapt==='key'?((p.key-t.key+18)%12)-6:0;
+            h.events=Array.from({length:pat.bars/t.bars},(_,i)=>t.harmony.events.map(e=>({...e,start:e.start+i*t.bars*BAR,rootPitchClass:G.pitchClass(e.rootPitchClass+delta),...(e.pitchClasses?{pitchClasses:e.pitchClasses.map(x=>G.pitchClass(x+delta))}:{})}))).flat();
+            G.confirmHarmony(pat,h);
+        }else{delete pat.harmony;}
+        delete pat.retention;delete pat.generation;
+        if(mode==='new-track'&&['drums','melody','bass','chords','texture'].includes(t.role))track.role=t.role;
         pinDocument(p);
         const checked = G.validateProject(p);
         assertPlayable(checked, [track.id]);

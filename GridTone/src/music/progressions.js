@@ -55,6 +55,7 @@
   if(!Number.isInteger(key)||key<0||key>11)throw Error('主音必须是 0–11。');
   if(!['smooth','root','open'].includes(style)||!['whole','pulse','arp','strum'].includes(rhythm))throw Error('排列或弹奏方式无效。');
   const notes=[],voicings=[];let previous=null;
+  const harmony={version:1,events:p.chords.map((c,i)=>({start:i*G.BAR,duration:G.BAR,rootPitchClass:(key+c.offset)%12,quality:c.quality})),source:{recipeId:p.id,recipeVersion:1},confirmedMusicHash:'pending'};
   p.chords.forEach((chord,bar)=>{
    // Fit roots into one mid-register octave before inversion; all source intervals remain exact.
    const root=48+(key+chord.offset)%12,vs=voiced(root,chord.quality,style,previous);previous=vs;voicings.push(vs);
@@ -64,7 +65,7 @@
    else if(rhythm==='strum')vs.forEach((pitch,i)=>add(pitch,i,15.8-i,.74-i*.055));
    else vs.forEach((pitch,i)=>add(pitch,0,15.8,.72-i*.045));
   });
-  return {template:{id:p.id+'.generated',version:1,type:'pattern',role:'chords',name:p.name,description:p.roman+' · '+p.description,kind:'melodic',bars:p.bars,key,scale:p.scale,presetId:'prism.tine',tags:[p.group,rhythm],notes},chords:p.chords.map(c=>chordName(c,key)),voicings,recipe:p};
+  return {template:{id:p.id+'.generated',version:1,type:'pattern',role:'chords',name:p.name,description:p.roman+' · '+p.description,kind:'melodic',bars:p.bars,key,scale:p.scale,presetId:'prism.tine',tags:[p.group,rhythm],notes,harmony},chords:p.chords.map(c=>chordName(c,key)),voicings,recipe:p};
  }
  Object.assign(G,{PROGRESSIONS,CHORD_SHAPES:Q,generateProgression,progressionChordName:chordName});
 })(globalThis.GridTone ||= {});

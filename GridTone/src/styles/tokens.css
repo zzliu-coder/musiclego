@@ -1,39 +1,71 @@
-/* PRISM 1.0 — semantic design fingerprint. All skins share geometry & hierarchy. */
-:root {
- --paper:#eaf0f5; --surface:#fafdff; --surface-raised:#fff;
- --ink:#253a4d; --muted:#536a7c; --subtle:#607687;
- --line:rgba(81,117,145,.14); --line-strong:rgba(66,105,137,.23);
- --brand:#286d85; --green:var(--brand); --accent:#bbebe9; --selected:#dceff3; --dark:#28647c;
- --warning:#865222; --warning-bg:#fff2df; --danger:#a03e52;
- --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
- --radius-sm:9px; --radius:14px; --radius-lg:20px;
- --control:34px; --control-small:30px; --touch-control:44px;
- --font-small:12px; --font-body:13px; --font-label:14px; --font-heading:18px;
+/* Sole token and theme source. Themes change values, never geometry. */
+:root{
+ --paper:#fafaf8;
+ --surface:#fdfdfc;
+ --surface-raised:#fff;
+ --ink:#252a32;
+ --muted:#68717d;
+ --subtle:#767e89;
+ --line:#e6e8e9;
+ --line-strong:#ccd1d8;
+ --brand:#2875f5;
+ --green:var(--brand);
+ --accent:#dceaff;
+ --selected:#e8f0ff;
+ --dark:#2168db;
+ --warning:#986323;
+ --warning-bg:#fff2df;
+ --danger:#bf3947;
+ --space-1:4px;
+ --space-2:8px;
+ --space-3:12px;
+ --space-4:16px;
+ --space-5:24px;
+ --radius-sm:7px;
+ --radius:10px;
+ --radius-lg:20px;
+ --control:34px;
+ --control-small:30px;
+ --touch-control:44px;
+ --font-small:12px;
+ --font-body:13px;
+ --font-label:14px;
+ --font-heading:18px;
  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
- --shadow:0 4px 8px rgba(42,75,106,.025),0 16px 40px rgba(42,75,106,.055);
+ --shadow:0 1px 2px #25303b0a;
  --shadow-raised:0 10px 40px rgba(35,66,102,.12),0 1px 2px rgba(35,66,102,.06);
  --focus:0 0 0 2px var(--surface),0 0 0 4px #276e90;
- --glass:rgba(250,253,255,.68); --glass-edge:rgba(255,255,255,.9);
+ --glass:var(--surface);
+ --glass-edge:var(--line);
  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 2px 4px rgba(34,63,98,.04),0 12px 36px rgba(34,63,98,.055);
- --glass-blur:20px; --button-face:linear-gradient(180deg,#ffffffec,#f4faffc4);
- --button-shadow:inset 0 1px 0 #fff,0 1px 3px rgba(36,77,107,.07);
- --ambient:radial-gradient(ellipse at 4% 10%,#d8eff399,transparent 50%),radial-gradient(ellipse at 100% 5%,#e5dcf17a,transparent 46%),radial-gradient(ellipse at 70% 100%,#dcefe780,transparent 50%);
- --track-head:208px; --track-row:76px;
- --grid-paper:#fbfdff; --grid-beat:#f0f5fa; --grid-key:#eaf1f7;
- --grid-major:#c4d3e0; --grid-minor:#e3ebf3; --grid-note:#367b97;
- --color-playhead:#297390; --duration-quick:130ms; --duration-panel:180ms;
- color-scheme:light; font:var(--font-body)/1.5 var(--font-ui);color:var(--ink);
- font-synthesis:none;-webkit-font-smoothing:antialiased;
+ --glass-blur:0px;
+ --button-face:#f3f4f5;
+ --button-shadow:inset 0 1px 0 #fff,0 1px 1px #303c4c15,0 2px 2px #303c4c09;
+ --ambient:none;
+ --track-head:208px;
+ --track-row:76px;
+ --grid-paper:#fcfcfa;
+ --grid-beat:#f0f5fa;
+ --grid-key:#f0f1ef;
+ --grid-major:#ccd1d4;
+ --grid-minor:#e6e8e6;
+ --grid-note:#367b97;
+ --color-playhead:#ee626a;
+ --duration-quick:130ms;
+ --duration-panel:180ms;
+ --bg:#fafaf8;
+ --piano-black:#f0f1ef;
+ --font:var(--font-ui);
+ --press-time:75ms;
+ --state-time:140ms;
+ --panel-time:210ms;
+ --ease-settle:cubic-bezier(.18,.8,.25,1);
+ --ease-panel:cubic-bezier(.2,.7,.2,1);
+ --depth-rest:inset 0 1px 0 #ffffffc9,inset 0 -1px 0 #17273e15,0 2px 3px #26344913;
+ --depth-pressed:inset 0 1px 2px #24395420,0 0 0 transparent;
+ --depth-lifted:inset 0 1px 0 #ffffffb3,0 5px 9px #20304729;
+ color-scheme:light;font:var(--font-body)/1.5 var(--font-ui);color:var(--ink);font-synthesis:none;-webkit-font-smoothing:antialiased;
 }
-:root[data-skin="pearl"]{
- --paper:#f3eeeb;--surface:#fffdfa;--surface-raised:#fff;
- --ink:#423c48;--muted:#6c626e;--subtle:#786c79;
- --line:rgba(119,96,114,.14);--line-strong:rgba(111,88,110,.23);
- --brand:#856272;--accent:#f1d6d5;--selected:#f3e5ea;--dark:#76556d;
- --glass:#fffafaad;--grid-paper:#fffcfd;--grid-beat:#f7f0f3;--grid-key:#f1e9f0;
- --grid-major:#dbccd6;--grid-minor:#eee4e9;--grid-note:#93708b;--color-playhead:#8a597a;
- --ambient:radial-gradient(ellipse at 4% 10%,#f6e8d9cc,transparent 48%),radial-gradient(ellipse at 100% 3%,#eee0f399,transparent 50%),radial-gradient(ellipse at 70% 100%,#efdeda77,transparent 50%);
- --button-face:linear-gradient(180deg,#fffefdec,#fff6fac4);
-}
-:root[data-transparency="reduced"]{--glass:var(--surface);--glass-blur:0px;--ambient:none;--glass-edge:var(--line-strong)}
+:root[data-skin=pearl]{--paper:#fcfaf5;--bg:#fcfaf5;--surface:#fffdf8;--grid-paper:#fffdf9;--grid-key:#f3f0e9;--grid-minor:#ebe7df;--grid-major:#d7d2c8;--ink:#34312d;--muted:#716c64;--brand:#2875f5;--selected:#e8f0ff;--button-face:#f4f1eb}
+:root[data-transparency=reduced]{--glass:var(--surface);--glass-blur:0px;--ambient:none;--glass-edge:var(--line-strong)}
 @media(prefers-reduced-transparency:reduce){:root{--glass:var(--surface);--glass-blur:0px;--ambient:none}}

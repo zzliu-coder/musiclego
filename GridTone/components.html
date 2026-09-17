@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#fafaf8"><meta name="description" content="乐构：轻触音符，拼接乐句，把音乐搭起来。离线音乐创作工作台。"><title>乐构 · 把音乐搭起来</title><link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/base.css">
+<link rel="stylesheet" href="src/styles/shell.css">
+<link rel="stylesheet" href="src/styles/arrange.css">
+<link rel="stylesheet" href="src/styles/editor.css">
+<link rel="stylesheet" href="src/styles/sound.css">
+<link rel="stylesheet" href="src/styles/mix.css">
+<link rel="stylesheet" href="src/styles/dialogs.css">
+<link rel="stylesheet" href="src/styles/responsive.css">
+<link rel="stylesheet" href="src/styles/responsive-sound.css">
+<link rel="stylesheet" href="src/styles/material.css">
+<link rel="stylesheet" href="src/styles/studio.css">
+<link rel="stylesheet" href="src/styles/legou.css">
+<link rel="stylesheet" href="src/styles/components.css"></head><body><script src="src/model.js"></script><script src="src/ui/components.js"></script><main class="components-page"><h1>乐构 · 生产组件</h1><p>与工作台共用控件代码、语义参数和动效规则。</p><div id="samples"></div></main><script>
+const G=GridTone,B=G.ui.Button;
+document.querySelector('#samples').innerHTML=['primary','secondary','quiet','danger'].map(variant=>'<section><h2>'+variant+'</h2><div class="sample-row">'+[{}, {pressed:true},{disabled:true},{busy:true}].map(state=>B({action:'sample',label:state.busy?'处理中':state.disabled?'不可用':state.pressed?'已选中':'常规操作',variant,...state})).join('')+B({action:'sample',label:'长中文：将当前片段保存为独立变化',variant})+'</div></section>').join('')+'<section><h2>图标与数值</h2><div class="sample-row">'+B({action:'sample',label:'播放',icon:'play',size:'icon'})+G.ui.slider('音量','track','volume',.65)+'</div></section>'+ '<section><h2>开关、输入和分组</h2>'+G.ui.Toggle({field:'example',label:'减少动态效果',checked:true})+G.ui.Field({field:'example-value',label:'变化种子',type:'number',value:42,min:0})+G.ui.SegmentedControl({label:'候选',action:'sample',value:'a',items:[['a','方案一'],['b','方案二']]})+G.ui.MenuItem({action:'sample',label:'菜单操作'})+'</section>'+G.ui.TemplateCard({id:'example',kind:'templates',title:'轻快流行',summary:'4 小节 · 和弦与旋律',description:'先试听，再继续编辑。'})+G.ui.CandidateBar({count:3,chosen:0,actions:B({action:'sample',label:'应用',variant:'primary'})});
+</script></body></html>

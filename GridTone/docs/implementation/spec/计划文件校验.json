@@ -1,0 +1,22 @@
+{
+  "kind": "plan_document_integrity_check",
+  "application_tests_run": false,
+  "acceptance_items": 87,
+  "phase_counts": {
+    "R0": 5,
+    "R1": 10,
+    "R2": 9,
+    "R3": 9,
+    "R4": 8,
+    "R5": 9,
+    "R6": 13,
+    "R7": 8,
+    "R8": 7,
+    "R9": 9
+  },
+  "unique_ids": true,
+  "all_acceptance_statuses": "NOT_RUN",
+  "traceability_ids_resolve": true,
+  "content_reference_links": 10
+}
+

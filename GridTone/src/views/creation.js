@@ -1,0 +1,67 @@
+/** One disposable candidate session for recipes, notes, ensemble and arrangement. */
+(function(G){'use strict';
+ const LABELS={generate:'生成一句',rhythm:'保留节奏换音高',anchors:'保留关键音改连接',ending:'只改结尾',answer:'回答句',drums:'鼓型变化',bass:'生成贝斯',accompaniment:'生成伴奏',recipe:'配套模板',arrange:'发展编排',mix:'建议混音',ensemble:'鼓 / 贝斯 / 伴奏一起变化'};
+ class CreationUI{
+  constructor(context){this.c=context;this.session=null;}
+  open(mode){
+   const p=this.c.getProject(),s=this.c.getSession(),t=p.tracks.find(t=>t.id===s.trackId),c=t.clips.find(c=>c.id===s.clipId)||t.clips.find(c=>c.patternId===s.patternId),pat=t.patterns.find(x=>x.id===c?.patternId);
+   if(!pat)throw Error('请先在编排中选择一个片段。');
+   const sources=p.tracks.filter(t=>t.patterns.some(p=>p.harmony));
+   this.session={base:G.clone(p),token:G.contentHash(p),target:{trackId:t.id,clipId:c.id},patternId:pat.id,mode:mode||(t.kind==='drum'?'drums':t.role==='bass'?'bass':'generate'),sourceTrackId:sources.length===1?sources[0].id:'',referenceTrackId:'',seed:42,low:60,high:84,start:0,end:pat.bars*G.BAR,bar:0,bars:8,sourceBar:c.bar,strategy:'support',drumRole:'closedHat',density:'normal',recipeId:G.RECIPES[0].id,tempo:false,retention:G.clone(pat.retention||{notes:[],ranges:[]}),selected:[...s.selected],candidates:[],chosen:0,message:''};this.render();
+  }
+  current(){const x=this.session,t=x.base.tracks.find(t=>t.id===x.target.trackId),p=t.patterns.find(p=>p.id===x.patternId);return {x,t,p};}
+  fresh(){if(!this.session||G.contentHash(this.c.getProject())!==this.session.token)throw Error('原稿或参考内容已变化，请关闭面板后重新生成。');}
+  render(){
+   const {x,t,p}=this.current(),{button,esc,openModal}=this.c;
+   const select=(name,items,value)=>`<select data-field="creation-${name}" aria-label="${name}">${items.map(([v,l])=>`<option value="${esc(v)}" ${String(value)===String(v)?'selected':''}>${esc(l)}</option>`).join('')}</select>`;
+   const number=(name,label,value,min,max)=>G.ui.Field({field:'creation-'+name,label,value,type:'number',min,max});
+   const sources=x.base.tracks.filter(t=>t.patterns.some(p=>p.harmony));
+   const melodic=!['recipe','arrange','mix','drums'].includes(x.mode);
+   const settings=x.mode==='recipe'?`<label class="form-label">配方${select('recipeId',G.RECIPES.map(r=>[r.id,r.name]),x.recipeId)}</label><p>${esc(G.RECIPES.find(r=>r.id===x.recipeId).description)}</p>${number('bar','插入第几小节',x.bar+1,1,256)}${G.ui.Toggle({field:'creation-tempo',label:'采用配方的速度与 Swing（影响全曲）',checked:x.tempo})}<p>新增和弦、鼓、贝斯、示范旋律与空白旋律五轨。原有内容保留。</p>`:x.mode==='arrange'?`${number('bar','插入第几小节',x.bar+1,1,256)}${number('sourceBar','取用第几小节开始的材料',x.sourceBar+1,1,256)}<label>编排长度${select('bars',[[8,'8 小节'],[16,'16 小节']],x.bars)}</label><label>编排方式${select('strategy',[['variation','A—变化—结尾'],['entry','先伴奏、后旋律'],['repeat','共享重复']],x.strategy)}</label>`:x.mode==='mix'?`<p>调整已指定角色的音量和声像：${x.base.tracks.filter(t=>t.role&&t.role!=='unspecified').map(t=>esc(t.name)).join('、')||'请先在音轨设置中指定角色'}。可预听、取消或一次撤销。</p>`:`${melodic?`<label class="form-label">参考和弦${select('sourceTrackId',[['','选择参考和弦'],...sources.map(t=>[t.id,t.name])],x.sourceTrackId)}</label><div class="modal-actions">${button('harmony-editor','指定 / 复核本片段和弦','chord','quiet')}${button('composer','打开和弦进行','chord','quiet')}</div>`:''}${['bass','accompaniment'].includes(x.mode)?`<label class="form-label">可选参考声部${select('referenceTrackId',[['','无'],...x.base.tracks.filter(v=>v.id!==t.id&&(x.mode==='bass'?v.kind==='drum':v.role==='melody')).map(v=>[v.id,v.name])],x.referenceTrackId)}</label><label>配合方式${select('strategy',x.mode==='bass'?[['align','对齐底鼓'],['answer','呼应底鼓']]:[['support','承托 / 避让'],['answer','空白处呼应'],['together','同拍加强']],x.strategy)}</label>`:''}${x.mode==='drums'?`<label>变化鼓件${select('drumRole',[...G.drumMap(x.base,t)].map(([r])=>[r,r]),x.drumRole)}</label><label><input type="checkbox" data-field="creation-lastBeat" ${x.lastBeat?'checked':''}>只改最后一拍</label>`:`<div class="form-grid">${number('low','发声音域下限（MIDI）',x.low,0,127)}${number('high','发声音域上限（MIDI）',x.high,0,127)}</div>`}<div class="form-grid">${number('start','变化起点（拍，从 0 开始）',x.start/G.PPQ,0,p.bars*4)}${number('end','变化终点（拍）',x.end/G.PPQ,1,p.bars*4)}</div><label>节奏密度${select('density',[['sparse','稀疏'],['normal','适中'],['dense','密集']],x.density)}</label><section class="retention-controls"><h3>生成时保留</h3><p>已选 ${x.selected.length} 个音符；${x.retention.notes.length} 个保留项，${x.retention.ranges.length} 段保留范围。手动编辑始终可用。</p><div class="menu-grid">${[['pitch','音高'],['rhythm','节奏'],['all','全部'],['clear','取消音符保留'],['range','当前范围含休止'],['clear-ranges','清除范围保留']].map(([v,l])=>button('creation-keep',l,'lock','soft-btn',`data-keep="${v}"`)).join('')}</div>${button('creation-save-keeps','仅保存保留项','save','quiet')}</section>`;
+   let insights='';if(x.selected.length){try{const h=G.resolveHarmony(x.base,{...x.target,sourceTrackId:x.sourceTrackId});insights=p.notes.filter(n=>x.selected.includes(n.id)).slice(0,8).map(n=>{const a=G.explainNote(n,h,h.targetTranspose);return `<p>${G.noteName(n.pitch)} · ${esc(a.role)}：${esc(a.reason)}</p>`;}).join('');}catch(e){insights=`<p>暂未分析：${esc(e.message)}</p>`;}}
+   const candidate=x.candidates[x.chosen];
+   openModal(x.mode==='recipe'?'配套模板':'创作辅助',`<p>${esc(t.name)} · ${esc(p.name)} · ${p.bars} 小节。${t.clips.filter(c=>c.patternId===p.id).length>1?'应用生成时默认只为当前实例创建独立变化。':''}</p><label class="form-label">操作${select('mode',Object.entries(LABELS),x.mode)}</label><div class="creation-settings">${settings}</div>${insights}${number('seed','变化种子',x.seed,0,4294967295)}<div class="modal-actions">${button('creation-generate',x.mode==='recipe'?'准备配方':'生成候选','spark','dark-btn')}</div><p role="status" id="creation-feedback">${esc(x.message)}</p>${candidate?G.ui.CandidateBar({count:x.candidates.length,chosen:x.chosen,drawing:(()=>{const tr=candidate.project.tracks.find(t=>t.id===candidate.trackId),pat=tr?.patterns.find(p=>p.id===candidate.patternId);return pat?G.ui.miniPattern(pat,tr,480,80):'';})(),actions:button('creation-preview','连同伴奏预听','headphones','soft-btn')+button('creation-preview-solo','只听候选','play','quiet')+button('stop','停止','stop','quiet')+button('creation-apply','应用这一版','check','dark-btn')}):''}<div class="modal-actions">${button('close-modal','取消 / 关闭','','quiet')}</div>`, '试听与候选不会改写原稿；应用后可撤销。');
+  }
+  generate(){
+   this.fresh();const {x,t,p}=this.current();x.candidates=[];
+   if(x.mode==='recipe')x.candidates=[G.applyRecipe(x.base,x.recipeId,{bar:x.bar,key:x.base.key,seed:x.seed,tempo:x.tempo})];
+   else if(x.mode==='arrange'||x.mode==='mix'){const project=x.mode==='arrange'?G.arrangeSections(x.base,{bar:x.bar,bars:x.bars,sourceBar:x.sourceBar,style:x.strategy}):G.suggestedMix(x.base);x.candidates=[{project,trackId:t.id,patternId:p.id,clipId:x.target.clipId}];}
+   else{
+    const base=G.clone(x.base),pat=base.tracks.find(v=>v.id===t.id).patterns.find(v=>v.id===p.id);pat.retention=G.clone(x.retention);
+    let candidates;
+    if(x.mode==='ensemble'){
+     let project=base;const affected=[];for(const tr of base.tracks.filter(t=>['drums','bass','texture'].includes(t.role))){const clip=tr.clips.find(c=>c.bar===x.sourceBar);if(!clip)continue;const target={trackId:tr.id,clipId:clip.id};const mode=tr.role==='drums'?'drums':tr.role==='bass'?'bass':'accompaniment';const result=G.applyGenerated(project,target,G.generateEnsemble(project,target,{...x,mode,referenceTrackId:mode==='bass'&&base.tracks.filter(v=>v.role==='drums').length===1?base.tracks.find(v=>v.role==='drums').id:mode==='accompaniment'&&t.role==='melody'?t.id:''},x.seed));project=result.project;affected.push(tr.id);}if(!affected.length)throw Error('请先给目标轨道指定鼓、贝斯或伴奏角色。');x.candidates=[{project,trackId:t.id,patternId:p.id,clipId:x.target.clipId,trackIds:affected,range:[x.sourceBar*G.BAR,(x.sourceBar+p.bars)*G.BAR]}];x.message='整套候选将一次应用：贝斯参考唯一鼓轨；伴奏在当前轨是旋律时参考其原稿。失败时保持原稿。';x.chosen=0;this.render();return;
+    }
+    if(['drums','bass','accompaniment'].includes(x.mode))candidates=[G.generateEnsemble(base,x.target,x,x.seed)];
+    else{const harmony=G.resolveHarmony(base,{...x.target,sourceTrackId:x.sourceTrackId});const result=G.generateMelody({harmony,notes:p.notes,retention:x.retention},x,x.seed);candidates=result.candidates;x.message=result.message;}
+    x.candidates=candidates.map(c=>G.applyGenerated(base,x.target,c));
+   }
+   x.chosen=0;if(!x.message)x.message='候选已准备好，可以先听再应用。';this.render();requestAnimationFrame(()=>document.querySelector('.candidate-bar')?.scrollIntoView({block:'nearest'}));
+  }
+  keep(kind){const {x,p}=this.current();if(kind==='range'){if(x.end<=x.start)throw Error('保留范围无效。');x.retention.ranges.push({start:x.start,end:x.end});}else if(kind==='clear-ranges')x.retention.ranges=[];else{if(!x.selected.length)throw Error('请先在画板选择音符，再打开创作辅助。');x.retention.notes=x.retention.notes.filter(n=>!x.selected.includes(n.id));if(kind!=='clear')for(const id of x.selected)if(p.notes.some(n=>n.id===id))x.retention.notes.push({id,[kind]:true});}x.candidates=[];this.render();}
+  harmonyEditor(){const {x,p}=this.current();this.harmony=G.clone(p.harmony||{version:1,events:[{start:0,duration:p.bars*G.BAR,rootPitchClass:x.base.key,quality:'major'}],confirmedMusicHash:'manual'});this.renderHarmony();}
+  renderHarmony(){const {button,esc,openModal}=this.c;openModal('指定 / 复核参考和弦',`<p>明确这里的和弦意图，供其他声部生成时参考。现有音符保留。起点以片段开始为第 0 拍。</p><div class="harmony-events">${this.harmony.events.map((e,i)=>`<div class="form-grid"><label>起点（拍）<input type="number" data-field="harmony" data-harmony="start" data-index="${i}" value="${e.start/G.PPQ}" min="0" step="0.5"></label><label>时长（拍）<input type="number" data-harmony="duration" data-index="${i}" value="${e.duration/G.PPQ}" min="0.5" step="0.5"></label><label>根音<select data-harmony="rootPitchClass" data-index="${i}">${G.KEYS.map((k,n)=>`<option value="${n}" ${e.rootPitchClass===n?'selected':''}>${k}</option>`).join('')}</select></label><label>类型<select data-harmony="quality" data-index="${i}">${Object.keys(G.CHORD_SHAPES).map(q=>`<option ${q===e.quality?'selected':''}>${esc(q)}</option>`).join('')}</select></label>${button('harmony-remove','移除此和弦','trash','quiet',`data-index="${i}"`)}</div>`).join('')}</div><div class="modal-actions">${button('harmony-add','增加和弦','plus','soft-btn')}${button('harmony-confirm','确认参考和弦','check','dark-btn')}${button('close-modal','取消','','quiet')}</div>`);}
+  handleField(el){if(el.dataset.harmony){const e=this.harmony.events[Number(el.dataset.index)],key=el.dataset.harmony;e[key]=key==='quality'?el.value:Number(el.value)*(['start','duration'].includes(key)?G.PPQ:1);return true;}if(!el.dataset.field?.startsWith('creation-'))return false;const key=el.dataset.field.slice(9),x=this.session;this.c.playback.endAudition();x[key]=el.type==='checkbox'?el.checked:el.type==='number'||key==='bars'?Number(el.value):el.value;if(['bar','sourceBar'].includes(key))x[key]--;if(['start','end'].includes(key))x[key]*=G.PPQ;x.candidates=[];x.message='';if(key==='mode'){if(x.mode==='arrange'){x.bar=x.base.bars;x.strategy='variation';}if(x.mode==='bass')x.strategy='align';this.render();}return true;}
+  handleAction(action,el){
+   if(action==='creation'||action==='recipes'){this.open(action==='recipes'?'recipe':undefined);return true;}
+   if(!action.startsWith('creation-')&&!action.startsWith('harmony-'))return false;
+   try{
+    if(action==='creation-generate')this.generate();
+    if(action==='creation-choose'){this.c.playback.endAudition();this.session.chosen=Number(el.dataset.index);this.render();}
+    if(action==='creation-keep')this.keep(el.dataset.keep);
+    if(action==='creation-save-keeps'){this.fresh();const {x,p,t}=this.current(),project=G.clone(x.base);project.tracks.find(v=>v.id===t.id).patterns.find(v=>v.id===p.id).retention=G.clone(x.retention);G.validateProject(project);this.c.closeModal();this.c.commit({project,...x.target,patternId:p.id});}
+    if(action==='creation-preview'||action==='creation-preview-solo'){
+     this.fresh();const {x,p}=this.current(),r=x.candidates[x.chosen];if(!r)throw Error('请先生成候选。');const c=r.project.tracks.find(t=>t.id===r.trackId)?.clips.find(c=>c.id===r.clipId),range=r.range||[c.bar*G.BAR,(c.bar+p.bars)*G.BAR];
+     const scope=action.endsWith('-solo')?(r.trackIds?{kind:'song',range,soloIds:r.trackIds}:{kind:'pattern',trackId:r.trackId,patternId:r.patternId,ignoreMute:true}):{kind:'song',range,soloIds:[]};this.c.playback.audition(r.project,scope,'候选预听 · '+LABELS[x.mode]);
+    }
+    if(action==='creation-apply'){this.fresh();const x=this.session,r=x.candidates[x.chosen];if(!r)throw Error('请先生成候选。');x.candidates=[];this.c.closeModal();this.c.commit(r);this.session=null;}
+    if(action==='harmony-editor')this.harmonyEditor();
+    if(action==='harmony-add'){const last=this.harmony.events.at(-1);this.harmony.events.push({start:last?last.start+last.duration:0,duration:G.BAR,rootPitchClass:0,quality:'major'});this.renderHarmony();}
+    if(action==='harmony-remove'){this.harmony.events.splice(Number(el.dataset.index),1);this.renderHarmony();}
+    if(action==='harmony-confirm'){this.fresh();const {x,p,t}=this.current(),project=G.clone(x.base),pat=project.tracks.find(v=>v.id===t.id).patterns.find(v=>v.id===p.id);G.confirmHarmony(pat,this.harmony);G.validateProject(project);this.c.closeModal();this.c.commit({project,...x.target,patternId:p.id});}
+   }catch(e){this.c.toast(e.message);const feedback=document.querySelector('#creation-feedback');if(feedback)feedback.textContent=e.message;}
+   return true;
+  }
+ }
+ G.CreationUI=CreationUI;
+})(globalThis.GridTone ||= {});

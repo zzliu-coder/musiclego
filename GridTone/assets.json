@@ -4,13 +4,19 @@
     "src/presets.js",
     "src/session.js",
     "src/editing.js",
+    "src/commands.js",
     "src/studio.js",
     "src/music/progressions.js",
+    "src/music/harmony.js",
+    "src/music/generation.js",
+    "src/music/ensemble.js",
     "src/catalog-data.js",
     "src/catalog.js",
+    "src/music/recipes.js",
     "src/audio.js",
     "src/audio/instruments.js",
     "src/audio/sample-banks.js",
+    "src/storage/projects.js",
     "src/io.js",
     "src/playback.js",
     "src/ui/components.js",
@@ -28,6 +34,7 @@
     "src/views/mix.js",
     "src/views/catalog.js",
     "src/views/composer.js",
+    "src/views/creation.js",
     "src/app.js"
   ],
   "styles": [
@@ -43,6 +50,7 @@
     "src/styles/responsive-sound.css",
     "src/styles/material.css",
     "src/styles/studio.css",
-    "src/styles/legou.css"
+    "src/styles/legou.css",
+    "src/styles/components.css"
   ]
 }

@@ -5,7 +5,7 @@ import '../src/model.js';import '../src/presets.js';import '../src/session.js';
 const G=globalThis.GridTone;
 test('R1: migrates v1 without mutating source or musical notes',()=>{
  const old=JSON.parse(readFileSync(new URL('../examples/午后的留白.gridtone',import.meta.url)));const before=G.clone(old),p=G.validateProject(old);
- assert.equal(p.version,2);assert.deepEqual(old,before);
+ assert.equal(p.version,3);assert.deepEqual(old,before);
  for(let i=0;i<p.tracks.length;i++){assert.deepEqual(p.tracks[i].patterns,old.tracks[i].patterns);assert.equal('octave' in p.tracks[i],false);assert.equal('solo' in p.tracks[i],false);}
 });
 test('R1: view-only browsing does not change project or compiled notes',()=>{const p=G.demoProject(),s=G.createEditorSession(p),b=G.clone(p),events=G.compileSong(p);G.moveViewport(s,p.tracks[0],12);G.fitViewport(s,p.tracks[0],p.tracks[0].patterns[1]);assert.deepEqual(p,b);assert.deepEqual(G.compileSong(p),events);});

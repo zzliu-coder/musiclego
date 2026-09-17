@@ -3,6 +3,8 @@
 (function (G) {
     'use strict';
     const PPQ = 960, BAR = 3840, STEP = 240;
+    const PATTERN_BARS = Object.freeze([1, 2, 4, 8, 16]);
+    G.PATTERN_BARS = PATTERN_BARS;
     const LIMITS = { tracks: 64, bars: 256, notes: 100000, assetsBytes: 24 * 1024 * 1024 };
     const COLORS = ['#2875f5', '#f66570', '#34b995', '#ee9552', '#9774cf', '#419caf', '#bb7483', '#7488ad'];
     const SCALES = { major: [0, 2, 4, 5, 7, 9, 11], minor: [0, 2, 3, 5, 7, 8, 10], pentatonic: [0, 2, 4, 7, 9], chromatic: Array.from({ length: 12 }, (_, i) => i) };
@@ -32,7 +34,7 @@
             sound: { brightness: .55, attack: .01, release: .32 }, fx: { reverb: kind === 'drum' ? .09 : .24, delay: 0, drive: 0 }, pipeline: { transpose: 0, arp: 'off', rate: STEP, humanize: 0 },
             patterns: [p], clips: [{ id: uid('c'), patternId: p.id, bar: 0 }] };
     }
-    function blankProject() { const t = newTrack(); t.name = '柔光电钢琴'; return { version: 2, id: uid('song'), title: '我的第一段音乐', bpm: 100, key: 0, scale: 'major', swing: 0, master: .8, bars: 4, tracks: [t], assets: {} }; }
+    function blankProject() { const t = newTrack(); t.name = '柔光电钢琴'; return { version: 3, id: uid('song'), title: '我的第一段音乐', bpm: 100, key: 0, scale: 'major', swing: 0, master: .8, bars: 4, tracks: [t], assets: {} }; }
     function demoProject() {
         const song = blankProject();
         song.title = '午后的留白';
@@ -80,12 +82,12 @@
         return song;
     }
     function validateProject(input) {
-        if (!input || typeof input !== 'object' || ![1, 2].includes(input.version))
-            throw Error('工程格式不支持：支持乐构 / 声格 v1、v2 工程。');
+        if (!input || typeof input !== 'object' || ![1, 2, 3].includes(input.version))
+            throw Object.assign(Error('工程格式不支持：支持乐构 / 声格 v1、v2、v3 工程。'), { code: 'UNSUPPORTED_VERSION' });
         if (G.assertDataTree)
             G.assertDataTree(input);
         const p = clone(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;
-        p.version = 2;
+        p.version = 3;
         if (!Array.isArray(p.tracks) || p.tracks.length < 1 || p.tracks.length > LIMITS.tracks)
             throw Error('音轨数量应为 1–64。');
         if (!finite(p.bpm, 40, 240) || !Number.isInteger(p.bars) || !finite(p.bars, 1, LIMITS.bars))
@@ -126,6 +128,8 @@
             id(t.id);
             if (!['melodic', 'drum'].includes(t.kind))
                 throw Error('音轨类型无效。');
+            if (t.role !== undefined && !['unspecified', 'melody', 'bass', 'chords', 'drums', 'texture'].includes(t.role))
+                throw Error('声部角色无效。');
             t.name = String(t.name || '音轨').slice(0, 60);
             if (!/^#[0-9a-f]{6}$/i.test(t.color))
                 t.color = COLORS[0];
@@ -151,8 +155,9 @@
             for (const pat of t.patterns) {
                 id(pat.id);
                 pat.name = String(pat.name || '片段').slice(0, 60);
-                if (![1, 2, 4, 8].includes(pat.bars) || !Array.isArray(pat.notes))
+                if (!PATTERN_BARS.includes(pat.bars) || !Array.isArray(pat.notes))
                     throw Error('片段长度无效。');
+                validateCreativeMetadata(pat);
                 count += pat.notes.length;
                 if (count > LIMITS.notes)
                     throw Error('工程超过十万个音符。');
@@ -177,6 +182,38 @@
         }
         return p;
     }
+    function validateCreativeMetadata(pat) {
+        const number=(x,min,max)=>typeof x==='number'&&Number.isFinite(x)&&x>=min&&x<=max;
+        const string=x=>typeof x==='string'&&x.length>0&&x.length<=160;
+        const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
+        const only=(x,keys)=>object(x)&&Object.keys(x).every(k=>keys.includes(k));
+        const length=pat.bars*BAR;
+        if(pat.harmony!==undefined){
+            const h=pat.harmony;
+            if(!only(h,['version','events','source','confirmedMusicHash'])||h.version!==1||!Array.isArray(h.events)||h.events.length>1024||!string(h.confirmedMusicHash))throw Error('和声说明格式无效。');
+            let end=0;
+            for(const e of h.events){
+                if(!only(e,['start','duration','rootPitchClass','quality','pitchClasses'])||!number(e.start,end,length-1)||!number(e.duration,1,length-e.start)||!Number.isInteger(e.rootPitchClass)||!number(e.rootPitchClass,0,11)||![...Object.keys(CHORDS),'dim','halfDim','add9'].includes(e.quality))throw Error('和声时间、根音或类型无效。');
+                if(e.pitchClasses!==undefined&&(!Array.isArray(e.pitchClasses)||!e.pitchClasses.length||e.pitchClasses.length>12||e.pitchClasses.some(x=>!Number.isInteger(x)||!number(x,0,11))))throw Error('和声音级无效。');
+                end=e.start+e.duration;
+            }
+            if(h.source!==undefined&&(!only(h.source,['recipeId','recipeVersion'])||!string(h.source.recipeId)||!Number.isInteger(h.source.recipeVersion)||h.source.recipeVersion<1))throw Error('和声来源无效。');
+        }
+        if(pat.retention!==undefined){
+            const r=pat.retention;
+            if(!only(r,['notes','ranges'])||!Array.isArray(r.notes)||!Array.isArray(r.ranges)||r.notes.length>pat.notes.length||r.ranges.length>1024)throw Error('生成保留项无效。');
+            const ids=new Set();
+            for(const n of r.notes){if(!only(n,['id','pitch','rhythm','all'])||!pat.notes.some(x=>x.id===n.id)||ids.has(n.id)||['pitch','rhythm','all'].some(k=>n[k]!==undefined&&typeof n[k]!=='boolean'))throw Error('保留音符引用无效。');ids.add(n.id);}
+            for(const range of r.ranges)if(!only(range,['start','end'])||!number(range.start,0,length-1)||!number(range.end,range.start+1,length))throw Error('保留范围无效。');
+        }
+        if(pat.generation!==undefined){
+            const g=pat.generation;
+            if(!only(g,['version','algorithm','kind','seed','templateVersion','inputHash','sources','settings'])||g.version!==1||!string(g.algorithm)||!string(g.kind)||!number(g.seed,0,4294967295)||!Number.isInteger(g.seed)||!Number.isInteger(g.templateVersion)||!string(g.inputHash)||!Array.isArray(g.sources)||g.sources.length>64)throw Error('生成来源无效。');
+            for(const s of g.sources)if(!only(s,['trackId','hash'])||!string(s.trackId)||!string(s.hash))throw Error('生成依赖无效。');
+            if(!object(g.settings)||JSON.stringify(g.settings).length>8000||Object.values(g.settings).some(v=>!['number','string','boolean'].includes(typeof v)||typeof v==='number'&&!Number.isFinite(v)))throw Error('生成参数无效。');
+        }
+    }
+    G.validateCreativeMetadata=validateCreativeMetadata;
     function hash(s) {
         let h = 2166136261;
         for (let i = 0; i < s.length; i++)
@@ -311,6 +348,6 @@
                 return b;
         return -1;
     }
-    function copyPattern(p) { const x = clone(p); x.id = uid('p'); x.name = p.name + '′'; x.notes.forEach(n => n.id = uid('n')); return x; }
+    function copyPattern(p) { const x = clone(p), ids=new Map(); x.id = uid('p'); x.name = p.name + '′'; x.notes.forEach(n => {const id=uid('n');ids.set(n.id,id);n.id=id;});if(x.retention)x.retention.notes.forEach(n=>n.id=ids.get(n.id));return x; }
     Object.assign(G, { PPQ, BAR, STEP, LIMITS, COLORS, SCALES, KEYS, DRUMS, CHORDS, clamp, uid, clone, noteName, inScale, snapPitch, newNote, newPattern, newTrack, blankProject, demoProject, validateProject, hash, transformNotes, chordNotes, processPattern, resolvePlaybackScope, compileSong, canPlace, firstFreeBar, copyPattern });
 })(globalThis.GridTone ||= {});
