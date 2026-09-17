@@ -4,7 +4,7 @@ const root=fileURLToPath(new URL('../',import.meta.url)),repo=dirname(root.repla
 const archive=resolve(repo,`乐构_v${manifest.version}_candidate.zip`),commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root}).toString().trim(),temp=await mkdtemp(join(tmpdir(),'musiclego-package-'));
 const sha=b=>createHash('sha256').update(b).digest('hex');let log='';
 try{
- execFileSync('git',['archive','--format=zip','--prefix=乐构/','--output='+archive,'HEAD:GridTone'],{cwd:root});
+ execFileSync('git',['archive','--format=zip','--prefix=乐构/','--output='+archive,'HEAD:GridTone'],{cwd:repo});
  execFileSync('python3',['-c','import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; z.extractall(sys.argv[2])',archive,temp]);
  const checkout=join(temp,'乐构');
  for(const args of [['ci'],['run','build'],['test']])log+=execFileSync('npm',args,{cwd:checkout,maxBuffer:8*1024*1024,encoding:'utf8'});
