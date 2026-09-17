@@ -1,0 +1,22 @@
+
+> gridtone@1.6.0 verify
+> node scripts/verify.mjs
+
+Checking catalog
+catalog PASS
+Checking build
+build PASS
+Checking core
+core PASS
+Checking storage
+storage PASS
+Checking workflow
+workflow PASS
+Checking release-flow
+release-flow PASS
+Checking interactions
+interactions PASS
+Checking visual
+visual PASS
+Checking audio
+audio PASS

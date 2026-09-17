@@ -1,0 +1,55 @@
+{
+  "status": "REPRODUCED",
+  "commit": "98d4610bda74a7b8988b9908eca35691a4b4ff9b",
+  "scope": "Real fixed-commit music modules and CreationUI; modal/audio host adapters record output without pretending to be browser/audio tests.",
+  "issues": [
+    {
+      "id": "AUD16-F01",
+      "reproduced": true,
+      "detail": {
+        "requested": [
+          72,
+          84
+        ],
+        "actual": [
+          36,
+          45
+        ]
+      }
+    },
+    {
+      "id": "AUD16-F02",
+      "reproduced": true,
+      "detail": "Candidate array clears while Apply remains rendered."
+    },
+    {
+      "id": "AUD16-F03",
+      "reproduced": true,
+      "detail": {
+        "expected": [
+          15360,
+          46080
+        ],
+        "actual": [
+          0,
+          15360
+        ]
+      }
+    },
+    {
+      "id": "AUD16-F04",
+      "reproduced": true,
+      "detail": "Reversing visual order changes generated bass."
+    },
+    {
+      "id": "AUD16-F05",
+      "reproduced": true,
+      "detail": "A sustained note crossing into the queried range is absent."
+    },
+    {
+      "id": "AUD16-F06",
+      "reproduced": true,
+      "detail": "Global mix action rejects a project without clips."
+    }
+  ]
+}

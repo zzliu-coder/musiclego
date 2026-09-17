@@ -1,0 +1,21 @@
+{
+  "artifact": "planning document only",
+  "application_validation": false,
+  "html_internal_links": "PASS",
+  "duplicate_html_ids": 0,
+  "desktop_1440_horizontal_overflow_px": 0,
+  "mobile_390_horizontal_overflow_px": 0,
+  "visually_reviewed": [
+    "plan_preview.png",
+    "detail_preview.png"
+  ],
+  "coverage": {
+    "kind": "plan-coverage-only",
+    "passed": true,
+    "original_requirements": 87,
+    "supplemental_requirements": 82,
+    "issue_mappings": 29,
+    "errors": [],
+    "application_tests_executed": false
+  }
+}

@@ -1,0 +1,503 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>乐构 1.6 · 工作流与组件复审</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#f1f4f7;color:#203344;font:15px/1.9 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}a{color:#256a82;text-decoration-thickness:1px;text-underline-offset:3px}main{max-width:1110px;margin:auto;padding:48px 64px 80px;background:#fff;min-height:100vh}header{margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid #dce5ed}.eyebrow{font-size:11px;letter-spacing:2px;color:#547287;font-weight:700}header p{margin:7px 0;font-size:13px;color:#557083}h1{font-size:34px;line-height:1.35;letter-spacing:-.6px;margin:16px 0 24px}h2{font-size:23px;line-height:1.45;margin:42px 0 18px;padding-top:24px;border-top:1px solid #dce5ed}h3{font-size:18px;line-height:1.5;margin:24px 0 10px}p{margin:12px 0}strong{font-weight:650}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.7;margin:20px 0}th{background:#ecf2f6;text-align:left;padding:11px 12px;color:#2b4d60}td{border-bottom:1px solid #dfe7ed;vertical-align:top;padding:11px 12px}tr:nth-child(even) td{background:#fafcfd}pre{padding:18px 20px;border:1px solid #d9e5ec;background:#f4f8fa;overflow:auto;border-radius:8px;font-size:12px;line-height:1.7}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;background:#edf3f6;padding:2px 4px;border-radius:4px;overflow-wrap:anywhere}pre code{padding:0;background:none;white-space:pre}li{margin:6px 0}blockquote{margin:18px 0;padding:6px 20px;border-left:3px solid #6d9fac;background:#f2f8fa}nav{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin:16px 0 28px;padding:18px 20px;background:#f3f7f9;border-radius:10px}nav a{font-size:13px;line-height:1.55;text-decoration:none}.notice{padding:14px 18px;border:1px solid #e8d6b5;background:#fff8ed;border-radius:8px;font-size:13px;line-height:1.8;color:#695132}footer{margin-top:36px;padding-top:20px;border-top:1px solid #dce5ed;color:#617a8a;font-size:12px}@media(max-width:760px){main{padding:24px 18px 45px}body{font-size:14px}h1{font-size:27px}h2{font-size:21px}nav{grid-template-columns:1fr}table{display:block;overflow:auto}td{min-width:130px}}@media print{body{background:#fff}main{max-width:none;padding:0}nav{display:none}h2,h3{break-after:avoid}tr,pre{break-inside:avoid}a{color:inherit}header{margin-bottom:12px}}</style></head><body><main><header><div class="eyebrow">MUSICLEGO / INDEPENDENT REVIEW</div><p>固定提交 98d4610 · 六个模块逐字核验 · 13组定向检查与组件浏览器复现</p></header><div class="notice">本轮只做审查。完整应用、存储刷新和主观听感未在此环境重验；局部模块使用已说明的测试替身。证据包中的截图是隔离组件测试容器，不代表乐构界面视觉。</div><nav aria-label="报告目录"><a href="#section-1">01 总体结论</a><a href="#section-2">02 审查范围与证据等级</a><a href="#section-3">03 对用户意见的核对</a><a href="#section-4">04 两种布局怎样保留，才有实际价值</a><a href="#section-5">05 混音的位置：完整工作区与候选操作分开</a><a href="#section-6">06 模板应成为手边的材料</a><a href="#section-7">07 已有规则生成，怎样变成清楚的创作工具</a><a href="#section-8">08 本轮已核验的代码问题</a><a href="#section-9">09 状态与组件的下一轮整理</a><a href="#section-10">10 建议施工顺序与验收</a><a href="#section-11">11 本轮实测索引</a><a href="#section-12">12 固定源码与外部原则来源</a><a href="#section-13">13 最终判断</a></nav><h1>乐构 1.6：工作视图、模板交互与规则生成复审</h1>
+<p><strong>审查基线：</strong> <code>zzliu-coder/musiclego</code> · <code>main</code> · <code>98d4610bda74a7b8988b9908eca35691a4b4ff9b</code><br />
+<strong>日期：</strong> 2026-09-18<br />
+<strong>性质：</strong> 只读审查、局部模块执行和设计建议。没有修改或推送远端仓库，没有交付新应用。</p>
+<h2 id="section-1">01 总体结论</h2>
+<p>建议保留“编排 / 乐句”两个专注布局，增加“混音”一级入口。编排和乐句共用同一套时间轴、音符编辑与音乐状态，布局只决定哪一块是主工作区。模板采用可收起的常驻素材架，支持预听、拖放与点击应用；创作工具根据目标显示相应操作，避免把所有功能放入同一张通用表单。</p>
+<p>最新提交已经建立和声数据、规则旋律、鼓 / 贝斯 / 伴奏生成、八套配方、编排发展及多作品保存。下一轮重点是统一这些能力的操作合同、预听合同与界面呈现，并修复本轮复现的问题。现有音源、普通音符、工程 v3 和存储架构可以保留。</p>
+<p>产品保持“模板快速套用 + 自由编辑 + 本地规则生成”。不增加教学模式、教程步骤解锁或固定创作顺序。具体操作缺少必要输入时，在操作位置说明并提供补齐入口。</p>
+<h2 id="section-2">02 审查范围与证据等级</h2>
+<p>通过 GitHub 连接读取固定提交的 README、资源清单、工程合同、应用协调、会话、命令、和声、旋律生成、多轨生成、配方、模板库、混音分支、界面组件与样式，以及当前发布验证记录。</p>
+<p>完整仓库下载受网络条件限制，本轮没有运行全量应用或仓库整套测试。为避免把旧版冒充新版，直接从连接返回的源码恢复六个模块，并核对 Git blob SHA：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>固定提交 Git blob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/music/generation.js</code></td>
+<td><code>fbaf5bc7054ac8bd98cc9788524981d9a827a69e</code></td>
+</tr>
+<tr>
+<td><code>src/music/ensemble.js</code></td>
+<td><code>43df02d96adede71f4daac976363b218bdfc28d8</code></td>
+</tr>
+<tr>
+<td><code>src/views/creation.js</code></td>
+<td><code>4cffb5dfad5b7dc75fb3198d8d27c2291dec0abe</code></td>
+</tr>
+<tr>
+<td><code>src/views/arrange.js</code></td>
+<td><code>1786a85dbe500121c7fa881e323a2957457d0084</code></td>
+</tr>
+<tr>
+<td><code>src/views/shell.js</code></td>
+<td><code>a617b5597cb76f27b9244252fe1565d9b8dc021f</code></td>
+</tr>
+<tr>
+<td><code>src/music/harmony.js</code></td>
+<td><code>d8fd38c0c72d061183dbbccfb590f74775d4bf7e</code></td>
+</tr>
+</tbody>
+</table>
+<p>实际执行：13组函数 / 结构定向核验；对整组生成依赖再用真实 harmony 模块交叉复核；用真实 Chromium 执行一次候选失效的 DOM 操作复现。文档校验、部分和声输入、部分 UI 原语和音频传输使用明示的测试替身；P05 的编排生产函数使用替身，验证候选与试听范围的计算路径，未渲染音频。</p>
+<p>这些结果证明列出的局部行为与结构，不证明全量应用、实际存储、完整视觉、物理设备或声音审美通过。浏览器截图来自明确标注的组件测试容器，不能作为产品界面的视觉效果图。</p>
+<p>仓库自己的发布记录标为 <code>ENGINEERING_CANDIDATE</code>，记录156项核心测试和当前工程套件通过；人工听感仍有待验收项。它们是已有发布证据，不计入本轮复测数量。小屏 / 触屏已在该版本合同中列为后续专题，本次建议优先落实桌面工作流。</p>
+<h2 id="section-3">03 对用户意见的核对</h2>
+<table>
+<thead>
+<tr>
+<th>用户观察</th>
+<th>最新源码事实</th>
+<th>审查判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>两个视图只是上下翻转，可能重复</td>
+<td>两个工作区共享 editor 和 arrangement，改变顺序与尺寸，乐句还有额外轨道栏</td>
+<td>保留双焦点有价值，辅区应可收起，避免两个完整工作区竞争面积</td>
+</tr>
+<tr>
+<td>两处编排似乎没有复用</td>
+<td>两种布局调用同一个 <code>renderArrange()</code>；相同输入得到相同 HTML</td>
+<td>代码复用已存在，视觉和可见操作由父级 CSS 改写，组件合同仍需统一</td>
+</tr>
+<tr>
+<td>混音是弹出卡片，缺少第三视图</td>
+<td><code>S.view === 'mix'</code> 已在主工作区调用 <code>renderMix()</code>；顶栏只提供编排和乐句</td>
+<td>把现有混音工作区提升为第三入口。“建议混音”候选弹层单独保留</td>
+</tr>
+<tr>
+<td>模板需要不断点卡片和设置</td>
+<td>CatalogUI 使用列表弹层、详情弹层、通用目标表单和确认；同类型默认新增到首个空位</td>
+<td>安全选项齐全，但未利用已选片段提供足够直接的交互</td>
+</tr>
+<tr>
+<td>模板算法可能没有实现</td>
+<td>generation、ensemble、recipes、CreationUI 已实现本地规则</td>
+<td>能力已经存在；单张通用表单混合了12种不同层级操作，发现与理解成本偏高</td>
+</tr>
+<tr>
+<td>缺少设计系统</td>
+<td>tokens、Button/Field/Toggle/TemplateCard/CandidateBar及样例页已存在</td>
+<td>继续统一真实调用、密度与能力变体，避免再叠一轮页面级覆盖</td>
+</tr>
+</tbody>
+</table>
+<p>依据：<code>README.md</code>、<code>src/views/shell.js</code>、<code>src/views/arrange.js</code>、<code>src/views/editor.js</code>、<code>src/views/catalog.js</code>、<code>src/views/creation.js</code>、<code>src/ui/components.js</code>、<code>src/styles/legou.css</code>、<code>src/styles/components.css</code>。</p>
+<h2 id="section-4">04 两种布局怎样保留，才有实际价值</h2>
+<h3>推荐布局</h3>
+<table>
+<thead>
+<tr>
+<th>一级入口</th>
+<th>主区</th>
+<th>辅区</th>
+<th>保持不变</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编排</td>
+<td>全曲时间轴</td>
+<td>当前片段音符编辑，可收起 / 放大</td>
+<td>选中的音乐对象、播放时钟、撤销和作品</td>
+</tr>
+<tr>
+<td>乐句</td>
+<td>当前片段音符画板</td>
+<td>紧凑编排，可收起 / 放大</td>
+<td>相同的轨道顺序、片段位置、选择与基础操作</td>
+</tr>
+<tr>
+<td>混音</td>
+<td>音轨通道、主输出与效果</td>
+<td>可选的简短范围信息</td>
+<td>当前作品与播放；不隐式切换到另一试听内容</td>
+</tr>
+</tbody>
+</table>
+<p>选择理由：写局部时看得到其歌曲位置，组织全曲时能顺手修改当前片段。双焦点是对工作重点的调整，不需要再建两份工程或两套播放器。</p>
+<p>默认比例可以从主区约三分之二、辅区约三分之一开始验证，用户可以拖动分隔线。比例只属于布局偏好。辅区允许收起；切换后保留用户现场。</p>
+<h3>相同组件允许有密度变体，但操作合同一致</h3>
+<p>当前源码的默认编排行高36px、片段高29px；编排主视图通过 <code>[data-workspace=arrange]</code> 改为74px和64px，并重新显示 M / S / 音量。差异来源可确认，但这组尺寸仍需最终 CSS 叠加后的完整页面测量。</p>
+<p>建议显式定义 <code>ArrangementPane</code> 的标准 / 紧凑密度。改变行高和文字详略时，以下规则应一致：选择、拖动、复制、共享标志、循环范围、播放指针、键盘焦点及目标合法性。紧凑版减少常驻次要信息，不能悄悄成为一套不同的编辑器。只读缩略图若另有需要，应命名为“全曲概览”，不要让用户误以为它具备全部编辑操作。</p>
+<p><code>TrackHeader</code> 的选中、静音、独奏、音量数据也应共享。乐句左边额外的完整声音轨道栏与下方编排轨道头会再次占用重复空间，可改为紧凑轨道选择与当前轨信息，把常驻侧栏优先让给模板素材。</p>
+<h3>滚动状态需要按组件归属</h3>
+<p>当前 <code>app.js</code> 将滚动键拼为视图、轨道、片段、编辑子页的组合。编排横向位置因此与当前编辑对象绑定。推荐时间轴滚动归属作品的编排组件，片段音域与局部滚动归属片段编辑组件。两个布局的编排缩放可共享；需要独立时提供明确的联动偏好，不能靠偶然 DOM 重建决定结果。</p>
+<h2 id="section-5">05 混音的位置：完整工作区与候选操作分开</h2>
+<p>当前 <code>renderShell()</code> 已经有 <code>mix-workspace</code> 分支；定向渲染确认该分支没有包在 modal 内。实际顶部只有两个导航按钮，导致混音位置不明显。</p>
+<p>建议顶部固定“编排 / 乐句 / 混音”。混音页可以边播放边调音量、声像、效果；切换布局只改变可见面板。进入时显示当前试听范围，提供直接恢复全曲的动作，不暗中改变之前试听内容。</p>
+<p>“建议混音”属于一次候选计算：根据角色准备一组音量 / 声像设置，试听、应用或取消。这项操作可以使用临时面板；完整混音台属于工作区，建议混音属于一次性操作，入口可以直接放在混音台。</p>
+<p>一般模态对话框会阻止与背后页面交互，所以适合需要专注确认的短任务；需要看着画板持续尝试模板与调音时，停靠面板更合适。参考 WAI-ARIA 的 modal 行为定义。</p>
+<h2 id="section-6">06 模板应成为手边的材料</h2>
+<h3>当前应用路径</h3>
+<p><code>CatalogUI.listing()</code> 打开“模板与素材”；TemplateCard 点击进入 detail；detail 提供新增 / 替换 / 新轨、目标轨道与片段、小节位置、移调方式、是否换音色等选项，再确认应用。</p>
+<p>同类型模板默认新增到本轨首个空位，未默认落在用户当前编辑的句子。因此，即使已知道用户正在编辑哪段内容，仍然要求他重复选择目标和方式。</p>
+<h3>推荐的素材架</h3>
+<p>在乐句与编排共用一个可收起的素材架，分类为整套、和弦、鼓点、旋律、贝斯。提供搜索、最近使用和收藏即可，导入、资源详情放到完整素材库中。分类与数据仍来源同一目录。</p>
+<p>素材卡片直接显示名称、小节数、适合用途和小型音符预览；试听按钮与应用动作分开。先点击比较，随后拖到目的地，或点击“应用到当前范围”。当前目标、时间范围、已有声音和和声参考能自动确定的内容无需重复询问。</p>
+<h3>落点合同</h3>
+<table>
+<thead>
+<tr>
+<th>拖放 / 点击目标</th>
+<th>默认动作</th>
+<th>必须说明的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编排空白区域</td>
+<td>在落点创建独立片段</td>
+<td>轨道、小节范围、是否自动增加全曲长度</td>
+</tr>
+<tr>
+<td>空白乐句画板</td>
+<td>在明确的光标 / 选区写入普通音符</td>
+<td>时长、原调或已选适配方式</td>
+</tr>
+<tr>
+<td>已有音符区域</td>
+<td>显示候选叠影，明确选择替换所选范围或创建变化副本</td>
+<td>不覆盖未选内容；不把共享修改伪装成本实例修改</td>
+</tr>
+<tr>
+<td>整套配方</td>
+<td>显示多轨落点轮廓，创建配套轨道</td>
+<td>新增几轨、持续多久；改变全局速度需显式选择</td>
+</tr>
+<tr>
+<td>音色 / 鼓组</td>
+<td>应用到目标轨道</td>
+<td>影响该轨全部片段；鼓件角色对应关系清楚</td>
+</tr>
+<tr>
+<td>超出片段长度</td>
+<td>明确扩展或新增片段</td>
+<td>不能静默截断；共享实例和邻接占用必须检查</td>
+</tr>
+</tbody>
+</table>
+<p>点击与拖放调用同一个 <code>PlacementPlan</code>，同时用于预听、边界检查和提交。可用位置显示轮廓；错误位置解释原因；Esc取消零写入；一次放下对应一次撤销。</p>
+<p>拖放需要保留无需拖动的单指针替代操作，例如选素材、点目标、应用。键盘操作也继续支持。这样保留乐器感，同时避免拖拽成为唯一入口。</p>
+<h3>应用前后的工作台位置</h3>
+<p>将模板拖入编排后保持编排布局与当前落点；填入乐句后保持乐句布局。不要因为统一的 <code>commit()</code> 习惯性进入 <code>edit</code> 而打断当前工作。当前 <code>catalogContext.commit()</code> 对非整曲结果调用 <code>openPatternInSession(... edit: true)</code>，未来需要把“提交音乐”与“提交后导航”拆开。</p>
+<h2 id="section-7">07 已有规则生成，怎样变成清楚的创作工具</h2>
+<p>当前 CreationUI 的同一个操作下拉列出12项：生成一句、保留节奏换音高、保留关键音改连接、只改结尾、回答句、鼓型变化、生成贝斯、生成伴奏、配套模板、发展编排、建议混音、鼓 / 贝斯 / 伴奏一起变化。鼓轨里也显示全部操作。</p>
+<p>这把片段、轨道组、全曲和混音四种作用范围挤在一起。模板、布局和算法输入的先后关系没有通过界面清楚表达。</p>
+<h3>按任务与对象安排入口</h3>
+<table>
+<thead>
+<tr>
+<th>所在对象</th>
+<th>常驻或就近动作</th>
+<th>可以展开的参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编排区</td>
+<td>套用整套、复制 / 重复、发展编排</td>
+<td>段落长度、进入退出策略</td>
+</tr>
+<tr>
+<td>和弦轨 / 和弦素材</td>
+<td>选择进行、排列、弹奏方式</td>
+<td>原位 / 就近 / 开放、音区</td>
+</tr>
+<tr>
+<td>旋律片段</td>
+<td>写一句、回答、改结尾、保留节奏换音高</td>
+<td>音域、密度、色彩、变化种子</td>
+</tr>
+<tr>
+<td>鼓片段</td>
+<td>套鼓点、变鼓型、只改选定鼓件</td>
+<td>最后一拍、疏密、力度倾向</td>
+</tr>
+<tr>
+<td>贝斯片段</td>
+<td>按和弦生成，跟随 / 呼应底鼓</td>
+<td>参考鼓轨、实际支持的音域与节奏参数</td>
+</tr>
+<tr>
+<td>伴奏片段</td>
+<td>承托、呼应、加强</td>
+<td>参考旋律、疏密和音区</td>
+</tr>
+<tr>
+<td>混音台</td>
+<td>音量、声像、效果、建议混音</td>
+<td>角色与受影响轨道</td>
+</tr>
+<tr>
+<td>应用设置</td>
+<td>外观、动效、存储与资源管理</td>
+<td>不放生成旋律、和弦进行等核心创作动作</td>
+</tr>
+</tbody>
+</table>
+<p>一条上下文说明足够显示：作用于哪个片段、全曲哪个范围、使用哪条和弦轨、保留哪些内容。音域可用 C4–C6 表示，MIDI 数字作为高级信息；“再来一版”内部改变种子，默认无需让用户管理随机数字。</p>
+<h3>依赖只约束需要它的操作</h3>
+<p>按和弦写旋律需要覆盖该实例的和声；缺失时直接提供“从模板选择和弦 / 指定参考”。鼓点模板应用不要求先有和弦。全曲混音不要求选定一个音乐片段。当前生成仅支持4/8小节时，在生成前给出可操作提示，而不是填完全部参数才报错。</p>
+<p>后台保存单向依赖：和声与鼓点 → 贝斯；和声与主旋律 → 伴奏。用户仍可自由跳到任何工具；来源变化后提示复核，不自动重写手工编辑过的内容。</p>
+<h2 id="section-8">08 本轮已核验的代码问题</h2>
+<h3>F01｜P1｜部分可见参数未进入实际算法</h3>
+<p><strong>位置：</strong> <code>src/views/creation.js:19–23</code>；<code>src/music/ensemble.js:25–41</code>。</p>
+<p>贝斯与伴奏模式显示发声音域、节奏密度与种子。算法却使用固定的基准音区：贝斯为36加根音音级，伴奏为60加和弦音级；它们没有读取 low/high，节奏密度主要只在鼓分支使用。</p>
+<p><strong>定向实测 P01–P03：</strong> 贝斯要求72–84，结果为36–45；贝斯切换稀疏 / 密集并改种子1→999，音乐字段保持相同；伴奏请求36–48与84–96，结果仍为60–71，音乐字段相同。测试对比忽略仅用于标识的ID。</p>
+<p><strong>影响：</strong> 用户调了参数却听不到对应变化，甚至超出明确请求的音域。</p>
+<p><strong>处理：</strong> 操作描述声明实际支持的参数。需要这项能力就实现；目前不支持就不展示。可确定性生成的模式不必承诺“换种子必变”，应准确说明其行为。</p>
+<p><strong>验收：</strong> 每个可见参数有对应行为测试；有效音域始终满足，无法满足时说明原因；密度变化在允许场景改变起音数量或明确目标统计。</p>
+<h3>F02｜P1｜参数变更后候选已经失效，界面仍显示可应用</h3>
+<p><strong>位置：</strong> <code>src/views/creation.js:44, 53–57</code>。</p>
+<p><code>handleField()</code> 清空 candidates，但大部分字段没有重绘，只有 mode 变化才 render。因此，旧候选栏仍在画面上。</p>
+<p><strong>定向实测 P04 + Chromium：</strong> 生成3版后，将种子改为123；内存候选为0，画面仍保留候选栏和“应用这一版”。点击后报“请先生成候选。”，没有提交。</p>
+<p><strong>影响：</strong> 尚未出现错误写入，但界面承诺与实际状态不一致。</p>
+<p><strong>处理：</strong> 参数变化同时更新候选状态、试听状态、绘图和按钮。采用 idle / generating / ready / stale / failed 的明确状态，失效后立即禁用应用并说明需要重新生成。</p>
+<p><strong>验收：</strong> 改任一输入立即反映失效；无候选时不能显示有效应用动作；重新生成后预听与提交使用同一份候选。</p>
+<h3>F03｜P1｜发展编排的预听范围仍指向原片段</h3>
+<p><strong>位置：</strong> <code>src/views/creation.js:28,53–55</code>；生产编排函数见 <code>src/music/recipes.js:arrangeSections</code>。</p>
+<p>编排候选沿用原 trackId/patternId/clipId，未携带新插入范围。预听在没有 range 时回退到原实例位置和长度。</p>
+<p><strong>定向实测 P05：</strong> 原素材第1–4小节，准备在第5–12小节插入八小节编排；传给播放器的范围仍为 <code>[0,15360]</code>，期望新增范围为 <code>[15360,46080]</code>。</p>
+<p><strong>证据边界：</strong> 执行当前候选构造与预听代码，编排生产函数为明确的测试替身；未渲染或聆听音频。生产 <code>arrangeSections</code> 的读取结果与上述插入位置合同一致。</p>
+<p><strong>处理：</strong> 所有候选返回权威的输出范围和受影响轨道。新编排的返回值携带新的实例ID与范围；预听不自行从旧编辑对象推导。</p>
+<p><strong>验收：</strong> 原范围和新增范围放不同标识音，核验计划事件与实际导出音频，只播放所选新范围；应用后导航到相同目标。</p>
+<h3>F04｜P1｜多轨一起生成按轨道排列运行，依赖结果不稳定</h3>
+<p><strong>位置：</strong> <code>src/views/creation.js:33</code>；<code>src/music/ensemble.js</code>；<code>src/music/harmony.js:sourceHash/dependencyStatus</code>。</p>
+<p>组合生成循环遍历 <code>base.tracks.filter(...)</code>。若贝斯排在鼓之前，它参考旧底鼓；随后鼓被重写，贝斯刚生成的来源记录立即过期。</p>
+<p><strong>实测 P07/P08，另用真实 harmony 模块复核：</strong> 将变化鼓件设为kick。轨道顺序“和弦、贝斯、鼓、旋律”时，贝斯只依据旧底鼓起音0和7680；鼓生成32个新底鼓起音，真实 <code>dependencyStatus</code> 返回stale。将相同内容排列为“和弦、鼓、贝斯、旋律”，依赖返回current，贝斯起音与新的鼓内容对应。</p>
+<p><strong>处理：</strong> 按明确的音乐依赖顺序生成，在同一个候选工程中先完成鼓、再完成引用鼓的贝斯、再完成伴奏。用户的轨道排序只影响视觉与组织。</p>
+<p><strong>验收：</strong> 保持音乐输入与种子相同，仅重排轨道顺序，不应改变相同任务的音乐结果；生成完成时所有新依赖指纹有效。</p>
+<h3>F05｜P2｜跨入参考范围的持续音被忽略</h3>
+<p><strong>位置：</strong> <code>src/music/ensemble.js:6</code>。</p>
+<p><code>sourceNotes()</code> 只保留换算后起点大于等于0的音符。开始于范围之前、但持续进入范围的音被丢弃。</p>
+<p><strong>实测 P10：</strong> 一条音从0持续到7680 ticks，查询3840–7680，返回0个音。</p>
+<p><strong>影响：</strong> 伴奏避让逻辑可能把正在持续的主旋律当作空白。</p>
+<p><strong>处理与验收：</strong> 按区间交集读取并裁剪可见段，保留起音与持续的不同语义。对跨边界、恰好结束于边界、恰好起于边界分别测试；底鼓的“起音参考”和旋律的“占用参考”不要混用。</p>
+<h3>F06｜P2｜全曲类操作不必要地依赖已放置片段</h3>
+<p><strong>位置：</strong> <code>src/views/creation.js:6–10</code>。</p>
+<p><code>open()</code> 对所有模式先要求选中编排中的片段；但整套配方新增轨道、建议混音和部分编排操作的自然目标是作品或范围。</p>
+<p><strong>实测 P06：</strong> 移除当前轨的编排实例后，无法打开该通用入口，即使希望使用独立新增轨道的配方。</p>
+<p><strong>处理与验收：</strong> 按命令范围准备目标。配套模板可从空作品的编排位置开始；混音直接以作品为目标。旋律生成保留对确切实例的要求。</p>
+<h2 id="section-9">09 状态与组件的下一轮整理</h2>
+<h3>不需要为两个布局复制音乐状态</h3>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>内容</th>
+<th>改变时的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>作品文档</td>
+<td>实际音符、片段、实例、和声、生成来源、用户保留项、音色、混音</td>
+<td>确认后进入音乐撤销、保存与播放更新</td>
+</tr>
+<tr>
+<td>共享选择</td>
+<td>当前轨道、片段、实例、音符ID与操作焦点</td>
+<td>改变编辑目标；不改音乐，不自动覆盖候选目标</td>
+</tr>
+<tr>
+<td>布局偏好</td>
+<td>编排/乐句/混音、停靠面板、密度、高度、组件视口</td>
+<td>只改变显示与本机偏好</td>
+</tr>
+<tr>
+<td>素材现场</td>
+<td>分类、筛选、收藏、浏览位置、预听</td>
+<td>不进入音乐文档</td>
+</tr>
+<tr>
+<td>放置 / 生成现场</td>
+<td>固定的目标、原稿版本、范围、参数、候选、拖放轮廓</td>
+<td>应用前只作预览；过期或取消时不写原稿</td>
+</tr>
+<tr>
+<td>播放现场</td>
+<td>播放时钟、范围、循环、临时只听、候选返回状态</td>
+<td>所有布局共用一个管理者</td>
+</tr>
+</tbody>
+</table>
+<p>常驻素材架与非模态生成面板允许用户继续操作画板。因此，目标切换规则需要在这轮明确：候选生成时锁定其track/clip/range；用户切到另一片段，旧候选不能自动改写新目标。原稿发生相关修改时提示过期；简单滚动画板不应让候选无效。</p>
+<h3>一个轻量操作描述，避免参数与实现脱节</h3>
+<p>为操作记录 <code>scope</code>、允许目标类型、必要输入、实际参数、候选输出、预听范围和应用方式。例：</p>
+<pre><code class="language-text">生成贝斯
+作用对象：当前贝斯片段实例
+必要输入：覆盖目标范围的和声
+可选输入：底鼓参考
+支持参数：跟随/呼应、已经实现的音域与疏密
+输出：普通音符 + 来源 + 实际范围
+预听：同一候选的单轨或伴奏合听
+应用：一次事务，必要时建立独立变化
+</code></pre>
+<p>组件据此只显示相关参数，命令根据相同描述检查输入。这个表可以是一份普通 JavaScript 配置，无需引入庞大的插件框架。</p>
+<h3>组件关系建议</h3>
+<pre><code class="language-text">WorkbenchShell
+  ├ TransportBar
+  ├ WorkspaceTabs（编排 / 乐句 / 混音）
+  ├ TemplateShelf（同一素材选择器）
+  ├ ArrangementPane（标准 / 紧凑）
+  ├ PhraseEditor（普通 / 放大）
+  ├ MixerPane
+  └ CreationPanel（按目标显示操作）
+
+Template / Recipe / Generator
+  → PlacementPlan / Candidate
+  → PreviewPlan
+  → Command commit
+  → Document + History + Save + Audio
+</code></pre>
+<p>设计系统继续共用tokens、组件变体、交互状态和焦点规则。当前14个样式文件还包含历史material/studio与最终legou覆盖，不必一次全部改写；先把同一组件的尺寸和状态归回组件文件，布局文件只管顺序、分区与显式密度。</p>
+<h2 id="section-10">10 建议施工顺序与验收</h2>
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>重点</th>
+<th>必须通过的验证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A：操作与预听合同</td>
+<td>修正参数无效、候选失效、编排预听、依赖顺序和持续音范围</td>
+<td>每个可见参数有实际行为；预听范围等于候选范围；依赖不受轨道顺序影响</td>
+</tr>
+<tr>
+<td>B：三个工作区与组件归位</td>
+<td>现有混音升一级；编排/乐句显式密度；滚动与焦点按组件归属</td>
+<td>相同基础操作在两布局结果相同；切换不改音乐、试听对象与撤销；返回现场准确</td>
+</tr>
+<tr>
+<td>C：常驻模板架与放置</td>
+<td>同一目录、预听/点击/拖放、目标轮廓、长度与覆盖处理</td>
+<td>空白和已有内容均有清楚行为；错误/取消零写入；共享提示；一次撤销；不强行跳页</td>
+</tr>
+<tr>
+<td>D：上下文创作与全流程</td>
+<td>按角色显示规则工具；全局任务独立目标；参数高级展开</td>
+<td>从空作品也能套整套；缺输入就近补齐；生成保留用户内容；保存重开和导出一致</td>
+</tr>
+</tbody>
+</table>
+<p>每批保存固定提交、输入作品、动作、输出作品、日志；有预听逻辑时保存编译事件与实际渲染。避免只统计按钮是否存在。</p>
+<p>长期成功路径：</p>
+<p><strong>编排中拖入和弦模板 → 原位添加鼓型 → 打开旋律片段 → 在旁边选择节奏骨架 → 按该范围和弦生成 → 保留几个音 → 只改结尾 → 返回编排排出A′ → 打开混音 → 全曲试听 → 保存重开。</strong></p>
+<p>补充交叉用例：切换布局时仍在预听；拖动中换目标或取消；候选未应用时改和弦；改变轨道排序；跨范围持续音；4/8生成与1/2/16片段兼容提示；长模板碰到邻接片段；同一片段跨多个和声上下文。</p>
+<h2 id="section-11">11 本轮实测索引</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>结果类型</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>缺陷复现</td>
+<td>贝斯音域参数未生效</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>控件合同矛盾</td>
+<td>贝斯密度与种子变化不改变音乐</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>缺陷复现</td>
+<td>伴奏音域/密度未生效</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>缺陷复现</td>
+<td>候选内存清空，旧应用界面仍在</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>范围计算缺陷</td>
+<td>编排试听指向旧范围；生产函数替身，未听音</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>范围设计矛盾</td>
+<td>全局配方入口依赖无关的已放置片段</td>
+</tr>
+<tr>
+<td>P07</td>
+<td>依赖缺陷</td>
+<td>贝斯先于鼓生成，引用立即过期</td>
+</tr>
+<tr>
+<td>P08</td>
+<td>对照通过</td>
+<td>鼓先于贝斯，引用保持有效</td>
+</tr>
+<tr>
+<td>P09</td>
+<td>对照通过</td>
+<td>旋律同种子可复现且遵守测试音域</td>
+</tr>
+<tr>
+<td>P10</td>
+<td>缺陷复现</td>
+<td>参考范围之前开始的持续音丢失</td>
+</tr>
+<tr>
+<td>P11</td>
+<td>界面结构观察</td>
+<td>鼓片段仍显示12种未筛选操作</td>
+</tr>
+<tr>
+<td>P12</td>
+<td>结构对照通过</td>
+<td>两布局调用同一编排函数且HTML相同</td>
+</tr>
+<tr>
+<td>P13</td>
+<td>结构对照通过</td>
+<td>混音已经主工作区分支；主导航只有两项</td>
+</tr>
+</tbody>
+</table>
+<p>附加交叉复核：实际 <code>harmony.js</code> 的 <code>resolveHarmony</code>、<code>sourceHash</code>、<code>dependencyStatus</code> 重现P07与P08。</p>
+<p>真实浏览器组件核验：Chromium 144.0.7559.96中生成3候选 → 改种子 → 旧候选仍显示 → 点击应用提示重新生成；提交次数为0。截图仅用于这个状态问题。</p>
+<h2 id="section-12">12 固定源码与外部原则来源</h2>
+<p>全部仓库来源固定到本次提交。链接用于复核，相关模块的执行证据见本包日志。</p>
+<ul>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/README.md">当前README</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/docs/implementation/CONTRACTS.md">当前实施合同</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/views/shell.js">界面外壳与混音工作区</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/views/arrange.js">共用编排组件</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/views/editor.js">编辑器入口</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/views/catalog.js">模板应用界面</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/views/creation.js">创作辅助与候选生命周期</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/music/ensemble.js">贝斯、鼓和伴奏算法</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/music/generation.js">旋律算法与解释</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/music/recipes.js">配方与编排</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/music/harmony.js">和声与依赖</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/app.js">应用协调</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/session.js">工作区状态</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/ui/components.js">设计组件</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/src/styles/legou.css">布局样式</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/assets.json">资源清单</a></li>
+<li><a href="https://github.com/zzliu-coder/musiclego/blob/98d4610bda74a7b8988b9908eca35691a4b4ff9b/GridTone/RELEASE_VERIFICATION.json">已有发布记录</a></li>
+<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">WAI-ARIA：模态对话框</a>：背后内容在modal期间不可交互。</li>
+<li><a href="https://www.w3.org/TR/WCAG22/#dragging-movements">WCAG 2.2：2.5.7 Dragging Movements</a>：为非必要拖拽提供单指针替代操作。</li>
+<li><a href="https://www.ableton.com/en/manual/clip-view/">Ableton官方Clip View说明</a>：局部编辑可与全曲选择联动，面板可调整或关闭。作为产品参考，不代表本项目必须复刻其界面。</li>
+</ul>
+<h2 id="section-13">13 最终判断</h2>
+<p>乐构已经从基础编辑器发展出可用的规则生成底座。下一步应把“看什么、改什么、依据什么、应用到哪里”四种关系明确分开，再让模板、候选和画板在同一工作台中直接交互。</p>
+<p>最需要实现的体验是：<strong>材料就在旁边，目标就在画板上，拖放或点按就能试；当前结果、保留范围与影响对象始终清楚。</strong></p>
+<footer>审查与建议分别列出。源码没有被修改或推送。所有仓库链接固定到 98d4610bda74a7b8988b9908eca35691a4b4ff9b。</footer></main></body></html>

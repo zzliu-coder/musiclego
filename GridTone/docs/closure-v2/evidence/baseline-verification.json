@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-17T23:24:26.216Z",
+  "status": "PASS",
+  "sha256": "448cbed5a054f25525aba300dc14712508ace38712d9cf3a7b7e907c565f5208",
+  "node": "v22.22.3",
+  "browserChannel": "chrome",
+  "results": [
+    {
+      "name": "catalog",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 36,
+      "log": "catalog.txt"
+    },
+    {
+      "name": "build",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 46,
+      "log": "build.txt"
+    },
+    {
+      "name": "core",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 546,
+      "log": "core.txt"
+    },
+    {
+      "name": "storage",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 2722,
+      "log": "storage.txt"
+    },
+    {
+      "name": "workflow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 5439,
+      "log": "workflow.txt"
+    },
+    {
+      "name": "release-flow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 8373,
+      "log": "release-flow.txt"
+    },
+    {
+      "name": "interactions",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 4107,
+      "log": "interactions.txt"
+    },
+    {
+      "name": "visual",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 6405,
+      "log": "visual.txt"
+    },
+    {
+      "name": "audio",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 6207,
+      "log": "audio.txt"
+    }
+  ],
+  "scope": "Current automated engineering suites. Full release gate additionally requires soak and acceptance.json; small-screen work deferred by user."
+}

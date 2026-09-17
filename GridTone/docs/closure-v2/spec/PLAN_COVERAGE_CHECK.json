@@ -1,0 +1,9 @@
+{
+  "kind": "plan-coverage-only",
+  "passed": true,
+  "original_requirements": 87,
+  "supplemental_requirements": 82,
+  "issue_mappings": 29,
+  "errors": [],
+  "application_tests_executed": false
+}
