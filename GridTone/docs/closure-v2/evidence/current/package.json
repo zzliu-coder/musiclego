@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "source_commit": "35792884dec4ca22587dddaaa960ee0e519a268d",
+  "archive": "乐构_v1.7.0_candidate.zip",
+  "archive_sha256": "6b0f44a476d1eeefcb81bc21727fb08f3d9858ec1c5e48838723668a75bdab1c",
+  "bytes": 102132061,
+  "zip_integrity": "PASS",
+  "extracted_source_install_build_and_core_tests": "PASS",
+  "html_aliases_match": true,
+  "note": "The archive contains committed source and the validation snapshot at source_commit. The final archive receipt and acceptance updates are stored alongside it in the repository."
+}
