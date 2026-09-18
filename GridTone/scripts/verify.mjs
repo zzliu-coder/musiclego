@@ -2,7 +2,7 @@
 import {spawn} from 'node:child_process';import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url)),out=root+(process.env.EVIDENCE_DIR||'docs/implementation/evidence');await mkdir(out,{recursive:true});
 const tests=(await readdir(root+'tests')).filter(f=>/\.test\.(mjs|cjs)$/.test(f)).sort().map(f=>'tests/'+f);
-const jobs=[['catalog',['scripts/catalog-build.mjs']],['build',['scripts/build.mjs']],['core',['--test',...tests]],...['storage','workflow','release-flow','interactions','closure','long-timeline','visual','audio'].map(name=>[name,['tests/verify-'+name+'.mjs']])];
+const jobs=[['catalog',['scripts/catalog-build.mjs']],['build',['scripts/build.mjs']],['core',['--test',...tests]],...['storage','workflow','release-flow','interactions','closure','workspace-scroll','long-timeline','visual','audio'].map(name=>[name,['tests/verify-'+name+'.mjs']])];
 const results=[];let testedHash=null;
 const buildHash=async()=>createHash('sha256').update(await readFile(root+'dist/index.html')).digest('hex');
 for(const [name,args] of jobs){

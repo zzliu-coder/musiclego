@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "sha256": "afcfcdb87e60d28c347c4fb1cc5941b95a64782a8d8a419158c60a45b98b39b0",
+  "date": "2026-09-18T03:05:53.490Z",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 900,
+      "view": "arrange",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 33
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "view": "arrange",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 33
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "view": "edit",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 228
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "view": "edit",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 228
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "view": "arrange",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 213
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "view": "arrange",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 213
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "view": "edit",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 408
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "view": "edit",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 408
+    },
+    {
+      "width": 1152,
+      "height": 600,
+      "view": "arrange",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 323
+    },
+    {
+      "width": 1152,
+      "height": 600,
+      "view": "arrange",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 323
+    },
+    {
+      "width": 1152,
+      "height": 600,
+      "view": "edit",
+      "dock": false,
+      "status": "PASS",
+      "scrollTop": 518
+    },
+    {
+      "width": 1152,
+      "height": 600,
+      "view": "edit",
+      "dock": true,
+      "status": "PASS",
+      "scrollTop": 518
+    }
+  ],
+  "errors": [],
+  "scope": "Actual wheel, bottom action hit-testing, fixed chrome, render/view retention and grid boundary chaining. Desktop effective viewports include reduced height / zoom-equivalent space."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "sha256": "afcfcdb87e60d28c347c4fb1cc5941b95a64782a8d8a419158c60a45b98b39b0",
+  "date": "2026-09-18T03:09:09.835607+00:00",
+  "browser": "Native Safari macOS",
+  "method": "CUA actual reload, vertical wheel scrolling and bottom playback action",
+  "checks": [
+    "Arrangement view scrolled to bottom; complete lower piano editor and footer visible",
+    "Bottom phrase audition button clicked, scope changed to current four-bar phrase; stopped afterwards",
+    "Phrase view scrolled to bottom; fifth track and arrangement footer visible",
+    "Top transport, material shelf and bottom status stayed fixed"
+  ],
+  "scope": "Existing 5-track 12-bar document; no note/content edits"
+}
