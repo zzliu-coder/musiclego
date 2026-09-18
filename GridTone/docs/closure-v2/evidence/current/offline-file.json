@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:10:47.881Z",
+  "browser": "macOS Chrome",
+  "checks": [
+    "file:// Chinese-named artifact opens, actual pointer editing saves and reloads intact",
+    {
+      "name": "Offline built-in synthesis and MIDI rendering",
+      "midiBytes": 1013,
+      "wavBytes": 2097244,
+      "peak": 0.35100170969963074
+    }
+  ],
+  "externalRequests": [],
+  "errors": [],
+  "scope": "Isolated browser context, actual file:// artifact; browser/HTTP storage are intentionally separate."
+}

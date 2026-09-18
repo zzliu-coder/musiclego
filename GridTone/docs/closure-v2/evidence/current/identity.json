@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "runtime_source_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
+  "date": "2026-09-18T02:11:30.422394+00:00",
+  "note": "All current runtime evidence tests identical built bytes. Later commits contain validation scripts, reports and documentation; package.json separately identifies the archive commit."
+}

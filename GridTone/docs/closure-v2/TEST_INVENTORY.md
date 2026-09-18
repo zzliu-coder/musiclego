@@ -42,6 +42,7 @@
 | `tests/verify-interactions.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
 | `tests/verify-journey.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
 | `tests/verify-long-timeline.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
+| `tests/verify-offline-file.mjs` | 当前真实 file:// 离线入口，隔离浏览器、屏蔽网络，画音保存刷新与音频渲染 |
 | `tests/verify-real-banks.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
 | `tests/verify-release-flow.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
 | `tests/verify-save-feedback.mjs` | 当前浏览器／发行专项 · 独立脚本；主入口见 scripts/verify.mjs |
@@ -60,6 +61,7 @@
 - `verify-real-banks.mjs`：6套真实下载，内嵌保存后阻断外网重开渲染。
 - `verify-gate-injection.mjs`：用明确标识的合成验收账测试发布门禁进程退出码，不充当产品完成证据。
 - `verify-css-migration.mjs`：使用固定旧HTML/JS对比当前CSS；需要Git历史，独立源码包不以此脚本代替核心重建。
+- `verify-offline-file.mjs`：真正双击交付 HTML 对应的 file:// 入口，独立浏览器存储与全离线渲染。
 - `package-release.mjs`：已提交源码归档、独立安装/构建/测试及交付HTML哈希比对。
 
 人工音乐审听单独记录。小屏、Android、Windows依据用户指示排除。
