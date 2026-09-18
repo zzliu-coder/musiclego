@@ -1,0 +1,7 @@
+PASS R1-T04 actual pointer move commits once; Escape cancels without history
+PASS R3-T06 focused text editing and canvas deletion have separate scopes
+PASS R3-T07 modal traps keyboard focus, keeps background inert and restores entrance
+PASS R3-T03 desktop themes preserve document, playback scope and layout geometry
+PASS R3-T02/T09 bounded components and one semantic token update reach production controls
+PASS R7-T07 combined candidate preview/apply/undo is atomic
+PASS R1-T07/R3 motion and playback regressions rerun on this build

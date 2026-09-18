@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "platform": "darwin",
+  "checks": [
+    "Three workspaces reachable",
+    "Nonmodal creation panel opens and closes",
+    "Actual pointer draw and keyboard undo restore project",
+    "Shelf material plays through native audio and pickup cancels without writing",
+    "Actual origin save and reload",
+    {
+      "name": "Native offline audio and MIDI export",
+      "midi": 1003,
+      "wav": 2097244,
+      "peak": 0.3205069303512573,
+      "events": 84,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:155.0) Gecko/20100101 Firefox/155.0"
+    }
+  ],
+  "errors": []
+}

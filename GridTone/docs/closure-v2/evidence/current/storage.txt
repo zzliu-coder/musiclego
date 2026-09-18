@@ -1,0 +1,10 @@
+PASS R2-T01 real-origin A/B save and refresh
+PASS R2-T02/T03 queued snapshot cannot follow later edits
+PASS R2-T07 independent database connections reject stale revision
+PASS R2-T05 legacy migration is idempotent and retains raw backup
+PASS R2-T06 recovery isolation and deletion preserve other project
+PASS R2-T04 aborted transaction cannot publish a saved revision
+PASS R2-T04 budget rejection is atomic and leaves the active song available
+PASS R2-T06 each project keeps at most ten recovery records at thirty-second intervals
+PASS R2-T07 real second tab rejects stale save and can create an independent copy
+PASS R2-T08 same-ID import copies identities and rapid switches serialize

@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:02:12.635Z",
+  "results": [
+    {
+      "view": "arrange",
+      "status": "PASS",
+      "steps": [
+        "01 blank A and persistent shelf",
+        "02 four-bar chord placed in current range",
+        "03 drum material with role mapping",
+        "04 melody target and reusable rhythm skeleton",
+        "05 actual-instance harmony and three candidates",
+        "06 compare candidates in matching accompaniment",
+        "07 retain rhythm and two notes, rewrite ending",
+        "08 preserve concurrent unrelated volume edit",
+        "09 independent A-prime with original sharing preserved",
+        "10 atomic drum/bass/texture group independent of visual track order",
+        "11 place and preview bars 9 through 24",
+        "12 shared state across workspaces",
+        "13 third workspace mix compare/cancel/apply",
+        "14 temporary listening leaves project unchanged",
+        "15 A/B editing and independent stored recovery",
+        "16 actual full/range WAV, MIDI and serialized project",
+        "17 actual origin reload restores A",
+        "18 standalone delivery HTML restores A; independent archive rebuild verified separately"
+      ],
+      "seconds": [
+        39,
+        9
+      ]
+    },
+    {
+      "view": "edit",
+      "status": "PASS",
+      "steps": [
+        "01 blank A and persistent shelf",
+        "02 four-bar chord placed in current range",
+        "03 drum material with role mapping",
+        "04 melody target and reusable rhythm skeleton",
+        "05 actual-instance harmony and three candidates",
+        "06 compare candidates in matching accompaniment",
+        "07 retain rhythm and two notes, rewrite ending",
+        "08 preserve concurrent unrelated volume edit",
+        "09 independent A-prime with original sharing preserved",
+        "10 atomic drum/bass/texture group independent of visual track order",
+        "11 place and preview bars 9 through 24",
+        "12 shared state across workspaces",
+        "13 third workspace mix compare/cancel/apply",
+        "14 temporary listening leaves project unchanged",
+        "15 A/B editing and independent stored recovery",
+        "16 actual full/range WAV, MIDI and serialized project",
+        "17 actual origin reload restores A",
+        "18 standalone delivery HTML restores A; independent archive rebuild verified separately"
+      ],
+      "seconds": [
+        39,
+        9
+      ]
+    }
+  ],
+  "errors": [],
+  "method": "Integrated production-controller journey in two desktop workspaces with real storage/render and delivery HTML; widget pointer/keyboard tests separate."
+}

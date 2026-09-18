@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:03:08.009Z",
+  "checks": [
+    {
+      "name": "R1-T04 actual pointer move commits once; Escape cancels without history",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T06 focused text editing and canvas deletion have separate scopes",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T07 modal traps keyboard focus, keeps background inert and restores entrance",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T03 desktop themes preserve document, playback scope and layout geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "R3-T02/T09 bounded components and one semantic token update reach production controls",
+      "status": "PASS"
+    },
+    {
+      "name": "R7-T07 combined candidate preview/apply/undo is atomic",
+      "status": "PASS"
+    },
+    {
+      "name": "view switch preserves audio graph, origin and compilation",
+      "status": "PASS"
+    },
+    {
+      "name": "view switch preserves current phrase",
+      "status": "PASS"
+    },
+    {
+      "name": "arrangement and phrase views remain directly reachable",
+      "status": "PASS"
+    },
+    {
+      "name": "playback lights notes without geometric transforms",
+      "status": "PASS"
+    },
+    {
+      "name": "stopping clears note lighting",
+      "status": "PASS"
+    },
+    {
+      "name": "reduced motion disables animation and retains geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "motion preference exposed in settings",
+      "status": "PASS"
+    },
+    {
+      "name": "mix navigation closes overlay and leaves workspace operable",
+      "status": "PASS"
+    },
+    {
+      "name": "editor can collapse",
+      "status": "PASS"
+    },
+    {
+      "name": "phrase navigation reopens collapsed editor",
+      "status": "PASS"
+    },
+    {
+      "name": "branding is consistent in page and export",
+      "status": "PASS"
+    },
+    {
+      "name": "all export formats remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "R1-T07/R3 motion and playback regressions rerun on this build",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

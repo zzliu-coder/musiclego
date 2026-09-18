@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:02:34.185626+00:00",
+  "scope": "Document inventory and mapping audit only; unfinished listening and release gate remain pending",
+  "checks": {
+    "legacy_ids": 87,
+    "supplemental_ids": 82,
+    "issue_mappings": 29,
+    "phases": 12,
+    "original_spec_bytes_match_supplied_zip": true,
+    "all_legacy_owners_present": true,
+    "user_scope": "macOS desktop; small-screen/Android/Windows excluded; listening retained"
+  },
+  "baseline_reproductions": "../baseline-reproductions.json",
+  "test_inventory": "../../TEST_INVENTORY.md"
+}

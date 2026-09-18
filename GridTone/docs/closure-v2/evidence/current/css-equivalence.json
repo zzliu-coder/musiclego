@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "date": "2026-09-18T02:02:58.005Z",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "baseline": "eaa01e6",
+  "cssSha256": "a582936a9b0be309fdaa71d2cfc3edaec87eee4938b8e2db38ab2c4674ff8d88",
+  "states": 12,
+  "method": "Identical baseline HTML/JS; old versus current CSS full computed styles across three workspaces, two skins and 1280/1440 desktop widths."
+}

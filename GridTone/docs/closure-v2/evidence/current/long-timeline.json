@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:04:00.323Z",
+  "checks": [
+    {
+      "bars": 32,
+      "view": "arrange",
+      "status": "PASS",
+      "clipBar": 24,
+      "barWidth": 98.03125,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    },
+    {
+      "bars": 32,
+      "view": "edit",
+      "status": "PASS",
+      "clipBar": 24,
+      "barWidth": 98.03125,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    },
+    {
+      "bars": 128,
+      "view": "arrange",
+      "status": "PASS",
+      "clipBar": 120,
+      "barWidth": 96.5078125,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    },
+    {
+      "bars": 128,
+      "view": "edit",
+      "status": "PASS",
+      "clipBar": 120,
+      "barWidth": 96.5078125,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    },
+    {
+      "bars": 256,
+      "view": "arrange",
+      "status": "PASS",
+      "clipBar": 127,
+      "barWidth": 96.25390625,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    },
+    {
+      "bars": 256,
+      "view": "edit",
+      "status": "PASS",
+      "clipBar": 127,
+      "barWidth": 96.25390625,
+      "actions": [
+        "scroll",
+        "select",
+        "drag-one-bar",
+        "undo",
+        "mute",
+        "solo"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,14 @@
+PASS C2 dock is nonmodal; field changes immediately remove old candidate
+PASS C1/C2 local application preserves current workspace, one history and independent edit
+PASS C2/C9 new arrangement owns absolute preview range
+PASS C2/C9 no-clip project can use recipes and mixing
+PASS C5 mouse drag and click placement use equivalent musical output
+PASS C5 native drag Escape clears pickup and cannot write on the next empty click
+PASS C4 desktop geometry and DOM order match the selected focus
+PASS C5 piano-grid placement uses actual drop position and one undo step
+PASS C5 long template offers an explicit independent position and protects current phrase
+PASS C4 closing dock after workspace change restores a usable focus
+PASS C10 recording cancellation releases a late permission stream without starting recorder
+PASS C10 denied microphone permission preserves project and remains retryable
+PASS C10 real MediaRecorder encodes a synthetic microphone stream and saves embedded audio
+PASS C5 cancel, blur and project switch cannot apply an old shelf payload

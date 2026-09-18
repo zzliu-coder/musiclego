@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:06:23.971076+00:00",
+  "browser": "Native Safari 26.6.2 on macOS",
+  "method": "Native CUA app controls, real 127.0.0.1:8765 origin; downloaded bytes read independently",
+  "checks": [
+    "Saved 5-track 12-bar composition restored after reload",
+    "Play became Pause; Stop stopped playback",
+    "Actual pointer drew a note, Undo enabled; undo restored disabled state",
+    "Shelf pickup displayed status; Escape restored idle hint",
+    "Project JSON before drawing equals export after undo and shelf cancellation",
+    "WAV, MIDI and project export completed; headers and sizes read back"
+  ],
+  "download_readback": {
+    "gridtone": {
+      "bytes": 31605,
+      "sha256": "311902f1fadd0da5b1f4f5248e86b8160bac3714ae1476c6fd25ec2111f4640b",
+      "mtime_utc": "2026-09-18T02:01:01.625892+00:00"
+    },
+    "mid": {
+      "bytes": 2179,
+      "sha256": "4abe3362fedeb18913203a7cb3814383996b1d0365bd0263ddfafe359102fc90",
+      "mtime_utc": "2026-09-18T02:01:02.442172+00:00"
+    },
+    "wav": {
+      "bytes": 6051332,
+      "sha256": "19c77dc9c8def6d2d76326e71abab869830dfc5e38401453c16a80420e04e66e",
+      "mtime_utc": "2026-09-18T02:01:57.790518+00:00",
+      "channels": 2,
+      "sample_rate": 44100,
+      "frames": 1512822
+    }
+  },
+  "privacy": "Existing composition stays local and gitignored; only checksums/format receipt published",
+  "limitations": [
+    "No human music listening conclusion",
+    "No physical microphone capture",
+    "No small-screen, Android or Windows validation"
+  ]
+}

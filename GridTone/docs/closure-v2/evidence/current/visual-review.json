@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:08:21.179811+00:00",
+  "reviewer": "Codex visual inspection",
+  "method": "Viewed final screenshots in labeled contact sheets, plus full-size 1280 creation and 1440 arrangement; inspected native Safari desktop separately. Automated bounding and overflow checks in visual.json.",
+  "viewports": [
+    1280,
+    1440
+  ],
+  "skins": [
+    "pearl",
+    "crystal"
+  ],
+  "pages": [
+    "arrange",
+    "edit",
+    "mix",
+    "sound",
+    "pipeline",
+    "catalog",
+    "project-menu",
+    "creation",
+    "components"
+  ],
+  "observations": [
+    "No whole-page horizontal overflow",
+    "Controls and panels follow consistent hierarchy",
+    "Material song cards show actual eight-bar duration",
+    "Track, editor, sound list and shelf scroll internally; partial edge content is not a whole-page overflow",
+    "Small-screen layouts are outside this run"
+  ],
+  "screenshots": {
+    "components.png": "f8d410e62576f6497c50a1c4c1ae12e08482b86573a1bed5bbe4af5b5bbd9cd7",
+    "crystal-1280-arrange.png": "e78be79895ce093f219859e54ff66cd6cd4fc2a26cc01d8250e99c0659261ef4",
+    "crystal-1280-catalog.png": "1985f6c710e26fe807f0cb3ec35508bd5d99fee1a4b1389bdf25da9c0ca21f17",
+    "crystal-1280-creation.png": "3f80a390624da91a850a83fc5ea2c9325119e375b4e47f3f64490ebc1bfac6de",
+    "crystal-1280-edit.png": "bb726031a4b627a56464e6450c31d9dfb570b4d78a6d7e4aadaa4cbaa827eda9",
+    "crystal-1280-mix.png": "281ca5150822994e5a6280b59993de747102f6c462db32e7a087b7afbb772213",
+    "crystal-1280-pipeline.png": "16925616a631aeb4087411503b2fa38e02733427ec83bb8c4bddfc515a477091",
+    "crystal-1280-project-menu.png": "0afc2d2e346b0e8ee264f369cb272e5de03af83039467bda473af1c1f75156b0",
+    "crystal-1280-sound.png": "f4a459dda19df17ba277fe3ff0d85e13a7f5164a7401e9b2cb054a35a10dde77",
+    "crystal-1440-arrange.png": "31848963f09b51264d643c136737731c62939c89db588139a3ce895a21e9ef6f",
+    "crystal-1440-catalog.png": "1a962f907057e09bb767d81178bf1de22bace5292aa4313eaa0c5972b43167a6",
+    "crystal-1440-creation.png": "c0a977c9de117379b76cba171a55d710c0dd028d8609a7d71abd96821944cfad",
+    "crystal-1440-edit.png": "b9f21b7f77362a5a80717f51de868e0914d978e3c93bb441e455a5ea4d7ce8d3",
+    "crystal-1440-mix.png": "7f63f07ea85be289128564c71db0e61359485400a1501c95e3d7436d85480130",
+    "crystal-1440-pipeline.png": "1fadc3827286d548ff499ff6bff0271d687ca45835826416db2acfdf50a8258a",
+    "crystal-1440-project-menu.png": "c668b15fcef1b199dbe462d0bcbd744cdc4b4573c0c43d7e1db288380e5dd7c4",
+    "crystal-1440-sound.png": "0ca9fe646619e2370356920d440f8049f47ebe687510a6eebd088190316683e7",
+    "pearl-1280-arrange.png": "36fee61448a475e07d1a8c6a91c8ca8c671cf74d933b8b1d557a5b5f703058a4",
+    "pearl-1280-catalog.png": "6e07c1493b86cd4838f6d5c4c7d5245937f7f93596e4ebb23a887e5976a14b8d",
+    "pearl-1280-creation.png": "e22f66f0013246d722468fe6bbd52aa89d415154a2ef33903d8d3e55038493c0",
+    "pearl-1280-edit.png": "0d41e7939915254fe303e117d618f579928d34941c0c0d891d662f809fbc87aa",
+    "pearl-1280-mix.png": "ada6de69744a76869af03ee0c2c23efc20275f90e82b051ad554d1a9b98259c2",
+    "pearl-1280-pipeline.png": "961ead1810f8278e3324d6322627c2c27bc634bd3a50b5c03980633d650294ab",
+    "pearl-1280-project-menu.png": "39e6bf42a959f7793decf8cc68662cb4a061e7825de3f0921bf100442955138c",
+    "pearl-1280-sound.png": "b80a8004216ce90aa256fdebc1ff6e872dbeee564cbb271b2307b681d2ae4c0f",
+    "pearl-1440-arrange.png": "107e76160edf00bd0d86fced034928242c6796fedc5cb1ea80dc8f10515bf6cf",
+    "pearl-1440-catalog.png": "2e51c648f96c62099a9fd65c6f2403a53c4e4c5f47fb752e10fee9fd307ed65d",
+    "pearl-1440-creation.png": "3983a1e664110f88ae86fbe9c199920d13e3cbfd7f369f5b0714f120211d10c7",
+    "pearl-1440-edit.png": "c7a07e4bc3b46f8cdd9d4a9e7c64b684abbb492125b9f1268014c2e8c489fee8",
+    "pearl-1440-mix.png": "8e087c819366c465fdb15545d4d1497a93f70363ce761048f0526563c8dc07a6",
+    "pearl-1440-pipeline.png": "1409ad3c0a15f58a381b9231c82d37c93e446b98bcbbabf25e93bb961dea6b44",
+    "pearl-1440-project-menu.png": "c5b43a47166811fa73406fdaa605d41559e64a3902b40e36cc39fd19a258b660",
+    "pearl-1440-sound.png": "32962d473bb6aaa3847e7b537dd91bf241cda895e173e8254d5d539dcc43feec"
+  }
+}

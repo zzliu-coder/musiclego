@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-18T02:06:20.548Z",
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "node": "v22.22.3",
+  "browserChannel": "chrome",
+  "results": [
+    {
+      "name": "catalog",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 54,
+      "log": "catalog.txt"
+    },
+    {
+      "name": "build",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 85,
+      "log": "build.txt"
+    },
+    {
+      "name": "core",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 9456,
+      "log": "core.txt"
+    },
+    {
+      "name": "storage",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 31902,
+      "log": "storage.txt"
+    },
+    {
+      "name": "workflow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 62821,
+      "log": "workflow.txt"
+    },
+    {
+      "name": "release-flow",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 93012,
+      "log": "release-flow.txt"
+    },
+    {
+      "name": "interactions",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 21430,
+      "log": "interactions.txt"
+    },
+    {
+      "name": "closure",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 21800,
+      "log": "closure.txt"
+    },
+    {
+      "name": "long-timeline",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 30115,
+      "log": "long-timeline.txt"
+    },
+    {
+      "name": "visual",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 37363,
+      "log": "visual.txt"
+    },
+    {
+      "name": "audio",
+      "status": "PASS",
+      "exitCode": 0,
+      "ms": 102168,
+      "log": "audio.txt"
+    }
+  ],
+  "scope": "Current automated engineering suites. Full release gate additionally requires soak and the 169-item closure-v2 ledger; small-screen work deferred by user."
+}

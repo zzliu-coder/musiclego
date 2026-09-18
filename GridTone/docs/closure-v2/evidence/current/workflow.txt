@@ -1,0 +1,8 @@
+PASS R1-T01 sixteen bars save and reload through app
+PASS R3-T01 templates and progressions immediately reachable
+PASS R5-T03/T07 recipe preview and atomic apply share identical candidate
+PASS R6-T06/T09 melody candidates cancel without music or history writes
+PASS R6-T03 retention persists and regeneration changes only unprotected fields
+PASS R6-T10 stale candidate is rejected
+PASS R2-T01/T08 UI project list and independent history after switching
+PASS R3-T05 large arrangement retains usable bar width

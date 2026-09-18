@@ -1,0 +1,2 @@
+Built standalone HTML: 721423 bytes
+SHA-256 91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119

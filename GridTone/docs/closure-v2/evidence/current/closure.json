@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "checks": [
+    {
+      "name": "C2 dock is nonmodal; field changes immediately remove old candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "C1/C2 local application preserves current workspace, one history and independent edit",
+      "status": "PASS"
+    },
+    {
+      "name": "C2/C9 new arrangement owns absolute preview range",
+      "status": "PASS"
+    },
+    {
+      "name": "C2/C9 no-clip project can use recipes and mixing",
+      "status": "PASS"
+    },
+    {
+      "name": "C5 mouse drag and click placement use equivalent musical output",
+      "status": "PASS"
+    },
+    {
+      "name": "C5 native drag Escape clears pickup and cannot write on the next empty click",
+      "status": "PASS"
+    },
+    {
+      "name": "C4 desktop geometry and DOM order match the selected focus",
+      "status": "PASS"
+    },
+    {
+      "name": "C5 piano-grid placement uses actual drop position and one undo step",
+      "status": "PASS"
+    },
+    {
+      "name": "C5 long template offers an explicit independent position and protects current phrase",
+      "status": "PASS"
+    },
+    {
+      "name": "C4 closing dock after workspace change restores a usable focus",
+      "status": "PASS"
+    },
+    {
+      "name": "C10 recording cancellation releases a late permission stream without starting recorder",
+      "status": "PASS"
+    },
+    {
+      "name": "C10 denied microphone permission preserves project and remains retryable",
+      "status": "PASS"
+    },
+    {
+      "name": "C10 real MediaRecorder encodes a synthetic microphone stream and saves embedded audio",
+      "status": "PASS"
+    },
+    {
+      "name": "C5 cancel, blur and project switch cannot apply an old shelf payload",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

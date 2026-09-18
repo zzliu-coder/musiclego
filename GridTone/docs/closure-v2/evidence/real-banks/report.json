@@ -1,0 +1,200 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:05:36.422Z",
+  "results": [
+    {
+      "id": "vsco.piano",
+      "status": "PASS",
+      "sha256": "8ae761f63b71b82f84c2de9d489472783c5d6019b65785e8287337625d521360",
+      "bytes": 1921669,
+      "peak": 0.06936627626419067,
+      "seconds": 12.6,
+      "assets": 5,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 49,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Keys/Upright%20Piano/Player_dyn2_rr1_014.wav",
+          "sourcePath": "Keys/Upright Piano/Player_dyn2_rr1_014.wav"
+        },
+        {
+          "root": 57,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Keys/Upright%20Piano/Player_dyn2_rr1_018.wav",
+          "sourcePath": "Keys/Upright Piano/Player_dyn2_rr1_018.wav"
+        },
+        {
+          "root": 65,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Keys/Upright%20Piano/Player_dyn2_rr1_022.wav",
+          "sourcePath": "Keys/Upright Piano/Player_dyn2_rr1_022.wav"
+        },
+        {
+          "root": 73,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Keys/Upright%20Piano/Player_dyn2_rr1_026.wav",
+          "sourcePath": "Keys/Upright Piano/Player_dyn2_rr1_026.wav"
+        },
+        {
+          "root": 81,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Keys/Upright%20Piano/Player_dyn2_rr1_030.wav",
+          "sourcePath": "Keys/Upright Piano/Player_dyn2_rr1_030.wav"
+        }
+      ]
+    },
+    {
+      "id": "vsco.harp",
+      "status": "PASS",
+      "sha256": "102238f00c44adb977891ecc6756e652457695920c97a20b4fcdae9d0be239d8",
+      "bytes": 1534228,
+      "peak": 0.0925857275724411,
+      "seconds": 12.6,
+      "assets": 4,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 48,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Harp/KSHarp_C3_mf.wav",
+          "sourcePath": "Strings/Harp/KSHarp_C3_mf.wav"
+        },
+        {
+          "root": 59,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Harp/KSHarp_B3_mf.wav",
+          "sourcePath": "Strings/Harp/KSHarp_B3_mf.wav"
+        },
+        {
+          "root": 69,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Harp/KSHarp_A4_mf.wav",
+          "sourcePath": "Strings/Harp/KSHarp_A4_mf.wav"
+        },
+        {
+          "root": 79,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Harp/KSHarp_G5_mf.wav",
+          "sourcePath": "Strings/Harp/KSHarp_G5_mf.wav"
+        }
+      ]
+    },
+    {
+      "id": "vsco.marimba",
+      "status": "PASS",
+      "sha256": "ac0b1061a8956df590501693734fa5acacc26afccf197098ae3498370752ebe9",
+      "bytes": 1182809,
+      "peak": 0.042757000774145126,
+      "seconds": 12.6,
+      "assets": 4,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 48,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Marimba/Marimba_hit_Outrigger_C2_loud_01.wav",
+          "sourcePath": "Percussion/Marimba/Marimba_hit_Outrigger_C2_loud_01.wav"
+        },
+        {
+          "root": 59,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Marimba/Marimba_hit_Outrigger_B2_loud_01.wav",
+          "sourcePath": "Percussion/Marimba/Marimba_hit_Outrigger_B2_loud_01.wav"
+        },
+        {
+          "root": 72,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Marimba/Marimba_hit_Outrigger_C4_loud_01.wav",
+          "sourcePath": "Percussion/Marimba/Marimba_hit_Outrigger_C4_loud_01.wav"
+        },
+        {
+          "root": 83,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Marimba/Marimba_hit_Outrigger_B4_loud_01.wav",
+          "sourcePath": "Percussion/Marimba/Marimba_hit_Outrigger_B4_loud_01.wav"
+        }
+      ]
+    },
+    {
+      "id": "vsco.flute",
+      "status": "PASS",
+      "sha256": "01d78eebb7899e30dc87614bbd2c5a363f3ef136ce9f21215d1866821d92e8f1",
+      "bytes": 1153180,
+      "peak": 0.015636242926120758,
+      "seconds": 12.6,
+      "assets": 3,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 60,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Woodwinds/Flute/susNV/LDFlute_susNV_C3_v1_1.wav",
+          "sourcePath": "Woodwinds/Flute/susNV/LDFlute_susNV_C3_v1_1.wav"
+        },
+        {
+          "root": 69,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Woodwinds/Flute/susNV/LDFlute_susNV_A3_v1_1.wav",
+          "sourcePath": "Woodwinds/Flute/susNV/LDFlute_susNV_A3_v1_1.wav"
+        },
+        {
+          "root": 81,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Woodwinds/Flute/susNV/LDFlute_susNV_A4_v1_1.wav",
+          "sourcePath": "Woodwinds/Flute/susNV/LDFlute_susNV_A4_v1_1.wav"
+        }
+      ]
+    },
+    {
+      "id": "vsco.violinpizz",
+      "status": "PASS",
+      "sha256": "fce40e4c804df7baff4e813f696ff71e864d79dbf37c7eee957fc20f98f55e9a",
+      "bytes": 320003,
+      "peak": 0.02505303919315338,
+      "seconds": 12.6,
+      "assets": 4,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 60,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Solo%20Violin/Pizz/LLVln_Pizz_C4_p_RR1.wav",
+          "sourcePath": "Strings/Solo Violin/Pizz/LLVln_Pizz_C4_p_RR1.wav"
+        },
+        {
+          "root": 64,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Solo%20Violin/Pizz/LLVln_Pizz_E4_p_RR1.wav",
+          "sourcePath": "Strings/Solo Violin/Pizz/LLVln_Pizz_E4_p_RR1.wav"
+        },
+        {
+          "root": 72,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Solo%20Violin/Pizz/LLVln_Pizz_C5_p_RR1.wav",
+          "sourcePath": "Strings/Solo Violin/Pizz/LLVln_Pizz_C5_p_RR1.wav"
+        },
+        {
+          "root": 76,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Strings/Solo%20Violin/Pizz/LLVln_Pizz_E5_p_RR1.wav",
+          "sourcePath": "Strings/Solo Violin/Pizz/LLVln_Pizz_E5_p_RR1.wav"
+        }
+      ]
+    },
+    {
+      "id": "vsco.glock",
+      "status": "PASS",
+      "sha256": "a99e91c61d000f4c4febf2f0d4bcf158b8913ece4093fadb205913b41ae4af4f",
+      "bytes": 1537395,
+      "peak": 0.042926494032144547,
+      "seconds": 12.6,
+      "assets": 4,
+      "license": "CC0-1.0",
+      "sources": [
+        {
+          "root": 67,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Glock/glock_medium_G4.wav",
+          "sourcePath": "Percussion/Glock/glock_medium_G4.wav"
+        },
+        {
+          "root": 72,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Glock/glock_medium_C5.wav",
+          "sourcePath": "Percussion/Glock/glock_medium_C5.wav"
+        },
+        {
+          "root": 79,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Glock/glock_medium_G5.wav",
+          "sourcePath": "Percussion/Glock/glock_medium_G5.wav"
+        },
+        {
+          "root": 84,
+          "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/6dd651d55dde97fd4028699be9d4481f26917891/Percussion/Glock/glock_medium_C6.wav",
+          "sourcePath": "Percussion/Glock/glock_medium_C6.wav"
+        }
+      ]
+    }
+  ],
+  "scope": "Actual upstream downloads via production downloader; original local origin reload with all external network blocked and render; listening separate."
+}

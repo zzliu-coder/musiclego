@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "date": "2026-09-18T02:07:22.628Z",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "scope": "Verifier behavior using isolated synthetic ledgers; not application acceptance",
+  "checks": [
+    {
+      "name": "valid synthetic fixture",
+      "status": "PASS",
+      "observedExitCode": 0
+    },
+    {
+      "name": "FAIL row",
+      "status": "PASS",
+      "observedExitCode": 2
+    },
+    {
+      "name": "NOT_RUN row",
+      "status": "PASS",
+      "observedExitCode": 2
+    },
+    {
+      "name": "missing physical evidence",
+      "status": "PASS",
+      "observedExitCode": 2
+    },
+    {
+      "name": "stale build hash",
+      "status": "PASS",
+      "observedExitCode": 2
+    },
+    {
+      "name": "missing acceptance row",
+      "status": "PASS",
+      "observedExitCode": 2
+    }
+  ]
+}

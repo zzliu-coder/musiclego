@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:02:34.185626+00:00",
+  "macOS": "26.6.2",
+  "logicalCpus": 8,
+  "memoryBytes": 17179869184,
+  "loadAverage": [
+    23.40087890625,
+    16.61328125,
+    16.3115234375
+  ],
+  "browsers": {
+    "Safari": "26.6.2",
+    "Chrome": "153.0.8010.52"
+  },
+  "scope": "Host observation; physical output latency and human listening not measured"
+}
