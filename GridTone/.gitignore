@@ -10,3 +10,5 @@ docs/implementation/evidence/exploratory/
 docs/closure-v2/evidence/**/fixtures/safari-export.*
 # Superseded candidate evidence is retained locally; the fixed build has its own receipts.
 docs/closure-v2/evidence/pre-label-fix/
+
+docs/closure-v2/evidence/pre-cancel-fix/

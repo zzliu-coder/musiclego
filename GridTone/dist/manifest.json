@@ -1,8 +1,8 @@
 {
   "app": "乐构",
   "version": "1.7.0",
-  "bytes": 721249,
-  "sha256": "274dfc8697d2ae2e7cf6f096b0365f7b1b80033fae881a95eea5fb99bcb3012e",
+  "bytes": 721423,
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
   "runtimeDependencies": [],
   "entry": "index.html"
 }

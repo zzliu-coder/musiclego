@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';import {writeFile} from 'node:fs/promises';import {harness} from './browser-harness.mjs';const h=await harness(),p=h.page,checks=[];let passed=false;
+try{for(const [code,label] of [['STORAGE_QUOTA','本机保存失败'],['SAVE_CONFLICT','保存冲突']]){
+ await p.evaluate(async()=>{const doc=GridTone.blankProject();await GridToneApp.loadProject(doc);GridToneApp.changeView('edit');window.actualSave=GridTone.projects.save.bind(GridTone.projects);});
+ await p.evaluate(code=>{GridTone.projects.save=()=>Promise.reject(Object.assign(Error('验收注入：'+code),{code}));},code);
+ await p.locator('#note-grid').click({position:{x:110,y:80}});await p.waitForFunction(label=>GridToneApp.getState().saveStatus.includes(label),label);const draft=await p.evaluate(()=>GridToneApp.getProject());
+ assert.ok(draft.tracks[0].patterns[0].notes.length);await p.waitForTimeout(1200);assert.match(await p.locator('#storage-status').innerText(),new RegExp(label));
+ await p.locator('[data-action="project-menu"]').click();await p.locator('.modal [data-action="retry-save"]').waitFor();for(const action of ['retry-save','project-copy','export-project','discard-reload'])assert.ok(await p.locator(`.modal [data-action="${action}"]`).isVisible(),action);
+ const unchanged=await p.evaluate(()=>GridToneApp.getProject());assert.deepEqual(unchanged,draft);await p.evaluate(()=>GridTone.projects.save=actualSave);await p.locator('[data-action="retry-save"]').click();await p.waitForFunction(()=>GridToneApp.getState().saveStatus==='已保存在本机');await p.locator('.modal [data-action="close-modal"]').click();checks.push({code,status:'PASS',draftPreserved:true,persistentStatus:true,retry:true});
+}assert.deepEqual(h.errors,[]);passed=true;}finally{await writeFile(h.output+'/save-feedback.json',JSON.stringify({status:passed?'PASS':'FAIL',sha256:h.sha256,date:new Date().toISOString(),checks,errors:h.errors},null,2));await h.close();}
