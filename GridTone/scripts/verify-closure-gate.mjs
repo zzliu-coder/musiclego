@@ -1,6 +1,6 @@
 /** The v2 release gate preserves all 169 IDs; only direct user scope changes may exclude work. */
 import {readFile,access} from 'node:fs/promises';
-import {resolve,dirname} from 'node:path';
+import {resolve,dirname,relative,isAbsolute} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
 export async function verifyClosure(ledger,{base=resolve(root,'docs/closure-v2'),checkFiles=true}={}){
@@ -22,8 +22,10 @@ export async function verifyClosure(ledger,{base=resolve(root,'docs/closure-v2')
   }
   if(row.priority!=='required'||row.status!=='PASS')errors.push(row.id+': required acceptance is '+row.status+'.');
   if(row.build_sha256!==sha||row.tested_commit!==release.candidate_commit)errors.push(row.id+': evidence identity differs.');
+  if(!row.environment)errors.push(row.id+': execution environment missing.');
+  if(/人工|真机|听评/.test(row.method||'')&&!row.reviewer)errors.push(row.id+': reviewer missing.');
   if(!row.actual||!row.executed_at||!row.evidence?.length)errors.push(row.id+': actual result, time or evidence missing.');
-  if(checkFiles)for(const file of row.evidence||[]){try{const path=resolve(base,file);await access(path);if(path.endsWith('.json')){const report=JSON.parse(await readFile(path,'utf8'));if(report.status&&report.status!=='PASS')errors.push(row.id+': referenced report not PASS: '+file);if(report.sha256&&report.sha256!==sha)errors.push(row.id+': referenced build differs: '+file);}}catch{errors.push(row.id+': evidence unavailable: '+file);}}
+  if(checkFiles)for(const file of row.evidence||[]){try{const path=resolve(base,file),rel=relative(base,path);if(isAbsolute(file)||rel.startsWith('..'))throw Error('Unsafe evidence path');await access(path);if(path.endsWith('.json')){const report=JSON.parse(await readFile(path,'utf8'));if(report.status&&report.status!=='PASS')errors.push(row.id+': referenced report not PASS: '+file);if(report.sha256&&report.sha256!==sha)errors.push(row.id+': referenced build differs: '+file);}}catch{errors.push(row.id+': evidence unavailable: '+file);}}
  }
  for(const row of ledger.issue_coverage||[])if(row.status!=='PASS'||!row.acceptance_ids?.length||row.acceptance_ids.some(id=>!rows.some(r=>r.id===id&&['PASS','EXCLUDED_BY_USER'].includes(r.status))))errors.push(row.id+': issue mapping remains open.');
  if(ledger.phases?.length!==12||ledger.phases.some(p=>p.status!=='PASS'))errors.push('All C0-C11 phases must be verified.');

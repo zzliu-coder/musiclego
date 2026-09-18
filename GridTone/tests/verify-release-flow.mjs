@@ -28,7 +28,7 @@ try{
  });
  await check('R9-T03 browser downloads engineering project, MIDI events and complete WAV',async()=>{
   await click('export');
-  const download=async(type,file)=>{const result=p.waitForEvent('download');await click('export-'+type);const item=await result;await item.saveAs(h.output+'/fixtures/'+file);return readFile(h.output+'/fixtures/'+file);};
+  const download=async(type,file)=>{const started=Date.now(),result=p.waitForEvent('download',{timeout:type==='wav'?120000:30000});await click('export-'+type);const item=await result;await item.saveAs(h.output+'/fixtures/'+file);console.log('DOWNLOAD',type,Date.now()-started+'ms');return readFile(h.output+'/fixtures/'+file);};
   const project=await download('project','success-path.gridtone');assert.deepEqual(JSON.parse(project),fixture);
   const midi=await download('midi','success-path.mid'),expected=await p.evaluate(()=>GridTone.compileSong(GridToneApp.getProject()).events.map(n=>[Math.round(n.start),Math.round(n.pitch),Math.max(1,Math.round(n.velocity*127))]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]||a[2]-b[2]));assert.deepEqual(midiEvents(midi),expected);
   const wav=await download('wav','success-path.wav');assert.equal(wav.toString('ascii',0,4),'RIFF');assert.equal(wav.toString('ascii',8,12),'WAVE');assert.equal(wav.readUInt32LE(24),44100);assert.equal(wav.readUInt16LE(22),2);assert.equal(wav.readUInt32LE(40),wav.length-44);const duration=(wav.length-44)/(44100*4);assert.ok(Math.abs(duration-(fixture.bars*4*60/fixture.bpm+3))<.01);await click('close-modal');

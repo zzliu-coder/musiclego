@@ -25,6 +25,7 @@ try{
    await A.flushSave();G.validateProject(A.getProject());
    if(i%6===0){A.changeView('mix');await A.playback.start('song');}
    if(i%6===3)A.playback.stop();
+   if(i%40===0){const audio=await A.engine.exportWav(A.getProject());if(!(audio.peak>.001))throw Error('Soak WAV empty');const midi=G.encodeMidi(A.getProject());if(!midi)throw Error('Soak MIDI missing');}
    if(i%20===0){const original=A.getProject();await A.loadProject(G.blankProject());await A.loadProject(await G.projects.load(original.id),{fromLibrary:true});}
   },cycles++);
   if(cycles%12===0){
@@ -47,4 +48,4 @@ try{
  assert.ok(last.listeners<first.listeners+1000,'unbounded listener growth');
  assert.deepEqual(h.errors,[]);status='PASS';
 }catch(e){failure=e.stack;throw e;}
-finally{await writeFile(h.output+'/soak.json',JSON.stringify({status,sha256,date:new Date().toISOString(),durationMs:Date.now()-start,cycles,samples,checks,failure,errors:h.errors,scope:'30-minute automated 8-track 32-bar creation, undo/redo, save, project switch and playback. Heap after explicit GC; physical audio quality not measured.'},null,2));await h.close();}
+finally{await writeFile(h.output+'/soak.json',JSON.stringify({status,sha256,date:new Date().toISOString(),durationMs:Date.now()-start,cycles,samples,checks,failure,errors:h.errors,scope:'30-minute automated 8-track 32-bar creation, undo/redo, WAV/MIDI export, save, project switch and playback. Heap after explicit GC; physical audio quality not measured.'},null,2));await h.close();}
