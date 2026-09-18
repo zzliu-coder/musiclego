@@ -2,7 +2,7 @@
  class TemplateShelf{
   constructor(context,catalog){this.c=context;this.catalog=catalog;this.selected=null;this.pending=null;this.collapsed=false;try{this.preferences=JSON.parse(localStorage.getItem('legou.catalog.preferences'))||{};}catch{this.preferences={};}this.preferences.favorites||=[];this.preferences.recent||=[];this.filter=this.preferences.filter||'all';this.catalog.search=this.preferences.search||this.catalog.search;this.install();}
   save(){try{localStorage.setItem('legou.catalog.preferences',JSON.stringify(this.preferences));}catch{}}
-  all(){const key=this.c.getProject().key+':'+G.catalogRevision();if(this.cache?.key===key)return this.cache.items;const items=[...G.catalogTemplates(),...G.RECIPES.map(r=>({...r,type:'recipe',role:'song',bars:r.answer?8:4})),...G.PROGRESSIONS.map(r=>{const texture=G.generateProgression(r.id,{key:this.c.getProject().key,rhythm:'arp'}).template;return {...texture,id:texture.id+'.texture',name:r.name+' · 分解伴奏',role:'texture'};})];this.cache={key,items};return items;}
+  all(){const key=this.c.getProject().key+':'+G.catalogRevision();if(this.cache?.key===key)return this.cache.items;const items=[...G.catalogTemplates().map(t=>t.type==='song'?{...t,bars:t.project.bars}:t),...G.RECIPES.map(r=>({...r,type:'recipe',role:'song',bars:r.answer?8:4})),...G.PROGRESSIONS.map(r=>{const texture=G.generateProgression(r.id,{key:this.c.getProject().key,rhythm:'arp'}).template;return {...texture,id:texture.id+'.texture',name:r.name+' · 分解伴奏',role:'texture'};})];this.cache={key,items};return items;}
 
   item(id){return this.all().find(x=>x.id===id);}
   render(){const {button,esc}=this.c;

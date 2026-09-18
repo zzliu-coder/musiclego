@@ -6,3 +6,7 @@ __pycache__/
 checkpoints/*.bundle
 docs/implementation/evidence/soak-progress.json
 docs/implementation/evidence/exploratory/
+# Native browser readback of an existing local composition stays on the test machine.
+docs/closure-v2/evidence/**/fixtures/safari-export.*
+# Superseded candidate evidence is retained locally; the fixed build has its own receipts.
+docs/closure-v2/evidence/pre-label-fix/
