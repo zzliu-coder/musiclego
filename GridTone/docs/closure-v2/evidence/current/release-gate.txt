@@ -1,0 +1,39 @@
+FULL RELEASE NOT PASSED
+Open in-scope issues remain.
+R5-T09: required acceptance is NOT_RUN.
+R5-T09: reviewer missing.
+R5-T09: actual result, time or evidence missing.
+R6-T05: required acceptance is NOT_RUN.
+R6-T05: actual result, time or evidence missing.
+R6-T13: required acceptance is NOT_RUN.
+R6-T13: reviewer missing.
+R6-T13: actual result, time or evidence missing.
+R8-T02: required acceptance is NOT_RUN.
+R8-T02: actual result, time or evidence missing.
+R9-T06: required acceptance is NOT_RUN.
+R9-T06: reviewer missing.
+R9-T06: actual result, time or evidence missing.
+C6-T03: required acceptance is NOT_RUN.
+C6-T03: actual result, time or evidence missing.
+C7-T01: required acceptance is NOT_RUN.
+C7-T01: reviewer missing.
+C7-T01: actual result, time or evidence missing.
+C7-T02: required acceptance is NOT_RUN.
+C7-T02: reviewer missing.
+C7-T02: actual result, time or evidence missing.
+C7-T08: required acceptance is NOT_RUN.
+C7-T08: reviewer missing.
+C7-T08: actual result, time or evidence missing.
+C9-T02: required acceptance is NOT_RUN.
+C9-T02: reviewer missing.
+C9-T02: actual result, time or evidence missing.
+C10-T05: required acceptance is NOT_RUN.
+C10-T05: reviewer missing.
+C10-T05: actual result, time or evidence missing.
+C11-T01: required acceptance is NOT_RUN.
+C11-T01: reviewer missing.
+C11-T01: actual result, time or evidence missing.
+UX-12: issue mapping remains open.
+MUS-01: issue mapping remains open.
+MUS-03: issue mapping remains open.
+All C0-C11 phases must be verified.

@@ -1,25 +1,68 @@
 {
   "version": "1.7.0",
   "status": "NOT_PROVEN",
-  "release_class": "desktop closure candidate",
+  "release_class": "macOS desktop engineering candidate",
   "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
-  "scope": "macOS desktop; small-screen, Android and Windows deferred by direct user instruction",
+  "runtime_source_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
+  "date": "2026-09-18T02:29:50.082582+00:00",
+  "scope": "macOS desktop; small-screen, Android and Windows excluded by direct user instruction",
   "automated_verification": {
     "status": "PASS",
     "core_tests": 182,
+    "closure_browser_checks": 14,
     "evidence": "docs/closure-v2/evidence/current/verification.json"
+  },
+  "cross_browser": {
+    "status": "PASS",
+    "tested": [
+      "Chrome 153 full suite",
+      "Firefox 155 pointer/edit/save/audio smoke",
+      "Native Safari 26.6.2 controls and downloaded-file readback"
+    ]
+  },
+  "offline_file": {
+    "status": "PASS",
+    "evidence": "docs/closure-v2/evidence/current/offline-file.json"
+  },
+  "soak": {
+    "status": "PASS",
+    "duration_ms": 1802485,
+    "cycles": 342,
+    "evidence": "docs/closure-v2/evidence/current/soak.json"
   },
   "audio_engineering": {
     "status": "PASS",
     "rendered_clips": 63,
+    "real_sample_banks": 6,
     "evidence": "docs/closure-v2/evidence/current/audio.json"
   },
-  "human_listening": "NOT_RUN",
-  "pending": [
-    "Final 30-minute soak receipt",
-    "Independent archive rebuild and package identity",
-    "Human listening assessment"
+  "generation_benchmark": {
+    "samples": 100,
+    "p50_ms": 0.3999999761581421,
+    "p95_ms": 0.9000000357627869
+  },
+  "acceptance_counts": {
+    "PASS": 155,
+    "EXCLUDED_BY_USER": 2,
+    "NOT_RUN": 12
+  },
+  "pending_acceptance_ids": [
+    "R5-T09",
+    "R6-T05",
+    "R6-T13",
+    "R8-T02",
+    "R9-T06",
+    "C6-T03",
+    "C7-T01",
+    "C7-T02",
+    "C7-T08",
+    "C9-T02",
+    "C10-T05",
+    "C11-T01"
   ],
-  "previous_release_evidence": "docs/implementation/",
-  "date": "2026-09-18T02:08:59.179124+00:00"
+  "human_listening": "NOT_RUN",
+  "full_release_gate": "NOT_PASSED; required listening and aggregate closure remain pending",
+  "package_receipt": "docs/closure-v2/evidence/current/package.json",
+  "package_note": "The final archive checksum and its exact source commit are in the repository receipt and adjacent .sha256 file; they are not self-embedded in the archive.",
+  "previous_release_evidence": "docs/implementation/"
 }

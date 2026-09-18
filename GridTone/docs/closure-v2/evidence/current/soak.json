@@ -1,0 +1,210 @@
+{
+  "status": "PASS",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:29:32.304Z",
+  "durationMs": 1802485,
+  "cycles": 342,
+  "samples": [
+    {
+      "elapsedMs": 241823,
+      "cycles": 12,
+      "heap": 5167420,
+      "nodes": 37603,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 289865,
+      "cycles": 24,
+      "heap": 5029480,
+      "nodes": 37575,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 336301,
+      "cycles": 36,
+      "heap": 5420784,
+      "nodes": 37617,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 467786,
+      "cycles": 48,
+      "heap": 5099020,
+      "nodes": 37547,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 508361,
+      "cycles": 60,
+      "heap": 5598788,
+      "nodes": 37611,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 548679,
+      "cycles": 72,
+      "heap": 5361408,
+      "nodes": 37590,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 721057,
+      "cycles": 84,
+      "heap": 5125348,
+      "nodes": 37583,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 760480,
+      "cycles": 96,
+      "heap": 5536640,
+      "nodes": 37611,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 799770,
+      "cycles": 108,
+      "heap": 5266016,
+      "nodes": 37602,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 840377,
+      "cycles": 120,
+      "heap": 5756980,
+      "nodes": 37590,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 953754,
+      "cycles": 132,
+      "heap": 5490244,
+      "nodes": 37597,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 993373,
+      "cycles": 144,
+      "heap": 5176712,
+      "nodes": 37604,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 1032559,
+      "cycles": 156,
+      "heap": 5650556,
+      "nodes": 37590,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1137336,
+      "cycles": 168,
+      "heap": 5323072,
+      "nodes": 37590,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1183334,
+      "cycles": 180,
+      "heap": 5799416,
+      "nodes": 37591,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1222533,
+      "cycles": 192,
+      "heap": 5534064,
+      "nodes": 37611,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1295254,
+      "cycles": 204,
+      "heap": 5247164,
+      "nodes": 37591,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 1333997,
+      "cycles": 216,
+      "heap": 5692468,
+      "nodes": 37576,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1372899,
+      "cycles": 228,
+      "heap": 5360220,
+      "nodes": 37617,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1411655,
+      "cycles": 240,
+      "heap": 5832408,
+      "nodes": 37604,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1473972,
+      "cycles": 252,
+      "heap": 5507420,
+      "nodes": 37589,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1512884,
+      "cycles": 264,
+      "heap": 5266896,
+      "nodes": 37618,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 1551700,
+      "cycles": 276,
+      "heap": 5739264,
+      "nodes": 37576,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1608856,
+      "cycles": 288,
+      "heap": 5461952,
+      "nodes": 37550,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1647348,
+      "cycles": 300,
+      "heap": 5863900,
+      "nodes": 37560,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1685947,
+      "cycles": 312,
+      "heap": 5610532,
+      "nodes": 37618,
+      "listeners": 44
+    },
+    {
+      "elapsedMs": 1741450,
+      "cycles": 324,
+      "heap": 5272784,
+      "nodes": 37604,
+      "listeners": 43
+    },
+    {
+      "elapsedMs": 1779970,
+      "cycles": 336,
+      "heap": 5756752,
+      "nodes": 37602,
+      "listeners": 44
+    }
+  ],
+  "checks": [
+    "final real-origin reload matches document"
+  ],
+  "errors": [],
+  "scope": "30-minute automated 8-track 32-bar creation, undo/redo, WAV/MIDI export, save, project switch and playback. Heap after explicit GC; physical audio quality not measured."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "NOT_PROVEN",
+  "sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
+  "date": "2026-09-18T02:30:12.849Z",
+  "exitCode": 2,
+  "reason": "11 required music-listening assessments and their aggregate closure gate are unfinished; no manual approvals invented.",
+  "log": "release-gate.txt"
+}

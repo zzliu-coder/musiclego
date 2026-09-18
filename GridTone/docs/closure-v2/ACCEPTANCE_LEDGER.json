@@ -2,7 +2,7 @@
   "plan_version": "2.0",
   "document_status": "IN_PROGRESS; human listening and listed unverified obligations remain",
   "baseline_commit": "98d4610bda74a7b8988b9908eca35691a4b4ff9b",
-  "checked_on": "2026-09-18T02:08:21.275263+00:00",
+  "checked_on": "2026-09-18T02:29:50.041851+00:00",
   "repository": "zzliu-coder/musiclego",
   "principle": "模板优先、自由编辑、本地规则生成；无教学模式；全部既定范围以最终证据关闭。",
   "final_gate": "Every required test PASS with final-candidate evidence; no waiving unfinished commitments.",
@@ -31,7 +31,7 @@
       ],
       "exit": "总账齐全、版本固定、成功路径与已知问题可复现。C0允许记录失败；相应责任批次关闭时必须有修复证据。",
       "depends_on": [],
-      "status": "NOT_RUN",
+      "status": "PASS",
       "checkpoint": "close-c0",
       "inherits": [
         "R0-T01",
@@ -365,8 +365,10 @@
       "action": "记录差异，生成源码与构建校验值并尝试解包读取",
       "expected": "快照可读，哈希一致，未覆盖未提交工作；差异都有处理结论。",
       "priority": "required",
-      "status": "NOT_RUN",
-      "evidence": [],
+      "status": "PASS",
+      "evidence": [
+        "evidence/current/package.json"
+      ],
       "owner_phase": "C0",
       "regression_phases": [
         "C11"
@@ -377,11 +379,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R0-T01",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null,
-      "notes": "Baseline closure only; final candidate regression required by C11."
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "reviewer": "Codex engineering verification",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "R0-T02",
@@ -409,7 +411,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:11:09.216231+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。"
     },
@@ -442,7 +444,7 @@
       "original_expected": "记录实际结果与源码一致；原始失败信息完整保留。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "六项98d4610缺陷保留原始复现；当前贝斯范围、参数失效、编排范围、生成顺序、跨界持续音及无片段全局操作均有修复回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "六项98d4610缺陷保留原始复现；当前贝斯范围、参数失效、编排范围、生成顺序、跨界持续音及无片段全局操作均有修复回归。"
     },
@@ -471,7 +473,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:12.639194+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。"
     },
@@ -500,7 +502,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:34.410761+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。"
     },
@@ -531,7 +533,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
@@ -562,7 +564,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
@@ -593,7 +595,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
@@ -624,7 +626,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际指针移动只增加一次历史，Esc 取消恢复原稿；结构化命令失败与无变化不写入，菜单/键盘使用相同提交合同。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "实际指针移动只增加一次历史，Esc 取消恢复原稿；结构化命令失败与无变化不写入，菜单/键盘使用相同提交合同。"
     },
@@ -655,7 +657,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
@@ -687,7 +689,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。"
     },
@@ -720,7 +722,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。"
     },
@@ -753,7 +755,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。"
     },
@@ -785,7 +787,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "v1/v2 规范化迁移、旧记录备份与幂等有测试；自定义采样在独立浏览器上下文恢复并实际渲染，缺资源保留可修复工程。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "v1/v2 规范化迁移、旧记录备份与幂等有测试；自定义采样在独立浏览器上下文恢复并实际渲染，缺资源保留可修复工程。"
     },
@@ -815,7 +817,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实画音触发配额与保存冲突，提示持续存在，草稿保留，重试/另存/下载/舍弃入口可用；恢复保存器后UI重试成功。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "reviewer": "Codex engineering verification",
       "scope_reason": "用户明确延后小屏布局；本轮错误与反馈仅在 macOS 桌面验收，390px 不纳入。",
       "notes": "真实画音触发配额与保存冲突，提示持续存在，草稿保留，重试/另存/下载/舍弃入口可用；恢复保存器后UI重试成功。"
@@ -846,7 +848,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -876,7 +878,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -906,7 +908,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -936,7 +938,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -966,7 +968,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -996,7 +998,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -1026,7 +1028,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -1056,7 +1058,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
@@ -1086,7 +1088,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "自定义采样在干净上下文加载并导出非静音 WAV；真实 MediaRecorder 编码后内嵌 WAV 保存，刷新后完整工程一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "自定义采样在干净上下文加载并导出非静音 WAV；真实 MediaRecorder 编码后内嵌 WAV 保存，刷新后完整工程一致。"
     },
@@ -1116,7 +1118,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "常驻素材架可见；和弦进行和创作面板实际打开/关闭；退出候选后仍可操作音乐画布。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "常驻素材架可见；和弦进行和创作面板实际打开/关闭；退出候选后仍可操作音乐画布。"
     },
@@ -1148,7 +1150,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。"
     },
@@ -1180,7 +1182,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。"
     },
@@ -1236,7 +1238,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:04:00.326180+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。"
     },
@@ -1267,7 +1269,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "搜索框保留原生文字删除；聚焦画布后的全选/删除只作用音符；每片段视口隔离及连续/分页时间坐标经过回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "搜索框保留原生文字删除；聚焦画布后的全选/删除只作用音符；每片段视口隔离及连续/分页时间坐标经过回归。"
     },
@@ -1300,7 +1302,7 @@
       "original_expected": "背景不可误操作；关闭回原入口；搜索不丢字／焦点，滚动按合同恢复。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "危险/管理模态使用背景 inert、Tab 隔离与入口焦点恢复；创作停靠面板背景可用，切换工作区再关闭仍恢复可用按钮焦点。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "危险/管理模态使用背景 inert、Tab 隔离与入口焦点恢复；创作停靠面板背景可用，切换工作区再关闭仍恢复可用按钮焦点。"
     },
@@ -1330,7 +1332,7 @@
       "disposition": "旧版曾另议小屏；本次完整收尾重新纳入C10，不再豁免。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:08:21.189454+00:00",
       "reviewer": "Codex engineering verification",
       "scope_reason": "只验收 macOS 桌面布局与浏览器；按用户最新要求排除小屏、Android、Windows。",
       "notes": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。"
@@ -1363,7 +1365,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。"
     },
@@ -1395,7 +1397,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1427,7 +1429,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1459,7 +1461,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1491,7 +1493,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1523,7 +1525,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1555,7 +1557,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1587,7 +1589,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1619,7 +1621,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
@@ -1649,7 +1651,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
@@ -1680,7 +1682,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
@@ -1711,7 +1713,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "整套候选实际预听/应用与候选工程一致；一次历史；生成组试听按受影响轨道隔离，撤销与重做恢复整套数据。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:08.014747+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "整套候选实际预听/应用与候选工程一致；一次历史；生成组试听按受影响轨道隔离，撤销与重做恢复整套数据。"
     },
@@ -1743,7 +1745,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。"
     },
@@ -1774,7 +1776,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
@@ -1805,7 +1807,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
@@ -1836,7 +1838,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "整套候选实际预听/应用与候选工程一致；一次历史；生成组试听按受影响轨道隔离，撤销与重做恢复整套数据。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:08.014747+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "整套候选实际预听/应用与候选工程一致；一次历史；生成组试听按受影响轨道隔离，撤销与重做恢复整套数据。"
     },
@@ -1866,7 +1868,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
@@ -1881,7 +1883,8 @@
       "priority": "required",
       "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "owner_phase": "C6",
       "regression_phases": [
@@ -1895,8 +1898,9 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "executed_at": null,
+      "reviewer": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "R6-T01",
@@ -1925,7 +1929,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -1956,7 +1960,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -1987,7 +1991,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2018,7 +2022,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2031,11 +2035,10 @@
       "action": "按当前和弦生成与解释",
       "expected": "能够使用实际和弦音；不被全局自然音阶错误吸附；跨界张力有上下文依据。",
       "priority": "required",
-      "status": "PASS",
+      "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/verification.json",
-        "evidence/current/core.txt",
-        "evidence/current/workflow.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "owner_phase": "C7",
       "regression_phases": [
@@ -2047,11 +2050,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R6-T05",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
-      "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": "Codex engineering verification",
-      "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
+      "environment": "macOS desktop",
+      "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
+      "executed_at": null,
+      "reviewer": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "R6-T06",
@@ -2080,7 +2083,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2111,7 +2114,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2142,7 +2145,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2175,7 +2178,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
@@ -2208,7 +2211,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
@@ -2239,7 +2242,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2270,7 +2273,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
@@ -2285,7 +2288,8 @@
       "priority": "required",
       "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "owner_phase": "C7",
       "regression_phases": [
@@ -2299,8 +2303,9 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "executed_at": null,
+      "reviewer": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "R7-T01",
@@ -2329,7 +2334,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
@@ -2360,7 +2365,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
@@ -2391,7 +2396,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
@@ -2422,7 +2427,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
@@ -2453,7 +2458,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际演奏层底鼓与贝斯在 Swing、人性化和移调同时开启时起音相等；烘焙后音高/起音/时长与烘焙前一致；Swing变化正确使依赖失效。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "实际演奏层底鼓与贝斯在 Swing、人性化和移调同时开启时起音相等；烘焙后音高/起音/时长与烘焙前一致；Swing变化正确使依赖失效。"
     },
@@ -2484,7 +2489,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。"
     },
@@ -2517,7 +2522,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。"
     },
@@ -2550,7 +2555,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。"
     },
@@ -2581,7 +2586,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。"
     },
@@ -2596,7 +2601,8 @@
       "priority": "required",
       "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "owner_phase": "C9",
       "regression_phases": [
@@ -2610,8 +2616,9 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "executed_at": null,
+      "reviewer": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "R8-T03",
@@ -2640,7 +2647,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。"
     },
@@ -2671,7 +2678,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。"
     },
@@ -2701,7 +2708,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。"
     },
@@ -2732,7 +2739,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "结构/音符/音轨/资产边界显式校验；实际下载工程回读一致、MIDI事件与编译结果一致、WAV头/采样率/双声道/完整时长验证。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "结构/音符/音轨/资产边界显式校验；实际下载工程回读一致、MIDI事件与编译结果一致、WAV头/采样率/双声道/完整时长验证。"
     },
@@ -2745,8 +2752,10 @@
       "action": "连续30分钟编辑、试听、预听、换片段、撤销和保存",
       "expected": "无未捕获异常／持续资源增长；主播放正确；最后工程可以完整重开。",
       "priority": "required",
-      "status": "NOT_RUN",
-      "evidence": [],
+      "status": "PASS",
+      "evidence": [
+        "evidence/current/soak.json"
+      ],
       "owner_phase": "C9",
       "regression_phases": [
         "C10"
@@ -2757,10 +2766,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R8-T07",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。",
+      "executed_at": "2026-09-18T02:29:32.304444+00:00",
+      "reviewer": "Codex engineering verification",
+      "notes": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。"
     },
     {
       "id": "R9-T01",
@@ -2771,8 +2781,10 @@
       "action": "按照README完整构建与运行检查",
       "expected": "不依赖未提交文件；构建命令可用；输出身份和提交一致。",
       "priority": "required",
-      "status": "NOT_RUN",
-      "evidence": [],
+      "status": "PASS",
+      "evidence": [
+        "evidence/current/package.json"
+      ],
       "owner_phase": "C11",
       "regression_phases": [],
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
@@ -2781,10 +2793,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R9-T01",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "reviewer": "Codex engineering verification",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "R9-T02",
@@ -2809,7 +2822,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际子进程门禁对FAIL、NOT_RUN、缺文件、旧hash及缺行均非零退出；合成完整账仅用于验证门禁逻辑，不充当应用验收。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:07:22.629899+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "实际子进程门禁对FAIL、NOT_RUN、缺文件、旧hash及缺行均非零退出；合成完整账仅用于验证门禁逻辑，不充当应用验收。"
     },
@@ -2838,7 +2851,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:12.639194+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。"
     },
@@ -2868,7 +2881,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "自定义采样在干净上下文加载并导出非静音 WAV；真实 MediaRecorder 编码后内嵌 WAV 保存，刷新后完整工程一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "自定义采样在干净上下文加载并导出非静音 WAV；真实 MediaRecorder 编码后内嵌 WAV 保存，刷新后完整工程一致。"
     },
@@ -2898,7 +2911,7 @@
       "disposition": "旧版曾另议小屏；本次完整收尾重新纳入C10，不再豁免。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:08:21.189454+00:00",
       "reviewer": "Codex engineering verification",
       "scope_reason": "只验收 macOS 桌面布局与浏览器；按用户最新要求排除小屏、Android、Windows。",
       "notes": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。"
@@ -2914,7 +2927,8 @@
       "priority": "required",
       "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "owner_phase": "C10",
       "regression_phases": [
@@ -2928,8 +2942,9 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "executed_at": null,
+      "reviewer": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "R9-T07",
@@ -2940,8 +2955,10 @@
       "action": "计量生成p95、连续播放编辑和重复预听资源",
       "expected": "报告硬件／浏览器／负载；无持续资源泄漏；不把结构上限当实时保证。",
       "priority": "required",
-      "status": "NOT_RUN",
-      "evidence": [],
+      "status": "PASS",
+      "evidence": [
+        "evidence/current/soak.json"
+      ],
       "owner_phase": "C10",
       "regression_phases": [
         "C11"
@@ -2952,10 +2969,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R9-T07",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。",
+      "executed_at": "2026-09-18T02:29:32.304444+00:00",
+      "reviewer": "Codex engineering verification",
+      "notes": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。"
     },
     {
       "id": "R9-T08",
@@ -2966,8 +2984,10 @@
       "action": "解压再构建比对哈希，打开交付HTML并重开测试工程",
       "expected": "文件确实存在且匹配已验收代码；离线能力／下载依赖说明准确。",
       "priority": "required",
-      "status": "NOT_RUN",
-      "evidence": [],
+      "status": "PASS",
+      "evidence": [
+        "evidence/current/package.json"
+      ],
       "owner_phase": "C11",
       "regression_phases": [],
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
@@ -2976,10 +2996,11 @@
       "reported_item_status": "NOT_INDIVIDUALLY_RECONFIRMED",
       "source_requirement": "R9-T08",
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "reviewer": null
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "reviewer": "Codex engineering verification",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "R9-T09",
@@ -3004,7 +3025,7 @@
       "disposition": "保留原验收义务，在最终版本复验；基线记录不自动继承为完成。",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:34.410761+00:00",
       "reviewer": "Codex engineering verification",
       "notes": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。"
     }
@@ -3019,15 +3040,17 @@
       "action": "记录哈希、清单并从快照恢复",
       "expected": "源代码可恢复；无用户修改被覆盖；旧、新构建身份可区分。",
       "priority": "required",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
-      "evidence": [],
-      "reviewer": null,
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "notes": "Baseline closure only; final candidate regression required by C11."
+      "evidence": [
+        "evidence/current/package.json"
+      ],
+      "reviewer": "Codex engineering verification",
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "C0-T02",
@@ -3047,7 +3070,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:34.410761+00:00",
       "notes": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。"
     },
     {
@@ -3071,7 +3094,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "六项98d4610缺陷保留原始复现；当前贝斯范围、参数失效、编排范围、生成顺序、跨界持续音及无片段全局操作均有修复回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "六项98d4610缺陷保留原始复现；当前贝斯范围、参数失效、编排范围、生成顺序、跨界持续音及无片段全局操作均有修复回归。"
     },
     {
@@ -3093,7 +3116,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:11:09.216231+00:00",
       "notes": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。"
     },
     {
@@ -3114,7 +3137,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:34.410761+00:00",
       "notes": "原始计划文件与用户ZIP逐字节一致；87原条目、82新增条目、29映射及12批次全部保留；用户平台变更单列，未引入教学解锁。"
     },
     {
@@ -3137,7 +3160,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际指针移动只增加一次历史，Esc 取消恢复原稿；结构化命令失败与无变化不写入，菜单/键盘使用相同提交合同。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "实际指针移动只增加一次历史，Esc 取消恢复原稿；结构化命令失败与无变化不写入，菜单/键盘使用相同提交合同。"
     },
     {
@@ -3160,7 +3183,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
     {
@@ -3183,7 +3206,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "允许长度逐一序列化校验；120/80/小数 tick 运算与拆分守恒；16 小节在真实来源保存重开；共享扩长冲突原子拒绝；复制身份与共享拓扑有断言。"
     },
     {
@@ -3205,7 +3228,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:01:06.561871+00:00",
       "notes": "真实来源 IndexedDB 覆盖 A/B 切换与刷新、排队快照、失败事务、预算拒绝、旧记录迁移、每作品恢复隔离、实际第二标签冲突及同 ID 导入另存。"
     },
     {
@@ -3226,7 +3249,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选应用停留原编排工作区；素材长片段新建停留乐句工作区；并行音量修改和一次历史均保留。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "候选应用停留原编排工作区；素材长片段新建停留乐句工作区；并行音量修改和一次历史均保留。"
     },
     {
@@ -3250,7 +3273,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "v1/v2 规范化迁移、旧记录备份与幂等有测试；自定义采样在独立浏览器上下文恢复并实际渲染，缺资源保留可修复工程。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "v1/v2 规范化迁移、旧记录备份与幂等有测试；自定义采样在独立浏览器上下文恢复并实际渲染，缺资源保留可修复工程。"
     },
     {
@@ -3273,7 +3296,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "操作能力表控制可见字段；音域/密度/种子/鼓风格/力度/伴奏方式/节奏骨架对应实际输出测试；确定性混音和编排隐藏随机参数。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "操作能力表控制可见字段；音域/密度/种子/鼓风格/力度/伴奏方式/节奏骨架对应实际输出测试；确定性混音和编排隐藏随机参数。"
     },
     {
@@ -3297,7 +3320,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
     {
@@ -3319,7 +3342,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "新编排候选输出范围为第5–12小节，实际预听 scope 与候选范围相等；应用后的完整工程、MIDI与WAV下载另有回读校验。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "新编排候选输出范围为第5–12小节，实际预听 scope 与候选范围相等；应用后的完整工程、MIDI与WAV下载另有回读校验。"
     },
     {
@@ -3343,7 +3366,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
     {
@@ -3367,7 +3390,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
     {
@@ -3389,7 +3412,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。"
     },
     {
@@ -3413,7 +3436,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "等待中的播放及单音启动可取消；候选关闭恢复原范围，文档与历史无变化；全曲导出忽略临时 Solo、保留 Mute，范围编译保留跨界持续音。"
     },
     {
@@ -3437,7 +3460,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
     {
@@ -3460,7 +3483,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
     {
@@ -3482,7 +3505,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。"
     },
     {
@@ -3505,7 +3528,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
     {
@@ -3528,7 +3551,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
     {
@@ -3551,7 +3574,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
     {
@@ -3573,7 +3596,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "来源缺口、重叠和循环依赖在计算前原子拒绝；30种seed的色彩连接逐一验证下一音半音解决，失效解释不冒用标签。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "来源缺口、重叠和循环依赖在计算前原子拒绝；30种seed的色彩连接逐一验证下一音半音解决，失效解释不冒用标签。"
     },
     {
@@ -3596,7 +3619,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "有效和声测试覆盖四种弹奏、半小节与实例偏移、持续占用、色彩音、来源缺口、相关/无关修改失效、撤销恢复、移调烘焙一次及复制引用；界面实际修改和弦根音/类型成功提交。"
     },
     {
@@ -3620,7 +3643,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "视口/调性/换皮肤及减少动态的回归保持文档、历史和播放范围；两工作区时间轴真实选择、移动与撤销一致。"
     },
     {
@@ -3641,7 +3664,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:04:00.326180+00:00",
       "notes": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。"
     },
     {
@@ -3664,7 +3687,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "搜索框保留原生文字删除；聚焦画布后的全选/删除只作用音符；每片段视口隔离及连续/分页时间坐标经过回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "搜索框保留原生文字删除；聚焦画布后的全选/删除只作用音符；每片段视口隔离及连续/分页时间坐标经过回归。"
     },
     {
@@ -3688,7 +3711,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "非法组件变体拒绝；busy 按钮禁用并有 ARIA；修改 --brand 实际传递到生产生成按钮；旧/新 CSS 在两皮肤、两桌面宽度、三工作区的完整计算样式一致。"
     },
     {
@@ -3710,7 +3733,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "危险/管理模态使用背景 inert、Tab 隔离与入口焦点恢复；创作停靠面板背景可用，切换工作区再关闭仍恢复可用按钮焦点。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "危险/管理模态使用背景 inert、Tab 隔离与入口焦点恢复；创作停靠面板背景可用，切换工作区再关闭仍恢复可用按钮焦点。"
     },
     {
@@ -3731,7 +3754,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:04:00.326180+00:00",
       "notes": "32/128/256 小节 × 标准/紧凑两布局，真实滚动、选择、移动一小节、撤销、Mute/Solo；音轨格与时间尺宽度一致，每小节至少96px，页面无横向溢出。"
     },
     {
@@ -3753,7 +3776,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:08:21.189454+00:00",
       "notes": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。"
     },
     {
@@ -3774,7 +3797,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原生鼠标拖放与点击落点产生相同规范化音符；画布内放置采用实际落点，应用一次历史，撤销回空白。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "原生鼠标拖放与点击落点产生相同规范化音符；画布内放置采用实际落点，应用一次历史，撤销回空白。"
     },
     {
@@ -3795,7 +3818,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "原生鼠标拖放与点击落点产生相同规范化音符；画布内放置采用实际落点，应用一次历史，撤销回空白。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "原生鼠标拖放与点击落点产生相同规范化音符；画布内放置采用实际落点，应用一次历史，撤销回空白。"
     },
     {
@@ -3818,7 +3841,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。"
     },
     {
@@ -3841,7 +3864,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "边界长音默认拒绝，明确拆分时保留范围外音符；共享目标默认独立；长素材显示明确的新建位置，原乐句不变并可一次撤销。"
     },
     {
@@ -3862,7 +3885,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际原生鼠标拖动按Esc后拿取状态、ghost与历史均清空，再点空位不写入；失焦与项目切换后的旧payload被拒绝。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "实际原生鼠标拖动按Esc后拿取状态、ghost与历史均清空，再点空位不写入；失焦与项目切换后的旧payload被拒绝。"
     },
     {
@@ -3885,7 +3908,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "不兼容角色、资源缺失、容量及碰撞均原子拒绝；整套事务可撤销，整曲模板新建身份并内嵌依赖。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "不兼容角色、资源缺失、容量及碰撞均原子拒绝；整套事务可撤销，整曲模板新建身份并内嵌依赖。"
     },
     {
@@ -3908,7 +3931,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "同一目录供架/管理页使用，收藏/最近存储；成功后记录最近；缓存随调性/目录版本更新，拿起后内容冻结。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "同一目录供架/管理页使用，收藏/最近存储；成功后记录最近；缓存随调性/目录版本更新，拿起后内容冻结。"
     },
     {
@@ -3931,7 +3954,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "不兼容角色、资源缺失、容量及碰撞均原子拒绝；整套事务可撤销，整曲模板新建身份并内嵌依赖。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "不兼容角色、资源缺失、容量及碰撞均原子拒绝；整套事务可撤销，整曲模板新建身份并内嵌依赖。"
     },
     {
@@ -3952,7 +3975,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:12.639194+00:00",
       "notes": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。"
     },
     {
@@ -3974,7 +3997,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
     {
@@ -3997,7 +4020,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "节奏骨架在多种seed中保留起音、时长和休止；动机重复/回答/结尾为普通可编辑音符；已导出8段代表变化，听感独立待评。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "节奏骨架在多种seed中保留起音、时长和休止；动机重复/回答/结尾为普通可编辑音符；已导出8段代表变化，听感独立待评。"
     },
     {
@@ -4013,12 +4036,14 @@
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "reviewer": null,
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C6-T04",
@@ -4038,7 +4063,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "6套实际上游音源下载、许可/源URL与处理后包哈希记录；内嵌保存后屏蔽外网，真实来源刷新并成功渲染非静音音频。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:05:36.426026+00:00",
       "notes": "6套实际上游音源下载、许可/源URL与处理后包哈希记录；内嵌保存后屏蔽外网，真实来源刷新并成功渲染非静音音频。"
     },
     {
@@ -4060,7 +4085,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "固定98d4610目录规范化哈希保持一致，47音色/71模板/24进行/8配方保留；配置扩展、鼓件角色重映射、重复/冲突ID、缺依赖、恶意结构、旧作品内嵌定义均有原子性测试。"
     },
     {
@@ -4072,19 +4097,18 @@
       "action": "生成重复/回答/变化",
       "expected": "节奏/轮廓保留条件可测；具有可辨认联系；不只是随机换全部音。",
       "priority": "required",
-      "status": "PASS",
+      "status": "NOT_RUN",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/verification.json",
-        "evidence/current/core.txt",
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
-      "reviewer": "Codex engineering verification",
-      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
-      "actual": "节奏骨架在多种seed中保留起音、时长和休止；动机重复/回答/结尾为普通可编辑音符；已导出8段代表变化，听感独立待评。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "notes": "节奏骨架在多种seed中保留起音、时长和休止；动机重复/回答/结尾为普通可编辑音符；已导出8段代表变化，听感独立待评。"
+      "reviewer": null,
+      "environment": "macOS desktop",
+      "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C7-T02",
@@ -4095,18 +4119,18 @@
       "action": "生成并查看解释",
       "expected": "连接有前后关系；目标和解决按配方验证；未分析内容不乱贴标签。",
       "priority": "required",
-      "status": "PASS",
+      "status": "NOT_RUN",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/verification.json",
+        "evidence/current/audio.json",
         "evidence/current/core.txt"
       ],
-      "reviewer": "Codex engineering verification",
-      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
-      "actual": "来源缺口、重叠和循环依赖在计算前原子拒绝；30种seed的色彩连接逐一验证下一音半音解决，失效解释不冒用标签。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
-      "notes": "来源缺口、重叠和循环依赖在计算前原子拒绝；30种seed的色彩连接逐一验证下一音半音解决，失效解释不冒用标签。"
+      "reviewer": null,
+      "environment": "macOS desktop",
+      "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C7-T03",
@@ -4128,7 +4152,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "16小节支持明确4小节子范围并保留外部音符；1/2小节在生成前显示限制与明确新建4小节路径；4/8范围由模型校验。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "16小节支持明确4小节子范围并保留外部音符；1/2小节在生成前显示限制与明确新建4小节路径；4/8范围由模型校验。"
     },
     {
@@ -4151,7 +4175,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
     {
@@ -4174,7 +4198,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
     {
@@ -4197,7 +4221,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "固定种子、跨调、ID变化、保留字段/休止、副属和弦与跨界分析、候选实质差异、仅结尾局部变化、共享独立化及目标移调已通过模型与界面回归。"
     },
     {
@@ -4221,7 +4245,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "候选取消不改文档；参数改变立即清除旧应用；迟到任务隔离；相关来源/移动/删除/切作品拒绝；合法局部补丁保留无关音符、音量与轨道重排。"
     },
     {
@@ -4237,12 +4261,14 @@
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "reviewer": null,
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C8-T01",
@@ -4263,7 +4289,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
     {
@@ -4285,7 +4311,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
     {
@@ -4307,7 +4333,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
     {
@@ -4329,7 +4355,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "鼓风格/力度/局部鼓件、缺件拒绝；贝斯72–84发声音域、密度与seed差异；伴奏长音占用、避让/同拍及长音/脉冲/分解三种输出均有断言。"
     },
     {
@@ -4351,7 +4377,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际演奏层底鼓与贝斯在 Swing、人性化和移调同时开启时起音相等；烘焙后音高/起音/时长与烘焙前一致；Swing变化正确使依赖失效。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "实际演奏层底鼓与贝斯在 Swing、人性化和移调同时开启时起音相等；烘焙后音高/起音/时长与烘焙前一致；Swing变化正确使依赖失效。"
     },
     {
@@ -4373,7 +4399,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "全部120种轨道排列生成同一音乐结果；不同片段长度/偏移的范围外内容保持；来源变化只标记下游，不自动改写成品。"
     },
     {
@@ -4397,7 +4423,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "组候选失败保留完整原稿，成功单次提交，预听/撤销/重做工程相等；保存重开包含来源，默认导出不受临时只听影响。"
     },
     {
@@ -4420,7 +4446,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。"
     },
     {
@@ -4436,12 +4462,14 @@
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "reviewer": null,
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C9-T03",
@@ -4463,7 +4491,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "A′保留约束、独立身份、原共享实例隔离有测试；编排保留材料相对位置、避免碰撞，并携带新编排绝对范围。"
     },
     {
@@ -4485,7 +4513,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "新编排候选输出范围为第5–12小节，实际预听 scope 与候选范围相等；应用后的完整工程、MIDI与WAV下载另有回读校验。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "新编排候选输出范围为第5–12小节，实际预听 scope 与候选范围相等；应用后的完整工程、MIDI与WAV下载另有回读校验。"
     },
     {
@@ -4507,7 +4535,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "无片段工程仍可用整套与全曲混音；混音预听取消不写稿，应用一次历史，第三工作区可达。"
     },
     {
@@ -4530,7 +4558,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "结构/音符/音轨/资产边界显式校验；实际下载工程回读一致、MIDI事件与编译结果一致、WAV头/采样率/双声道/完整时长验证。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:06:20.550230+00:00",
       "notes": "结构/音符/音轨/资产边界显式校验；实际下载工程回读一致、MIDI事件与编译结果一致、WAV头/采样率/双声道/完整时长验证。"
     },
     {
@@ -4552,7 +4580,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:08:21.189454+00:00",
       "scope_reason": "只验收 macOS 桌面布局与浏览器；按用户最新要求排除小屏、Android、Windows。",
       "notes": "最终构建桌面1280/1440矩阵与关键页面已检查；关键控件可达，页面不横溢，音乐画布与素材内部滚动保留。"
     },
@@ -4595,7 +4623,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "macOS Chrome完整套件、Firefox实际画音撤销/试听/保存重开/导出及原生Safari播放/编辑撤销/导出回读有独立记录；未以WebKit替代Safari。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:07:20.446577+00:00",
       "scope_reason": "只验收 macOS 桌面布局与浏览器；按用户最新要求排除小屏、Android、Windows。",
       "notes": "macOS Chrome完整套件、Firefox实际画音撤销/试听/保存重开/导出及原生Safari播放/编辑撤销/导出回读有独立记录；未以WebKit替代Safari。"
     },
@@ -4618,7 +4646,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "真实来源保存/刷新与冲突测试通过；取消后迟到授权释放流，拒绝授权保留原稿；真实MediaRecorder编码合成输入流，保存WAV后刷新一致（非物理麦克风测试）。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:03:30.300991+00:00",
       "notes": "真实来源保存/刷新与冲突测试通过；取消后迟到授权释放流，拒绝授权保留原稿；真实MediaRecorder编码合成输入流，保存WAV后刷新一致（非物理麦克风测试）。"
     },
     {
@@ -4634,12 +4662,14 @@
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
       "evidence": [
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ],
       "reviewer": null,
       "environment": "macOS desktop",
       "actual": "技术信号与代表音频已经生成；实际音乐审听尚未收到结论。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "executed_at": null,
+      "notes": "技术验证与真实听评分别记录；未完成的必需审听不计为通过。"
     },
     {
       "id": "C10-T06",
@@ -4659,7 +4689,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "6套实际上游音源下载、许可/源URL与处理后包哈希记录；内嵌保存后屏蔽外网，真实来源刷新并成功渲染非静音音频。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:05:36.426026+00:00",
       "notes": "6套实际上游音源下载、许可/源URL与处理后包哈希记录；内嵌保存后屏蔽外网，真实来源刷新并成功渲染非静音音频。"
     },
     {
@@ -4671,14 +4701,17 @@
       "action": "连续主路径并100seed计时",
       "expected": "p50/p95和长运行记录完整；无持续泄漏或未捕获异常；超标有修复验证。",
       "priority": "required",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
-      "evidence": [],
-      "reviewer": null,
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "evidence": [
+        "evidence/current/soak.json"
+      ],
+      "reviewer": "Codex engineering verification",
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。",
+      "executed_at": "2026-09-18T02:29:32.304444+00:00",
+      "notes": "同一构建30分钟8轨32小节循环生成/编辑/撤销/保存/切作品/播放/WAV/MIDI导出，最终刷新一致，GC后堆/DOM/监听器增长受控；100seed耗时见音频报告。"
     },
     {
       "id": "C10-T08",
@@ -4699,7 +4732,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:11:09.216231+00:00",
       "notes": "现有测试文件逐一标注当前/历史/辅助入口；182核心断言及当前完整真实来源套件已执行，旧inline DOM结果不计入本轮。"
     },
     {
@@ -4718,7 +4751,8 @@
       "reviewer": null,
       "environment": "macOS desktop",
       "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "executed_at": null,
+      "notes": "此条仍有未完成的必需验证。"
     },
     {
       "id": "C11-T02",
@@ -4738,7 +4772,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "实际子进程门禁对FAIL、NOT_RUN、缺文件、旧hash及缺行均非零退出；合成完整账仅用于验证门禁逻辑，不充当应用验收。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:07:22.629899+00:00",
       "notes": "实际子进程门禁对FAIL、NOT_RUN、缺文件、旧hash及缺行均非零退出；合成完整账仅用于验证门禁逻辑，不充当应用验收。"
     },
     {
@@ -4750,14 +4784,17 @@
       "action": "解压/安装测试依赖/构建/运行",
       "expected": "不依赖未提交文件；对应版本可启动；构建可复现。",
       "priority": "required",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
-      "evidence": [],
-      "reviewer": null,
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "evidence": [
+        "evidence/current/package.json"
+      ],
+      "reviewer": "Codex engineering verification",
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "C11-T04",
@@ -4768,14 +4805,17 @@
       "action": "解压重建比hash，使用交付HTML重开工程",
       "expected": "哈希与内容一致；既定离线能力可用；文件均真实存在。",
       "priority": "required",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "tested_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
       "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
-      "evidence": [],
-      "reviewer": null,
-      "environment": "macOS desktop",
-      "actual": "尚未完成此条全部验收义务的独立核对；现有测试不自动充当完整通过。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00"
+      "evidence": [
+        "evidence/current/package.json"
+      ],
+      "reviewer": "Codex engineering verification",
+      "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
+      "actual": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。",
+      "executed_at": "2026-09-18T02:09:57.169920+00:00",
+      "notes": "已提交源代码独立解包、安装依赖、重建及核心测试通过；三个交付HTML的字节哈希与候选一致，ZIP完整性和归档哈希有回执。"
     },
     {
       "id": "C11-T05",
@@ -4795,7 +4835,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:02:12.639194+00:00",
       "notes": "两个桌面工作区完成连续18步控制器级创作流程，实际保存/预听/完整与选区音频/交付HTML重开；独立指针键盘路径另见交互回归。"
     },
     {
@@ -4816,7 +4856,7 @@
       "reviewer": "Codex engineering verification",
       "environment": "macOS desktop; Chrome real-origin browser plus current Node core assertions",
       "actual": "交付源代码、许可、来源与平台说明核对；用户现有音乐导出和历史副本排除，保留恢复点；真实听评待验收如实列出。",
-      "executed_at": "2026-09-18T02:08:21.275263+00:00",
+      "executed_at": "2026-09-18T02:08:21.223452+00:00",
       "notes": "交付源代码、许可、来源与平台说明核对；用户现有音乐导出和历史副本排除，保留恢复点；真实听评待验收如实列出。"
     }
   ],
@@ -5197,9 +5237,8 @@
       ],
       "status": "NOT_RUN",
       "evidence": [
-        "evidence/current/verification.json",
-        "evidence/current/core.txt",
-        "evidence/current/audio.json"
+        "evidence/current/audio.json",
+        "evidence/current/core.txt"
       ]
     },
     {
@@ -5259,7 +5298,7 @@
     "candidate_commit": "c2603d9f576d884fe276f1e0d05c9bf895a2420a",
     "build_sha256": "91dcfdbddab2c2e20a874e67a42ee06beb8bf481955a84bf989d786bd6099119",
     "open_issue_count": 3,
-    "package_verified": false
+    "package_verified": true
   },
   "status_vocabulary": [
     "NOT_RUN",
