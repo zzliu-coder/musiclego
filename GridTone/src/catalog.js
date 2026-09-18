@@ -317,7 +317,9 @@
         library.packs.set(pack.id, clone(pack));
         return { pack, duplicate: false };
     }
-    function catalogContents() { return { presets: [...library.presets.values()].map(clone), drumkits: [...library.drumkits.values()].map(clone), templates: [...library.templates.values()].map(clone), packs: [...library.packs.values()].map(clone) }; }
+    const catalogRevision=()=>library.packs.size;
+    const catalogTemplates=()=>[...library.templates.values()].map(clone);
+    function catalogContents({includePacks=true}={}) { return { presets: [...library.presets.values()].map(clone), drumkits: [...library.drumkits.values()].map(clone), templates: catalogTemplates(), packs: includePacks?[...library.packs.values()].map(clone):[] }; }
     function getTemplate(id) { const t = library.templates.get(id); if (!t)
         throw Error('找不到这个模板。'); return clone(t); }
     function newIdentity(p) { const copy=G.copyProject(p);copy.title=p.title;return copy; }
@@ -399,5 +401,5 @@
         assertPlayable(checked, [track.id]);
         return { project: checked, trackId: track.id, patternId: pat.id, clipId: clip?.id || null };
     }
-    Object.assign(G, { assertDataTree, identifier, validateSnapshot, validateCatalog, installCatalog, catalogContents, getTemplate, resolvePreset, resolveKit, projectPresets, projectKits, drumsFor, neededAssets, missingResources, assertPlayable, pinPreset, pinKit, pinDocument, applyTemplate, normalizedAssets });
+    Object.assign(G, { assertDataTree, identifier, validateSnapshot, validateCatalog, installCatalog, catalogContents, catalogTemplates, catalogRevision, getTemplate, resolvePreset, resolveKit, projectPresets, projectKits, drumsFor, neededAssets, missingResources, assertPlayable, pinPreset, pinKit, pinDocument, applyTemplate, normalizedAssets });
 })(globalThis.GridTone ||= {});

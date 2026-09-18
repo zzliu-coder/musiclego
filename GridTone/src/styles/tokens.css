@@ -1,5 +1,24 @@
 /* Sole token and theme source. Themes change values, never geometry. */
 :root{
+ --weight-regular:400;
+ --weight-book:450;
+ --weight-medium:500;
+ --weight-label:550;
+ --weight-semibold:600;
+ --weight-strong:650;
+ --weight-bold:700;
+ --weight-heavy:750;
+ --weight-display:800;
+ --weight-black:900;
+ --leading-tight:1.2;
+ --leading-compact:1.3;
+ --leading-label:1.4;
+ --leading-normal:1.5;
+ --leading-body:1.6;
+ --leading-readable:1.7;
+ --leading-relaxed:1.8;
+ --numeric-style:tabular-nums;
+
  --paper:#fafaf8;
  --surface:#fdfdfc;
  --surface-raised:#fff;

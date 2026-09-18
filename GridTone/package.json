@@ -17,7 +17,7 @@
     "verify:visual": "node tests/verify-visual.mjs",
     "verify:audio": "node tests/verify-audio.mjs",
     "verify:soak": "node tests/verify-soak.mjs",
-    "verify:release": "npm run verify && npm run verify:soak && node scripts/verify-acceptance.mjs"
+    "verify:release": "npm run verify && npm run verify:soak && node scripts/verify-closure-gate.mjs"
   },
   "devDependencies": {
     "playwright": "^1.63.0"

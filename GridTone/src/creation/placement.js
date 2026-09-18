@@ -17,11 +17,11 @@
   if(selected.length&&!replace)throw Error('这里已有音符。请选择“替换选区”或另选空位。');
   const p=G.clone(project),t=p.tracks.find(t=>t.id===trackId),clip=t.clips.find(c=>c.id===clipId);let pat=t.patterns.find(x=>x.id===original.id);
   if(!shared&&t.clips.filter(c=>c.patternId===pat.id).length>1){if(!clip)throw Error('请指定要独立修改的实例。');pat=G.copyPattern(pat);pat.name+=' · 素材变化';t.patterns.push(pat);clip.patternId=pat.id;}
-  const keep=[];
-  for(const n of pat.notes){if(n.start>=finish||n.start+n.duration<=start){keep.push(n);continue;}if(splitBoundary){if(n.start<start)keep.push({...n,duration:start-n.start});if(n.start+n.duration>finish)keep.push({...n,id:n.start<start?G.uid('n'):n.id,start:finish,duration:n.start+n.duration-finish});}}
+  const keep=[],splitReferences=[];
+  for(const n of pat.notes){if(n.start>=finish||n.start+n.duration<=start){keep.push(n);continue;}if(splitBoundary){if(n.start<start)keep.push({...n,duration:start-n.start});if(n.start+n.duration>finish){const id=n.start<start?G.uid('n'):n.id;keep.push({...n,id,performanceKey:n.performanceKey||n.id,start:finish,duration:n.start+n.duration-finish});if(id!==n.id){const retention=pat.retention?.notes.find(r=>r.id===n.id);if(retention)splitReferences.push({...retention,id});}}}}
   let incoming=template.notes.map(n=>({...n,id:G.uid('n'),start:n.start+start}));
   if(t.kind==='drum')incoming=G.remapDrums(incoming,G.resolveKit(template.drumkitId||'builtin.standard',p).rows,G.drumsFor(p,t));
-  pat.notes=keep.concat(incoming);if(pat.retention)pat.retention.notes=pat.retention.notes.filter(n=>pat.notes.some(v=>v.id===n.id));delete pat.generation;
+  pat.notes=keep.concat(incoming);if(pat.retention)pat.retention.notes=pat.retention.notes.concat(splitReferences).filter(n=>pat.notes.some(v=>v.id===n.id));delete pat.generation;
   if(template.harmony&&start===0&&template.bars===pat.bars)G.confirmHarmony(pat,template.harmony);else delete pat.harmony;
   return {project:G.validateProject(p),trackId:t.id,patternId:pat.id,clipId:clip?.id,range:clip?[(clip.bar*G.BAR)+start,(clip.bar*G.BAR)+finish]:undefined};
  }

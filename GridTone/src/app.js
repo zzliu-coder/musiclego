@@ -159,11 +159,11 @@
     function preview(t, pitch, d = .25) { engine.preview(t, pitch, project, d).catch(e => toast(e.message)); }
     let creationMarkup='',creationFocus=null;
     function openCreation(title,body,subtitle=''){
-        if(!creationMarkup)creationFocus=document.activeElement;
+        if(!creationMarkup)creationFocus=G.ui.captureFocus();
         creationMarkup=`<header class="creation-dock-heading"><h2>${esc(title)}</h2>${ib('creation-close','关闭创作面板','close')}</header><p class="creation-dock-subtitle">${esc(subtitle)}</p>${body}`;
         const dock=$('#creation-dock');if(dock){dock.hidden=false;G.patchDOM(dock,creationMarkup);}
     }
-    function closeCreation(){creationMarkup='';const dock=$('#creation-dock');if(dock){dock.hidden=true;dock.innerHTML='';}if(creationFocus?.isConnected)creationFocus.focus({preventScroll:true});creationFocus=null;}
+    function closeCreation(){creationMarkup='';const dock=$('#creation-dock');if(dock){dock.hidden=true;dock.innerHTML='';}if(!G.ui.restoreFocus(creationFocus))$('.workspace-tabs .active')?.focus({preventScroll:true});creationFocus=null;}
     const catalogContext = { getProject: () => project, getSession: () => S, playback, button, esc, openModal, closeModal, openCreation, openComposer:(...args)=>{creation.session?.flow?.cancel();creation.session=null;openCreation(...args);}, closeCreation, toast, pickFile, render,
         repin: () => mutate(() => { G.pinDocument(project); }),
         commit: result => {
@@ -442,6 +442,7 @@
         }
     }
     async function addSample(blob, name) {
+        const destination={projectId:project.id,trackId:S.trackId};
         try {
             if (blob.size > 12 * 1024 * 1024)
                 throw Error('单个音源文件请控制在 12 MB 内。');
@@ -457,13 +458,14 @@
             if (peak < .00001)
                 throw Error('这段录音基本无声，请检查麦克风。');
             const data = await G.blobDataURL(new Blob([G.encodeWav(buffer, peak > .98 ? .98 / peak : 1)], { type: 'audio/wav' }));
-            mutate(() => {
+            if(project.id!==destination.projectId)throw Error('作品已切换，请在目标作品中重新导入音源。');
+            const committed=mutate(() => {
                 const size = Object.values(project.assets).reduce((s, a) => s + a.data.length * .75, 0) + data.length * .75;
                 if (size > G.LIMITS.assetsBytes)
                     throw Error('内嵌音源已超过 24 MB。');
+                let t=project.tracks.find(t=>t.id===destination.trackId);if(!t)throw Error('目标音轨已删除，请重新选择音轨。');
                 const id = uid('a');
                 project.assets[id] = { name: name.replace(/\.[^.]+$/, ''), root: 60, mode: 'pitched', data };
-                let t = track();
                 if (t.kind === 'drum') {
                     if (project.tracks.length >= 64)
                         throw Error('最多支持 64 条音轨。');
@@ -474,10 +476,10 @@
                     S.patternId = t.patterns[0].id;
                 }
                 t.preset = 'sample:' + id;
-                S.view = 'edit';
                 S.editorTab = 'sound';
                 S.tab = '全部';
             });
+            if(committed?.ok===false)throw Error(committed.error.message);
             closeModal();
             toast('音源已加入，并会随工程文件一起保存。');
         }

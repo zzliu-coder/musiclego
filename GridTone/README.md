@@ -1,6 +1,6 @@
-# 乐构 1.6 · 模板优先创作
+# 乐构 1.7 · 桌面收尾候选
 
-彩色轻磨砂键帽的音乐工作台。编排视图组织全曲，乐句视图专注写音符；两个视图共享音乐与播放状态。UI、交互和动效遵循“轻触、拿起、落定”，详见 `DESIGN_SYSTEM.md`。
+彩色轻磨砂键帽的音乐工作台。编排视图组织全曲，乐句视图专注写音符；编排、乐句、混音三个工作区共享音乐与播放状态。UI、交互和动效遵循“轻触、拿起、落定”，详见 `DESIGN_SYSTEM.md`。
 
 ## 打开
 
@@ -41,7 +41,15 @@ Solo 是临时试听，Mute 保存到作品。音量、声像和 Solo/Mute 更�
 
 默认导出全曲，尊重作品静音，忽略临时 Solo。也可选择当前片段或当前试听范围。
 
-## 本轮新增
+## 1.7 桌面交互
+
+- 常驻素材架支持搜索、收藏、最近使用、试听，以及拖放或点击落点；长素材可在明确位置新建独立片段。
+- 创作面板停靠在工作台旁，可以继续操作画板；候选固定原目标，参数或相关来源改变后需重新生成。
+- 应用候选只修改对应范围，保留其他声部的同时编辑；操作停留在当前工作区。
+- 鼓、贝斯和伴奏按固定依赖顺序生成；贝斯对齐实际演奏后的底鼓起音，Swing 与微时移只计算一次。
+- 录音等待授权时可取消，迟到授权会释放麦克风；音源解码期间切换作品不会误写入新作品。
+
+## 模板与创作能力
 
 - 顶部文件夹管理多份作品。v1 / v2 工程自动迁移为 v3，原始文件保留。
 - 画布常驻「模板」「和弦进行」「创作辅助」入口；编排区也有模板入口。
@@ -60,14 +68,14 @@ Solo 是临时试听，Mute 保存到作品。音量、声像和 Solo/Mute 更�
 npm ci
 npx playwright install chromium
 npm start
-npm run verify
-npm run verify:soak
+EVIDENCE_DIR=docs/closure-v2/evidence/current npm run verify
+EVIDENCE_DIR=docs/closure-v2/evidence/current npm run verify:soak
 npm run verify:release
 ```
 
 已装 Google Chrome 的机器可用 `BROWSER_CHANNEL=chrome npm run verify`。离线运行 HTML 无需安装开发依赖；首次准备测试浏览器和 npm 依赖需要网络。
 
-当前工程证据见 [验收记录](docs/implementation/acceptance.json)、[统一验证](docs/implementation/evidence/verification.json) 和 [实施合同](docs/implementation/CONTRACTS.md)。历史 1.5 报告不计入当前通过数量。
+当前施工状态见 [收尾状态](docs/closure-v2/IMPLEMENTATION_STATUS.md)、[逐项总账](docs/closure-v2/ACCEPTANCE_LEDGER.json) 和 [本轮自动验证](docs/closure-v2/evidence/current/verification.json)。`docs/implementation` 保存 1.6 历史记录，不能当作当前通过证据。
 
 工程自动检查与人工听感分别记录。本轮提供可运行的工程候选版；人工听感未评审时，严格的 `verify:release` 会返回非零并列出待验收项。**用户已将小屏 / 触屏体验留到后续专题**；本轮视觉验收聚焦桌面 1280 / 1440。
 
