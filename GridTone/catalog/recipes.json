@@ -1,10 +1,366 @@
 [
- {"id":"recipe.pop","version":1,"name":"清楚的流行四拍","description":"四和弦、基础鼓、根音贝斯；给主旋律留出空间。","progression":"pop","rhythm":"whole","bpm":108,"swing":0,"drumStyle":"straight","chordPreset":"epiano","melodyPreset":"marimba","bassPreset":"roundbass","density":"normal","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.lofi","version":1,"name":"柔和电钢 / Lo-fi","description":"七和弦、稀疏鼓和轻摆动，柔和力度与延音。","progression":"soft","rhythm":"whole","bpm":82,"swing":0.12,"drumStyle":"sparse","chordPreset":"prism.tine","melodyPreset":"bell","bassPreset":"roundbass","density":"sparse","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.dance","version":1,"name":"电子舞曲","description":"四拍底鼓、短和弦与切分低音。","progression":"minor-axis","rhythm":"pulse","bpm":124,"swing":0,"drumStyle":"four","chordPreset":"cloudpad","melodyPreset":"pluck","bassPreset":"subbass","density":"dense","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.halftime","version":1,"name":"半拍流行","description":"第三拍军鼓，宽阔和弦与留白低音。","progression":"axis","rhythm":"strum","bpm":96,"swing":0,"drumStyle":"half","chordPreset":"warmpad","melodyPreset":"kalimba","bassPreset":"subbass","density":"sparse","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.rock","version":1,"name":"轻摇滚 / 动力型","description":"八分节奏、推动的鼓与重复低音。","progression":"folk","rhythm":"pulse","bpm":116,"swing":0,"drumStyle":"drive","chordPreset":"brightpiano","melodyPreset":"organ","bassPreset":"roundbass","density":"dense","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.penta","version":1,"name":"五声音阶轻快型","description":"拨弦伴奏、少量鼓点与五声音阶示范。","progression":"home","rhythm":"arp","bpm":102,"swing":0,"drumStyle":"sparse","chordPreset":"pluck","melodyPreset":"kalimba","bassPreset":"roundbass","density":"sparse","pentatonic":true,"license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.canon","version":1,"name":"卡农式分解伴奏","description":"八小节和声与连续分解织体。","progression":"canon","rhythm":"arp","bpm":88,"swing":0,"drumStyle":"light","chordPreset":"felt","melodyPreset":"strings","bassPreset":"roundbass","density":"normal","license":"CC0-1.0","origin":"原创规则配方"},
- {"id":"recipe.dialogue","version":1,"name":"简约问答式乐句","description":"前四小节提出动机，后四小节回答并收束。","progression":"home","rhythm":"whole","bpm":100,"swing":0,"drumStyle":"light","chordPreset":"epiano","melodyPreset":"marimba","bassPreset":"roundbass","density":"normal","answer":true,"license":"CC0-1.0","origin":"原创规则配方"}
+  {
+    "id": "recipe.pop",
+    "version": 2,
+    "name": "清楚的流行四拍",
+    "description": "四和弦、基础鼓、根音贝斯；给主旋律留出空间。",
+    "progression": "pop",
+    "rhythm": "whole",
+    "bpm": 108,
+    "swing": 0,
+    "drumStyle": "straight",
+    "chordPreset": "prism.tine",
+    "melodyPreset": "prism.wood",
+    "bassPreset": "prism.roundbass",
+    "density": "normal",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 720,
+          "velocity": 0.76
+        },
+        {
+          "start": 960,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1920,
+          "duration": 960,
+          "velocity": 0.6
+        },
+        {
+          "start": 3360,
+          "duration": 480,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.drydrum"
+  },
+  {
+    "id": "recipe.lofi",
+    "version": 2,
+    "name": "柔和电钢 / Lo-fi",
+    "description": "七和弦、稀疏鼓和轻摆动，柔和力度与延音。",
+    "progression": "soft",
+    "rhythm": "whole",
+    "bpm": 82,
+    "swing": 0.12,
+    "drumStyle": "sparse",
+    "chordPreset": "prism.tine",
+    "melodyPreset": "prism.glass",
+    "bassPreset": "prism.roundbass",
+    "density": "sparse",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 1440,
+          "velocity": 0.76
+        },
+        {
+          "start": 2400,
+          "duration": 720,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.brushdrum"
+  },
+  {
+    "id": "recipe.dance",
+    "version": 2,
+    "name": "电子舞曲",
+    "description": "四拍底鼓、短和弦与切分低音。",
+    "progression": "minor-axis",
+    "rhythm": "pulse",
+    "bpm": 124,
+    "swing": 0,
+    "drumStyle": "four",
+    "chordPreset": "prism.glasspad",
+    "melodyPreset": "prism.mutepluck",
+    "bassPreset": "prism.rubberbass",
+    "density": "dense",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 480,
+          "velocity": 0.76
+        },
+        {
+          "start": 720,
+          "duration": 240,
+          "velocity": 0.6
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1920,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2640,
+          "duration": 240,
+          "velocity": 0.6
+        },
+        {
+          "start": 3360,
+          "duration": 480,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.deepdrum"
+  },
+  {
+    "id": "recipe.halftime",
+    "version": 2,
+    "name": "半拍流行",
+    "description": "第三拍军鼓，宽阔和弦与留白低音。",
+    "progression": "axis",
+    "rhythm": "strum",
+    "bpm": 96,
+    "swing": 0,
+    "drumStyle": "half",
+    "chordPreset": "prism.choirpad",
+    "melodyPreset": "prism.kalimba",
+    "bassPreset": "prism.rubberbass",
+    "density": "sparse",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 960,
+          "velocity": 0.76
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2880,
+          "duration": 720,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.deepdrum"
+  },
+  {
+    "id": "recipe.rock",
+    "version": 2,
+    "name": "轻摇滚 / 动力型",
+    "description": "八分节奏、推动的鼓与重复低音。",
+    "progression": "folk",
+    "rhythm": "pulse",
+    "bpm": 116,
+    "swing": 0,
+    "drumStyle": "drive",
+    "chordPreset": "brightpiano",
+    "melodyPreset": "organ",
+    "bassPreset": "prism.roundbass",
+    "density": "dense",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 480,
+          "velocity": 0.76
+        },
+        {
+          "start": 480,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1920,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2880,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 3360,
+          "duration": 480,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.drydrum"
+  },
+  {
+    "id": "recipe.penta",
+    "version": 2,
+    "name": "五声音阶轻快型",
+    "description": "拨弦伴奏、少量鼓点与五声音阶示范。",
+    "progression": "home",
+    "rhythm": "arp",
+    "bpm": 102,
+    "swing": 0,
+    "drumStyle": "sparse",
+    "chordPreset": "prism.mutepluck",
+    "melodyPreset": "prism.kalimba",
+    "bassPreset": "prism.roundbass",
+    "density": "sparse",
+    "pentatonic": true,
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 720,
+          "velocity": 0.76
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2400,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 3360,
+          "duration": 240,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.brushdrum"
+  },
+  {
+    "id": "recipe.canon",
+    "version": 2,
+    "name": "卡农式分解伴奏",
+    "description": "八小节和声与连续分解织体。",
+    "progression": "canon",
+    "rhythm": "arp",
+    "bpm": 88,
+    "swing": 0,
+    "drumStyle": "light",
+    "chordPreset": "felt",
+    "melodyPreset": "strings",
+    "bassPreset": "prism.roundbass",
+    "density": "normal",
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 480,
+          "velocity": 0.76
+        },
+        {
+          "start": 960,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2400,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2880,
+          "duration": 720,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.drydrum"
+  },
+  {
+    "id": "recipe.dialogue",
+    "version": 2,
+    "name": "简约问答式乐句",
+    "description": "前四小节提出动机，后四小节回答并收束。",
+    "progression": "home",
+    "rhythm": "whole",
+    "bpm": 100,
+    "swing": 0,
+    "drumStyle": "light",
+    "chordPreset": "prism.tine",
+    "melodyPreset": "prism.wood",
+    "bassPreset": "prism.roundbass",
+    "density": "normal",
+    "answer": true,
+    "license": "CC0-1.0",
+    "origin": "原创规则配方",
+    "melodyRhythm": {
+      "version": 1,
+      "bars": 1,
+      "slots": [
+        {
+          "start": 0,
+          "duration": 960,
+          "velocity": 0.76
+        },
+        {
+          "start": 1440,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 1920,
+          "duration": 480,
+          "velocity": 0.6
+        },
+        {
+          "start": 2880,
+          "duration": 720,
+          "velocity": 0.6
+        }
+      ]
+    },
+    "drumPreset": "prism.drydrum"
+  }
 ]

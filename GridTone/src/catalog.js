@@ -229,7 +229,7 @@
         identifier(t.id, '模板编号');
         if (t.version !== 1 || !['pattern', 'song'].includes(t.type))
             throw Error('模板类型或版本无效。');
-        const metadata={}; if(t.role!==undefined){if(!['drums','melody','bass','chords','song'].includes(t.role))throw Error('模板角色无效。');metadata.role=t.role;} if(t.tags!==undefined){if(!Array.isArray(t.tags)||t.tags.length>8)throw Error('模板标签最多 8 项。');metadata.tags=t.tags.map(x=>text(x,'',30));} if(t.bpm!==undefined)metadata.bpm=number(t.bpm,40,240,'建议速度');
+        const metadata={}; if(t.role!==undefined){if(!['drums','melody','bass','chords','texture','song'].includes(t.role))throw Error('模板角色无效。');metadata.role=t.role;} if(t.tags!==undefined){if(!Array.isArray(t.tags)||t.tags.length>8)throw Error('模板标签最多 8 项。');metadata.tags=t.tags.map(x=>text(x,'',30));} if(t.bpm!==undefined)metadata.bpm=number(t.bpm,40,240,'建议速度');
         const common = { ...metadata, id: t.id, version: 1, type: t.type, name: text(t.name, '未命名模板', 80), description: text(t.description, '可以继续编辑的音乐素材。', 240) };
         if (t.type === 'song')
             return { ...common, project: G.validateProject(t.project) };

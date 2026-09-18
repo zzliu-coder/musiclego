@@ -163,6 +163,9 @@
                     throw Error('工程超过十万个音符。');
                 for (const n of pat.notes) {
                     id(n.id);
+                    if(n.timingOffset!==undefined&&!finite(n.timingOffset,-BAR,BAR))throw Error('音符起音补偿无效。');
+                    if(n.swingPhase!==undefined&&![0,1].includes(n.swingPhase))throw Error('音符 Swing 相位无效。');
+                    if(n.performanceKey!==undefined&&(typeof n.performanceKey!=='string'||n.performanceKey.length>200))throw Error('音符演奏身份无效。');
                     if (!Number.isInteger(n.pitch) || !finite(n.pitch, 0, 127) || !finite(n.start, 0, pat.bars * BAR - 1) || !finite(n.duration, 1, pat.bars * BAR - n.start) || !finite(n.velocity, .01, 1))
                         throw Error('音符位置、时值或力度无效。');
                 }
@@ -209,7 +212,7 @@
         if(pat.generation!==undefined){
             const g=pat.generation;
             if(!only(g,['version','algorithm','kind','seed','templateVersion','inputHash','sources','settings'])||g.version!==1||!string(g.algorithm)||!string(g.kind)||!number(g.seed,0,4294967295)||!Number.isInteger(g.seed)||!Number.isInteger(g.templateVersion)||!string(g.inputHash)||!Array.isArray(g.sources)||g.sources.length>64)throw Error('生成来源无效。');
-            for(const s of g.sources)if(!only(s,['trackId','hash'])||!string(s.trackId)||!string(s.hash))throw Error('生成依赖无效。');
+            for(const s of g.sources)if(!only(s,['trackId','hash','range','layer'])||(s.layer!==undefined&&s.layer!=='performed')||!string(s.trackId)||!string(s.hash)||(s.range!==undefined&&(!Array.isArray(s.range)||s.range.length!==2||!number(s.range[0],0,LIMITS.bars*BAR)||!number(s.range[1],s.range[0]+1,LIMITS.bars*BAR))))throw Error('生成依赖无效。');
             if(!object(g.settings)||JSON.stringify(g.settings).length>8000||Object.values(g.settings).some(v=>!['number','string','boolean'].includes(typeof v)||typeof v==='number'&&!Number.isFinite(v)))throw Error('生成参数无效。');
         }
     }
@@ -265,18 +268,20 @@
                 const dur = group[0].duration;
                 for (let x = 0, i = 0; x < dur; x += pipe.rate, i++) {
                     const n = seq[i % seq.length];
-                    notes.push({ ...n, id: n.id + '_arp' + i, start: n.start + x, duration: Math.min(pipe.rate * .83, dur - x) });
+                    notes.push({ ...n, id: n.id + '_arp' + i, performanceKey:(n.performanceKey||n.id)+'_arp'+i, ...(n.timingOffset===undefined?{}:{timingOffset:n.timingOffset+(hash(n.performanceKey||n.id)-hash((n.performanceKey||n.id)+'_arp'+i))*pipe.humanize}), start: n.start + x, duration: Math.min(pipe.rate * .83, dur - x) });
                 }
             });
         }
         notes.forEach(n => {
             if (track.kind !== 'drum')
                 n.pitch = clamp(n.pitch + Math.round(pipe.transpose), 0, 127);
-            const step = Math.floor(n.start / STEP);
-            n.start = clamp(n.start + (step % 2 ? project.swing * STEP : 0) + (hash(n.id) - .5) * pipe.humanize, 0, L - 1);
+            const phase = n.swingPhase??(Math.floor(n.start / STEP)%2);
+            n.swingPhase=phase;
+            n.start = clamp(n.start + (phase ? project.swing * STEP : 0) + (hash(n.performanceKey||n.id) - .5) * pipe.humanize + (n.timingOffset||0), 0, L - 1);
+            delete n.timingOffset;
             n.duration = Math.min(n.duration, L - n.start);
             if (pipe.humanize)
-                n.velocity = clamp(n.velocity + (hash(n.id + 'v') - .5) * .08, .02, 1);
+                n.velocity = clamp(n.velocity + (hash((n.performanceKey||n.id) + 'v') - .5) * .08, .02, 1);
         });
         return notes;
     }
@@ -348,6 +353,6 @@
                 return b;
         return -1;
     }
-    function copyPattern(p) { const x = clone(p), ids=new Map(); x.id = uid('p'); x.name = p.name + '′'; x.notes.forEach(n => {const id=uid('n');ids.set(n.id,id);n.id=id;});if(x.retention)x.retention.notes.forEach(n=>n.id=ids.get(n.id));return x; }
+    function copyPattern(p) { const x = clone(p), ids=new Map(); x.id = uid('p'); x.name = p.name + '′'; x.notes.forEach(n => {const id=uid('n');ids.set(n.id,id);n.performanceKey??=n.id;n.id=id;});if(x.retention)x.retention.notes.forEach(n=>n.id=ids.get(n.id));return x; }
     Object.assign(G, { PPQ, BAR, STEP, LIMITS, COLORS, SCALES, KEYS, DRUMS, CHORDS, clamp, uid, clone, noteName, inScale, snapPitch, newNote, newPattern, newTrack, blankProject, demoProject, validateProject, hash, transformNotes, chordNotes, processPattern, resolvePlaybackScope, compileSong, canPlace, firstFreeBar, copyPattern });
 })(globalThis.GridTone ||= {});

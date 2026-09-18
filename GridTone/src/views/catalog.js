@@ -52,9 +52,10 @@
    <p id="catalog-feedback" class="resource-feedback" role="status"></p><div class="modal-actions">${button('catalog-back', '返回素材库', '', 'quiet')}${button('catalog-preview', '预听结果', 'headphones', 'soft-btn')}${button('stop', '停止试听', 'stop', 'quiet')}${button('catalog-apply', song ? '新建模板作品' : '确认应用', 'check', 'dark-btn')}</div>`);
         }
         candidate() {
-            const token=G.contentHash(this.c.getProject()),settings=JSON.stringify([this.selected,this.options]);
-            if(this.frozen?.settings===settings){if(this.frozen.token!==token)throw Error('原稿已变化，请重新选择素材。');return G.clone(this.frozen.result);}
-            const result=this.buildCandidate();this.frozen={token,settings,result:G.clone(result)};return result;
+            const current=this.c.getProject(),settings=JSON.stringify([this.selected,this.options]);
+            if(this.frozen?.settings===settings){if(this.frozen.result.project.id!==current.id)return G.clone(this.frozen.result);return this.frozen.flow.materialize(current);}
+            const result=this.buildCandidate(),target=this.options.mode==='replace'?{trackId:this.options.trackId,clipId:current.tracks.find(t=>t.id===this.options.trackId)?.clips.find(c=>c.patternId===this.options.patternId)?.id}:{};
+            const flow=new G.CandidateSession(current,'catalog',target,this.options);flow.begin();if(result.project.id===current.id)flow.ready([result]);this.frozen={settings,result:G.clone(result),flow};return result;
         }
         buildCandidate() {
             const t = this.selected, p = this.c.getProject();
@@ -96,11 +97,11 @@
         catch (e) {
             this.feedback(e.message);
         } }
-        apply() { try {
+        async apply() { try {
             const result = this.candidate();
             this.c.closeModal();
-            this.c.commit(result);
-            this.c.toast('已应用，内容可以继续编辑；可用撤销恢复。');
+            const outcome=await this.c.commit(result);if(outcome?.ok===false)throw Error(outcome.error.message);
+            this.c.toast(this.selected.type==='song'?'已新建模板作品，可在“我的作品”切回原稿。':'已应用，内容可以继续编辑；可用撤销恢复。');
         }
         catch (e) {
             this.feedback(e.message);

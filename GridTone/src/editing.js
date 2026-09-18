@@ -85,7 +85,7 @@
         const p=G.clone(project),ids=new Map([[p.id,G.uid('song')]]);
         for(const t of p.tracks){ids.set(t.id,G.uid('t'));for(const pat of t.patterns){ids.set(pat.id,G.uid('p'));for(const n of pat.notes)ids.set(n.id,G.uid('n'));}for(const c of t.clips)ids.set(c.id,G.uid('c'));}
         const remap=x=>Array.isArray(x)?x.map(remap):x&&typeof x==='object'?Object.fromEntries(Object.entries(x).map(([k,v])=>[ids.get(k)||k,remap(v)])):typeof x==='string'?(ids.get(x)||x):x;
-        const copy=remap(p);copy.title=p.title+' · 副本';return G.validateProject(copy);
+        const copy=remap(p);for(let i=0;i<p.tracks.length;i++)for(let j=0;j<p.tracks[i].patterns.length;j++)for(let k=0;k<p.tracks[i].patterns[j].notes.length;k++){const old=p.tracks[i].patterns[j].notes[k];copy.tracks[i].patterns[j].notes[k].performanceKey=old.performanceKey||old.id;}copy.title=p.title+' · 副本';return G.validateProject(copy);
     }
     Object.assign(G, { copyProject, durationNotes, duplicateTrack, visiblePitches, degreePosition, degreePitch, mirrorDegree, changeNotePitches, pitchCandidate });
 })(globalThis.GridTone ||= {});

@@ -26,3 +26,35 @@
 @media(max-width:600px){.btn[data-variant]{font-size:13px}.creation-settings .form-grid{grid-template-columns:1fr}.candidate-bar .modal-actions{flex-wrap:wrap}.harmony-events .form-grid{grid-template-columns:1fr}.components-page{margin:0;padding:16px}}
 @media(prefers-reduced-motion:reduce){.btn[data-variant]{transition:none}.btn[data-variant]:active:not(:disabled){transform:none}}
 [data-motion=reduced] .btn[data-variant]{transition:none}[data-motion=reduced] .btn[data-variant]:active:not(:disabled){transform:none}
+.creation-dock[hidden]{display:none}
+.creation-dock{flex:0 0 340px;min-width:300px;max-width:380px;overflow:auto;padding:20px;background:var(--surface,#fafaf8);border-left:1px solid var(--line,#e0e2e5);font-size:13px;overscroll-behavior:contain}
+.creation-dock-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-20px;background:var(--surface,#fafaf8);padding:12px 0;z-index:2}
+.creation-dock h2{font-size:17px;margin:0}.creation-dock h3{font-size:13px}.creation-dock-subtitle,.creation-dock p{line-height:1.6;color:var(--text-muted,#68717b)}
+.creation-dock label{display:grid;gap:6px;margin:10px 0}.creation-dock select,.creation-dock input[type=number]{width:100%;min-width:0;height:34px;padding:4px 8px;border:1px solid var(--line,#ddd);border-radius:8px;background:var(--surface,#fff);color:inherit}
+.creation-dock .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.creation-dock .modal-actions,.creation-dock .menu-grid{display:flex;flex-wrap:wrap;gap:6px}.creation-dock .candidate-bar{position:sticky;bottom:0;background:var(--surface,#fff);box-shadow:0 -3px 12px #00000008;padding:12px 0}.creation-dock .candidate-bar svg{max-width:100%}
+.creation-dock #creation-feedback:not(:empty){padding:8px 10px;border-radius:8px;background:var(--brand-soft,#edf3ff);color:var(--text,#263044)}
+.template-shelf{flex:0 0 220px;width:220px;padding:16px 12px 12px 0;display:flex;flex-direction:column;gap:10px;border-right:1px solid var(--line);overflow:hidden}
+.template-shelf>header{display:flex;align-items:center;justify-content:space-between}.template-shelf h2{font-size:16px;margin:0}.template-shelf>input{width:100%;min-height:34px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--surface);color:var(--ink)}
+.template-shelf.collapsed{width:48px;flex-basis:48px}.template-shelf.collapsed .btn{writing-mode:vertical-rl;height:auto;padding:10px}
+.shelf-filters{display:flex;flex-wrap:wrap;gap:2px}.shelf-filters .btn{font-size:11px;padding:4px 7px;min-height:28px}.shelf-filters .active{background:var(--selected);color:var(--brand)}
+.shelf-hint{font-size:11px;color:var(--muted);line-height:1.6;margin:0}.shelf-cards{flex:1;overflow:auto;min-height:0;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin}
+.shelf-card{flex-shrink:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 1px 2px #00000005;transition:border-color var(--state-time),box-shadow var(--state-time)}
+.shelf-card:hover,.shelf-card.selected{border-color:var(--brand);box-shadow:0 2px 7px #00000008}.shelf-card-pick{display:flex;flex-direction:column;gap:7px;border:0;background:none;padding:12px;text-align:left;width:100%;cursor:grab;color:var(--ink)}.shelf-card-pick strong{font-size:13px}.shelf-card-pick small{font-size:10px;color:var(--muted)}.shelf-card-pick svg{width:100%;height:30px;color:var(--brand)}.shelf-card>div{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:2px 6px}.shelf-card>div .btn{font-size:11px;min-height:26px}.shelf-ensemble-mark{color:var(--brand);letter-spacing:5px}
+.shelf-drop-ghost{position:absolute;top:3px;bottom:3px;pointer-events:none;border:2px dashed var(--brand);background:var(--selected);color:var(--brand);padding:6px;border-radius:7px;z-index:5;font-size:11px;overflow:hidden}
+.legou-shell .workspace-body{overflow:hidden}.legou-shell .view-content{min-height:0;padding-left:16px;padding-right:16px;overflow:auto}
+[data-workspace] .studio-arrangement,[data-workspace] .creation-workspace,[data-workspace] .dock-resize{order:initial}
+.legou-shell .brand-area{flex:1;max-width:none}.legou-shell .brand-tagline{display:none}.workspace-tabs{flex-shrink:0}.legou-shell .topbar{gap:12px!important}
+.legou-shell .arrange-card[data-density=compact] .arrange-row{height:58px!important}
+.legou-shell .arrange-card[data-density=compact] .song-clip{top:4px;height:50px;display:block;padding:5px 8px}.arrange-card[data-density=compact] .song-clip .mini-pattern{height:24px}.arrange-card[data-density=compact] .song-clip header{margin:0 0 3px}
+.legou-shell .arrange-track-head[data-density] .track-controls{display:flex;gap:4px;margin:0;padding:0 0 0 26px}.arrange-track-head[data-density] .track-controls .btn{min-height:24px;height:24px;width:24px;padding:0}.arrange-track-head[data-density] .track-controls input{width:64px;max-width:64px;height:24px;margin:0}.arrange-track-head[data-density=compact] .track-title-row{height:28px}.arrange-track-head[data-density=compact] .arrange-track-name small{display:none}.arrange-track-head[data-density=compact] .track-title-row>.icon-btn{min-height:24px;height:24px}
+.creation-target{display:flex;flex-direction:column;gap:5px;padding:10px 12px;background:var(--selected);border-radius:9px;margin:8px 0 14px}.creation-target strong{font-size:13px}.creation-target small{font-size:11px;color:var(--muted)}
+.creation-generate-row{display:flex;margin:14px 0 8px}.creation-generate-row>.btn{width:100%;justify-content:center}.creation-dock details{border-top:1px solid var(--line);padding:12px 0}.creation-dock summary{cursor:pointer;font-size:12px;font-weight:600;color:var(--muted)}.creation-dock .candidate-bar{margin-top:16px}.creation-dock .candidate-bar svg{max-height:72px}.creation-limitation{padding:10px;border:1px solid var(--line);border-radius:8px}
+.legou-shell .studio-edit-tools{flex-wrap:wrap;height:auto;min-height:46px}.legou-shell .view-content{padding:12px 16px 18px!important}.creation-dock .form-grid label{margin:4px 0}
+.editor-track-select{max-width:140px;border:0!important;background:transparent!important;box-shadow:none!important;font-weight:600;color:var(--ink);font-size:13px;padding:3px 16px 3px 2px!important;min-height:28px!important}
+
+/* The same chord editor fits the persistent creation dock. */
+.creation-dock .composer-layout{display:flex;flex-direction:column;min-width:0}
+.creation-dock .progression-library{max-height:210px;overflow:auto}
+.creation-dock .composer-actions{display:flex;flex-wrap:wrap;gap:6px}
+.creation-dock .chord-pills{flex-wrap:wrap}
+.creation-dock .chord-drawing{width:100%;height:auto}

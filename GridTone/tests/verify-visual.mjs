@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';import {writeFile} from 'node:fs/promises';import {harness} from './browser-harness.mjs';
 const h=await harness(),results=[],p=h.page;
-const click=action=>p.locator(`button[data-action="${action}"]`).filter({visible:true}).first().click();
+const click=action=>p.locator(`button[data-action="${action}"]${action==='creation'?':not([data-mode])':''}`).filter({visible:true}).first().click();
 let completed=false;
 try{
  await p.evaluate(async()=>{await GridToneApp.loadProject(GridTone.recipeProject('recipe.lofi'));GridToneApp.changeView('edit');});
@@ -15,7 +15,7 @@ try{
   await p.evaluate(()=>GridToneApp.changeView('edit'));
   for(const tab of ['sound','pipeline']){await p.locator(`[data-action="editor-tab"][data-tab="${tab}"]`).click();await p.screenshot({path:`${h.output}/${skin}-${width}-${tab}.png`,animations:'disabled'});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);}
   await p.locator('[data-action="editor-tab"][data-tab="notes"]').click();
-  for(const action of ['catalog','creation','project-menu']){await click(action);await p.waitForSelector('.modal');await p.screenshot({path:`${h.output}/${skin}-${width}-${action}.png`,animations:'disabled'});const bounds=await p.locator('.modal').boundingBox();assert.ok(bounds.x>=-1&&bounds.x+bounds.width<=width+1,`${action} ${width}`);await p.locator('.modal header button[data-action="close-modal"]').click();}
+  for(const action of ['catalog','creation','project-menu']){await click(action);await p.waitForSelector(action==='creation'?'#creation-dock:not([hidden])':'.modal');await p.screenshot({path:`${h.output}/${skin}-${width}-${action}.png`,animations:'disabled'});const bounds=await p.locator(action==='creation'?'#creation-dock':'.modal').boundingBox();assert.ok(bounds.x>=-1&&bounds.x+bounds.width<=width+1,`${action} ${width}`);await p.locator(action==='creation'?'#creation-dock header [data-action="creation-close"]':'.modal header button[data-action="close-modal"]').click();}
  }
  await p.goto(h.url.replace('/dist/index.html','/components.html'));await p.screenshot({path:h.output+'/components.png',fullPage:true,animations:'disabled'});assert.ok(await p.locator('[data-variant]').count()>=20);
  assert.deepEqual(h.errors,[]);completed=true;

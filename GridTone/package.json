@@ -1,6 +1,6 @@
 {
   "name": "gridtone",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "private": true,
   "description": "乐构：把音乐搭起来。可离线运行的音乐创作工作台。",
   "scripts": {

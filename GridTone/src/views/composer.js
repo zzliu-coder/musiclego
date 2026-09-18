@@ -3,15 +3,18 @@
  class ComposerUI{
   constructor(context){this.c=context;this.id=G.PROGRESSIONS[0].id;this.group='全部';this.options=null;}
   open(){
+   this.c.closeModal?.();
    const p=this.c.getProject(),s=this.c.getSession(),t=p.tracks.find(x=>x.id===s.trackId);
    if(t.kind==='drum')throw Error('请先进入旋律音轨，再生成和弦进行。');
    this.frozen=null;this.options={key:p.key,voicing:'smooth',rhythm:'whole',mode:'new',trackId:t.id,patternId:s.patternId,bar:0,adapt:'original',applySound:false};this.place();this.render();
   }
   place(){const p=this.c.getProject(),t=p.tracks.find(x=>x.id===this.options.trackId),r=G.PROGRESSIONS.find(x=>x.id===this.id);const free=G.firstFreeBar(t,{bars:r.bars},p.bars);this.options.bar=free<0?p.bars:free;}
   generated(){return G.generateProgression(this.id,this.options);}
-  candidate(){const token=G.contentHash(this.c.getProject()),key=JSON.stringify([this.id,this.options]);if(this.frozen?.key===key){if(this.frozen.token!==token)throw Error('原稿已变化，请重新打开和弦进行。');return G.clone(this.frozen.result);}const g=this.generated(),result=G.applyTemplate(this.c.getProject(),g.template,this.options);this.frozen={token,key,result:G.clone(result)};return result;}
+  candidate(){const current=this.c.getProject(),key=JSON.stringify([this.id,this.options]);if(this.frozen?.key===key)return this.frozen.flow.materialize(current);const g=this.generated(),result=G.applyTemplate(current,g.template,this.options),target=this.options.mode==='replace'?{trackId:this.options.trackId,clipId:current.tracks.find(t=>t.id===this.options.trackId)?.clips.find(c=>c.patternId===this.options.patternId)?.id}:{};const flow=new G.CandidateSession(current,'chords',target,this.options);flow.begin();flow.ready([result]);this.frozen={key,result,flow};return result;}
+
+  refresh(){if(!document.querySelector('#composer-feedback')||!this.frozen)return;try{this.frozen.flow.validate(this.c.getProject(),this.frozen.flow.candidates[0]);}catch(e){this.frozen.flow.invalidate(e.message);const b=document.querySelector('[data-action="composer-apply"]');if(b)b.disabled=true;const status=document.querySelector('#composer-feedback');if(status)status.textContent=e.message;this.c.playback.endAudition();}}
   render(){
-   const {button,esc,openModal}=this.c,o=this.options,g=this.generated(),r=g.recipe,p=this.c.getProject(),t=p.tracks.find(x=>x.id===o.trackId),pat=t.patterns.find(x=>x.id===o.patternId),refs=t.clips.filter(x=>x.patternId===pat?.id).length;
+   const {button,esc}=this.c,openModal=this.c.openComposer||this.c.openModal,o=this.options,g=this.generated(),r=g.recipe,p=this.c.getProject(),t=p.tracks.find(x=>x.id===o.trackId),pat=t.patterns.find(x=>x.id===o.patternId),refs=t.clips.filter(x=>x.patternId===pat?.id).length;
    const token=G.ui.captureFocus();
    const groups=['全部',...new Set(G.PROGRESSIONS.map(x=>x.group))],recipes=G.PROGRESSIONS.filter(x=>this.group==='全部'||x.group===this.group);
    const select=(field,values,value)=>`<select data-field="composer-${field}">${values.map(([id,label])=>`<option value="${id}" ${String(id)===String(value)?'selected':''}>${esc(label)}</option>`).join('')}</select>`;
@@ -21,9 +24,9 @@
    if(token?.el?.closest?.('.modal'))G.ui.restoreFocus(token);
   }
   feedback(message){const el=document.querySelector('#composer-feedback');if(el)el.textContent=message;this.c.toast(message);}
-  async preview(){try{const result=this.candidate();const started=await this.c.playback.audition(result.project,{kind:'pattern',trackId:result.trackId,patternId:result.patternId,ignoreMute:true},'和弦预听 · '+this.generated().recipe.name);if(started)this.feedback('正在试听候选。当前作品保持不变。');}catch(e){this.feedback(e.message);}}
-  apply(){try{const result=this.candidate();this.c.closeModal();this.c.commit(result);this.c.toast('和弦进行已展开为普通音符；可逐音修改或一次撤销。');}catch(e){this.feedback(e.message);}}
-  handleField(el){if(!el.dataset.field?.startsWith('composer-'))return false;this.c.playback.endAudition();const f=el.dataset.field.slice(9);if(f==='key')this.options.key=Number(el.value);else if(f==='bar')this.options.bar=Number(el.value)-1;else if(f==='sound')this.options.applySound=el.checked;else if(['mode','voicing','rhythm'].includes(f))this.options[f]=el.value;this.render();return true;}
+  async preview(){try{if(this.frozen?.flow.state==='stale')this.frozen=null;const result=this.candidate();const started=await this.c.playback.audition(result.project,{kind:'pattern',trackId:result.trackId,patternId:result.patternId,ignoreMute:true},'和弦预听 · '+this.generated().recipe.name);if(started)this.feedback('正在试听候选。当前作品保持不变。');}catch(e){this.feedback(e.message);}}
+  apply(){try{const result=this.candidate();this.c.closeModal();const applied=this.c.commit(result);if(applied?.ok===false)throw Error(applied.error.message);this.c.closeCreation?.();this.c.toast('和弦进行已展开为普通音符；可逐音修改或一次撤销。');}catch(e){this.feedback(e.message);}}
+  handleField(el){if(!el.dataset.field?.startsWith('composer-'))return false;this.c.playback.endAudition();this.frozen?.flow.invalidate();this.frozen=null;const f=el.dataset.field.slice(9);if(f==='key')this.options.key=Number(el.value);else if(f==='bar')this.options.bar=Number(el.value)-1;else if(f==='sound')this.options.applySound=el.checked;else if(['mode','voicing','rhythm'].includes(f))this.options[f]=el.value;this.render();return true;}
   handleAction(a,el){if(a==='composer'){this.open();return true;}if(!a.startsWith('composer-'))return false;this.c.playback.endAudition();if(a==='composer-group'){this.group=el.dataset.group;this.render();}else if(a==='composer-select'){this.id=el.dataset.id;this.place();this.render();}else if(a==='composer-preview')void this.preview();else if(a==='composer-apply')this.apply();return true;}
  }
  G.ComposerUI=ComposerUI;

@@ -18,7 +18,7 @@
     const history = [], future = [];
     let rangeMixOnly=true;
     let pendingSave = Promise.resolve(), pendingSnapshot = null;
-    let saveTimer = null, toastTimer = null, interacted = false, rangeBefore = null, recording = null, renderCounter = 0, persistSerial = 0;
+    let saveTimer = null, toastTimer = null, interacted = false, rangeBefore = null, recording = null, recordingRequest = null, renderCounter = 0, persistSerial = 0;
     const track = () => project.tracks.find(t => t.id === S.trackId) || project.tracks[0];
     const pattern = () => track().patterns.find(p => p.id === S.patternId) || track().patterns[0];
     function syncSelection() { return G.reconcileSession(S, project, B); }
@@ -26,15 +26,16 @@
     function markChanged(before, mixOnly=false) {
         for(const t of project.tracks)for(const p of t.patterns)if(p.retention)p.retention.notes=p.retention.notes.filter(n=>p.notes.some(x=>x.id===n.id));
         try { validateProject(project); }
-        catch (e) { project = before; syncSelection(); toast(e.message); return; }
+        catch (e) { project = before; syncSelection(); toast(e.message); return {ok:false,error:{message:e.message}}; }
         if (fingerprint(before) === fingerprint(project))
-            return;
+            return {ok:true,changed:false};
         history.push(before);
         if (history.length > 60)
             history.shift();
         future.length = 0;
         persist();
         mixOnly ? playback.updateMix() : playback.updateProject();
+        return {ok:true,changed:true};
     }
     function mutate(fn, { draw = true } = {}) {
         const before = snapshot();
@@ -48,10 +49,11 @@
             },selection);
             if(!result.ok)throw Object.assign(Error(result.error.message),{code:result.error.code});
             project=result.document;
-            markChanged(before);
+            const committed=markChanged(before);
             syncSelection();
             if (draw)
                 render();
+            return committed;
         }
         catch (e) {
             project = before;
@@ -59,6 +61,7 @@
             syncSelection();
             render();
             toast(e.message);
+            return {ok:false,error:{code:e.code||'INVALID_COMMAND',message:e.message}};
         }
     }
     function persist() {
@@ -154,30 +157,37 @@
     function presetName(t) { return t.preset.startsWith('sample:') ? project.assets[t.preset.slice(7)]?.name || '自定义音源' : presetById(t.preset, project).name; }
     function defaultPitch(t) { return t.kind === 'drum' ? (G.drumsFor(project, t).find(r => !r.missing)?.pitch ?? 36) : pattern().notes[0]?.pitch || 60; }
     function preview(t, pitch, d = .25) { engine.preview(t, pitch, project, d).catch(e => toast(e.message)); }
-    const catalogContext = { getProject: () => project, getSession: () => S, playback, button, esc, openModal, closeModal, toast, pickFile, render,
+    let creationMarkup='',creationFocus=null;
+    function openCreation(title,body,subtitle=''){
+        if(!creationMarkup)creationFocus=document.activeElement;
+        creationMarkup=`<header class="creation-dock-heading"><h2>${esc(title)}</h2>${ib('creation-close','关闭创作面板','close')}</header><p class="creation-dock-subtitle">${esc(subtitle)}</p>${body}`;
+        const dock=$('#creation-dock');if(dock){dock.hidden=false;G.patchDOM(dock,creationMarkup);}
+    }
+    function closeCreation(){creationMarkup='';const dock=$('#creation-dock');if(dock){dock.hidden=true;dock.innerHTML='';}if(creationFocus?.isConnected)creationFocus.focus({preventScroll:true});creationFocus=null;}
+    const catalogContext = { getProject: () => project, getSession: () => S, playback, button, esc, openModal, closeModal, openCreation, openComposer:(...args)=>{creation.session?.flow?.cancel();creation.session=null;openCreation(...args);}, closeCreation, toast, pickFile, render,
         repin: () => mutate(() => { G.pinDocument(project); }),
         commit: result => {
             const wholeSong = result.project.id !== project.id;
-            if (wholeSong) { return loadProject(result.project).catch(e => toast(e.message)); }
+            if (wholeSong) { return loadProject(result.project).then(()=>({ok:true,changed:true})).catch(e => {toast(e.message);return {ok:false,changed:false,error:{message:e.message}};}); }
             if(wholeSong)playback.stop();else playback.endAudition();
-            mutate(() => {
+            return mutate(() => {
                 project = refreshPalette(result.project);
                 if (wholeSong) {
                     Object.assign(S, G.createEditorSession(project));
                     Object.assign(B, G.createPlaybackContext());
                 }
-                G.openPatternInSession(S, project, { trackId: result.trackId, patternId: result.patternId, clipId: result.clipId, edit: !wholeSong });
+                G.openPatternInSession(S, project, { trackId: result.trackId, patternId: result.patternId, clipId: result.clipId, edit: false });
             });
         }
     };
-    const materials = new G.CatalogUI(catalogContext), composer = new G.ComposerUI(catalogContext), creation = new G.CreationUI(catalogContext);
+    const materials = new G.CatalogUI(catalogContext), composer = new G.ComposerUI(catalogContext), creation = new G.CreationUI(catalogContext), shelf = new G.TemplateShelf(catalogContext,materials);
     function render() {
         // Preserve scroll and focus across deterministic DOM renders.
         const previous = $('.view-content');
         if (previous?.dataset.scrollkey) {
             S.scrolls[previous.dataset.scrollkey] = { x: previous.scrollLeft, y: previous.scrollTop };
             for (const el of previous.querySelectorAll('[data-scroll]'))
-                S.scrolls[previous.dataset.scrollkey + ':' + el.dataset.scroll] = { x: el.scrollLeft, y: el.scrollTop };
+                S.scrolls[el.dataset.scroll==='arrange'?'component:arrange':previous.dataset.scrollkey.split(':').slice(1).join(':') + ':' + el.dataset.scroll] = { x: el.scrollLeft, y: el.scrollTop };
         }
         const focusToken = G.ui.captureFocus();
         syncSelection();
@@ -195,18 +205,19 @@
             current.scrollTop = scroll.y;
         }
         for (const el of current.querySelectorAll('[data-scroll]')) {
-            const v = S.scrolls[scrollKey + ':' + el.dataset.scroll];
+            const v = S.scrolls[el.dataset.scroll==='arrange'?'component:arrange':scrollKey.split(':').slice(1).join(':') + ':' + el.dataset.scroll];
             if (v) {
                 el.scrollLeft = v.x;
                 el.scrollTop = v.y;
             }
         }
         G.ui.restoreFocus(focusToken);
+        creation.refresh();composer.refresh();
         G.motion?.afterRender(S);
         if (S.modal) document.querySelector('#app').inert = true;
         G.saveWorkspace(S, project.id);
     }
-    function viewContext() { return { project, S, B, compact: window.matchMedia("(max-width:600px)").matches, track, pattern, button, ib, icon, esc, miniPattern, slider, presetName, trackIcon, soundCards, waveIllustration, renderSound, renderPipeline }; }
+    function viewContext() { return { project, S, B, creationMarkup, shelfMarkup:shelf.render(), compact: window.matchMedia("(max-width:600px)").matches, track, pattern, button, ib, icon, esc, miniPattern, slider, presetName, trackIcon, soundCards, waveIllustration, renderSound, renderPipeline }; }
     function renderEditor() { return G.views.renderEditor(viewContext()); }
     function renderPipeline() { return G.views.renderPipeline(viewContext()); }
     function getRows() { return G.visiblePitches(project, S, track(), pattern()); }
@@ -230,6 +241,7 @@
         G.ui.modal.open(title, body, subtitle);
     }
     function closeModal() {
+        if(recordingRequest){recordingRequest.cancelled=true;recordingRequest=null;}
         if(typeof bankRequest!=="undefined" && bankRequest){bankRequest.abort();bankRequest=null;}
         playback.endAudition();
         pendingPitch = null;
@@ -474,10 +486,16 @@
         }
     }
     async function recordSample() {
+        if(recordingRequest||recording)return;
+        const request={cancelled:false,projectId:project.id};let acquiredStream=null;recordingRequest=request;
+        openModal('允许使用麦克风', '<p>请在浏览器中允许录音。关闭此窗口即可取消，本次授权返回后也不会开始录制。</p>'+button('close-modal','取消','','quiet'));
         try {
             if (!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder)
                 throw Error('当前环境不能录音。请使用 localhost 或 HTTPS 打开，或直接导入音频文件。');
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }), recorder = new MediaRecorder(stream), chunks = [];
+            const stream = acquiredStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+            if(request.cancelled||project.id!==request.projectId){stream.getTracks().forEach(t=>t.stop());return;}
+            recordingRequest=null;
+            const recorder = new MediaRecorder(stream), chunks = [];
             const rec = { recorder, stream, cancelled: false, start: Date.now(), timer: null, interval: null };
             recording = rec;
             recorder.ondataavailable = e => {
@@ -507,8 +525,9 @@
             }, 250);
         }
         catch (e) {
-            toast(e.message);
-        }
+            acquiredStream?.getTracks().forEach(t=>t.stop());if(recording?.stream===acquiredStream){clearTimeout(recording.timer);clearInterval(recording.interval);recording=null;}
+            if(!request.cancelled){closeModal();toast('录音未开始：'+e.message+'。也可以导入音频文件。');}
+        }finally{if(recordingRequest===request)recordingRequest=null;}
     }
     function noteMenu() { openModal('音符操作', `<p class="modal-copy">已选择 ${S.selected.length} 个音符。拖动音符可以移动，拖右边缘可以改长度。</p><div class="menu-grid">${G.ui.MenuItem({action:'menu-copy', label:'复制', icon:'copy'})}${button('menu-split', '从中间拆开', 'split', 'soft-btn')}${button('split-at-cursor', '在编辑光标拆开', 'split', 'soft-btn')}${button('menu-delete', '删除', 'trash', 'soft-btn')}${button('select-all', '全选', '', 'soft-btn')}</div>`); }
     function appearanceDialog() {
@@ -611,7 +630,7 @@
 
         if(action==='appearance'){appearanceDialog();return;}
         if(action==='choose-skin'){G.appearance.set({skin:el.dataset.skin});appearanceDialog();return;}
-        if (creation.handleAction(action, el) || composer.handleAction(action, el) || materials.handleAction(action, el))
+        if (shelf.handleAction(action,el) || creation.handleAction(action, el) || composer.handleAction(action, el) || materials.handleAction(action, el))
             return;
         const id = el.dataset.id;
         if (action === 'home') {
@@ -970,7 +989,7 @@
     function handleField(el) {
         if(el.dataset.field==='reduce-motion'){G.appearance.set({motion:el.checked?'reduced':'normal'});return;}
         if(el.dataset.field==='reduce-transparency'){G.appearance.set({transparency:el.checked?'reduced':'normal'});return;}
-        if (creation.handleField(el) || composer.handleField(el) || materials.handleField(el))
+        if (shelf.handleField(el) || creation.handleField(el) || composer.handleField(el) || materials.handleField(el))
             return;
         const f = el.dataset.field, v = el.value;
         if(f==='snap'){S.snap=Number(v);render();return;}
@@ -1007,6 +1026,7 @@
             render();
             return;
         }
+        if(f==='active-track'){selectTrack(v);return;}
         if(f==='track-role'){mutate(()=>track().role=v);return;}
         if (f === 'preset-select') {
             mutate(() => { G.pinPreset(project, v); track().preset = v; });
@@ -1045,6 +1065,7 @@
         });
     }
     document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('[data-field="bpm"],[data-field="loop-from"],[data-field="loop-to"]')){e.preventDefault();handleField(e.target);e.target.blur();}});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!S.modal&&e.target.closest('#creation-dock')&&!interactions?.getDrag()){e.preventDefault();e.stopImmediatePropagation();creation.close();}},true);
     document.addEventListener('change', e => {
         if (e.target.id?.startsWith('transpose-'))
             playback.endAudition();
@@ -1061,6 +1082,7 @@
     document.addEventListener('input', e => {
         const el = e.target;
         if(el.type==='range')el.style.setProperty('--range-progress',((+el.value-(+el.min||0))/(+el.max-(+el.min||0))*100)+'%');
+        if(el.dataset.field==='shelf-search'){shelf.handleField(el);return;}
         if (el.dataset.field==='catalog-search'){materials.handleField(el);return;}
         if (el.id === 'sound-search') {
             S.query = el.value;
@@ -1191,7 +1213,7 @@
         }
     });
     /** Small public API for automated testing and future integrations. */
-    globalThis.GridToneApp = { version: '1.6.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, creation, flushSave, openPattern, changeView, engine, playback, render };
+    globalThis.GridToneApp = { version: '1.7.0', getProject: () => snapshot(), loadProject, getState: () => clone({ ...S, clipboard: !!S.clipboard, scope: B.target, loop: B.loop }), getPlayback: () => clone(B), getHistory: () => ({ undo: history.length, redo: future.length }), materials, composer, creation, shelf, flushSave, openPattern, changeView, engine, playback, render };
     render();
     requestAnimationFrame(animation);
     (async () => {

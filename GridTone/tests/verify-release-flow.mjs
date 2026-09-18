@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {harness} from './browser-harness.mjs';
 const h=await harness(),p=h.page,checks=[];await mkdir(h.output+'/fixtures',{recursive:true});
-const click=action=>p.locator(`button[data-action="${action}"]`).filter({visible:true}).first().click();
+const click=action=>p.locator(`button[data-action="${action}"]${action==='creation'?':not([data-mode])':''}`).filter({visible:true}).first().click();
 async function check(name,fn){await fn();checks.push({name,status:'PASS'});console.log('PASS',name);}
 function midiEvents(bytes){
  assert.equal(bytes.toString('ascii',0,4),'MThd');assert.equal(bytes.readUInt16BE(12),960);let offset=14,notes=[];
@@ -19,12 +19,12 @@ try{
   await p.evaluate(async()=>{const G=GridTone,doc=G.recipeProject('recipe.lofi');doc.title='验收 A · 模板与旋律';await GridToneApp.loadProject(doc);const t=GridToneApp.getProject().tracks.at(-1);GridToneApp.openPattern({trackId:t.id,clipId:t.clips[0].id});});
   await click('creation');await click('creation-generate');await click('creation-preview');await p.waitForFunction(()=>GridToneApp.engine.playing);await click('creation-apply');await click('stop');
   const first=await p.evaluate(()=>{const a=GridToneApp,s=a.getState(),t=a.getProject().tracks.find(t=>t.id===s.trackId);return t.patterns.find(p=>p.id===s.patternId).notes.filter(n=>n.start<GridTone.BAR);});
-  await click('creation');await p.locator('[data-field="creation-end"]').fill('4');await p.locator('[data-field="creation-end"]').dispatchEvent('change');await p.locator('[data-keep="range"]').click();await click('creation-save-keeps');
+  await click('creation');await p.locator('#creation-options summary').click();await p.locator('[data-field="creation-end"]').fill('4');await p.locator('[data-field="creation-end"]').dispatchEvent('change');await p.locator('.retention-controls summary').click();await p.locator('[data-keep="range"]').click();await click('creation-save-keeps');
   await click('creation');await click('creation-generate');await click('creation-apply');
   assert.deepEqual(await p.evaluate(()=>{const a=GridToneApp,s=a.getState(),t=a.getProject().tracks.find(t=>t.id===s.trackId);return t.patterns.find(p=>p.id===s.patternId).notes.filter(n=>n.start<GridTone.BAR);}),first);
-  await click('creation');await p.locator('[data-field="creation-mode"]').selectOption('arrange');await click('creation-generate');await click('creation-apply');
-  await click('creation');await p.locator('[data-field="creation-mode"]').selectOption('mix');await click('creation-generate');const original=await p.evaluate(()=>GridToneApp.getProject());await click('creation-preview');await click('close-modal');assert.deepEqual(await p.evaluate(()=>GridToneApp.getProject()),original);
-  await click('creation');await p.locator('[data-field="creation-mode"]').selectOption('mix');await click('creation-generate');await click('creation-apply');await p.evaluate(()=>GridToneApp.flushSave());fixture=await p.evaluate(()=>GridToneApp.getProject());assert.equal(fixture.bars,12);
+  await p.locator('[data-action="creation"][data-mode="arrange"]').click();await click('creation-generate');await click('creation-apply');
+  await p.locator('.workspace-tabs [data-view="mix"]').click();await p.locator('[data-action="creation"][data-mode="mix"]').click();await click('creation-generate');const original=await p.evaluate(()=>GridToneApp.getProject());await click('creation-preview');await click('creation-close');assert.deepEqual(await p.evaluate(()=>GridToneApp.getProject()),original);
+  await p.locator('.workspace-tabs [data-view="mix"]').click();await p.locator('[data-action="creation"][data-mode="mix"]').click();await click('creation-generate');await click('creation-apply');await p.evaluate(()=>GridToneApp.flushSave());fixture=await p.evaluate(()=>GridToneApp.getProject());assert.equal(fixture.bars,12);
  });
  await check('R9-T03 browser downloads engineering project, MIDI events and complete WAV',async()=>{
   await click('export');
