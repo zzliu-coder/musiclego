@@ -1,0 +1,654 @@
+{
+  "studio.va.round": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.pluckbass": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.acid": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.rubber": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.sawlead": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.pulselead": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.slidelead": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.brass": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.stab": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.silk": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.darkpad": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.breath": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.va.motion": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-va",
+    "curveAttribution": "AMY MIT normalized Juno curves"
+  },
+  "studio.fm.tine": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.softkeys": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.slap": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.woodbass": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.koto": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.harp": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.bell": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.steel": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.organ": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.reed": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.orbit": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.fm.crystal": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "studio-fm4",
+    "curveAttribution": null
+  },
+  "studio.drum.round": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "electronic-kit",
+    "curveAttribution": null
+  },
+  "studio.drum.punch": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "electronic-kit",
+    "curveAttribution": null
+  },
+  "studio.drum.dry": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "electronic-kit",
+    "curveAttribution": null
+  },
+  "studio.drum.metal": {
+    "license": "MIT",
+    "source": "Original GridTone preset",
+    "renderer": "electronic-kit",
+    "curveAttribution": null
+  },
+  "studio.rhythm.hand-pop.1": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+    "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+    "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+    "sourceBars": [
+      1,
+      4
+    ],
+    "originalBpm": 138,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-pop.2": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+    "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+    "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+    "sourceBars": [
+      5,
+      8
+    ],
+    "originalBpm": 138,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-pop.3": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+    "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+    "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+    "sourceBars": [
+      9,
+      12
+    ],
+    "originalBpm": 138,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-pop.4": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+    "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+    "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+    "sourceBars": [
+      13,
+      16
+    ],
+    "originalBpm": 138,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-soul.1": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+    "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+    "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+    "sourceBars": [
+      1,
+      4
+    ],
+    "originalBpm": 102,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-soul.2": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+    "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+    "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+    "sourceBars": [
+      5,
+      8
+    ],
+    "originalBpm": 102,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-soul.3": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+    "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+    "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+    "sourceBars": [
+      9,
+      12
+    ],
+    "originalBpm": 102,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-soul.4": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+    "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+    "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+    "sourceBars": [
+      13,
+      16
+    ],
+    "originalBpm": 102,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.hand-fill.1": {
+    "dataset": "Groove MIDI Dataset",
+    "credit": "Google LLC",
+    "license": "CC-BY-4.0",
+    "sourceFile": "drummer1/session1/10_jazz-funk_116_fill_4-4.mid",
+    "gitBlob": "3ed4dc794103c5f245bc5839a45c1dee5688cda8",
+    "sha256": "b1e2662bb4cb065669790c7f5df53f1f86222a87a70309044f6ac9056c22641c",
+    "sourceBars": [
+      1,
+      1
+    ],
+    "originalBpm": 116,
+    "sourcePpq": 480,
+    "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+    "timing": "Original onsets and velocities; no additional global swing/humanize"
+  },
+  "studio.rhythm.four.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "four",
+    "variation": "基本型"
+  },
+  "studio.rhythm.four.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "four",
+    "variation": "留白版"
+  },
+  "studio.rhythm.four.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "four",
+    "variation": "推进版"
+  },
+  "studio.rhythm.four.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "four",
+    "variation": "短过门"
+  },
+  "studio.rhythm.four.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "four",
+    "variation": "收尾"
+  },
+  "studio.rhythm.pocket.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "pocket",
+    "variation": "基本型"
+  },
+  "studio.rhythm.pocket.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "pocket",
+    "variation": "留白版"
+  },
+  "studio.rhythm.pocket.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "pocket",
+    "variation": "推进版"
+  },
+  "studio.rhythm.pocket.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "pocket",
+    "variation": "短过门"
+  },
+  "studio.rhythm.pocket.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "pocket",
+    "variation": "收尾"
+  },
+  "studio.rhythm.broken.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "broken",
+    "variation": "基本型"
+  },
+  "studio.rhythm.broken.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "broken",
+    "variation": "留白版"
+  },
+  "studio.rhythm.broken.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "broken",
+    "variation": "推进版"
+  },
+  "studio.rhythm.broken.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "broken",
+    "variation": "短过门"
+  },
+  "studio.rhythm.broken.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "broken",
+    "variation": "收尾"
+  },
+  "studio.rhythm.motor.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "motor",
+    "variation": "基本型"
+  },
+  "studio.rhythm.motor.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "motor",
+    "variation": "留白版"
+  },
+  "studio.rhythm.motor.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "motor",
+    "variation": "推进版"
+  },
+  "studio.rhythm.motor.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "motor",
+    "variation": "短过门"
+  },
+  "studio.rhythm.motor.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "motor",
+    "variation": "收尾"
+  },
+  "studio.rhythm.airy.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "airy",
+    "variation": "基本型"
+  },
+  "studio.rhythm.airy.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "airy",
+    "variation": "留白版"
+  },
+  "studio.rhythm.airy.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "airy",
+    "variation": "推进版"
+  },
+  "studio.rhythm.airy.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "airy",
+    "variation": "短过门"
+  },
+  "studio.rhythm.airy.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "airy",
+    "variation": "收尾"
+  },
+  "studio.rhythm.shuffle.1": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "shuffle",
+    "variation": "基本型"
+  },
+  "studio.rhythm.shuffle.2": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "shuffle",
+    "variation": "留白版"
+  },
+  "studio.rhythm.shuffle.3": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "shuffle",
+    "variation": "推进版"
+  },
+  "studio.rhythm.shuffle.4": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "shuffle",
+    "variation": "短过门"
+  },
+  "studio.rhythm.shuffle.5": {
+    "source": "Original GridTone authored drum phrase",
+    "license": "MIT",
+    "family": "shuffle",
+    "variation": "收尾"
+  },
+  "studio.part.bounce.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.bounce.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.anchor.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.anchor.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.sync.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.sync.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.stabs.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.stabs.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.arp.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.arp.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.answer.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.answer.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.space.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.space.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.motif.1": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.part.motif.2": {
+    "source": "Original GridTone musical template",
+    "license": "MIT"
+  },
+  "studio.combo.warm": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "four"
+  },
+  "studio.combo.warm.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "four"
+  },
+  "studio.combo.warm.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "four"
+  },
+  "studio.combo.city": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT + CC-BY-4.0",
+    "rhythmFamily": "hand-soul"
+  },
+  "studio.combo.city.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT + CC-BY-4.0",
+    "rhythmFamily": "hand-soul"
+  },
+  "studio.combo.city.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT + CC-BY-4.0",
+    "rhythmFamily": "hand-soul"
+  },
+  "studio.combo.night": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "pocket"
+  },
+  "studio.combo.night.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "pocket"
+  },
+  "studio.combo.night.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "pocket"
+  },
+  "studio.combo.pulse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "motor"
+  },
+  "studio.combo.pulse.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "motor"
+  },
+  "studio.combo.pulse.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "motor"
+  },
+  "studio.combo.air": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "airy"
+  },
+  "studio.combo.air.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "airy"
+  },
+  "studio.combo.air.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "airy"
+  },
+  "studio.combo.edge": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "broken"
+  },
+  "studio.combo.edge.sparse": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "broken"
+  },
+  "studio.combo.edge.ending": {
+    "source": "Original GridTone composition kit",
+    "license": "MIT",
+    "rhythmFamily": "broken"
+  }
+}

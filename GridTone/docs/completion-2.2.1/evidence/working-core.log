@@ -1,0 +1,2262 @@
+
+> gridtone@2.2.0 pretest
+> node scripts/catalog-build.mjs
+
+
+> gridtone@2.2.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: F1 两块四小节和弦连续放入，八小节上下文完整
+ok 1 - F1 两块四小节和弦连续放入，八小节上下文完整
+  ---
+  duration_ms: 10.898864
+  type: 'test'
+  ...
+# Subtest: F2 rhythm忽略残留ending意图，原节奏保持
+ok 2 - F2 rhythm忽略残留ending意图，原节奏保持
+  ---
+  duration_ms: 22.064897
+  type: 'test'
+  ...
+# Subtest: F2 anchors忽略残留ending，句尾支点保持
+ok 3 - F2 anchors忽略残留ending，句尾支点保持
+  ---
+  duration_ms: 22.13915
+  type: 'test'
+  ...
+# Subtest: F4 调内候选追踪key/scale的有效输入
+ok 4 - F4 调内候选追踪key/scale的有效输入
+  ---
+  duration_ms: 25.06263
+  type: 'test'
+  ...
+# Subtest: 控制：无关轨音量修改保留，纯和弦候选不依赖参考标签
+ok 5 - 控制：无关轨音量修改保留，纯和弦候选不依赖参考标签
+  ---
+  duration_ms: 29.448705
+  type: 'test'
+  ...
+# Subtest: C-T01 clear outside a long note never invents attacks
+ok 6 - C-T01 clear outside a long note never invents attacks
+  ---
+  duration_ms: 4.227582
+  type: 'test'
+  ...
+# Subtest: C-T02 exact 1-bar deletion preserves one surviving sustain
+ok 7 - C-T02 exact 1-bar deletion preserves one surviving sustain
+  ---
+  duration_ms: 2.186155
+  type: 'test'
+  ...
+# Subtest: C-T02 exact 2-bar deletion preserves one surviving sustain
+ok 8 - C-T02 exact 2-bar deletion preserves one surviving sustain
+  ---
+  duration_ms: 0.759071
+  type: 'test'
+  ...
+# Subtest: C-T02 exact 3-bar deletion preserves one surviving sustain
+ok 9 - C-T02 exact 3-bar deletion preserves one surviving sustain
+  ---
+  duration_ms: 0.948264
+  type: 'test'
+  ...
+# Subtest: C-T02 exact 5-bar deletion preserves one surviving sustain
+ok 10 - C-T02 exact 5-bar deletion preserves one surviving sustain
+  ---
+  duration_ms: 0.535972
+  type: 'test'
+  ...
+# Subtest: C-T02 exact 7-bar deletion preserves one surviving sustain
+ok 11 - C-T02 exact 7-bar deletion preserves one surviving sustain
+  ---
+  duration_ms: 0.438845
+  type: 'test'
+  ...
+# Subtest: C-T03 delete the middle of one sustain joins it once
+ok 12 - C-T03 delete the middle of one sustain joins it once
+  ---
+  duration_ms: 0.372806
+  type: 'test'
+  ...
+# Subtest: C-T04 clear the middle creates only the two intentional sides
+ok 13 - C-T04 clear the middle creates only the two intentional sides
+  ---
+  duration_ms: 0.642861
+  type: 'test'
+  ...
+# Subtest: C-T05 all unaffected compiled notes survive humanize, swing and transpose
+ok 14 - C-T05 all unaffected compiled notes survive humanize, swing and transpose
+  ---
+  duration_ms: 1.555387
+  type: 'test'
+  ...
+# Subtest: C-T06 shared unedited instance retains original pattern and sound events
+ok 15 - C-T06 shared unedited instance retains original pattern and sound events
+  ---
+  duration_ms: 0.775587
+  type: 'test'
+  ...
+# Subtest: C-T07 clear harmony gaps and retained silence without splitting unrelated notes
+ok 16 - C-T07 clear harmony gaps and retained silence without splitting unrelated notes
+  ---
+  duration_ms: 1.090186
+  type: 'test'
+  ...
+# Subtest: C-T08 exact phrase lengths 1..16 validate, out of bounds reject
+ok 17 - C-T08 exact phrase lengths 1..16 validate, out of bounds reject
+  ---
+  duration_ms: 1.654088
+  type: 'test'
+  ...
+# Subtest: C-T09 deletion moves every track and loop through one time mapping
+ok 18 - C-T09 deletion moves every track and loop through one time mapping
+  ---
+  duration_ms: 0.512055
+  type: 'test'
+  ...
+# Subtest: C-T10 source and edited-instance identity are conserved appropriately
+ok 19 - C-T10 source and edited-instance identity are conserved appropriately
+  ---
+  duration_ms: 0.451732
+  type: 'test'
+  ...
+# Subtest: C-T11 matrix checks exact outside events for every 8-bar interval
+ok 20 - C-T11 matrix checks exact outside events for every 8-bar interval
+  ---
+  duration_ms: 33.348014
+  type: 'test'
+  ...
+# Subtest: Evidence: missing or NOT_RUN reports cannot silently pass
+ok 21 - Evidence: missing or NOT_RUN reports cannot silently pass
+  ---
+  duration_ms: 1.49225
+  type: 'test'
+  ...
+# Subtest: Evidence: a correct count cannot hide an individual failure
+ok 22 - Evidence: a correct count cannot hide an individual failure
+  ---
+  duration_ms: 0.28011
+  type: 'test'
+  ...
+# Subtest: Evidence: full engineering requires all six real task outcomes
+ok 23 - Evidence: full engineering requires all six real task outcomes
+  ---
+  duration_ms: 0.964847
+  type: 'test'
+  ...
+# Subtest: Evidence: stale builds and short soak logs remain unclosed
+ok 24 - Evidence: stale builds and short soak logs remain unclosed
+  ---
+  duration_ms: 0.205933
+  type: 'test'
+  ...
+# Subtest: DS01 one-based position roundtrip for integer, triplet, and fractional ticks
+ok 25 - DS01 one-based position roundtrip for integer, triplet, and fractional ticks
+  ---
+  duration_ms: 2.472654
+  type: 'test'
+  ...
+# Subtest: DS02 malformed and out-of-bounds positions rejected
+ok 26 - DS02 malformed and out-of-bounds positions rejected
+  ---
+  duration_ms: 0.553461
+  type: 'test'
+  ...
+# Subtest: DS03 musical end boundary and duration ranges explicit
+ok 27 - DS03 musical end boundary and duration ranges explicit
+  ---
+  duration_ms: 0.540217
+  type: 'test'
+  ...
+# Subtest: DS04 pan formatter consistent in all positions
+ok 28 - DS04 pan formatter consistent in all positions
+  ---
+  duration_ms: 0.268633
+  type: 'test'
+  ...
+# Subtest: DS05 every chord quality has a readable Chinese name
+ok 29 - DS05 every chord quality has a readable Chinese name
+  ---
+  duration_ms: 0.330701
+  type: 'test'
+  ...
+# Subtest: DS06 button role, size, busy and accessible name declared
+ok 30 - DS06 button role, size, busy and accessible name declared
+  ---
+  duration_ms: 1.234327
+  type: 'test'
+  ...
+# Subtest: DS07 invalid component variations rejected
+ok 31 - DS07 invalid component variations rejected
+  ---
+  duration_ms: 0.558771
+  type: 'test'
+  ...
+# Subtest: DS08 legacy compatibility explicitly identifies small icon key and transport
+ok 32 - DS08 legacy compatibility explicitly identifies small icon key and transport
+  ---
+  duration_ms: 0.300954
+  type: 'test'
+  ...
+# Subtest: DS09 sources cannot inject markup through material names
+ok 33 - DS09 sources cannot inject markup through material names
+  ---
+  duration_ms: 6.3006
+  type: 'test'
+  ...
+# Subtest: DS10 single material has exact duration and original notes
+ok 34 - DS10 single material has exact duration and original notes
+  ---
+  duration_ms: 3.647587
+  type: 'test'
+  ...
+# Subtest: DS11 all eight combination previews derive from actual composition roles
+ok 35 - DS11 all eight combination previews derive from actual composition roles
+  ---
+  duration_ms: 244.349816
+  type: 'test'
+  ...
+# Subtest: DS12 example projects cannot start material drags
+ok 36 - DS12 example projects cannot start material drags
+  ---
+  duration_ms: 8.142267
+  type: 'test'
+  ...
+# Subtest: DS13 independent audition favorite and pick actions
+ok 37 - DS13 independent audition favorite and pick actions
+  ---
+  duration_ms: 2.886156
+  type: 'test'
+  ...
+# Subtest: DS14 placement previews contain no editable note or clip identities
+ok 38 - DS14 placement previews contain no editable note or clip identities
+  ---
+  duration_ms: 5.871563
+  type: 'test'
+  ...
+# Subtest: DS15 projection comparison distinguishes unchanged changed removed with multiplicity
+ok 39 - DS15 projection comparison distinguishes unchanged changed removed with multiplicity
+  ---
+  duration_ms: 0.489444
+  type: 'test'
+  ...
+# Subtest: DS16 partial retention is labelled by actual dimension; false flags not hard-kept
+ok 40 - DS16 partial retention is labelled by actual dimension; false flags not hard-kept
+  ---
+  duration_ms: 0.186519
+  type: 'test'
+  ...
+# Subtest: DS17 range retention and rest boundaries stay external to projection
+ok 41 - DS17 range retention and rest boundaries stay external to projection
+  ---
+  duration_ms: 0.163634
+  type: 'test'
+  ...
+# Subtest: DS18 comparison score uses caller-shared music coordinates
+ok 42 - DS18 comparison score uses caller-shared music coordinates
+  ---
+  duration_ms: 0.431208
+  type: 'test'
+  ...
+# Subtest: DS19 preflight missing harmony is visible before computation
+ok 43 - DS19 preflight missing harmony is visible before computation
+  ---
+  duration_ms: 19.952726
+  type: 'test'
+  ...
+# Subtest: DS20 preparation uses task choices and disclosed advanced controls
+ok 44 - DS20 preparation uses task choices and disclosed advanced controls
+  ---
+  duration_ms: 19.002584
+  type: 'test'
+  ...
+# Subtest: DS21 result precedes settings and adoption becomes main action
+ok 45 - DS21 result precedes settings and adoption becomes main action
+  ---
+  duration_ms: 52.256216
+  type: 'test'
+  ...
+# Subtest: DS22 read-only projection never writes into original project
+ok 46 - DS22 read-only projection never writes into original project
+  ---
+  duration_ms: 55.900759
+  type: 'test'
+  ...
+# Subtest: DS23 target and dependency changes remove applicable projected result
+ok 47 - DS23 target and dependency changes remove applicable projected result
+  ---
+  duration_ms: 56.289224
+  type: 'test'
+  ...
+# Subtest: DS24 human timing drafts prevent generation on invalid range
+ok 48 - DS24 human timing drafts prevent generation on invalid range
+  ---
+  duration_ms: 28.941585
+  type: 'test'
+  ...
+# Subtest: DS25 generation needs 4 or 8 bars, not just valid endpoints
+ok 49 - DS25 generation needs 4 or 8 bars, not just valid endpoints
+  ---
+  duration_ms: 19.554462
+  type: 'test'
+  ...
+# Subtest: DS26 mode changes keep calculation whitelist while presentation changes
+ok 50 - DS26 mode changes keep calculation whitelist while presentation changes
+  ---
+  duration_ms: 20.098076
+  type: 'test'
+  ...
+# Subtest: DS27 metadata identities and version stay v3 through presentation
+ok 51 - DS27 metadata identities and version stay v3 through presentation
+  ---
+  duration_ms: 9.939898
+  type: 'test'
+  ...
+# Subtest: DS28 formatter is used for initial slider center, not 0 percent
+ok 52 - DS28 formatter is used for initial slider center, not 0 percent
+  ---
+  duration_ms: 0.219349
+  type: 'test'
+  ...
+# Subtest: DS29 all major flows have coverage owners and production modules
+ok 53 - DS29 all major flows have coverage owners and production modules
+  ---
+  duration_ms: 0.400898
+  type: 'test'
+  ...
+# Subtest: DS30 legacy sound data/algorithms stay frozen; approved v2 extensions use explicit allowlist
+ok 54 - DS30 legacy sound data/algorithms stay frozen; approved v2 extensions use explicit allowlist
+  ---
+  duration_ms: 2.303886
+  type: 'test'
+  ...
+# Subtest: DS31 known browser storage errors are actionable Chinese without renaming user data
+ok 55 - DS31 known browser storage errors are actionable Chinese without renaming user data
+  ---
+  duration_ms: 0.531096
+  type: 'test'
+  ...
+# Subtest: MG25: old screenshots and stale browser build cannot pass
+ok 56 - MG25: old screenshots and stale browser build cannot pass
+  ---
+  duration_ms: 0.961016
+  type: 'test'
+  ...
+# Subtest: MG26: individual failure cannot hide behind passing count
+ok 57 - MG26: individual failure cannot hide behind passing count
+  ---
+  duration_ms: 0.138336
+  type: 'test'
+  ...
+# Subtest: MG27: ten minutes cannot satisfy thirty-minute contract
+ok 58 - MG27: ten minutes cannot satisfy thirty-minute contract
+  ---
+  duration_ms: 0.119318
+  type: 'test'
+  ...
+# Subtest: MG28: retained sources after stop fail soak
+ok 59 - MG28: retained sources after stop fail soak
+  ---
+  duration_ms: 0.133313
+  type: 'test'
+  ...
+# Subtest: MG29: valid engineering report does not require pretending native results
+ok 60 - MG29: valid engineering report does not require pretending native results
+  ---
+  duration_ms: 0.786548
+  type: 'test'
+  ...
+# Subtest: MG30: missing audio comparison is still incomplete
+ok 61 - MG30: missing audio comparison is still incomplete
+  ---
+  duration_ms: 0.297488
+  type: 'test'
+  ...
+# Subtest: MG01 one palette dependency before the components and view modules
+ok 62 - MG01 one palette dependency before the components and view modules
+  ---
+  duration_ms: 1.352282
+  type: 'test'
+  ...
+# Subtest: MG02 each semantic musical role exceeds body contrast on its surface
+ok 63 - MG02 each semantic musical role exceeds body contrast on its surface
+  ---
+  duration_ms: 2.761427
+  type: 'test'
+  ...
+# Subtest: MG03 custom extreme and arbitrary colors stay readable without mutation
+ok 64 - MG03 custom extreme and arbitrary colors stay readable without mutation
+  ---
+  duration_ms: 15.843278
+  type: 'test'
+  ...
+# Subtest: MG04 invalid color values are safe fallback, not CSS injection
+ok 65 - MG04 invalid color values are safe fallback, not CSS injection
+  ---
+  duration_ms: 0.937849
+  type: 'test'
+  ...
+# Subtest: MG05 palette cache identity is stable
+ok 66 - MG05 palette cache identity is stable
+  ---
+  duration_ms: 0.307059
+  type: 'test'
+  ...
+# Subtest: MG06 palette derivation never edits music documents
+ok 67 - MG06 palette derivation never edits music documents
+  ---
+  duration_ms: 30.163362
+  type: 'test'
+  ...
+# Subtest: MG07 single material identity survives shelf and placement projection
+ok 68 - MG07 single material identity survives shelf and placement projection
+  ---
+  duration_ms: 4.378172
+  type: 'test'
+  ...
+# Subtest: MG08 projection has no music hit-target or selectable note attributes
+ok 69 - MG08 projection has no music hit-target or selectable note attributes
+  ---
+  duration_ms: 3.451589
+  type: 'test'
+  ...
+# Subtest: MG09 malicious names are escaped in every material stage
+ok 70 - MG09 malicious names are escaped in every material stage
+  ---
+  duration_ms: 4.455317
+  type: 'test'
+  ...
+# Subtest: MG10 all material type identities are explicit
+ok 71 - MG10 all material type identities are explicit
+  ---
+  duration_ms: 28.330481
+  type: 'test'
+  ...
+# Subtest: MG11 multi-track previews retain original color and timing semantics
+ok 72 - MG11 multi-track previews retain original color and timing semantics
+  ---
+  duration_ms: 9.794244
+  type: 'test'
+  ...
+# Subtest: MG12 formatters still roundtrip fractional, triplet and boundary positions
+ok 73 - MG12 formatters still roundtrip fractional, triplet and boundary positions
+  ---
+  duration_ms: 1.021409
+  type: 'test'
+  ...
+# Subtest: MG13 empty selection never becomes a destructive palette-side operation
+ok 74 - MG13 empty selection never becomes a destructive palette-side operation
+  ---
+  duration_ms: 9.135776
+  type: 'test'
+  ...
+# Subtest: MG14 controls expose meaningful kind and dimension
+ok 75 - MG14 controls expose meaningful kind and dimension
+  ---
+  duration_ms: 0.426653
+  type: 'test'
+  ...
+# Subtest: MG15 only explicit button dimensions are accepted
+ok 76 - MG15 only explicit button dimensions are accepted
+  ---
+  duration_ms: 0.404369
+  type: 'test'
+  ...
+# Subtest: MG16 appearances preserve original preference keys
+ok 77 - MG16 appearances preserve original preference keys
+  ---
+  duration_ms: 0.249818
+  type: 'test'
+  ...
+# Subtest: MG17 shared geometry is not overridden by theme calibration
+ok 78 - MG17 shared geometry is not overridden by theme calibration
+  ---
+  duration_ms: 0.319426
+  type: 'test'
+  ...
+# Subtest: MG18 no transition-all or animated geometry anywhere in active styles
+ok 79 - MG18 no transition-all or animated geometry anywhere in active styles
+  ---
+  duration_ms: 0.570691
+  type: 'test'
+  ...
+# Subtest: MG19 reduced motion is available for system and user independently
+ok 80 - MG19 reduced motion is available for system and user independently
+  ---
+  duration_ms: 0.179943
+  type: 'test'
+  ...
+# Subtest: MG20 no music command depends on animationend or transitionend
+ok 81 - MG20 no music command depends on animationend or transitionend
+  ---
+  duration_ms: 7.946675
+  type: 'test'
+  ...
+# Subtest: MG21 no dangling tokens except values supplied by live key and slider elements
+ok 82 - MG21 no dangling tokens except values supplied by live key and slider elements
+  ---
+  duration_ms: 1.036329
+  type: 'test'
+  ...
+# Subtest: MG22 a single UI palette does not change catalog IDs or preset counts
+ok 83 - MG22 a single UI palette does not change catalog IDs or preset counts
+  ---
+  duration_ms: 2.690005
+  type: 'test'
+  ...
+# Subtest: MG23 viewport preferences and comparison styles never enter engineering schema
+ok 84 - MG23 viewport preferences and comparison styles never enter engineering schema
+  ---
+  duration_ms: 8.900232
+  type: 'test'
+  ...
+# Subtest: MG24 important notices remain live and actionable text
+ok 85 - MG24 important notices remain live and actionable text
+  ---
+  duration_ms: 0.286217
+  type: 'test'
+  ...
+# Subtest: MG31 legacy precision form and insertion menu belong to actual layout families
+ok 86 - MG31 legacy precision form and insertion menu belong to actual layout families
+  ---
+  duration_ms: 0.183533
+  type: 'test'
+  ...
+# Subtest: MG32 chord paint options and stale banners have named auxiliary layouts
+ok 87 - MG32 chord paint options and stale banners have named auxiliary layouts
+  ---
+  duration_ms: 1.013695
+  type: 'test'
+  ...
+# Subtest: Q01 late audition failure cannot stop a newer audition
+ok 88 - Q01 late audition failure cannot stop a newer audition
+  ---
+  duration_ms: 3.07928
+  type: 'test'
+  ...
+# Subtest: Q02 late normal-play failure cannot stop a newer audition
+ok 89 - Q02 late normal-play failure cannot stop a newer audition
+  ---
+  duration_ms: 2.620095
+  type: 'test'
+  ...
+# Subtest: Q03 changing loop range after paused audition clears preview ownership
+ok 90 - Q03 changing loop range after paused audition clears preview ownership
+  ---
+  duration_ms: 1.317485
+  type: 'test'
+  ...
+# Subtest: Q04 export current listening chooses preview document and scope
+ok 91 - Q04 export current listening chooses preview document and scope
+  ---
+  duration_ms: 1.931517
+  type: 'test'
+  ...
+# Subtest: Q05 baking performance must not confirm stale harmonic intent
+ok 92 - Q05 baking performance must not confirm stale harmonic intent
+  ---
+  duration_ms: 22.039161
+  type: 'test'
+  ...
+# Subtest: Q06 drum candidate invalidated when target drum mapping changes
+ok 93 - Q06 drum candidate invalidated when target drum mapping changes
+  ---
+  duration_ms: 25.201575
+  type: 'test'
+  ...
+# Subtest: Q07 generated bass dependency tracks source drum role mapping
+ok 94 - Q07 generated bass dependency tracks source drum role mapping
+  ---
+  duration_ms: 10.808669
+  type: 'test'
+  ...
+# Subtest: Q08 stopped pending playback does not surface a stale failure
+ok 95 - Q08 stopped pending playback does not surface a stale failure
+  ---
+  duration_ms: 0.850643
+  type: 'test'
+  ...
+# Subtest: Q09 current audition failure restores the original listening range
+ok 96 - Q09 current audition failure restores the original listening range
+  ---
+  duration_ms: 1.11052
+  type: 'test'
+  ...
+# Subtest: Q10 successive previews restore the pre-preview time exactly once
+ok 97 - Q10 successive previews restore the pre-preview time exactly once
+  ---
+  duration_ms: 1.29536
+  type: 'test'
+  ...
+# Subtest: Q11 changing range during playback listens to the document at the new range
+ok 98 - Q11 changing range during playback listens to the document at the new range
+  ---
+  duration_ms: 0.90849
+  type: 'test'
+  ...
+# Subtest: Q12 invalid playback range leaves existing transport untouched
+ok 99 - Q12 invalid playback range leaves existing transport untouched
+  ---
+  duration_ms: 0.726252
+  type: 'test'
+  ...
+# Subtest: Q13 export selection is an independent snapshot
+ok 100 - Q13 export selection is an independent snapshot
+  ---
+  duration_ms: 0.794121
+  type: 'test'
+  ...
+# Subtest: Q14 paused candidate retains current-export identity
+ok 101 - Q14 paused candidate retains current-export identity
+  ---
+  duration_ms: 1.621552
+  type: 'test'
+  ...
+# Subtest: Q15 saved mute and temporary solo remain separate in all export selection paths
+ok 102 - Q15 saved mute and temporary solo remain separate in all export selection paths
+  ---
+  duration_ms: 3.944734
+  type: 'test'
+  ...
+# Subtest: Q16 a confirmed harmony retains confirmation after a proved performance bake
+ok 103 - Q16 a confirmed harmony retains confirmation after a proved performance bake
+  ---
+  duration_ms: 7.673266
+  type: 'test'
+  ...
+# Subtest: Q17 baking a track with no harmonic intent never invents it
+ok 104 - Q17 baking a track with no harmonic intent never invents it
+  ---
+  duration_ms: 0.274307
+  type: 'test'
+  ...
+# Subtest: Q18 drum mapping fingerprint ignores name and same-role sound changes
+ok 105 - Q18 drum mapping fingerprint ignores name and same-role sound changes
+  ---
+  duration_ms: 6.142712
+  type: 'test'
+  ...
+# Subtest: Q19 mapping-aware source dependency survives project roundtrip
+ok 106 - Q19 mapping-aware source dependency survives project roundtrip
+  ---
+  duration_ms: 9.468768
+  type: 'test'
+  ...
+# Subtest: Q20 old generation sources without mapping hash remain readable
+ok 107 - Q20 old generation sources without mapping hash remain readable
+  ---
+  duration_ms: 6.379173
+  type: 'test'
+  ...
+# Subtest: Q21 copy preserves mapping-aware dependencies and performance identity
+ok 108 - Q21 copy preserves mapping-aware dependencies and performance identity
+  ---
+  duration_ms: 17.436771
+  type: 'test'
+  ...
+# Subtest: Q22 drum remapping preserves timing, identity, and rejects missing target roles
+ok 109 - Q22 drum remapping preserves timing, identity, and rejects missing target roles
+  ---
+  duration_ms: 4.576412
+  type: 'test'
+  ...
+# Subtest: Q23 closing a paused preview cancels its pending resume safely
+ok 110 - Q23 closing a paused preview cancels its pending resume safely
+  ---
+  duration_ms: 0.393487
+  type: 'test'
+  ...
+# Subtest: Q24 property matrix: all recipes remain valid and reproducible at 12 keys
+ok 111 - Q24 property matrix: all recipes remain valid and reproducible at 12 keys
+  ---
+  duration_ms: 1767.440772
+  type: 'test'
+  ...
+# Subtest: Q25 newly generated documents remain readable by the unchanged 1.7.1 v3 validator
+ok 112 - Q25 newly generated documents remain readable by the unchanged 1.7.1 v3 validator
+  ---
+  duration_ms: 68.370782
+  type: 'test'
+  ...
+# Subtest: Recovery: shrinking tail respects a placed empty block
+ok 113 - Recovery: shrinking tail respects a placed empty block
+  ---
+  duration_ms: 4.425265
+  type: 'test'
+  ...
+# Subtest: Recovery: tail trim only changes song length
+ok 114 - Recovery: tail trim only changes song length
+  ---
+  duration_ms: 2.392178
+  type: 'test'
+  ...
+# Subtest: Recovery: resize rejects invalid lengths
+ok 115 - Recovery: resize rejects invalid lengths
+  ---
+  duration_ms: 2.875613
+  type: 'test'
+  ...
+# Subtest: Recovery: time clear retains length and leaves an actual gap
+ok 116 - Recovery: time clear retains length and leaves an actual gap
+  ---
+  duration_ms: 1.80371
+  type: 'test'
+  ...
+# Subtest: Recovery: time delete shifts all tracks equally
+ok 117 - Recovery: time delete shifts all tracks equally
+  ---
+  duration_ms: 1.131986
+  type: 'test'
+  ...
+# Subtest: Recovery: deleting the whole time is rejected; clearing is allowed
+ok 118 - Recovery: deleting the whole time is rejected; clearing is allowed
+  ---
+  duration_ms: 0.834735
+  type: 'test'
+  ...
+# Subtest: Recovery: sliced harmonic intent follows notes
+ok 119 - Recovery: sliced harmonic intent follows notes
+  ---
+  duration_ms: 1.021888
+  type: 'test'
+  ...
+# Subtest: Recovery: stale harmonic intent remains stale after time operation
+ok 120 - Recovery: stale harmonic intent remains stale after time operation
+  ---
+  duration_ms: 1.205604
+  type: 'test'
+  ...
+# Subtest: Recovery: retained notes and empty ranges are clipped validly
+ok 121 - Recovery: retained notes and empty ranges are clipped validly
+  ---
+  duration_ms: 1.52892
+  type: 'test'
+  ...
+# Subtest: Recovery: shared patterns outside edited range retain originals
+ok 122 - Recovery: shared patterns outside edited range retain originals
+  ---
+  duration_ms: 1.58556
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 0..1 remain valid
+ok 123 - Recovery: serialized time edits 0..1 remain valid
+  ---
+  duration_ms: 4.781923
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 1..3 remain valid
+ok 124 - Recovery: serialized time edits 1..3 remain valid
+  ---
+  duration_ms: 1.446849
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 2..7 remain valid
+ok 125 - Recovery: serialized time edits 2..7 remain valid
+  ---
+  duration_ms: 1.767087
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 3..6 remain valid
+ok 126 - Recovery: serialized time edits 3..6 remain valid
+  ---
+  duration_ms: 3.596859
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 4..8 remain valid
+ok 127 - Recovery: serialized time edits 4..8 remain valid
+  ---
+  duration_ms: 1.413217
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 0..8 remain valid
+ok 128 - Recovery: serialized time edits 0..8 remain valid
+  ---
+  duration_ms: 0.776704
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 8..16 remain valid
+ok 129 - Recovery: serialized time edits 8..16 remain valid
+  ---
+  duration_ms: 0.781786
+  type: 'test'
+  ...
+# Subtest: Recovery: serialized time edits 7..9 remain valid
+ok 130 - Recovery: serialized time edits 7..9 remain valid
+  ---
+  duration_ms: 1.043587
+  type: 'test'
+  ...
+# Subtest: Recovery: invalid ranges are atomic
+ok 131 - Recovery: invalid ranges are atomic
+  ---
+  duration_ms: 1.25057
+  type: 'test'
+  ...
+# Subtest: Recovery: song tick mapping covers before, within, after deletion
+ok 132 - Recovery: song tick mapping covers before, within, after deletion
+  ---
+  duration_ms: 0.219242
+  type: 'test'
+  ...
+# Subtest: Recovery: ordered batch adds independent clips preserving track sound
+ok 133 - Recovery: ordered batch adds independent clips preserving track sound
+  ---
+  duration_ms: 2.39298
+  type: 'test'
+  ...
+# Subtest: Recovery: parallel batch allocates tracks at same position
+ok 134 - Recovery: parallel batch allocates tracks at same position
+  ---
+  duration_ms: 5.752854
+  type: 'test'
+  ...
+# Subtest: Recovery: mixed-kind series batch is rejected
+ok 135 - Recovery: mixed-kind series batch is rejected
+  ---
+  duration_ms: 0.33854
+  type: 'test'
+  ...
+# Subtest: Recovery: batch overlap is rejected without partial writes
+ok 136 - Recovery: batch overlap is rejected without partial writes
+  ---
+  duration_ms: 0.324588
+  type: 'test'
+  ...
+# Subtest: Recovery: batch exceeding timeline is rejected
+ok 137 - Recovery: batch exceeding timeline is rejected
+  ---
+  duration_ms: 0.273504
+  type: 'test'
+  ...
+# Subtest: Recovery: existing source data unaffected by new UI
+ok 138 - Recovery: existing source data unaffected by new UI
+  ---
+  duration_ms: 0.374755
+  type: 'test'
+  ...
+# Subtest: F1 partial known harmony leaves a precise unresolved gap
+ok 139 - F1 partial known harmony leaves a precise unresolved gap
+  ---
+  duration_ms: 8.321667
+  type: 'test'
+  ...
+# Subtest: F1 replacing unknown content removes only interval intent
+ok 140 - F1 replacing unknown content removes only interval intent
+  ---
+  duration_ms: 6.834857
+  type: 'test'
+  ...
+# Subtest: F1 splits a harmonic event across both replacement boundaries
+ok 141 - F1 splits a harmonic event across both replacement boundaries
+  ---
+  duration_ms: 1.858903
+  type: 'test'
+  ...
+# Subtest: F1 pre-existing stale outside intent is never auto-confirmed
+ok 142 - F1 pre-existing stale outside intent is never auto-confirmed
+  ---
+  duration_ms: 1.924152
+  type: 'test'
+  ...
+# Subtest: F1 full replacement can replace stale intent with explicit new intent
+ok 143 - F1 full replacement can replace stale intent with explicit new intent
+  ---
+  duration_ms: 1.408825
+  type: 'test'
+  ...
+# Subtest: F1 shared instance becomes independent and keeps the original intact
+ok 144 - F1 shared instance becomes independent and keeps the original intact
+  ---
+  duration_ms: 1.258025
+  type: 'test'
+  ...
+# Subtest: F1 roundtrip preserves harmonic collage and note IDs
+ok 145 - F1 roundtrip preserves harmonic collage and note IDs
+  ---
+  duration_ms: 4.07385
+  type: 'test'
+  ...
+# Subtest: F1 crossing note split keeps two exterior pieces and retained identity
+ok 146 - F1 crossing note split keeps two exterior pieces and retained identity
+  ---
+  duration_ms: 2.166159
+  type: 'test'
+  ...
+# Subtest: F2 operation whitelist generate
+ok 147 - F2 operation whitelist generate
+  ---
+  duration_ms: 0.797178
+  type: 'test'
+  ...
+# Subtest: F2 operation whitelist rhythm
+ok 148 - F2 operation whitelist rhythm
+  ---
+  duration_ms: 0.488948
+  type: 'test'
+  ...
+# Subtest: F2 operation whitelist anchors
+ok 149 - F2 operation whitelist anchors
+  ---
+  duration_ms: 0.269747
+  type: 'test'
+  ...
+# Subtest: F2 operation whitelist ending
+ok 150 - F2 operation whitelist ending
+  ---
+  duration_ms: 0.139834
+  type: 'test'
+  ...
+# Subtest: F2 operation whitelist answer
+ok 151 - F2 operation whitelist answer
+  ---
+  duration_ms: 0.163936
+  type: 'test'
+  ...
+# Subtest: F2 100 seeds preserve full rhythm even with hostile hidden options
+ok 152 - F2 100 seeds preserve full rhythm even with hostile hidden options
+  ---
+  duration_ms: 234.272672
+  type: 'test'
+  ...
+# Subtest: F2 skeleton is respected only in compatible generation modes
+ok 153 - F2 skeleton is respected only in compatible generation modes
+  ---
+  duration_ms: 12.133951
+  type: 'test'
+  ...
+# Subtest: F2 all and range retention preserve rests, fields and IDs
+ok 154 - F2 all and range retention preserve rests, fields and IDs
+  ---
+  duration_ms: 12.521034
+  type: 'test'
+  ...
+# Subtest: F2 all retained content returns no fabricated duplicate candidates
+ok 155 - F2 all retained content returns no fabricated duplicate candidates
+  ---
+  duration_ms: 15.03062
+  type: 'test'
+  ...
+# Subtest: F2 16-bar partial generation preserves unselected half
+ok 156 - F2 16-bar partial generation preserves unselected half
+  ---
+  duration_ms: 7.268064
+  type: 'test'
+  ...
+# Subtest: F4 source harmony edit invalidates candidate
+ok 157 - F4 source harmony edit invalidates candidate
+  ---
+  duration_ms: 15.913102
+  type: 'test'
+  ...
+# Subtest: F4 unrelated project name and track name do not lock workbench
+ok 158 - F4 unrelated project name and track name do not lock workbench
+  ---
+  duration_ms: 13.754191
+  type: 'test'
+  ...
+# Subtest: F4 scale is tracked for diatonic candidates
+ok 159 - F4 scale is tracked for diatonic candidates
+  ---
+  duration_ms: 26.465204
+  type: 'test'
+  ...
+# Subtest: F4 project switch rejects candidate
+ok 160 - F4 project switch rejects candidate
+  ---
+  duration_ms: 41.190807
+  type: 'test'
+  ...
+# Subtest: F4 late ready after cancel cannot reactivate candidate
+ok 161 - F4 late ready after cancel cannot reactivate candidate
+  ---
+  duration_ms: 15.872373
+  type: 'test'
+  ...
+# Subtest: F4 parameter invalidation immediately empties candidates
+ok 162 - F4 parameter invalidation immediately empties candidates
+  ---
+  duration_ms: 27.843598
+  type: 'test'
+  ...
+# Subtest: F4 patch conflict is atomic and unrelated changes survive
+ok 163 - F4 patch conflict is atomic and unrelated changes survive
+  ---
+  duration_ms: 0.16012
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 0
+ok 164 - F5 shared time snapping grid 0
+  ---
+  duration_ms: 0.104898
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 80
+ok 165 - F5 shared time snapping grid 80
+  ---
+  duration_ms: 0.042821
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 120
+ok 166 - F5 shared time snapping grid 120
+  ---
+  duration_ms: 0.040796
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 160
+ok 167 - F5 shared time snapping grid 160
+  ---
+  duration_ms: 0.033042
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 240
+ok 168 - F5 shared time snapping grid 240
+  ---
+  duration_ms: 0.094711
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 320
+ok 169 - F5 shared time snapping grid 320
+  ---
+  duration_ms: 0.050557
+  type: 'test'
+  ...
+# Subtest: F5 shared time snapping grid 480
+ok 170 - F5 shared time snapping grid 480
+  ---
+  duration_ms: 0.055107
+  type: 'test'
+  ...
+# Subtest: support: each duration and pattern length obeys shared contract
+ok 171 - support: each duration and pattern length obeys shared contract
+  ---
+  duration_ms: 1.872865
+  type: 'test'
+  ...
+# Subtest: support: track duplication preserves internal sharing and isolates originals
+ok 172 - support: track duplication preserves internal sharing and isolates originals
+  ---
+  duration_ms: 0.679483
+  type: 'test'
+  ...
+# Subtest: support: accompaniment sees sustained references across the left boundary
+ok 173 - support: accompaniment sees sustained references across the left boundary
+  ---
+  duration_ms: 0.298482
+  type: 'test'
+  ...
+# Subtest: support: bass pitch and density are genuine parameters
+ok 174 - support: bass pitch and density are genuine parameters
+  ---
+  duration_ms: 6.8609
+  type: 'test'
+  ...
+# Subtest: support: eight recipes compile and roundtrip with full harmonic sources
+ok 175 - support: eight recipes compile and roundtrip with full harmonic sources
+  ---
+  duration_ms: 95.875229
+  type: 'test'
+  ...
+# Subtest: support: reordered tracks do not alter group generation music
+ok 176 - support: reordered tracks do not alter group generation music
+  ---
+  duration_ms: 20.813399
+  type: 'test'
+  ...
+# Subtest: support: 100 seeds are deterministic and yield distinct musical candidates
+ok 177 - support: 100 seeds are deterministic and yield distinct musical candidates
+  ---
+  duration_ms: 482.790106
+  type: 'test'
+  ...
+# Subtest: built-in templates and 47 presets come from validated catalog configuration
+ok 178 - built-in templates and 47 presets come from validated catalog configuration
+  ---
+  duration_ms: 26.820391
+  type: 'test'
+  ...
+# Subtest: example pack installs one sound, nine-row kit, three templates, and a real WAV
+ok 179 - example pack installs one sound, nine-row kit, three templates, and a real WAV
+  ---
+  duration_ms: 3.058321
+  type: 'test'
+  ...
+# Subtest: reimporting identical material is idempotent
+ok 180 - reimporting identical material is idempotent
+  ---
+  duration_ms: 16.851105
+  type: 'test'
+  ...
+# Subtest: changed library id cannot replace sound already used in a project
+ok 181 - changed library id cannot replace sound already used in a project
+  ---
+  duration_ms: 5.275775
+  type: 'test'
+  ...
+# Subtest: unknown engine and malicious data fail before any library mutation
+ok 182 - unknown engine and malicious data fail before any library mutation
+  ---
+  duration_ms: 12.315464
+  type: 'test'
+  ...
+# Subtest: missing dependency is reported atomically
+ok 183 - missing dependency is reported atomically
+  ---
+  duration_ms: 0.481039
+  type: 'test'
+  ...
+# Subtest: duplicate ids, unsafe ids, invalid timing, and oversized rows rejected
+ok 184 - duplicate ids, unsafe ids, invalid timing, and oversized rows rejected
+  ---
+  duration_ms: 8.899691
+  type: 'test'
+  ...
+# Subtest: custom sound applied to new track is pinned in project, original stays unchanged
+ok 185 - custom sound applied to new track is pinned in project, original stays unchanged
+  ---
+  duration_ms: 4.450655
+  type: 'test'
+  ...
+# Subtest: drum kit application pins sample and exposes ninth row for editing
+ok 186 - drum kit application pins sample and exposes ninth row for editing
+  ---
+  duration_ms: 2.441438
+  type: 'test'
+  ...
+# Subtest: two uses of a template create distinct independent pattern and note ids
+ok 187 - two uses of a template create distinct independent pattern and note ids
+  ---
+  duration_ms: 1.225303
+  type: 'test'
+  ...
+# Subtest: new insertion validates collisions without altering original arrangement
+ok 188 - new insertion validates collisions without altering original arrangement
+  ---
+  duration_ms: 0.482126
+  type: 'test'
+  ...
+# Subtest: template replacement retains shared references and repeats a shorter template
+ok 189 - template replacement retains shared references and repeats a shorter template
+  ---
+  duration_ms: 0.949613
+  type: 'test'
+  ...
+# Subtest: oversized replacement never truncates or shifts existing clips silently
+ok 190 - oversized replacement never truncates or shifts existing clips silently
+  ---
+  duration_ms: 0.313289
+  type: 'test'
+  ...
+# Subtest: existing track retains sound unless explicit sound replacement requested
+ok 191 - existing track retains sound unless explicit sound replacement requested
+  ---
+  duration_ms: 1.29509
+  type: 'test'
+  ...
+# Subtest: template pitch conversion is explicit; source template and global reference retained
+ok 192 - template pitch conversion is explicit; source template and global reference retained
+  ---
+  duration_ms: 0.69253
+  type: 'test'
+  ...
+# Subtest: whole-song template regenerates identity and embeds custom dependencies
+ok 193 - whole-song template regenerates identity and embeds custom dependencies
+  ---
+  duration_ms: 9.740396
+  type: 'test'
+  ...
+# Subtest: saved project opens in clean runtime with custom sound and drum samples, without imported library
+ok 194 - saved project opens in clean runtime with custom sound and drum samples, without imported library
+  ---
+  duration_ms: 23.851054
+  type: 'test'
+  ...
+# Subtest: missing sound opens with explicit diagnostic and never falls back to piano
+ok 195 - missing sound opens with explicit diagnostic and never falls back to piano
+  ---
+  duration_ms: 0.675016
+  type: 'test'
+  ...
+# Subtest: missing sample stays editable and is blocked only for an audible target
+ok 196 - missing sample stays editable and is blocked only for an audible target
+  ---
+  duration_ms: 3.126467
+  type: 'test'
+  ...
+# Subtest: track and note ids cannot escape HTML attributes in imported projects
+ok 197 - track and note ids cannot escape HTML attributes in imported projects
+  ---
+  duration_ms: 0.377034
+  type: 'test'
+  ...
+# Subtest: a project cannot silently shadow a built-in kit
+ok 198 - a project cannot silently shadow a built-in kit
+  ---
+  duration_ms: 0.493186
+  type: 'test'
+  ...
+# Subtest: opening a kit with missing sample preserves repairable content and reports it
+ok 199 - opening a kit with missing sample preserves repairable content and reports it
+  ---
+  duration_ms: 0.54686
+  type: 'test'
+  ...
+# Subtest: catalog refuses a drum pattern with melodic engine atomically
+ok 200 - catalog refuses a drum pattern with melodic engine atomically
+  ---
+  duration_ms: 8.754767
+  type: 'test'
+  ...
+# Subtest: timebase: a 4/4 bar contains sixteen 240-tick cells
+ok 201 - timebase: a 4/4 bar contains sixteen 240-tick cells
+  ---
+  duration_ms: 1.363548
+  type: 'test'
+  ...
+# Subtest: original demo validates and has four tracks, eight bars
+ok 202 - original demo validates and has four tracks, eight bars
+  ---
+  duration_ms: 13.362119
+  type: 'test'
+  ...
+# Subtest: blank project is playable, valid, and contains one empty pattern
+ok 203 - blank project is playable, valid, and contains one empty pattern
+  ---
+  duration_ms: 0.230698
+  type: 'test'
+  ...
+# Subtest: preset library retains 26 legacy definitions and adds 21 distinct instrument presets
+ok 204 - preset library retains 26 legacy definitions and adds 21 distinct instrument presets
+  ---
+  duration_ms: 0.359318
+  type: 'test'
+  ...
+# Subtest: MIDI pitch naming uses C4 = 60
+ok 205 - MIDI pitch naming uses C4 = 60
+  ---
+  duration_ms: 0.180603
+  type: 'test'
+  ...
+# Subtest: scale membership and nearest-pitch snapping
+ok 206 - scale membership and nearest-pitch snapping
+  ---
+  duration_ms: 0.415553
+  type: 'test'
+  ...
+# Subtest: chord input expands into independent editable notes
+ok 207 - chord input expands into independent editable notes
+  ---
+  duration_ms: 1.153939
+  type: 'test'
+  ...
+# Subtest: chord input never exceeds MIDI pitch 127
+ok 208 - chord input never exceeds MIDI pitch 127
+  ---
+  duration_ms: 0.120931
+  type: 'test'
+  ...
+# Subtest: time reversal accounts for the full note duration
+ok 209 - time reversal accounts for the full note duration
+  ---
+  duration_ms: 0.522286
+  type: 'test'
+  ...
+# Subtest: applying time reversal twice restores the original
+ok 210 - applying time reversal twice restores the original
+  ---
+  duration_ms: 0.702711
+  type: 'test'
+  ...
+# Subtest: pitch reflection is centred on the first selected note
+ok 211 - pitch reflection is centred on the first selected note
+  ---
+  duration_ms: 0.352554
+  type: 'test'
+  ...
+# Subtest: scale-locked reflection yields in-scale pitches
+ok 212 - scale-locked reflection yields in-scale pitches
+  ---
+  duration_ms: 0.22742
+  type: 'test'
+  ...
+# Subtest: octave movement clamps at MIDI endpoints
+ok 213 - octave movement clamps at MIDI endpoints
+  ---
+  duration_ms: 0.323975
+  type: 'test'
+  ...
+# Subtest: circular shift wraps starts and clips tails at pattern end
+ok 214 - circular shift wraps starts and clips tails at pattern end
+  ---
+  duration_ms: 0.223173
+  type: 'test'
+  ...
+# Subtest: doubling creates fresh ids and a second copy one pattern later
+ok 215 - doubling creates fresh ids and a second copy one pattern later
+  ---
+  duration_ms: 0.243311
+  type: 'test'
+  ...
+# Subtest: variation copy is independent of original
+ok 216 - variation copy is independent of original
+  ---
+  duration_ms: 0.274739
+  type: 'test'
+  ...
+# Subtest: compilation respects mute and solo
+ok 217 - compilation respects mute and solo
+  ---
+  duration_ms: 1.507864
+  type: 'test'
+  ...
+# Subtest: compiling a single pattern has its own duration and no other tracks
+ok 218 - compiling a single pattern has its own duration and no other tracks
+  ---
+  duration_ms: 1.094126
+  type: 'test'
+  ...
+# Subtest: repeated clips share musical content at distinct positions
+ok 219 - repeated clips share musical content at distinct positions
+  ---
+  duration_ms: 0.231001
+  type: 'test'
+  ...
+# Subtest: arpeggiator unfolds simultaneous notes without mutating source
+ok 220 - arpeggiator unfolds simultaneous notes without mutating source
+  ---
+  duration_ms: 0.576167
+  type: 'test'
+  ...
+# Subtest: descending and bouncing arpeggio orders
+ok 221 - descending and bouncing arpeggio orders
+  ---
+  duration_ms: 0.503035
+  type: 'test'
+  ...
+# Subtest: arpeggio leaves single-note phrases unchanged
+ok 222 - arpeggio leaves single-note phrases unchanged
+  ---
+  duration_ms: 0.219069
+  type: 'test'
+  ...
+# Subtest: humanization is deterministic and within pattern bounds
+ok 223 - humanization is deterministic and within pattern bounds
+  ---
+  duration_ms: 0.325784
+  type: 'test'
+  ...
+# Subtest: swing delays alternate sixteenth cells, preserving raw note data
+ok 224 - swing delays alternate sixteenth cells, preserving raw note data
+  ---
+  duration_ms: 0.181947
+  type: 'test'
+  ...
+# Subtest: drum pipeline preserves drum keys and bypasses arpeggio
+ok 225 - drum pipeline preserves drum keys and bypasses arpeggio
+  ---
+  duration_ms: 0.229893
+  type: 'test'
+  ...
+# Subtest: placement rejects overlaps and supports moving its own clip
+ok 226 - placement rejects overlaps and supports moving its own clip
+  ---
+  duration_ms: 0.283091
+  type: 'test'
+  ...
+# Subtest: validation rejects version, tempo and track-count corruption
+ok 227 - validation rejects version, tempo and track-count corruption
+  ---
+  duration_ms: 0.558375
+  type: 'test'
+  ...
+# Subtest: validation rejects invalid, out-of-bounds and duplicate note ids
+ok 228 - validation rejects invalid, out-of-bounds and duplicate note ids
+  ---
+  duration_ms: 2.171418
+  type: 'test'
+  ...
+# Subtest: validation rejects overlapping arrangement clips
+ok 229 - validation rejects overlapping arrangement clips
+  ---
+  duration_ms: 0.263143
+  type: 'test'
+  ...
+# Subtest: v2 preserves missing sample reference for explicit repair
+ok 230 - v2 preserves missing sample reference for explicit repair
+  ---
+  duration_ms: 0.106054
+  type: 'test'
+  ...
+# Subtest: maximum track count and project length retain valid structure
+ok 231 - maximum track count and project length retain valid structure
+  ---
+  duration_ms: 1.441153
+  type: 'test'
+  ...
+# Subtest: project JSON round trip preserves complete musical data
+ok 232 - project JSON round trip preserves complete musical data
+  ---
+  duration_ms: 3.161757
+  type: 'test'
+  ...
+# Subtest: MIDI has a valid format-1 header and 960 PPQ division
+ok 233 - MIDI has a valid format-1 header and 960 PPQ division
+  ---
+  duration_ms: 1.219695
+  type: 'test'
+  ...
+# Subtest: MIDI timing and note events match compiled musical events
+ok 234 - MIDI timing and note events match compiled musical events
+  ---
+  duration_ms: 5.288338
+  type: 'test'
+  ...
+# Subtest: MIDI reserves channel 10 for percussion and encodes tempo
+ok 235 - MIDI reserves channel 10 for percussion and encodes tempo
+  ---
+  duration_ms: 2.186789
+  type: 'test'
+  ...
+# Subtest: MIDI export includes note pipeline and swing
+ok 236 - MIDI export includes note pipeline and swing
+  ---
+  duration_ms: 0.332776
+  type: 'test'
+  ...
+# Subtest: MIDI export explicitly rejects more than 15 melodic channels
+ok 237 - MIDI export explicitly rejects more than 15 melodic channels
+  ---
+  duration_ms: 0.88048
+  type: 'test'
+  ...
+# Subtest: 16-bit WAV header is stereo, interleaved, and correctly sized
+ok 238 - 16-bit WAV header is stereo, interleaved, and correctly sized
+  ---
+  duration_ms: 0.34663
+  type: 'test'
+  ...
+# Subtest: WAV scaling and clipping avoid int16 overflow
+ok 239 - WAV scaling and clipping avoid int16 overflow
+  ---
+  duration_ms: 0.168262
+  type: 'test'
+  ...
+# Subtest: custom instruments can register a new renderer
+ok 240 - custom instruments can register a new renderer
+  ---
+  duration_ms: 0.144073
+  type: 'test'
+  ...
+# Subtest: fixed viewport is a window, never forced to include distant notes
+ok 241 - fixed viewport is a window, never forced to include distant notes
+  ---
+  duration_ms: 6.275113
+  type: 'test'
+  ...
+# Subtest: simplified rows retain chromatic notes within view without rewriting data
+ok 242 - simplified rows retain chromatic notes within view without rewriting data
+  ---
+  duration_ms: 1.176128
+  type: 'test'
+  ...
+# Subtest: view pan zoom and fit leave compiled music untouched
+ok 243 - view pan zoom and fit leave compiled music untouched
+  ---
+  duration_ms: 1.042617
+  type: 'test'
+  ...
+# Subtest: semitone mirror does not depend on visible scale or reference key
+ok 244 - semitone mirror does not depend on visible scale or reference key
+  ---
+  duration_ms: 0.380037
+  type: 'test'
+  ...
+# Subtest: diatonic reflection uses degree distance and is reversible for in-scale data
+ok 245 - diatonic reflection uses degree distance and is reversible for in-scale data
+  ---
+  duration_ms: 0.419424
+  type: 'test'
+  ...
+# Subtest: diatonic reflection refuses to silently alter chromatic notes
+ok 246 - diatonic reflection refuses to silently alter chromatic notes
+  ---
+  duration_ms: 0.3776
+  type: 'test'
+  ...
+# Subtest: explicit transpose changes pitches while preserving times, ids and intervals
+ok 247 - explicit transpose changes pitches while preserving times, ids and intervals
+  ---
+  duration_ms: 0.326017
+  type: 'test'
+  ...
+# Subtest: key transpose uses nearest direction and scale adaptation is explicit
+ok 248 - key transpose uses nearest direction and scale adaptation is explicit
+  ---
+  duration_ms: 0.313179
+  type: 'test'
+  ...
+# Subtest: invalid pitch and incompatible scales reject without partially changing source
+ok 249 - invalid pitch and incompatible scales reject without partially changing source
+  ---
+  duration_ms: 0.367214
+  type: 'test'
+  ...
+# Subtest: candidate selection changes only selected notes, preserves reference and document
+ok 250 - candidate selection changes only selected notes, preserves reference and document
+  ---
+  duration_ms: 0.870138
+  type: 'test'
+  ...
+# Subtest: isolated pattern ignores project mute and unrelated temporary solo
+ok 251 - isolated pattern ignores project mute and unrelated temporary solo
+  ---
+  duration_ms: 9.938462
+  type: 'test'
+  ...
+# Subtest: bar audition clips and carries sustained notes at its local zero
+ok 252 - bar audition clips and carries sustained notes at its local zero
+  ---
+  duration_ms: 1.391949
+  type: 'test'
+  ...
+# Subtest: selected tracks isolate two tracks, independent from mute and solo
+ok 253 - selected tracks isolate two tracks, independent from mute and solo
+  ---
+  duration_ms: 1.616353
+  type: 'test'
+  ...
+# Subtest: invalid local scope fails explicitly rather than quietly playing all
+ok 254 - invalid local scope fails explicitly rather than quietly playing all
+  ---
+  duration_ms: 0.979747
+  type: 'test'
+  ...
+# Subtest: playback controller follows editor pattern, exits local, keeps full song across workspaces
+ok 255 - playback controller follows editor pattern, exits local, keeps full song across workspaces
+  ---
+  duration_ms: 1.331889
+  type: 'test'
+  ...
+# Subtest: whole-song export ignores temporary solo but respects project mute
+ok 256 - whole-song export ignores temporary solo but respects project mute
+  ---
+  duration_ms: 1.925593
+  type: 'test'
+  ...
+# Subtest: candidate audition does not mutate document, and stop restores original target
+ok 257 - candidate audition does not mutate document, and stop restores original target
+  ---
+  duration_ms: 2.176446
+  type: 'test'
+  ...
+# Subtest: stop during pending audio initialization invalidates a main start
+ok 258 - stop during pending audio initialization invalidates a main start
+  ---
+  duration_ms: 0.557273
+  type: 'test'
+  ...
+# Subtest: stop during pending note preview invalidates preview generation
+ok 259 - stop during pending note preview invalidates preview generation
+  ---
+  duration_ms: 0.459797
+  type: 'test'
+  ...
+# Subtest: fingerprint has semantic skins, transparency fallback, and touch sizing in shared manifest
+ok 260 - fingerprint has semantic skins, transparency fallback, and touch sizing in shared manifest
+  ---
+  duration_ms: 1.717082
+  type: 'test'
+  ...
+# Subtest: new presets use seven different synthesis families, legacy 26 remain addressable
+ok 261 - new presets use seven different synthesis families, legacy 26 remain addressable
+  ---
+  duration_ms: 0.38858
+  type: 'test'
+  ...
+# Subtest: 24 harmonic recipes are independently named and fit the supported clip lengths
+ok 262 - 24 harmonic recipes are independently named and fit the supported clip lengths
+  ---
+  duration_ms: 0.141725
+  type: 'test'
+  ...
+# Subtest: every progression in twelve keys, three voicings and four rhythms produces valid ordinary notes
+ok 263 - every progression in twelve keys, three voicings and four rhythms produces valid ordinary notes
+  ---
+  duration_ms: 324.981241
+  type: 'test'
+  ...
+# Subtest: voicing preserves chord pitch classes and never invents a scale correction
+ok 264 - voicing preserves chord pitch classes and never invents a scale correction
+  ---
+  duration_ms: 15.070818
+  type: 'test'
+  ...
+# Subtest: minor dominant retains raised leading tone; half diminished chord has flat fifth
+ok 265 - minor dominant retains raised leading tone; half diminished chord has flat fifth
+  ---
+  duration_ms: 0.350125
+  type: 'test'
+  ...
+# Subtest: a smooth four-chord loop moves less than root-position in the standard pop example
+ok 266 - a smooth four-chord loop moves less than root-position in the standard pop example
+  ---
+  duration_ms: 0.388063
+  type: 'test'
+  ...
+# Subtest: progression invalid options are rejected rather than silently changing pitches
+ok 267 - progression invalid options are rejected rather than silently changing pitches
+  ---
+  duration_ms: 0.496772
+  type: 'test'
+  ...
+# Subtest: generated chord pattern can be applied, independently edited, saved and reopened
+ok 268 - generated chord pattern can be applied, independently edited, saved and reopened
+  ---
+  duration_ms: 6.178318
+  type: 'test'
+  ...
+# Subtest: short existing clip refuses long harmonic replacement and preserves shared references
+ok 269 - short existing clip refuses long harmonic replacement and preserves shared references
+  ---
+  duration_ms: 1.325038
+  type: 'test'
+  ...
+# Subtest: new catalog has exact starter roles and all old seven template ids still exist
+ok 270 - new catalog has exact starter roles and all old seven template ids still exist
+  ---
+  duration_ms: 3.17268
+  type: 'test'
+  ...
+# Subtest: every template can be applied to a fresh song, compiled, serialized and reopened
+ok 271 - every template can be applied to a fresh song, compiled, serialized and reopened
+  ---
+  duration_ms: 70.881076
+  type: 'test'
+  ...
+# Subtest: new drum templates use 16-cell grid, distinguish velocities, and contain no duplicate hit
+ok 272 - new drum templates use 16-cell grid, distinguish velocities, and contain no duplicate hit
+  ---
+  duration_ms: 3.576327
+  type: 'test'
+  ...
+# Subtest: starter songs have matching four tracks, eight bars, no overlapping clips
+ok 273 - starter songs have matching four tracks, eight bars, no overlapping clips
+  ---
+  duration_ms: 8.697235
+  type: 'test'
+  ...
+# Subtest: multi-sample registry validates zones before importing anything
+ok 274 - multi-sample registry validates zones before importing anything
+  ---
+  duration_ms: 1.447977
+  type: 'test'
+  ...
+# Subtest: multi-sample missing dependency cannot partially install a sound
+ok 275 - multi-sample missing dependency cannot partially install a sound
+  ---
+  duration_ms: 0.2342
+  type: 'test'
+  ...
+# Subtest: multi-sample assets pin to a project and survive a clean runtime without its library
+ok 276 - multi-sample assets pin to a project and survive a clean runtime without its library
+  ---
+  duration_ms: 20.587039
+  type: 'test'
+  ...
+# Subtest: missing embedded multi-sample remains openable and repairable without silent fallback
+ok 277 - missing embedded multi-sample remains openable and repairable without silent fallback
+  ---
+  duration_ms: 0.570552
+  type: 'test'
+  ...
+# Subtest: R1: migrates v1 without mutating source or musical notes
+ok 278 - R1: migrates v1 without mutating source or musical notes
+  ---
+  duration_ms: 7.122745
+  type: 'test'
+  ...
+# Subtest: R1: view-only browsing does not change project or compiled notes
+ok 279 - R1: view-only browsing does not change project or compiled notes
+  ---
+  duration_ms: 11.009675
+  type: 'test'
+  ...
+# Subtest: R1: all clip openings resolve coherent track/pattern/instance
+ok 280 - R1: all clip openings resolve coherent track/pattern/instance
+  ---
+  duration_ms: 1.523775
+  type: 'test'
+  ...
+# Subtest: R1: deleted selections and monitoring ids reconcile
+ok 281 - R1: deleted selections and monitoring ids reconcile
+  ---
+  duration_ms: 1.390829
+  type: 'test'
+  ...
+# Subtest: R1: local scope and labels use actual pattern length
+ok 282 - R1: local scope and labels use actual pattern length
+  ---
+  duration_ms: 1.334466
+  type: 'test'
+  ...
+# Subtest: ST01 new library has bounded versions, unique IDs and valid definitions
+ok 283 - ST01 new library has bounded versions, unique IDs and valid definitions
+  ---
+  duration_ms: 24.327527
+  type: 'test'
+  ...
+# Subtest: ST02 every new preset roundtrips with exact synthesis definition
+ok 284 - ST02 every new preset roundtrips with exact synthesis definition
+  ---
+  duration_ms: 17.885841
+  type: 'test'
+  ...
+# Subtest: ST03 invalid DSP values and missing synth definitions are rejected
+ok 285 - ST03 invalid DSP values and missing synth definitions are rejected
+  ---
+  duration_ms: 23.290013
+  type: 'test'
+  ...
+# Subtest: ST04 FM operator topology is data-only and bounded
+ok 286 - ST04 FM operator topology is data-only and bounded
+  ---
+  duration_ms: 6.121236
+  type: 'test'
+  ...
+# Subtest: ST05 built-in source files retained byte-for-byte for 47 legacy presets
+ok 287 - ST05 built-in source files retained byte-for-byte for 47 legacy presets
+  ---
+  duration_ms: 2.806243
+  type: 'test'
+  ...
+# Subtest: ST06 new library is not an imported user pack
+ok 288 - ST06 new library is not an imported user pack
+  ---
+  duration_ms: 5.894393
+  type: 'test'
+  ...
+# Subtest: ST07 all sound IDs have a discoverable family, with older variants explicit
+ok 289 - ST07 all sound IDs have a discoverable family, with older variants explicit
+  ---
+  duration_ms: 5.211355
+  type: 'test'
+  ...
+# Subtest: ST08 family classification and query do not mutate legacy music
+ok 290 - ST08 family classification and query do not mutate legacy music
+  ---
+  duration_ms: 43.713436
+  type: 'test'
+  ...
+# Subtest: ST09 18 combination variants have distinct musical fields
+ok 291 - ST09 18 combination variants have distinct musical fields
+  ---
+  duration_ms: 120.419907
+  type: 'test'
+  ...
+# Subtest: ST10 every combination has correct eight-bar harmony and a blank writing track
+ok 292 - ST10 every combination has correct eight-bar harmony and a blank writing track
+  ---
+  duration_ms: 93.986499
+  type: 'test'
+  ...
+# Subtest: ST11 ending versions resolve to the actual tonic harmony
+ok 293 - ST11 ending versions resolve to the actual tonic harmony
+  ---
+  duration_ms: 15.100025
+  type: 'test'
+  ...
+# Subtest: ST12 applying a combination preserves old tracks, tempo unless explicit, and output range
+ok 294 - ST12 applying a combination preserves old tracks, tempo unless explicit, and output range
+  ---
+  duration_ms: 19.557659
+  type: 'test'
+  ...
+# Subtest: ST13 wrong placement and capacity failures preserve original
+ok 295 - ST13 wrong placement and capacity failures preserve original
+  ---
+  duration_ms: 3.74113
+  type: 'test'
+  ...
+# Subtest: ST14 performed timing is not swung or humanized twice
+ok 296 - ST14 performed timing is not swung or humanized twice
+  ---
+  duration_ms: 1.751179
+  type: 'test'
+  ...
+# Subtest: ST15 ordinary pre-existing notes retain global Swing
+ok 297 - ST15 ordinary pre-existing notes retain global Swing
+  ---
+  duration_ms: 0.270446
+  type: 'test'
+  ...
+# Subtest: ST16 source-derived flags and attribution survive local placement and save
+ok 298 - ST16 source-derived flags and attribution survive local placement and save
+  ---
+  duration_ms: 1.392002
+  type: 'test'
+  ...
+# Subtest: ST17 importing performed source preserves exact onset and velocity
+ok 299 - ST17 importing performed source preserves exact onset and velocity
+  ---
+  duration_ms: 1.606342
+  type: 'test'
+  ...
+# Subtest: ST18 original selected MIDI bytes match independent Git blob receipts
+ok 300 - ST18 original selected MIDI bytes match independent Git blob receipts
+  ---
+  duration_ms: 1.110531
+  type: 'test'
+  ...
+# Subtest: ST19 sound replacement changes neither old note material nor other tracks
+ok 301 - ST19 sound replacement changes neither old note material nor other tracks
+  ---
+  duration_ms: 7.965346
+  type: 'test'
+  ...
+# Subtest: ST20 drum sound adoption maps a custom kit by role and preserves musical identity
+ok 302 - ST20 drum sound adoption maps a custom kit by role and preserves musical identity
+  ---
+  duration_ms: 5.757727
+  type: 'test'
+  ...
+# Subtest: ST21 related voices retain old IDs, exact renderer delegation is available
+ok 303 - ST21 related voices retain old IDs, exact renderer delegation is available
+  ---
+  duration_ms: 0.120701
+  type: 'test'
+  ...
+# Subtest: ST22 source authoring notes and normalized presets remain read-only during combination generation
+ok 304 - ST22 source authoring notes and normalized presets remain read-only during combination generation
+  ---
+  duration_ms: 55.373238
+  type: 'test'
+  ...
+# Subtest: ST23 reference base key does not rewrite existing compositions
+ok 305 - ST23 reference base key does not rewrite existing compositions
+  ---
+  duration_ms: 3.660736
+  type: 'test'
+  ...
+# Subtest: ST24 keyboard platform mappings are separate data
+ok 306 - ST24 keyboard platform mappings are separate data
+  ---
+  duration_ms: 0.356322
+  type: 'test'
+  ...
+# Subtest: ST25 IME, text, prevented events and unrelated modifiers are isolated
+ok 307 - ST25 IME, text, prevented events and unrelated modifiers are isolated
+  ---
+  duration_ms: 0.220962
+  type: 'test'
+  ...
+# Subtest: ST26 save is a command even when a text field has focus
+ok 308 - ST26 save is a command even when a text field has focus
+  ---
+  duration_ms: 0.094466
+  type: 'test'
+  ...
+# Subtest: ST27 deletion maps Mac backward/forward and Windows delete without conflating select
+ok 309 - ST27 deletion maps Mac backward/forward and Windows delete without conflating select
+  ---
+  duration_ms: 0.083548
+  type: 'test'
+  ...
+# Subtest: ST28 cut notes captures clipboard and deletes in one pure transaction
+ok 310 - ST28 cut notes captures clipboard and deletes in one pure transaction
+  ---
+  duration_ms: 8.18816
+  type: 'test'
+  ...
+# Subtest: ST29 cut interval preserves rests and splits boundary notes consistently
+ok 311 - ST29 cut interval preserves rests and splits boundary notes consistently
+  ---
+  duration_ms: 1.243802
+  type: 'test'
+  ...
+# Subtest: ST30 cut last track refuses before deleting or replacing clipboard
+ok 312 - ST30 cut last track refuses before deleting or replacing clipboard
+  ---
+  duration_ms: 0.392841
+  type: 'test'
+  ...
+# Subtest: ST31 clipboard envelope safely roundtrips data and rejects reserved keys
+ok 313 - ST31 clipboard envelope safely roundtrips data and rejects reserved keys
+  ---
+  duration_ms: 0.557222
+  type: 'test'
+  ...
+# Subtest: ST32 patch/family lookup has no dependency on ID rewriting
+ok 314 - ST32 patch/family lookup has no dependency on ID rewriting
+  ---
+  duration_ms: 14.478003
+  type: 'test'
+  ...
+# Subtest: ST33 old no-performed projects compile identically under previous model
+ok 315 - ST33 old no-performed projects compile identically under previous model
+  ---
+  duration_ms: 146.337741
+  type: 'test'
+  ...
+# Subtest: ST34 optional performed marker rejects non-boolean data
+ok 316 - ST34 optional performed marker rejects non-boolean data
+  ---
+  duration_ms: 6.107974
+  type: 'test'
+  ...
+# Subtest: ST35 advanced own sound is data, serialized independently of its source preset
+ok 317 - ST35 advanced own sound is data, serialized independently of its source preset
+  ---
+  duration_ms: 0.729748
+  type: 'test'
+  ...
+# Subtest: ST36 native curve conversion stays finite and ordered
+ok 318 - ST36 native curve conversion stays finite and ordered
+  ---
+  duration_ms: 0.288769
+  type: 'test'
+  ...
+# Subtest: ST37 platform override still works when persistence is unavailable
+ok 319 - ST37 platform override still works when persistence is unavailable
+  ---
+  duration_ms: 30.042142
+  type: 'test'
+  ...
+# Subtest: ST38 bundled pack count matches the visible imported pack list
+ok 320 - ST38 bundled pack count matches the visible imported pack list
+  ---
+  duration_ms: 7.536707
+  type: 'test'
+  ...
+# Subtest: ST39 source metadata survives a derived template import and placement
+ok 321 - ST39 source metadata survives a derived template import and placement
+  ---
+  duration_ms: 6.900004
+  type: 'test'
+  ...
+# Subtest: ST40 invalid source metadata is rejected before library mutation
+ok 322 - ST40 invalid source metadata is rejected before library mutation
+  ---
+  duration_ms: 0.606767
+  type: 'test'
+  ...
+# Subtest: ST41 ending variants preserve the first seven bars of their melodic material
+ok 323 - ST41 ending variants preserve the first seven bars of their melodic material
+  ---
+  duration_ms: 36.592735
+  type: 'test'
+  ...
+# Subtest: ST42 assembled human-rhythm combinations retain both excerpt attributions
+ok 324 - ST42 assembled human-rhythm combinations retain both excerpt attributions
+  ---
+  duration_ms: 6.48555
+  type: 'test'
+  ...
+# Subtest: W01 new project opens one arrangement workspace with closed lower editor
+ok 325 - W01 new project opens one arrangement workspace with closed lower editor
+  ---
+  duration_ms: 40.558974
+  type: 'test'
+  ...
+# Subtest: W02 opening a block shows its content without a second page
+ok 326 - W02 opening a block shows its content without a second page
+  ---
+  duration_ms: 63.149864
+  type: 'test'
+  ...
+# Subtest: W03 no active target never falls back to deleting opened content
+ok 327 - W03 no active target never falls back to deleting opened content
+  ---
+  duration_ms: 31.601453
+  type: 'test'
+  ...
+# Subtest: W04 selecting track leaves opened pattern and cursor unchanged
+ok 328 - W04 selecting track leaves opened pattern and cursor unchanged
+  ---
+  duration_ms: 34.342553
+  type: 'test'
+  ...
+# Subtest: W05 note Copy never moves edit cursor or changes the project
+ok 329 - W05 note Copy never moves edit cursor or changes the project
+  ---
+  duration_ms: 19.792708
+  type: 'test'
+  ...
+# Subtest: W06 note Paste uses explicit edit cursor, independent of transport fields
+ok 330 - W06 note Paste uses explicit edit cursor, independent of transport fields
+  ---
+  duration_ms: 23.970478
+  type: 'test'
+  ...
+# Subtest: W07 overflow paste is rejected without clamp or mutation
+ok 331 - W07 overflow paste is rejected without clamp or mutation
+  ---
+  duration_ms: 13.973805
+  type: 'test'
+  ...
+# Subtest: W08 duplicate notes is immediate and independent of the clipboard
+ok 332 - W08 duplicate notes is immediate and independent of the clipboard
+  ---
+  duration_ms: 19.680197
+  type: 'test'
+  ...
+# Subtest: W09 Delete notes does not remove block instances
+ok 333 - W09 Delete notes does not remove block instances
+  ---
+  duration_ms: 21.938181
+  type: 'test'
+  ...
+# Subtest: W10 Delete block removes only occurrence and keeps shared pattern
+ok 334 - W10 Delete block removes only occurrence and keeps shared pattern
+  ---
+  duration_ms: 18.464051
+  type: 'test'
+  ...
+# Subtest: W11 stale selection ids cannot delete a fallback block
+ok 335 - W11 stale selection ids cannot delete a fallback block
+  ---
+  duration_ms: 13.858075
+  type: 'test'
+  ...
+# Subtest: W12 music block duplicate creates independent pattern and ids
+ok 336 - W12 music block duplicate creates independent pattern and ids
+  ---
+  duration_ms: 17.15275
+  type: 'test'
+  ...
+# Subtest: W13 associated repeat keeps shared content explicit
+ok 337 - W13 associated repeat keeps shared content explicit
+  ---
+  duration_ms: 14.646768
+  type: 'test'
+  ...
+# Subtest: W14 unlink isolates only selected shared occurrence
+ok 338 - W14 unlink isolates only selected shared occurrence
+  ---
+  duration_ms: 29.089472
+  type: 'test'
+  ...
+# Subtest: W15 music block clipboard pastes at arrangement cursor
+ok 339 - W15 music block clipboard pastes at arrangement cursor
+  ---
+  duration_ms: 15.184226
+  type: 'test'
+  ...
+# Subtest: W16 block clipboard incompatible target is atomic
+ok 340 - W16 block clipboard incompatible target is atomic
+  ---
+  duration_ms: 13.486747
+  type: 'test'
+  ...
+# Subtest: W17 track copy and paste preserve internal sharing and isolate source
+ok 341 - W17 track copy and paste preserve internal sharing and isolate source
+  ---
+  duration_ms: 13.903971
+  type: 'test'
+  ...
+# Subtest: W18 Delete track cannot delete final remaining track
+ok 342 - W18 Delete track cannot delete final remaining track
+  ---
+  duration_ms: 7.899705
+  type: 'test'
+  ...
+# Subtest: W19 deleting different track keeps opened pattern intact
+ok 343 - W19 deleting different track keeps opened pattern intact
+  ---
+  duration_ms: 18.085726
+  type: 'test'
+  ...
+# Subtest: W20 two timelines cannot be active command owners simultaneously
+ok 344 - W20 two timelines cannot be active command owners simultaneously
+  ---
+  duration_ms: 16.561321
+  type: 'test'
+  ...
+# Subtest: W21 Select all in notes never selects other tracks
+ok 345 - W21 Select all in notes never selects other tracks
+  ---
+  duration_ms: 18.839495
+  type: 'test'
+  ...
+# Subtest: W22 Select all in arrangement selects all occurrences
+ok 346 - W22 Select all in arrangement selects all occurrences
+  ---
+  duration_ms: 26.555953
+  type: 'test'
+  ...
+# Subtest: W23 mix page disables destructive composition commands
+ok 347 - W23 mix page disables destructive composition commands
+  ---
+  duration_ms: 26.488982
+  type: 'test'
+  ...
+# Subtest: W24 range copies silence and clips boundary sustains
+ok 348 - W24 range copies silence and clips boundary sustains
+  ---
+  duration_ms: 26.764293
+  type: 'test'
+  ...
+# Subtest: W25 range delete splits long note and preserves outside
+ok 349 - W25 range delete splits long note and preserves outside
+  ---
+  duration_ms: 29.110965
+  type: 'test'
+  ...
+# Subtest: W26 range duplicate preserves length including rests
+ok 350 - W26 range duplicate preserves length including rests
+  ---
+  duration_ms: 15.253522
+  type: 'test'
+  ...
+# Subtest: W27 range clear preserves outside harmony intervals
+ok 351 - W27 range clear preserves outside harmony intervals
+  ---
+  duration_ms: 15.197879
+  type: 'test'
+  ...
+# Subtest: W28 clipboard from stale harmony never acquires confirmation
+ok 352 - W28 clipboard from stale harmony never acquires confirmation
+  ---
+  duration_ms: 21.377016
+  type: 'test'
+  ...
+# Subtest: W29 range copy/paste carries known harmony to empty destination
+ok 353 - W29 range copy/paste carries known harmony to empty destination
+  ---
+  duration_ms: 17.356383
+  type: 'test'
+  ...
+# Subtest: W30 applying range paste to occupied content requires explicit range
+ok 354 - W30 applying range paste to occupied content requires explicit range
+  ---
+  duration_ms: 16.070844
+  type: 'test'
+  ...
+# Subtest: W31 range validity rejects reversed and out-of-bounds spans
+ok 355 - W31 range validity rejects reversed and out-of-bounds spans
+  ---
+  duration_ms: 27.321257
+  type: 'test'
+  ...
+# Subtest: W32 clipboard and editing targets remain outside musical document
+ok 356 - W32 clipboard and editing targets remain outside musical document
+  ---
+  duration_ms: 18.340412
+  type: 'test'
+  ...
+# Subtest: W33 every exposed basic command has one state definition
+ok 357 - W33 every exposed basic command has one state definition
+  ---
+  duration_ms: 14.369857
+  type: 'test'
+  ...
+# Subtest: W34 note clipboard rejects drum targets without mutation
+ok 358 - W34 note clipboard rejects drum targets without mutation
+  ---
+  duration_ms: 13.23939
+  type: 'test'
+  ...
+# Subtest: W35 empty range can be copied as intentional rest
+ok 359 - W35 empty range can be copied as intentional rest
+  ---
+  duration_ms: 13.744002
+  type: 'test'
+  ...
+# Subtest: W36 duplicate clips checks collisions without partial inserts
+ok 360 - W36 duplicate clips checks collisions without partial inserts
+  ---
+  duration_ms: 18.330085
+  type: 'test'
+  ...
+# Subtest: W37 clear pattern explicitly clears related content, not clip identity
+ok 361 - W37 clear pattern explicitly clears related content, not clip identity
+  ---
+  duration_ms: 13.684294
+  type: 'test'
+  ...
+# Subtest: W38 note range delete maintains valid retained references
+ok 362 - W38 note range delete maintains valid retained references
+  ---
+  duration_ms: 19.387546
+  type: 'test'
+  ...
+# Subtest: W39 deletion of selected pattern invalidates target, never falls back
+ok 363 - W39 deletion of selected pattern invalidates target, never falls back
+  ---
+  duration_ms: 14.358192
+  type: 'test'
+  ...
+# Subtest: W40 copies retain current input document and legacy file version
+ok 364 - W40 copies retain current input document and legacy file version
+  ---
+  duration_ms: 30.001532
+  type: 'test'
+  ...
+# Subtest: W41 legacy phrase workspace preference migrates without rewriting music
+ok 365 - W41 legacy phrase workspace preference migrates without rewriting music
+  ---
+  duration_ms: 8.272876
+  type: 'test'
+  ...
+# Subtest: W42 save/reload workspace keeps panel size and open state, not live selection
+ok 366 - W42 save/reload workspace keeps panel size and open state, not live selection
+  ---
+  duration_ms: 7.585859
+  type: 'test'
+  ...
+# Subtest: W43 closed editor preference stays closed when restored
+ok 367 - W43 closed editor preference stays closed when restored
+  ---
+  duration_ms: 7.399458
+  type: 'test'
+  ...
+# Subtest: W44 same shared content opened at a different instance reports change
+ok 368 - W44 same shared content opened at a different instance reports change
+  ---
+  duration_ms: 13.345211
+  type: 'test'
+  ...
+# Subtest: W45 expanding whole pattern copy preserves legacy metadata shape
+ok 369 - W45 expanding whole pattern copy preserves legacy metadata shape
+  ---
+  duration_ms: 19.591415
+  type: 'test'
+  ...
+# Subtest: W46 track clipboard copied into another project includes self-contained voice settings
+ok 370 - W46 track clipboard copied into another project includes self-contained voice settings
+  ---
+  duration_ms: 12.81255
+  type: 'test'
+  ...
+# Subtest: W47 repeated selection ids resolve to one object
+ok 371 - W47 repeated selection ids resolve to one object
+  ---
+  duration_ms: 13.005139
+  type: 'test'
+  ...
+# Subtest: W48 current build has one layout owner and no old properties renderer
+ok 372 - W48 current build has one layout owner and no old properties renderer
+  ---
+  duration_ms: 0.2693
+  type: 'test'
+  ...
+# Subtest: W49 explicit quantization aligns onset only and preserves identity/duration
+ok 373 - W49 explicit quantization aligns onset only and preserves identity/duration
+  ---
+  duration_ms: 13.246891
+  type: 'test'
+  ...
+# Subtest: W50 quantization rejects free-grid and overflow rather than silently cropping
+ok 374 - W50 quantization rejects free-grid and overflow rather than silently cropping
+  ---
+  duration_ms: 18.878012
+  type: 'test'
+  ...
+1..374
+# tests 374
+# suites 0
+# pass 374
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3174.061156

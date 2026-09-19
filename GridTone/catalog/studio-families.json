@@ -1,0 +1,566 @@
+[
+  {
+    "id": "family.analog-bass",
+    "name": "模拟低音",
+    "kind": "sound",
+    "role": "bass",
+    "description": "圆润承托或短促弹跳",
+    "members": [
+      "studio.va.round",
+      "studio.va.pluckbass"
+    ],
+    "defaultId": "studio.va.round",
+    "tags": [
+      "模拟",
+      "低音"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.resonant-bass",
+    "name": "共振低音",
+    "kind": "sound",
+    "role": "bass",
+    "description": "带明显滤波性格的电子低音",
+    "members": [
+      "studio.va.acid",
+      "studio.va.rubber"
+    ],
+    "defaultId": "studio.va.acid",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.analog-lead",
+    "name": "复古主音",
+    "kind": "sound",
+    "role": "melody",
+    "description": "锯齿、方波与单音滑行",
+    "members": [
+      "studio.va.sawlead",
+      "studio.va.pulselead",
+      "studio.va.slidelead"
+    ],
+    "defaultId": "studio.va.sawlead",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.synth-chords",
+    "name": "合成和弦",
+    "kind": "sound",
+    "role": "chords",
+    "description": "长短明确的两种和弦触感",
+    "members": [
+      "studio.va.brass",
+      "studio.va.stab"
+    ],
+    "defaultId": "studio.va.brass",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.retro-pad",
+    "name": "复古音垫",
+    "kind": "sound",
+    "role": "texture",
+    "description": "柔光与暗色两种持续背景",
+    "members": [
+      "studio.va.silk",
+      "studio.va.darkpad"
+    ],
+    "defaultId": "studio.va.silk",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.motion-pad",
+    "name": "流动音垫",
+    "kind": "sound",
+    "role": "texture",
+    "description": "空气与滤波运动",
+    "members": [
+      "studio.va.breath",
+      "studio.va.motion"
+    ],
+    "defaultId": "studio.va.breath",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.fm-ep",
+    "name": "FM电钢",
+    "kind": "sound",
+    "role": "chords",
+    "description": "一组动态明确的电钢声音",
+    "members": [
+      "studio.fm.tine",
+      "studio.fm.softkeys"
+    ],
+    "defaultId": "studio.fm.tine",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.fm-bass",
+    "name": "FM低音",
+    "kind": "sound",
+    "role": "bass",
+    "description": "弹指起音与木芯主体",
+    "members": [
+      "studio.fm.slap",
+      "studio.fm.woodbass"
+    ],
+    "defaultId": "studio.fm.slap",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.fm-pluck",
+    "name": "数字拨弦",
+    "kind": "sound",
+    "role": "melody",
+    "description": "清脆和圆润的两种拨弦",
+    "members": [
+      "studio.fm.koto",
+      "studio.fm.harp"
+    ],
+    "defaultId": "studio.fm.koto",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.metal-keys",
+    "name": "金属敲击",
+    "kind": "sound",
+    "role": "melody",
+    "description": "清亮长尾与短促金属片",
+    "members": [
+      "studio.fm.bell",
+      "studio.fm.steel"
+    ],
+    "defaultId": "studio.fm.bell",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.digital-tone",
+    "name": "数字键盘",
+    "kind": "sound",
+    "role": "melody",
+    "description": "持续风琴与簧片主音",
+    "members": [
+      "studio.fm.organ",
+      "studio.fm.reed"
+    ],
+    "defaultId": "studio.fm.organ",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.digital-motion",
+    "name": "数字色彩",
+    "kind": "sound",
+    "role": "texture",
+    "description": "长音变化与短键点缀",
+    "members": [
+      "studio.fm.orbit",
+      "studio.fm.crystal"
+    ],
+    "defaultId": "studio.fm.orbit",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.electronic-kits",
+    "name": "电子鼓组",
+    "kind": "sound",
+    "role": "drums",
+    "description": "四种明确不同的起音与尾部",
+    "members": [
+      "studio.drum.round",
+      "studio.drum.punch",
+      "studio.drum.dry",
+      "studio.drum.metal"
+    ],
+    "defaultId": "studio.drum.round",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.hand-pop",
+    "name": "手奏流行",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "GMD真人演奏；保留力度与起音位置",
+    "members": [
+      "studio.rhythm.hand-pop.1",
+      "studio.rhythm.hand-pop.2",
+      "studio.rhythm.hand-pop.3",
+      "studio.rhythm.hand-pop.4"
+    ],
+    "defaultId": "studio.rhythm.hand-pop.1",
+    "tags": [
+      "真人",
+      "保留律动"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.hand-soul",
+    "name": "手奏灵魂",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "GMD真人演奏；保留力度与起音位置",
+    "members": [
+      "studio.rhythm.hand-soul.1",
+      "studio.rhythm.hand-soul.2",
+      "studio.rhythm.hand-soul.3",
+      "studio.rhythm.hand-soul.4"
+    ],
+    "defaultId": "studio.rhythm.hand-soul.1",
+    "tags": [
+      "真人",
+      "保留律动"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.hand-fill",
+    "name": "手奏过门",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "GMD真人演奏；保留力度与起音位置",
+    "members": [
+      "studio.rhythm.hand-fill.1"
+    ],
+    "defaultId": "studio.rhythm.hand-fill.1",
+    "tags": [
+      "真人",
+      "保留律动"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.four",
+    "name": "四拍城市",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.four.1",
+      "studio.rhythm.four.2",
+      "studio.rhythm.four.3",
+      "studio.rhythm.four.4",
+      "studio.rhythm.four.5"
+    ],
+    "defaultId": "studio.rhythm.four.1",
+    "tags": [
+      "电子",
+      "118 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.pocket",
+    "name": "半拍口袋",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.pocket.1",
+      "studio.rhythm.pocket.2",
+      "studio.rhythm.pocket.3",
+      "studio.rhythm.pocket.4",
+      "studio.rhythm.pocket.5"
+    ],
+    "defaultId": "studio.rhythm.pocket.1",
+    "tags": [
+      "电子",
+      "84 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.broken",
+    "name": "折线电步",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.broken.1",
+      "studio.rhythm.broken.2",
+      "studio.rhythm.broken.3",
+      "studio.rhythm.broken.4",
+      "studio.rhythm.broken.5"
+    ],
+    "defaultId": "studio.rhythm.broken.1",
+    "tags": [
+      "电子",
+      "110 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.motor",
+    "name": "夜行脉冲",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.motor.1",
+      "studio.rhythm.motor.2",
+      "studio.rhythm.motor.3",
+      "studio.rhythm.motor.4",
+      "studio.rhythm.motor.5"
+    ],
+    "defaultId": "studio.rhythm.motor.1",
+    "tags": [
+      "电子",
+      "126 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.airy",
+    "name": "留白水面",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.airy.1",
+      "studio.rhythm.airy.2",
+      "studio.rhythm.airy.3",
+      "studio.rhythm.airy.4",
+      "studio.rhythm.airy.5"
+    ],
+    "defaultId": "studio.rhythm.airy.1",
+    "tags": [
+      "电子",
+      "76 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.shuffle",
+    "name": "三分轻摆",
+    "kind": "rhythm",
+    "role": "drums",
+    "description": "同一风格的基本、留白、推进、过门与收尾",
+    "members": [
+      "studio.rhythm.shuffle.1",
+      "studio.rhythm.shuffle.2",
+      "studio.rhythm.shuffle.3",
+      "studio.rhythm.shuffle.4",
+      "studio.rhythm.shuffle.5"
+    ],
+    "defaultId": "studio.rhythm.shuffle.1",
+    "tags": [
+      "电子",
+      "96 BPM"
+    ],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.bounce",
+    "name": "弹跳",
+    "kind": "rhythm",
+    "role": "bass",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.bounce.1",
+      "studio.part.bounce.2"
+    ],
+    "defaultId": "studio.part.bounce.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.anchor",
+    "name": "稳固",
+    "kind": "rhythm",
+    "role": "bass",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.anchor.1",
+      "studio.part.anchor.2"
+    ],
+    "defaultId": "studio.part.anchor.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.sync",
+    "name": "切分",
+    "kind": "rhythm",
+    "role": "bass",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.sync.1",
+      "studio.part.sync.2"
+    ],
+    "defaultId": "studio.part.sync.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.stabs",
+    "name": "反拍轻弹",
+    "kind": "rhythm",
+    "role": "chords",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.stabs.1",
+      "studio.part.stabs.2"
+    ],
+    "defaultId": "studio.part.stabs.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.arp",
+    "name": "往返分解",
+    "kind": "rhythm",
+    "role": "chords",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.arp.1",
+      "studio.part.arp.2"
+    ],
+    "defaultId": "studio.part.arp.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.answer",
+    "name": "问答节奏",
+    "kind": "rhythm",
+    "role": "melody",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.answer.1",
+      "studio.part.answer.2"
+    ],
+    "defaultId": "studio.part.answer.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.space",
+    "name": "留白旋律",
+    "kind": "rhythm",
+    "role": "melody",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.space.1",
+      "studio.part.space.2"
+    ],
+    "defaultId": "studio.part.space.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.motif",
+    "name": "重复动机",
+    "kind": "rhythm",
+    "role": "melody",
+    "description": "可独立放入，也可作为节奏骨架",
+    "members": [
+      "studio.part.motif.1",
+      "studio.part.motif.2"
+    ],
+    "defaultId": "studio.part.motif.1",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.warm",
+    "name": "复古暖光",
+    "kind": "combo",
+    "role": "song",
+    "description": "稳定四拍、暖铜和弦和水滴拨弦；适合明亮短旋律。",
+    "members": [
+      "studio.combo.warm",
+      "studio.combo.warm.sparse",
+      "studio.combo.warm.ending"
+    ],
+    "defaultId": "studio.combo.warm",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.city",
+    "name": "清亮都市",
+    "kind": "combo",
+    "role": "song",
+    "description": "手奏灵魂节奏、切分FM低音与玻璃电钢。",
+    "members": [
+      "studio.combo.city",
+      "studio.combo.city.sparse",
+      "studio.combo.city.ending"
+    ],
+    "defaultId": "studio.combo.city",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.night",
+    "name": "夜间口袋",
+    "kind": "combo",
+    "role": "song",
+    "description": "半拍空间、干燥鼓和金属点缀，旋律留白明显。",
+    "members": [
+      "studio.combo.night",
+      "studio.combo.night.sparse",
+      "studio.combo.night.ending"
+    ],
+    "defaultId": "studio.combo.night",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.pulse",
+    "name": "脉冲电子",
+    "kind": "combo",
+    "role": "song",
+    "description": "共振低音、机械推动和分解音型；短音清楚。",
+    "members": [
+      "studio.combo.pulse",
+      "studio.combo.pulse.sparse",
+      "studio.combo.pulse.ending"
+    ],
+    "defaultId": "studio.combo.pulse",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.air",
+    "name": "空旷微光",
+    "kind": "combo",
+    "role": "song",
+    "description": "稀疏鼓、暗色音垫和长尾玻璃钟，音符数量克制。",
+    "members": [
+      "studio.combo.air",
+      "studio.combo.air.sparse",
+      "studio.combo.air.ending"
+    ],
+    "defaultId": "studio.combo.air",
+    "tags": [],
+    "status": "curated-design"
+  },
+  {
+    "id": "family.studio.combo.edge",
+    "name": "锐利折线",
+    "kind": "combo",
+    "role": "song",
+    "description": "折线节奏、橡胶低音与短数字键，强调交错起音。",
+    "members": [
+      "studio.combo.edge",
+      "studio.combo.edge.sparse",
+      "studio.combo.edge.ending"
+    ],
+    "defaultId": "studio.combo.edge",
+    "tags": [],
+    "status": "curated-design"
+  }
+]

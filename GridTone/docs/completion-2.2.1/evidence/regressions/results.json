@@ -1,0 +1,144 @@
+{
+  "sha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "browser": "144.0.7559.96",
+  "mode": "inline production HTML",
+  "checks": [
+    {
+      "id": "U01-chord-panel-target-deletion",
+      "status": "PASS",
+      "seconds": 1.315,
+      "detail": {
+        "closed": true
+      }
+    },
+    {
+      "id": "U02-generator-target-deletion",
+      "status": "PASS",
+      "seconds": 1.22,
+      "detail": {
+        "closed": true
+      }
+    },
+    {
+      "id": "U03-global-mix-independent-of-old-selection",
+      "status": "PASS",
+      "seconds": 1.219,
+      "detail": {
+        "globalCandidate": true
+      }
+    },
+    {
+      "id": "U04-library-pack-count-and-backup",
+      "status": "PASS",
+      "seconds": 0.994,
+      "detail": {
+        "count": 1
+      }
+    },
+    {
+      "id": "U05-kit-role-remap",
+      "status": "PASS",
+      "seconds": 0.84,
+      "detail": {
+        "notes": 48
+      }
+    },
+    {
+      "id": "U06-recipe-preview-matches-target-key",
+      "status": "PASS",
+      "seconds": 0.983,
+      "detail": {
+        "key": 5,
+        "notes": 12
+      }
+    },
+    {
+      "id": "U07-export-current-preview-MIDI",
+      "status": "PASS",
+      "seconds": 1.212,
+      "detail": {
+        "bytes": 90
+      }
+    },
+    {
+      "id": "U08-bake-stale-harmony-and-undo",
+      "status": "PASS",
+      "seconds": 1.315,
+      "detail": null
+    },
+    {
+      "id": "U09-export-current-preview-WAV-range",
+      "status": "PASS",
+      "seconds": 1.309,
+      "detail": {
+        "frames": 230300,
+        "bytes": 921244
+      }
+    },
+    {
+      "id": "U10-paused-audition-new-loop",
+      "status": "PASS",
+      "seconds": 0.896,
+      "detail": {
+        "audition": false,
+        "range": [
+          15360,
+          30720
+        ],
+        "target": "song",
+        "playing": true
+      }
+    },
+    {
+      "id": "U11-one-active-creation-owner",
+      "status": "PASS",
+      "seconds": 2.344,
+      "detail": null
+    },
+    {
+      "id": "U12-source-drum-role-change-invalidates",
+      "status": "PASS",
+      "seconds": 1.21,
+      "detail": null
+    },
+    {
+      "id": "U13-missing-drum-role-rejects-atomically",
+      "status": "PASS",
+      "seconds": 0.794,
+      "detail": {
+        "unchanged": true,
+        "message": "目标鼓组缺少 kick，请选择替代鼓组或补齐角色。"
+      }
+    },
+    {
+      "id": "U14-recipe-preview-effective-tempo-swing",
+      "status": "PASS",
+      "seconds": 0.892,
+      "detail": {
+        "timing": [
+          63,
+          0.21,
+          0.6
+        ],
+        "events": 144
+      }
+    },
+    {
+      "id": "U15-confirmed-bake-preserves-performed-music",
+      "status": "PASS",
+      "seconds": 1.168,
+      "detail": null
+    },
+    {
+      "id": "U16-kit-apply-single-undo-redo",
+      "status": "PASS",
+      "seconds": 1.497,
+      "detail": null
+    }
+  ],
+  "counts": {
+    "PASS": 16,
+    "FAIL": 0
+  },
+  "scope": "Actual production HTML. Same-document fixtures use public commit. Export and buttons real; no origin persistence claim."
+}

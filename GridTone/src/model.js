@@ -3,7 +3,8 @@
 (function (G) {
     'use strict';
     const PPQ = 960, BAR = 3840, STEP = 240;
-    const PATTERN_BARS = Object.freeze([1, 2, 4, 8, 16]);
+    // Exact lengths prevent destructive 4+2+1 slicing during time edits.
+    const PATTERN_BARS = Object.freeze(Array.from({length:16},(_,i)=>i+1));
     G.PATTERN_BARS = PATTERN_BARS;
     const LIMITS = { tracks: 64, bars: 256, notes: 100000, assetsBytes: 24 * 1024 * 1024 };
     const COLORS = ['#2875f5', '#f66570', '#34b995', '#ee9552', '#9774cf', '#419caf', '#bb7483', '#7488ad'];
@@ -163,6 +164,7 @@
                     throw Error('工程超过十万个音符。');
                 for (const n of pat.notes) {
                     id(n.id);
+                    if(n.performed!==undefined&&typeof n.performed!=='boolean')throw Error('演奏时间标记无效。');
                     if(n.timingOffset!==undefined&&!finite(n.timingOffset,-BAR,BAR))throw Error('音符起音补偿无效。');
                     if(n.swingPhase!==undefined&&![0,1].includes(n.swingPhase))throw Error('音符 Swing 相位无效。');
                     if(n.performanceKey!==undefined&&(typeof n.performanceKey!=='string'||n.performanceKey.length>200))throw Error('音符演奏身份无效。');
@@ -277,10 +279,10 @@
                 n.pitch = clamp(n.pitch + Math.round(pipe.transpose), 0, 127);
             const phase = n.swingPhase??(Math.floor(n.start / STEP)%2);
             n.swingPhase=phase;
-            n.start = clamp(n.start + (phase ? project.swing * STEP : 0) + (hash(n.performanceKey||n.id) - .5) * pipe.humanize + (n.timingOffset||0), 0, L - 1);
+            n.start = clamp(n.start + (n.performed ? 0 : (phase ? project.swing * STEP : 0) + (hash(n.performanceKey||n.id) - .5) * pipe.humanize) + (n.timingOffset||0), 0, L - 1);
             delete n.timingOffset;
             n.duration = Math.min(n.duration, L - n.start);
-            if (pipe.humanize)
+            if (pipe.humanize && !n.performed)
                 n.velocity = clamp(n.velocity + (hash((n.performanceKey||n.id) + 'v') - .5) * .08, .02, 1);
         });
         return notes;

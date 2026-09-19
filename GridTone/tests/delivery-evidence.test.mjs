@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {evidenceProblems} from '../scripts/verify-delivery-gate.mjs';
+const H='fixed-delivery-digest';
+test('Evidence: missing or NOT_RUN reports cannot silently pass',()=>{assert.ok(evidenceProblems({sha256:H,status:'NOT_RUN'},H,'engineering').length);assert.ok(evidenceProblems({sha256:H},H,'audio').length);assert.ok(evidenceProblems({sha256:H,counts:{PASS:19,FAIL:0}},H,'browser').length);});
+test('Evidence: a correct count cannot hide an individual failure',()=>{const checks=Array.from({length:19},(_,i)=>({id:'B'+i,status:i?'PASS':'FAIL'}));assert.ok(evidenceProblems({sha256:H,counts:{PASS:19,FAIL:0},checks},H,'browser').length);});
+test('Evidence: full engineering requires all six real task outcomes',()=>{const results=['catalog','build','core','browser','reaudit','audio'].map(name=>({name,status:'PASS',exit:0}));assert.deepEqual(evidenceProblems({sha256:H,status:'PASS',results},H,'engineering'),[]);assert.ok(evidenceProblems({sha256:H,status:'PASS',results:results.slice(1)},H,'engineering').length);});
+test('Evidence: stale builds and short soak logs remain unclosed',()=>{assert.ok(evidenceProblems({sha256:'old',status:'PASS',records:[{}],wallSeconds:605,final:{previews:0}},H,'soak').length);assert.ok(evidenceProblems({sha256:H,status:'PASS',records:[{}],wallSeconds:300,final:{previews:0}},H,'soak').length);});

@@ -9396,7 +9396,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.pop",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.axis",
@@ -9488,7 +9522,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.axis",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.doo",
@@ -9580,7 +9648,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.doo",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.folk",
@@ -9672,7 +9774,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.folk",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.lift",
@@ -9764,7 +9900,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.lift",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.home",
@@ -9856,7 +10026,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.home",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.canon",
@@ -10020,7 +10224,65 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "minor"
+          },
+          {
+            "start": 15360,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 19200,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 23040,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 26880,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.canon",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.soft",
@@ -10136,7 +10398,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.soft",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.window",
@@ -10252,7 +10548,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "maj7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "maj7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.window",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.royal",
@@ -10368,7 +10698,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "maj7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.royal",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.sus",
@@ -10472,7 +10836,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "sus2"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "add9"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "sus4"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.sus",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.sunset",
@@ -10588,7 +10986,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "min7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "maj7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.sunset",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor-axis",
@@ -10680,7 +11112,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor-axis",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor-descent",
@@ -10772,7 +11238,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor-descent",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor-fifth",
@@ -10864,7 +11364,41 @@
           "velocity": 0.63
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "minor"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "major"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor-fifth",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor-return",
@@ -10962,7 +11496,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "minor"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor-return",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.andalusian",
@@ -11060,7 +11628,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "minor"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "major"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 5,
+            "quality": "major"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.andalusian",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor-breath",
@@ -11176,7 +11778,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor-breath",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.251",
@@ -11292,7 +11928,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.251",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.6251",
@@ -11408,7 +12078,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.6251",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.3625",
@@ -11524,7 +12228,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "min7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.3625",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.2516",
@@ -11640,7 +12378,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.2516",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.minor251",
@@ -11756,7 +12528,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 11,
+            "quality": "halfDim"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 4,
+            "quality": "dom7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "min7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.minor251",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "prism.chords.secondary",
@@ -11872,7 +12678,41 @@
           "velocity": 0.585
         }
       ],
-      "bpm": 96
+      "bpm": 96,
+      "harmony": {
+        "version": 1,
+        "events": [
+          {
+            "start": 0,
+            "duration": 3840,
+            "rootPitchClass": 0,
+            "quality": "maj7"
+          },
+          {
+            "start": 3840,
+            "duration": 3840,
+            "rootPitchClass": 9,
+            "quality": "dom7"
+          },
+          {
+            "start": 7680,
+            "duration": 3840,
+            "rootPitchClass": 2,
+            "quality": "min7"
+          },
+          {
+            "start": 11520,
+            "duration": 3840,
+            "rootPitchClass": 7,
+            "quality": "dom7"
+          }
+        ],
+        "source": {
+          "recipeId": "progression.secondary",
+          "recipeVersion": 1
+        },
+        "confirmedMusicHash": "pending"
+      }
     },
     {
       "id": "builtin.drum.four",

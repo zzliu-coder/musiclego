@@ -1,16 +1,38 @@
 node_modules/
-.DS_Store
 __pycache__/
-*.log
+.DS_Store
+*.pyc
+# Large evidence files are shipped in the complete ZIP; source checkpoints keep receipts.
+docs/repair-1.7.1/evidence/audio/*.wav
+docs/repair-1.7.1/evidence/downloads/*.wav
+docs/repair-1.7.1/evidence/screens/*.png
+docs/repair-1.7.1/evidence/diagnostics/*.png
+# Current re-audit binary evidence is included in the ZIP; Git records JSON receipts.
+docs/reaudit-1.7.2/evidence/**/*.wav
+docs/reaudit-1.7.2/evidence/**/*.png
+docs/reaudit-1.7.2/evidence/*.png
 
-checkpoints/*.bundle
-docs/implementation/evidence/soak-progress.json
-docs/implementation/evidence/exploratory/
-# Native browser readback of an existing local composition stays on the test machine.
-docs/closure-v2/evidence/**/fixtures/safari-export.*
-# Superseded candidate evidence is retained locally; the fixed build has its own receipts.
-docs/closure-v2/evidence/pre-label-fix/
+# 1.8 binary evidence ships in the complete ZIP; checkpoints contain text receipts.
+docs/workspace-1.8/evidence/**/*.png
+docs/workspace-1.8/evidence/**/*.wav
+docs/workspace-1.8/evidence/*.png
 
-docs/closure-v2/evidence/pre-cancel-fix/
-
-docs/closure-v2/evidence/current/soak-progress.json
+# 1.9 binary evidence ships in ZIP; commits keep JSON receipts.
+docs/design-1.9/evidence/**/*.png
+docs/design-1.9/evidence/**/*.wav
+docs/design-1.9/evidence/*.png
+docs/design-1.9/evidence/intermediate-*/
+# 2.0 large binary evidence ships in ZIP. Checkpoints retain receipts and code.
+docs/content-2.0/evidence/**/*.png
+docs/content-2.0/evidence/**/*.wav
+docs/content-2.0/evidence/**/*.jpg
+# Warm Magnetic binaries travel in the final ZIP; Git checkpoints keep source and receipts.
+docs/magnet-2.1/evidence/**/*.png
+docs/magnet-2.1/evidence/**/*.jpg
+docs/magnet-2.1/evidence/**/*.wav
+docs/magnet-2.1/evidence/*.png
+# 2.2.1: source history keeps evidence receipts; images ship in source ZIP, WAVs are reproducible.
+docs/completion-2.2.1/evidence/**/*.wav
+docs/completion-2.2.1/evidence/**/*.png
+docs/completion-2.2.1/evidence/**/*.jpg
+docs/completion-2.2.1/evidence/*.png

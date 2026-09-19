@@ -1,90 +1,88 @@
-/* Sole token and theme source. Themes change values, never geometry. */
-:root{
- --weight-regular:400;
- --weight-book:450;
- --weight-medium:500;
- --weight-label:550;
- --weight-semibold:600;
- --weight-strong:650;
- --weight-bold:700;
- --weight-heavy:750;
- --weight-display:800;
- --weight-black:900;
- --leading-tight:1.2;
- --leading-compact:1.3;
- --leading-label:1.4;
- --leading-normal:1.5;
- --leading-body:1.6;
- --leading-readable:1.7;
- --leading-relaxed:1.8;
- --numeric-style:tabular-nums;
-
- --paper:#fafaf8;
- --surface:#fdfdfc;
- --surface-raised:#fff;
- --ink:#252a32;
- --muted:#68717d;
- --subtle:#767e89;
- --line:#e6e8e9;
- --line-strong:#ccd1d8;
- --brand:#2875f5;
- --green:var(--brand);
- --accent:#dceaff;
- --selected:#e8f0ff;
- --dark:#2168db;
- --warning:#986323;
- --warning-bg:#fff2df;
- --danger:#bf3947;
- --space-1:4px;
- --space-2:8px;
- --space-3:12px;
- --space-4:16px;
- --space-5:24px;
- --radius-sm:7px;
- --radius:10px;
- --radius-lg:20px;
- --control:34px;
- --control-small:30px;
- --touch-control:44px;
- --font-small:12px;
- --font-body:13px;
- --font-label:14px;
- --font-heading:18px;
- --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
- --shadow:0 1px 2px #25303b0a;
- --shadow-raised:0 10px 40px rgba(35,66,102,.12),0 1px 2px rgba(35,66,102,.06);
- --focus:0 0 0 2px var(--surface),0 0 0 4px #276e90;
- --glass:var(--surface);
- --glass-edge:var(--line);
- --glass-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 2px 4px rgba(34,63,98,.04),0 12px 36px rgba(34,63,98,.055);
- --glass-blur:0px;
- --button-face:#f3f4f5;
- --button-shadow:inset 0 1px 0 #fff,0 1px 1px #303c4c15,0 2px 2px #303c4c09;
- --ambient:none;
- --track-head:208px;
- --track-row:76px;
- --grid-paper:#fcfcfa;
- --grid-beat:#f0f5fa;
- --grid-key:#f0f1ef;
- --grid-major:#ccd1d4;
- --grid-minor:#e6e8e6;
- --grid-note:#367b97;
- --color-playhead:#ee626a;
- --duration-quick:130ms;
- --duration-panel:180ms;
- --bg:#fafaf8;
- --piano-black:#f0f1ef;
- --font:var(--font-ui);
- --press-time:75ms;
- --state-time:140ms;
- --panel-time:210ms;
- --ease-settle:cubic-bezier(.18,.8,.25,1);
- --ease-panel:cubic-bezier(.2,.7,.2,1);
- --depth-rest:inset 0 1px 0 #ffffffc9,inset 0 -1px 0 #17273e15,0 2px 3px #26344913;
- --depth-pressed:inset 0 1px 2px #24395420,0 0 0 transparent;
- --depth-lifted:inset 0 1px 0 #ffffffb3,0 5px 9px #20304729;
- color-scheme:light;font:var(--font-body)/1.5 var(--font-ui);color:var(--ink);font-synthesis:none;-webkit-font-smoothing:antialiased;
+/* Design System 2.0 — Warm Magnetic / single source of visual values.
+   A is production default. Existing crystal/pearl preferences remain compatible.
+   B is a non-persistent comparison variant in components.html, not a new work mode. */
+:root {
+  color-scheme: light;
+  --paper: #f7f7f4; --bg: var(--paper);
+  --surface: #fdfcfa; --surface-raised: #ffffff; --surface-tint: #f2f1ee;
+  --grid-paper: #ffffff; --grid-key: #f5f5f2; --grid-beat: #f7f8f8;
+  --grid-major: #c5c9ce; --grid-minor: #e9eaed;
+  --ink: #2a303b; --muted: #626b79; --subtle: var(--muted);
+  --line: #e2e1df; --line-strong: #bdc1c8; --control-border: #858c97;
+  --brand: #b43d58; --brand-hover: #973047; --dark: #812a3e;
+  --selected: #fce5e9; --selected-ink: #7c2440; --accent: var(--selected);
+  --focus-color: #315cc2; --green: var(--brand); --ink-on-accent: #ffffff;
+  --warning: #855716; --warning-bg: #fff3dd; --notice-warning: var(--warning-bg);
+  --danger: #a42b42; --status-error: var(--danger); --notice-error: #fff0f2;
+  --success: #246448; --notice-info: #eff3f8;
+  --color-playhead: #394a60;
+  --music-drums-surface: #fce0e5; --music-drums-ink: #833d51;
+  --music-bass-surface: #dcebff; --music-bass-ink: #2c5587;
+  --music-chords-surface: #ffe9cc; --music-chords-ink: #815019;
+  --music-melody-surface: #ddf2e8; --music-melody-ink: #28664c;
+  --music-texture-surface: #ece3fa; --music-texture-ink: #624c89;
+  --music-other-surface: #ddf1f2; --music-other-ink: #2e666b;
+  --font-ui: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --font: var(--font-ui); --font-mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --font-body: 14px; --font-label: 13px; --font-small: 12px; --font-meta: 11px;
+  --font-section: 14px; --font-title: 20px; --font-heading: 20px;
+  --weight-regular: 400; --weight-book: 400; --weight-medium: 500; --weight-label: 500;
+  --weight-semibold: 600; --weight-strong: 600; --weight-bold: 600;
+  --weight-heavy: 600; --weight-display: 600; --weight-black: 600;
+  --leading-tight: 1.2; --leading-compact: 1.4; --leading-label: 1.4;
+  --leading-normal: 1.5; --leading-body: 1.5; --leading-readable: 1.6; --leading-relaxed: 1.65;
+  --numeric-style: tabular-nums;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px;
+  --gap-control: 6px; --gap-group: 16px;
+  --radius-sm: 6px; --radius-control: 8px; --radius: 10px; --radius-lg: 14px;
+  --radius-tile: var(--radius); --radius-panel: var(--radius-lg);
+  --text-body: var(--font-body); --text-label: var(--font-label); --text-small: var(--font-small);
+  --field-bg: var(--surface-raised); --danger-bg: var(--notice-error);
+  --inset-field: var(--field-inset); --music-chords-bg: var(--music-chords-surface);
+  --tile-edge: var(--block-light),inset 0 -1px 0 #28334914;
+  --tile-shadow: 0 1px 0 #aab0ba33,0 2px 3px #3037440e;
+  --control: 36px; --control-small: 30px; --control-icon: 32px; --touch-control: 44px;
+  --track-head: 216px; --track-row: 76px; --tray-width: 240px; --tool-width: 336px;
+  --button-face: #faf9f6; --button-hover: #f2eeeb;
+  --button-shadow: inset 0 1px 0 #ffffffed,0 1px 1px #333b4910;
+  --shadow: 0 1px 2px #3037440a;
+  --shadow-raised: 0 8px 24px #3037441c,0 1px 3px #3037440a;
+  --block-light: inset 0 1px 0 #ffffffdc;
+  --block-rest: var(--block-light),inset 0 -1px 0 #28334914,0 1px 0 #aab0ba33,0 2px 3px #3037440e;
+  --block-lift: var(--block-light),inset 0 -1px 0 #28334914,0 5px 12px #30374424;
+  --depth-rest: var(--button-shadow);
+  --depth-pressed: inset 0 1px 2px #30374424;
+  --depth-lifted: var(--block-lift);
+  --field-inset: inset 0 1px 2px #30374408;
+  --focus: 0 0 0 2px var(--surface),0 0 0 4px var(--focus-color);
+  --key-dark: #344252; --key-dark-ink: #ffffff;
+  --press-time: 0ms; --state-time: 80ms; --panel-time: 0ms; --settle-time: 100ms;
+  --duration-quick: var(--state-time); --duration-panel: var(--panel-time);
+  --ease-settle: ease-out; --ease-panel: ease-out;
+  /* Legacy token names stay as aliases; no blur or ambient image is enabled. */
+  --glass: var(--surface); --glass-edge: var(--line); --glass-shadow: var(--shadow);
+  --glass-blur: 0px; --ambient: none; --piano-black: var(--grid-key); --grid-note: var(--music-melody-ink);
+  font: var(--font-body)/var(--leading-body) var(--font-ui); color: var(--ink);
+  font-synthesis: none; -webkit-font-smoothing: antialiased;
 }
-:root[data-skin=pearl]{--paper:#fcfaf5;--bg:#fcfaf5;--surface:#fffdf8;--grid-paper:#fffdf9;--grid-key:#f3f0e9;--grid-minor:#ebe7df;--grid-major:#d7d2c8;--ink:#34312d;--muted:#716c64;--brand:#2875f5;--selected:#e8f0ff;--button-face:#f4f1eb}
-:root[data-transparency=reduced]{--glass:var(--surface);--glass-blur:0px;--ambient:none;--glass-edge:var(--line-strong)}
-@media(prefers-reduced-transparency:reduce){:root{--glass:var(--surface);--glass-blur:0px;--ambient:none}}
+/* Existing warm alternative: C. Geometry, music colors and action semantics are shared. */
+:root[data-skin=pearl], :root[data-direction=porcelain] {
+  --paper: #f7f3ec; --surface: #fefcf8; --grid-paper: #fffefb;
+  --surface-tint: #f4f0e9; --grid-key: #f6f3ed; --grid-beat: #faf8f3;
+  --line: #e4dfd7; --button-face: #fdfaf4; --button-hover: #f5efe5;
+  --block-light: inset 0 1px 0 #ffffffa8;
+}
+/* B: comparison-only surface calibration. */
+:root[data-direction=clear] {
+  --paper: #f4f7fa; --surface: #fbfcfd; --grid-paper: #ffffff;
+  --surface-tint: #eef2f6; --grid-key: #f2f5f8; --grid-beat: #f7f9fb;
+  --line: #dfe5eb; --button-face: #f8fafc; --button-hover: #eff3f8;
+  --block-light: inset 0 1px 0 #fffffff5;
+}
+:root[data-transparency=reduced] { --glass: var(--surface); --glass-blur: 0px; }
+:root[data-motion=reduced] { --state-time: 0ms; --press-time: 0ms; --panel-time: 0ms; --settle-time: 0ms; }
+@media(prefers-reduced-motion:reduce) {
+  :root { --state-time: 0ms; --press-time: 0ms; --panel-time: 0ms; --settle-time: 0ms; }
+}
+
+@media(prefers-reduced-transparency:reduce) { :root { --glass: var(--surface); --glass-blur: 0px; } }

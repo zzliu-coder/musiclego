@@ -20,13 +20,15 @@
         identifier(p.id, '音色编号');
         if (p.version !== 1)
             throw Error('音色定义版本应为 1。');
-        if (!['fm', 'harmonic', 'organ', 'sub', 'bass', 'pad', 'drum', 'prism-modal','prism-pluck','prism-ep','prism-bass','prism-pad','prism-lead','prism-air','multisample'].includes(p.engine))
+        if (!['fm', 'harmonic', 'organ', 'sub', 'bass', 'pad', 'drum', 'prism-modal','prism-pluck','prism-ep','prism-bass','prism-pad','prism-lead','prism-air','multisample','studio-va','studio-fm4'].includes(p.engine))
             throw Error('尚未接入这个声音算法：' + p.engine);
         if (!['sine', 'triangle', 'square', 'sawtooth'].includes(p.wave))
             throw Error('波形无效。');
         for (const [k, a, b] of [['ratio', .1, 16], ['index', 0, 20], ['release', .03, 3], ['decay', 0, 30]])
             number(p[k], a, b, '音色 ' + k);
+        if(p.engine.startsWith('studio-')&&!p.synthesis)throw Error('新引擎需要完整发声定义。');
         const extra={};
+        if(p.synthesis!==undefined){if(!G.validateStudioSynthesis)throw Error('当前版本未加载新声音定义校验器。');extra.synthesis=G.validateStudioSynthesis(p.synthesis,p.engine);}
         if(p.profile!==undefined)extra.profile=text(p.profile,'',30);
         if(p.gain!==undefined)extra.gain=number(p.gain,.05,2,'预设输出补偿');
         if(p.tags!==undefined){if(!Array.isArray(p.tags)||p.tags.length>8)throw Error('音色标签最多 8 项。');extra.tags=p.tags.map(v=>text(v,'',30));}
@@ -229,7 +231,8 @@
         identifier(t.id, '模板编号');
         if (t.version !== 1 || !['pattern', 'song'].includes(t.type))
             throw Error('模板类型或版本无效。');
-        const metadata={}; if(t.role!==undefined){if(!['drums','melody','bass','chords','texture','song'].includes(t.role))throw Error('模板角色无效。');metadata.role=t.role;} if(t.tags!==undefined){if(!Array.isArray(t.tags)||t.tags.length>8)throw Error('模板标签最多 8 项。');metadata.tags=t.tags.map(x=>text(x,'',30));} if(t.bpm!==undefined)metadata.bpm=number(t.bpm,40,240,'建议速度');
+        const metadata={};for(const k of ['familyId','variant'])if(t[k]!==undefined)metadata[k]=text(t[k],'',120); if(t.role!==undefined){if(!['drums','melody','bass','chords','texture','song'].includes(t.role))throw Error('模板角色无效。');metadata.role=t.role;} if(t.tags!==undefined){if(!Array.isArray(t.tags)||t.tags.length>8)throw Error('模板标签最多 8 项。');metadata.tags=t.tags.map(x=>text(x,'',30));} if(t.bpm!==undefined)metadata.bpm=number(t.bpm,40,240,'建议速度');
+        if(t.attributions!==undefined){if(!Array.isArray(t.attributions)||t.attributions.length>128)throw Error('素材来源信息过多或无效。');metadata.attributions=t.attributions.map(a=>{if(!a||typeof a!=='object'||typeof a.credit!=='string'||typeof a.license!=='string')throw Error('素材来源需要作者和许可。');return {id:text(a.id,'source',120),credit:text(a.credit,'',300),license:text(a.license,'',80),description:text(a.description,'',500),...(a.sourceFile?{sourceFile:text(a.sourceFile,'',500)}:{}),...(a.sha256?{sha256:text(a.sha256,'',80)}:{}),...(Array.isArray(a.sourceBars)&&a.sourceBars.length===2?{sourceBars:a.sourceBars.map(n=>number(n,1,100000,'来源小节'))}:{})};});}
         const common = { ...metadata, id: t.id, version: 1, type: t.type, name: text(t.name, '未命名模板', 80), description: text(t.description, '可以继续编辑的音乐素材。', 240) };
         if (t.type === 'song')
             return { ...common, project: G.validateProject(t.project) };
@@ -239,7 +242,7 @@
             throw Error('模板参考调性无效。');
         if(t.harmony){const hp={bars:t.bars,notes:t.notes,harmony:t.harmony};G.validateCreativeMetadata(hp);common.harmony=clone(t.harmony);}
         const notes = t.notes.map(n => { number(n.pitch, 0, 127, '音高'); if (!Number.isInteger(n.pitch))
-            throw Error('音高必须是整数。'); number(n.start, 0, t.bars * BAR - 1, '开始位置'); number(n.duration, 1, t.bars * BAR - n.start, '时长'); number(n.velocity, .01, 1, '力度'); return { pitch: n.pitch, start: n.start, duration: n.duration, velocity: n.velocity }; });
+            throw Error('音高必须是整数。'); number(n.start, 0, t.bars * BAR - 1, '开始位置'); number(n.duration, 1, t.bars * BAR - n.start, '时长'); number(n.velocity, .01, 1, '力度'); if(n.performed!==undefined&&typeof n.performed!=='boolean')throw Error('演奏标记必须为布尔值。'); return { pitch: n.pitch, start: n.start, duration: n.duration, velocity: n.velocity, ...(n.performed===undefined?{}:{performed:n.performed}) }; });
         return { ...common, kind: t.kind, bars: t.bars, key: t.key, scale: t.scale, presetId: identifier(t.presetId || (t.kind === 'drum' ? 'drums' : 'epiano')), drumkitId: t.kind === 'drum' ? identifier(t.drumkitId || 'builtin.standard') : undefined, notes };
     }
     function validateCatalog(raw) {
@@ -318,8 +321,9 @@
         return { pack, duplicate: false };
     }
     const catalogRevision=()=>library.packs.size;
+    const catalogPackCount=()=>[...library.packs.values()].filter(p=>!G.BUNDLED_CATALOG_IDS?.includes(p.id)).length;
     const catalogTemplates=()=>[...library.templates.values()].map(clone);
-    function catalogContents({includePacks=true}={}) { return { presets: [...library.presets.values()].map(clone), drumkits: [...library.drumkits.values()].map(clone), templates: catalogTemplates(), packs: includePacks?[...library.packs.values()].map(clone):[] }; }
+    function catalogContents({includePacks=true}={}) { return { presets: [...library.presets.values()].map(clone), drumkits: [...library.drumkits.values()].map(clone), templates: catalogTemplates(), packs: includePacks?[...library.packs.values()].filter(p=>!G.BUNDLED_CATALOG_IDS?.includes(p.id)).map(clone):[] }; }
     function getTemplate(id) { const t = library.templates.get(id); if (!t)
         throw Error('找不到这个模板。'); return clone(t); }
     function newIdentity(p) { const copy=G.copyProject(p);copy.title=p.title;return copy; }
@@ -394,12 +398,12 @@
             h.events=Array.from({length:pat.bars/t.bars},(_,i)=>t.harmony.events.map(e=>({...e,start:e.start+i*t.bars*BAR,rootPitchClass:G.pitchClass(e.rootPitchClass+delta),...(e.pitchClasses?{pitchClasses:e.pitchClasses.map(x=>G.pitchClass(x+delta))}:{})}))).flat();
             G.confirmHarmony(pat,h);
         }else{delete pat.harmony;}
-        delete pat.retention;delete pat.generation;
+        delete pat.retention;delete pat.generation;if(t.attributions)pat.attributions=clone(t.attributions);G.annotateStudioMaterial?.(pat,t.id);
         if(mode==='new-track'&&['drums','melody','bass','chords','texture'].includes(t.role))track.role=t.role;
         pinDocument(p);
         const checked = G.validateProject(p);
         assertPlayable(checked, [track.id]);
         return { project: checked, trackId: track.id, patternId: pat.id, clipId: clip?.id || null };
     }
-    Object.assign(G, { assertDataTree, identifier, validateSnapshot, validateCatalog, installCatalog, catalogContents, catalogTemplates, catalogRevision, getTemplate, resolvePreset, resolveKit, projectPresets, projectKits, drumsFor, neededAssets, missingResources, assertPlayable, pinPreset, pinKit, pinDocument, applyTemplate, normalizedAssets });
+    Object.assign(G, { assertDataTree, identifier, validateSnapshot, validateCatalog, installCatalog, catalogContents, catalogTemplates, catalogRevision, catalogPackCount, getTemplate, resolvePreset, resolveKit, projectPresets, projectKits, drumsFor, neededAssets, missingResources, assertPlayable, pinPreset, pinKit, pinDocument, applyTemplate, normalizedAssets });
 })(globalThis.GridTone ||= {});

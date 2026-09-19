@@ -1,0 +1,973 @@
+{
+  "scope": "All literal production actions plus semantic family ownership. Dynamic names map to their existing command/operation registry; no claim that literals alone prove coverage.",
+  "actions": [
+    {
+      "action": "clear-solo",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "listen-tracks",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "reset-mix",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "mute",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "solo",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "export",
+      "file": "src/views/mix.js",
+      "line": 8
+    },
+    {
+      "action": "edit-command",
+      "file": "src/views/edit-bar.js",
+      "line": 6
+    },
+    {
+      "action": "edit-command",
+      "file": "src/views/edit-bar.js",
+      "line": 10
+    },
+    {
+      "action": "edit-open",
+      "file": "src/views/edit-bar.js",
+      "line": 10
+    },
+    {
+      "action": "edit-tools",
+      "file": "src/views/edit-bar.js",
+      "line": 10
+    },
+    {
+      "action": "shelf-toggle",
+      "file": "src/views/template-shelf.js",
+      "line": 15
+    },
+    {
+      "action": "shelf-toggle",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-browse",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-filter",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-current",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-cancel",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-reset",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "catalog",
+      "file": "src/views/template-shelf.js",
+      "line": 21
+    },
+    {
+      "action": "shelf-new-independent",
+      "file": "src/views/template-shelf.js",
+      "line": 58
+    },
+    {
+      "action": "close-modal",
+      "file": "src/views/template-shelf.js",
+      "line": 58
+    },
+    {
+      "action": "shelf-replace",
+      "file": "src/views/template-shelf.js",
+      "line": 59
+    },
+    {
+      "action": "shelf-split-replace",
+      "file": "src/views/template-shelf.js",
+      "line": 59
+    },
+    {
+      "action": "close-modal",
+      "file": "src/views/template-shelf.js",
+      "line": 59
+    },
+    {
+      "action": "harmony-editor",
+      "file": "src/views/creation.js",
+      "line": 90
+    },
+    {
+      "action": "creation-open-options",
+      "file": "src/views/creation.js",
+      "line": 92
+    },
+    {
+      "action": "creation-new-four",
+      "file": "src/views/creation.js",
+      "line": 92
+    },
+    {
+      "action": "creation-pick-chords",
+      "file": "src/views/creation.js",
+      "line": 92
+    },
+    {
+      "action": "harmony-editor",
+      "file": "src/views/creation.js",
+      "line": 92
+    },
+    {
+      "action": "creation-preview",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-preview-solo",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-preview-original",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "stop",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-overlay",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-overlay",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-fit",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-apply",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-generate",
+      "file": "src/views/creation.js",
+      "line": 99
+    },
+    {
+      "action": "creation-return",
+      "file": "src/views/creation.js",
+      "line": 101
+    },
+    {
+      "action": "creation-keep",
+      "file": "src/views/creation.js",
+      "line": 102
+    },
+    {
+      "action": "creation-save-keeps",
+      "file": "src/views/creation.js",
+      "line": 102
+    },
+    {
+      "action": "creation-keep",
+      "file": "src/views/creation.js",
+      "line": 106
+    },
+    {
+      "action": "creation-generate",
+      "file": "src/views/creation.js",
+      "line": 107
+    },
+    {
+      "action": "harmony-remove",
+      "file": "src/views/creation.js",
+      "line": 128
+    },
+    {
+      "action": "harmony-add",
+      "file": "src/views/creation.js",
+      "line": 128
+    },
+    {
+      "action": "harmony-confirm",
+      "file": "src/views/creation.js",
+      "line": 128
+    },
+    {
+      "action": "close-modal",
+      "file": "src/views/creation.js",
+      "line": 128
+    },
+    {
+      "action": "sound-audition",
+      "file": "src/views/sound.js",
+      "line": 10
+    },
+    {
+      "action": "preset",
+      "file": "src/views/sound.js",
+      "line": 10
+    },
+    {
+      "action": "load-sample-bank",
+      "file": "src/views/sound.js",
+      "line": 10
+    },
+    {
+      "action": "sound-audition",
+      "file": "src/views/sound.js",
+      "line": 12
+    },
+    {
+      "action": "preset",
+      "file": "src/views/sound.js",
+      "line": 12
+    },
+    {
+      "action": "audition-key",
+      "file": "src/views/sound.js",
+      "line": 16
+    },
+    {
+      "action": "catalog-tab",
+      "file": "src/views/sound.js",
+      "line": 24
+    },
+    {
+      "action": "import-catalog",
+      "file": "src/views/sound.js",
+      "line": 25
+    },
+    {
+      "action": "record",
+      "file": "src/views/sound.js",
+      "line": 25
+    },
+    {
+      "action": "import-sample",
+      "file": "src/views/sound.js",
+      "line": 25
+    },
+    {
+      "action": "sound-source",
+      "file": "src/views/sound.js",
+      "line": 26
+    },
+    {
+      "action": "sound-category",
+      "file": "src/views/sound.js",
+      "line": 27
+    },
+    {
+      "action": "preview",
+      "file": "src/views/sound.js",
+      "line": 33
+    },
+    {
+      "action": "key-octave",
+      "file": "src/views/sound.js",
+      "line": 33
+    },
+    {
+      "action": "key-octave",
+      "file": "src/views/sound.js",
+      "line": 33
+    },
+    {
+      "action": "sound-details",
+      "file": "src/views/sound.js",
+      "line": 34
+    },
+    {
+      "action": "creation",
+      "file": "src/views/shell.js",
+      "line": 7
+    },
+    {
+      "action": "add-track",
+      "file": "src/views/shell.js",
+      "line": 7
+    },
+    {
+      "action": "new-blank-clip",
+      "file": "src/views/shell.js",
+      "line": 7
+    },
+    {
+      "action": "structure-tools",
+      "file": "src/views/shell.js",
+      "line": 7
+    },
+    {
+      "action": "edit-open",
+      "file": "src/views/shell.js",
+      "line": 7
+    },
+    {
+      "action": "play",
+      "file": "src/views/shell.js",
+      "line": 8
+    },
+    {
+      "action": "view",
+      "file": "src/views/shell.js",
+      "line": 8
+    },
+    {
+      "action": "view",
+      "file": "src/views/shell.js",
+      "line": 8
+    },
+    {
+      "action": "export",
+      "file": "src/views/shell.js",
+      "line": 8
+    },
+    {
+      "action": "import-catalog",
+      "file": "src/views/shell.js",
+      "line": 9
+    },
+    {
+      "action": "open-sound",
+      "file": "src/views/shell.js",
+      "line": 9
+    },
+    {
+      "action": "loop",
+      "file": "src/views/shell.js",
+      "line": 11
+    },
+    {
+      "action": "clear-solo",
+      "file": "src/views/shell.js",
+      "line": 11
+    },
+    {
+      "action": "retry-save",
+      "file": "src/views/shell.js",
+      "line": 11
+    },
+    {
+      "action": "export-project",
+      "file": "src/views/shell.js",
+      "line": 11
+    },
+    {
+      "action": "resume-tool",
+      "file": "src/views/inspector.js",
+      "line": 6
+    },
+    {
+      "action": "inspector-tab",
+      "file": "src/views/inspector.js",
+      "line": 8
+    },
+    {
+      "action": "mute",
+      "file": "src/views/inspector.js",
+      "line": 11
+    },
+    {
+      "action": "solo",
+      "file": "src/views/inspector.js",
+      "line": 11
+    },
+    {
+      "action": "open-instance",
+      "file": "src/views/inspector.js",
+      "line": 11
+    },
+    {
+      "action": "open-pattern-id",
+      "file": "src/views/inspector.js",
+      "line": 11
+    },
+    {
+      "action": "record",
+      "file": "src/views/inspector.js",
+      "line": 12
+    },
+    {
+      "action": "import-sample",
+      "file": "src/views/inspector.js",
+      "line": 12
+    },
+    {
+      "action": "import-catalog",
+      "file": "src/views/inspector.js",
+      "line": 12
+    },
+    {
+      "action": "repeat-song",
+      "file": "src/views/inspector.js",
+      "line": 16
+    },
+    {
+      "action": "creation",
+      "file": "src/views/inspector.js",
+      "line": 16
+    },
+    {
+      "action": "creation",
+      "file": "src/views/inspector.js",
+      "line": 16
+    },
+    {
+      "action": "recipes",
+      "file": "src/views/inspector.js",
+      "line": 16
+    },
+    {
+      "action": "fit-notes",
+      "file": "src/views/inspector.js",
+      "line": 17
+    },
+    {
+      "action": "octave-down",
+      "file": "src/views/inspector.js",
+      "line": 17
+    },
+    {
+      "action": "octave-up",
+      "file": "src/views/inspector.js",
+      "line": 17
+    },
+    {
+      "action": "rename-pattern",
+      "file": "src/views/inspector.js",
+      "line": 21
+    },
+    {
+      "action": "edit-command",
+      "file": "src/views/inspector.js",
+      "line": 23
+    },
+    {
+      "action": "edit-transform",
+      "file": "src/views/inspector.js",
+      "line": 24
+    },
+    {
+      "action": "edit-duration",
+      "file": "src/views/inspector.js",
+      "line": 24
+    },
+    {
+      "action": "edit-velocity",
+      "file": "src/views/inspector.js",
+      "line": 24
+    },
+    {
+      "action": "transpose-dialog",
+      "file": "src/views/inspector.js",
+      "line": 24
+    },
+    {
+      "action": "note-inspector",
+      "file": "src/views/inspector.js",
+      "line": 24
+    },
+    {
+      "action": "composer",
+      "file": "src/views/inspector.js",
+      "line": 25
+    },
+    {
+      "action": "creation",
+      "file": "src/views/inspector.js",
+      "line": 25
+    },
+    {
+      "action": "creation",
+      "file": "src/views/inspector.js",
+      "line": 25
+    },
+    {
+      "action": "creation",
+      "file": "src/views/inspector.js",
+      "line": 25
+    },
+    {
+      "action": "edit-command",
+      "file": "src/views/inspector.js",
+      "line": 26
+    },
+    {
+      "action": "bake-pipeline",
+      "file": "src/views/pipeline.js",
+      "line": 9
+    },
+    {
+      "action": "groove",
+      "file": "src/views/pipeline.js",
+      "line": 9
+    },
+    {
+      "action": "catalog-tab",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "recipes",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "import-catalog",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "catalog-role",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "example-catalog",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "export-catalog",
+      "file": "src/views/catalog.js",
+      "line": 17
+    },
+    {
+      "action": "catalog-back",
+      "file": "src/views/catalog.js",
+      "line": 40
+    },
+    {
+      "action": "catalog-preview",
+      "file": "src/views/catalog.js",
+      "line": 40
+    },
+    {
+      "action": "catalog-apply",
+      "file": "src/views/catalog.js",
+      "line": 40
+    },
+    {
+      "action": "catalog-back",
+      "file": "src/views/catalog.js",
+      "line": 52
+    },
+    {
+      "action": "catalog-preview",
+      "file": "src/views/catalog.js",
+      "line": 52
+    },
+    {
+      "action": "stop",
+      "file": "src/views/catalog.js",
+      "line": 52
+    },
+    {
+      "action": "catalog-apply",
+      "file": "src/views/catalog.js",
+      "line": 52
+    },
+    {
+      "action": "open-sound",
+      "file": "src/views/editor.js",
+      "line": 6
+    },
+    {
+      "action": "listen-pattern",
+      "file": "src/views/editor.js",
+      "line": 6
+    },
+    {
+      "action": "harmony-editor",
+      "file": "src/views/editor.js",
+      "line": 6
+    },
+    {
+      "action": "tool",
+      "file": "src/views/editor.js",
+      "line": 8
+    },
+    {
+      "action": "tool",
+      "file": "src/views/editor.js",
+      "line": 8
+    },
+    {
+      "action": "fit-notes",
+      "file": "src/views/editor.js",
+      "line": 9
+    },
+    {
+      "action": "return-draft-target",
+      "file": "src/views/composer.js",
+      "line": 33
+    },
+    {
+      "action": "composer-group",
+      "file": "src/views/composer.js",
+      "line": 38
+    },
+    {
+      "action": "composer-preview",
+      "file": "src/views/composer.js",
+      "line": 38
+    },
+    {
+      "action": "stop",
+      "file": "src/views/composer.js",
+      "line": 38
+    },
+    {
+      "action": "composer-apply",
+      "file": "src/views/composer.js",
+      "line": 38
+    },
+    {
+      "action": "mute",
+      "file": "src/ui/components.js",
+      "line": 44
+    },
+    {
+      "action": "solo",
+      "file": "src/ui/components.js",
+      "line": 44
+    },
+    {
+      "action": "sample",
+      "file": "src/ui/component-demo.js",
+      "line": 9
+    },
+    {
+      "action": "creation-overlay",
+      "file": "src/ui/candidate-projection.js",
+      "line": 14
+    },
+    {
+      "action": "new-project",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "open-project",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "project-copy",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "retry-save",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "discard-reload",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "export-project",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "recoveries",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "project-open",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "project-download",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "project-delete",
+      "file": "src/app.js",
+      "line": 105
+    },
+    {
+      "action": "resume-tool",
+      "file": "src/app.js",
+      "line": 221
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 346
+    },
+    {
+      "action": "confirm",
+      "file": "src/app.js",
+      "line": 346
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 357
+    },
+    {
+      "action": "submit-form",
+      "file": "src/app.js",
+      "line": 357
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 360
+    },
+    {
+      "action": "preview-pitch",
+      "file": "src/app.js",
+      "line": 411
+    },
+    {
+      "action": "stop",
+      "file": "src/app.js",
+      "line": 411
+    },
+    {
+      "action": "apply-pitch",
+      "file": "src/app.js",
+      "line": 411
+    },
+    {
+      "action": "export-wav",
+      "file": "src/app.js",
+      "line": 413
+    },
+    {
+      "action": "export-midi",
+      "file": "src/app.js",
+      "line": 413
+    },
+    {
+      "action": "export-project",
+      "file": "src/app.js",
+      "line": 413
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 552
+    },
+    {
+      "action": "stop-record",
+      "file": "src/app.js",
+      "line": 577
+    },
+    {
+      "action": "context-edit",
+      "file": "src/app.js",
+      "line": 593
+    },
+    {
+      "action": "context-tools",
+      "file": "src/app.js",
+      "line": 593
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 602
+    },
+    {
+      "action": "note-preview-original",
+      "file": "src/app.js",
+      "line": 637
+    },
+    {
+      "action": "note-preview-candidate",
+      "file": "src/app.js",
+      "line": 637
+    },
+    {
+      "action": "note-apply",
+      "file": "src/app.js",
+      "line": 637
+    },
+    {
+      "action": "restore-recovery",
+      "file": "src/app.js",
+      "line": 646
+    },
+    {
+      "action": "project-menu",
+      "file": "src/app.js",
+      "line": 699
+    },
+    {
+      "action": "catalog",
+      "file": "src/app.js",
+      "line": 699
+    },
+    {
+      "action": "view",
+      "file": "src/app.js",
+      "line": 699
+    },
+    {
+      "action": "appearance",
+      "file": "src/app.js",
+      "line": 699
+    },
+    {
+      "action": "help",
+      "file": "src/app.js",
+      "line": 699
+    },
+    {
+      "action": "clips-copy",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "clips-paste",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "clips-duplicate",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "duplicate-clip",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "unlink-clip",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "clips-delete",
+      "file": "src/app.js",
+      "line": 705
+    },
+    {
+      "action": "close-modal",
+      "file": "src/app.js",
+      "line": 902
+    },
+    {
+      "action": "place-pattern",
+      "file": "src/app.js",
+      "line": 973
+    },
+    {
+      "action": "place-new-pattern",
+      "file": "src/app.js",
+      "line": 973
+    }
+  ],
+  "families": [
+    {
+      "family": "基础编辑",
+      "presentation": "EditBar/Button/Notice",
+      "owner": "EditTarget / command",
+      "invariant": "目标独立于浏览器焦点；一次历史"
+    },
+    {
+      "family": "绘音/范围/拖长",
+      "presentation": "画板/音符/把手",
+      "owner": "EditorInteractions",
+      "invariant": "输入网格精度不变"
+    },
+    {
+      "family": "素材点击与拖放",
+      "presentation": "MusicBlock/Projection",
+      "owner": "TemplateShelf/PlacementPlan",
+      "invariant": "结束完整清理；取消不写入"
+    },
+    {
+      "family": "生成与比较",
+      "presentation": "ContextCard/TaskChoice/Candidate/Overlay",
+      "owner": "CreationUI/CandidateSession",
+      "invariant": "固定目标；采用前原稿不变"
+    },
+    {
+      "family": "和弦进行",
+      "presentation": "MusicBlock/参数/采用",
+      "owner": "ComposerUI/CandidateSession",
+      "invariant": "生成和提交动词分开"
+    },
+    {
+      "family": "音色与录音",
+      "presentation": "SoundCard/琴键/Notice",
+      "owner": "AudioEngine/resources",
+      "invariant": "试听不改音色；资源明确"
+    },
+    {
+      "family": "混音与演奏",
+      "presentation": "Slider/Field/Toggle",
+      "owner": "Project/PlaybackContext",
+      "invariant": "临时只听不影响默认导出"
+    },
+    {
+      "family": "面板与键盘",
+      "presentation": "PanelHeader/Focus",
+      "owner": "EditorSession",
+      "invariant": "草稿可恢复；不占音乐历史"
+    },
+    {
+      "family": "保存与导出",
+      "presentation": "Status/Notice/Download",
+      "owner": "ProjectRepository/IO",
+      "invariant": "成功以实际完成为准"
+    },
+    {
+      "family": "外观",
+      "presentation": "Tokens/主题",
+      "owner": "local appearance",
+      "invariant": "不修改作品或投影数据"
+    }
+  ],
+  "dynamicRegistries": [
+    "GridTone.EDIT_COMMANDS / workspace command directory",
+    "GridTone.CREATION_OPERATIONS",
+    "GridTone.ui.operationLabels"
+  ],
+  "exceptions": "Keyboard keys, musical note geometry and transport icon size are registered in README.md."
+}

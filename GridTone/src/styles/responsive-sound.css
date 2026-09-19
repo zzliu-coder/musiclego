@@ -1,8 +1,0 @@
-@media(max-width:600px){
- .sound-inspector{order:-1}
- .sound-inspector .inspector-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px}
- .sound-inspector .inspector-top .eyebrow,.sound-inspector .wave-illustration{display:none}
- .sound-inspector .inspector-top h2{font-size:14px;margin:0;min-width:0}
- .sound-inspector .preview-btn{width:auto;margin:0;min-height:32px;padding:4px 10px;font-size:12px;flex-shrink:0}
- .sound-detail-toggle{width:100%;min-height:32px;justify-content:flex-start;font-size:12px;border-radius:0;border-top:1px solid var(--line);padding-left:10px}
-}

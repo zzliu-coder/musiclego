@@ -1,6 +1,6 @@
 /** Bounded, deterministic composition. No DOM, audio nodes or document writes. */
 (function(G){'use strict';
- const VERSION='legou.rules.2';
+ const VERSION='legou.rules.3';
  function rng(seed){let x=seed>>>0;return ()=>{x+=0x6D2B79F5;let t=x;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};}
  const overlap=(a,b)=>a.start<b.start+b.duration-1e-7&&a.start+a.duration>b.start+1e-7;
  const intersects=(n,a,b)=>n.start<b&&n.start+n.duration>a;
@@ -17,7 +17,9 @@
  function compose(context,settings={},seed=1){
   const {harmony,notes:original=[],retention={notes:[],ranges:[]}}=context;
   if(!harmony?.events?.length)throw Error('请先选择已确认的参考和弦。');
-  const mode=settings.mode||'generate',low=Number(settings.low??60),high=Number(settings.high??84);
+  const mode=settings.mode||'generate';
+  if(G.creationParameters)settings=G.creationParameters(mode,settings);
+  const low=Number(settings.low??60),high=Number(settings.high??84);
   if(!Number.isInteger(low)||!Number.isInteger(high)||low<0||high>127||low>high)throw Error('请填写 MIDI 0–127 内的有效音域。');
   const start=Number(settings.start??0),end=Number(settings.end??harmony.bars*G.BAR);
   if(!Number.isFinite(start)||!Number.isFinite(end)||start<0||end<=start||end>harmony.bars*G.BAR)throw Error('生成范围无效。');
@@ -27,7 +29,8 @@
   const immutable=n=>n.start<rangeStart||n.start+n.duration>end||retention.ranges.some(r=>intersects(n,r.start,r.end))||flags.get(n.id)?.all;
   const fixed=original.filter(immutable).map(G.clone),work=[];
   const locked=n=>retention.ranges.some(r=>intersects(n,r.start,r.end))||fixed.some(f=>overlap(f,n));
-  const anchors=n=>mode==='anchors'&&explainNote(n,harmony,harmony.targetTranspose).role==='结构支点';
+  const anchorIds=new Set(mode==='anchors'?original.filter(n=>explainNote(n,harmony,harmony.targetTranspose,original).role==='结构支点').map(n=>n.id):[]);
+  const anchors=n=>anchorIds.has(n.id);
   for(const n of original.filter(n=>!immutable(n)))if(mode==='rhythm'||mode==='answer'||mode==='anchors'||flags.has(n.id))work.push({...n,_fixedPitch:!!flags.get(n.id)?.pitch||anchors(n)});
   if(mode==='answer'&&rangeStart>0){const sourceStart=Math.max(0,rangeStart-(end-rangeStart)),motifNotes=original.filter(n=>n.start>=sourceStart&&n.start+n.duration<=rangeStart);if(motifNotes.length){const kept=work.filter(n=>flags.has(n.id));work.length=0;work.push(...kept);for(const source of motifNotes){const n={...source,id:'generated_'+seed+'_answer_'+source.start,start:rangeStart+source.start-sourceStart};if(n.start+n.duration<=end&&!locked(n)&&!work.some(w=>overlap(w,n)))work.push(n);}}}
   const skeleton=settings.rhythmTemplate||null;
@@ -65,10 +68,15 @@
    if(settings.color==='diatonic'){if(prev.pitch===next.pitch)pitch=prev.pitch+2;else if(Math.abs(next.pitch-prev.pitch)<=4)pitch=prev.pitch+Math.sign(next.pitch-prev.pitch)*2;}
    if(pitch!==undefined&&pitch+shift>=low&&pitch+shift<=high&&(settings.color==='chromatic'||G.inScale(pitch+shift,context.key??0,context.scale??'major')))n.pitch=pitch;
   }
-  if((mode==='ending'||settings.intent==='ending')&&work.length){const n=work.at(-1),h=harmony.events.find(e=>n.start>=e.start&&n.start<e.start+e.duration);if(h&&!flags.has(n.id)){const choices=Array.from({length:high-low+1},(_,i)=>low+i).filter(p=>G.pitchClass(p)===h.rootPitchClass&&p-shift>=0&&p-shift<=127);if(choices.length)n.pitch=choices.sort((a,b)=>Math.abs(a-(n.pitch+shift))-Math.abs(b-(n.pitch+shift)))[0]-shift;if(!skeleton)n.duration=Math.min(end-n.start,G.PPQ);}}
+  if((mode==='ending'||mode==='generate'&&settings.intent==='ending')&&work.length){const n=work.at(-1),h=harmony.events.find(e=>n.start>=e.start&&n.start<e.start+e.duration);if(h&&!flags.has(n.id)){const choices=Array.from({length:high-low+1},(_,i)=>low+i).filter(p=>G.pitchClass(p)===h.rootPitchClass&&p-shift>=0&&p-shift<=127);if(choices.length)n.pitch=choices.sort((a,b)=>Math.abs(a-(n.pitch+shift))-Math.abs(b-(n.pitch+shift)))[0]-shift;if(!skeleton)n.duration=Math.min(end-n.start,G.PPQ);}}
   const notes=fixed.concat(work).sort((a,b)=>a.start-b.start||a.pitch-b.pitch);
   // Preserve all retained IDs and fields. Range silence was reserved before filling.
   for(const keep of retention.notes){const old=original.find(n=>n.id===keep.id),n=notes.find(n=>n.id===keep.id);if(!old||!n)throw Error('无法满足保留约束。');if(keep.all&&JSON.stringify(n)!==JSON.stringify(old))throw Error('全部保留约束冲突。');if(keep.pitch&&n.pitch!==old.pitch)throw Error('音高保留约束冲突。');if(keep.rhythm&&(n.start!==old.start||n.duration!==old.duration))throw Error('节奏保留约束冲突。');}
+  // Operation promises are invariants even for direct callers bypassing the form.
+  if(mode==='rhythm'){
+   if(notes.length!==original.length||original.some(o=>!notes.some(n=>n.id===o.id&&n.start===o.start&&n.duration===o.duration)))throw Error('保留节奏约束冲突，未修改原稿。');
+  }
+  if(mode==='anchors')for(const id of anchorIds){const o=original.find(n=>n.id===id),n=notes.find(n=>n.id===id);if(!n||n.pitch!==o.pitch||n.start!==o.start||n.duration!==o.duration)throw Error('保留关键音约束冲突，未修改原稿。');}
   const ordered=[...notes].sort((a,b)=>a.start-b.start);
   if(ordered.some((n,i)=>i&&n.start<ordered[i-1].start+ordered[i-1].duration-1e-7))throw Error('当前素材包含重叠音符，请选单声部旋律片段。');
   return {notes,retention:G.clone(retention),generation:{version:1,algorithm:VERSION,kind:mode,seed:seed>>>0,templateVersion:1,inputHash:G.contentHash({events:harmony.events.map(({sourceClipId,...e})=>e),notes:G.musicalNotes(original),settings}),sources:[{trackId:harmony.sourceTrackId,hash:harmony.sourceHash,...(harmony.sourceRange?{range:harmony.sourceRange}:{})}],settings:{mode,low,high,start:rangeStart,end,origin:harmony.origin||0,density:settings.density||'normal',color:settings.color||'none',intent:settings.intent||'loop',rhythmTemplateId:settings.rhythmTemplateId||''}}};

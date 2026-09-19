@@ -1,0 +1,3229 @@
+{
+  "sha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "status": "PASS",
+  "browser": "144.0.7559.96",
+  "wallSeconds": 601.32,
+  "iterations": 292,
+  "records": [
+    {
+      "iteration": 0,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 1,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 1,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 2,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 2,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 3,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 3,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 4,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 4,
+      "playing": true,
+      "sources": 24,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 5,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 5,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 6,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 6,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 7,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 7,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 8,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 8,
+      "playing": true,
+      "sources": 45,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 9,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 9,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 10,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 10,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 11,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 11,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 12,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 12,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 13,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 13,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 14,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 14,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 15,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 15,
+      "playing": true,
+      "sources": 45,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 16,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 16,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 17,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 17,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 18,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 18,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 19,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 19,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 20,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 20,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 21,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 21,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 22,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 22,
+      "playing": true,
+      "sources": 45,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 23,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 23,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 24,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 24,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 25,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 25,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 26,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 26,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 27,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 27,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 28,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 28,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 29,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 29,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 30,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 30,
+      "playing": true,
+      "sources": 33,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 31,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 31,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 32,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 32,
+      "playing": true,
+      "sources": 35,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 33,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 33,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 34,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 34,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 35,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 35,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 36,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 36,
+      "playing": true,
+      "sources": 36,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 37,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 37,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 38,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 38,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 39,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 39,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 40,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 40,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 41,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 41,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 42,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 42,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 43,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 43,
+      "playing": true,
+      "sources": 34,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 44,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 44,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 45,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 45,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 46,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 46,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 47,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 47,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 48,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 48,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 49,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 49,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 50,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 50,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 51,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 51,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 52,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 52,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 53,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 53,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 54,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 54,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 55,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 55,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 56,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 56,
+      "playing": true,
+      "sources": 23,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 57,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 57,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 58,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 58,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 59,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 59,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 60,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 61,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 62,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 63,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 64,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 65,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 66,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 67,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 68,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 69,
+      "playing": true,
+      "sources": 23,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 70,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 71,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 72,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 73,
+      "playing": true,
+      "sources": 24,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 74,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 75,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 76,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 77,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 78,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 79,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 80,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 81,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 82,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 83,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 84,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 85,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 86,
+      "playing": true,
+      "sources": 22,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 87,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 88,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 89,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 90,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 91,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 92,
+      "playing": true,
+      "sources": 21,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 93,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 94,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 95,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 96,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 97,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 98,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 99,
+      "playing": true,
+      "sources": 22,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 100,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 101,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 102,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 103,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 104,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 105,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 106,
+      "playing": true,
+      "sources": 25,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 107,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 108,
+      "playing": true,
+      "sources": 22,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 109,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 110,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 111,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 112,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 113,
+      "playing": true,
+      "sources": 19,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 114,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 115,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 116,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 117,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 118,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 119,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 120,
+      "playing": true,
+      "sources": 26,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 121,
+      "playing": true,
+      "sources": 23,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 122,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 123,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 124,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 125,
+      "playing": true,
+      "sources": 24,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 126,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 127,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 128,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 129,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 130,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 131,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 132,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 133,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 134,
+      "playing": true,
+      "sources": 24,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 135,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 136,
+      "playing": true,
+      "sources": 35,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 137,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 138,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 139,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 140,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 141,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 142,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 143,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 144,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 145,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 146,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 147,
+      "playing": true,
+      "sources": 34,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 148,
+      "playing": true,
+      "sources": 37,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 149,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 150,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 151,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 152,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 153,
+      "playing": true,
+      "sources": 48,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 154,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 155,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 156,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 157,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 158,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 159,
+      "playing": true,
+      "sources": 48,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 160,
+      "playing": true,
+      "sources": 17,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 161,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 162,
+      "playing": true,
+      "sources": 30,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 163,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 164,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 165,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 166,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 167,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 168,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 169,
+      "playing": true,
+      "sources": 25,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 170,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 171,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 172,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 173,
+      "playing": true,
+      "sources": 18,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 174,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 175,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 176,
+      "playing": true,
+      "sources": 26,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 177,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 178,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 179,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 180,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 181,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 182,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 183,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 184,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 185,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 186,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 187,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 188,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 189,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 190,
+      "playing": true,
+      "sources": 30,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 191,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 192,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 193,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 194,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 195,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 196,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 197,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 198,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 199,
+      "playing": true,
+      "sources": 23,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 200,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 201,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 202,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 203,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 204,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 205,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 206,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 207,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 208,
+      "playing": true,
+      "sources": 23,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 209,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 210,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 211,
+      "playing": true,
+      "sources": 30,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 212,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 213,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 214,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 215,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 216,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 217,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 218,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 219,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 220,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 221,
+      "playing": true,
+      "sources": 33,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 222,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 223,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 224,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 225,
+      "playing": true,
+      "sources": 20,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 226,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 227,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 228,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 229,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 230,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 231,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 232,
+      "playing": true,
+      "sources": 26,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 233,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 234,
+      "playing": true,
+      "sources": 17,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 235,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 236,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 237,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 238,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 239,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 240,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 241,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 242,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 243,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 244,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 245,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 246,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 247,
+      "playing": true,
+      "sources": 17,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 248,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 249,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 250,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 251,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 252,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 253,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 254,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 255,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 256,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 257,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 258,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 259,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 260,
+      "playing": true,
+      "sources": 21,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 261,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 262,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 263,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 264,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 265,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 266,
+      "playing": true,
+      "sources": 21,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 267,
+      "playing": true,
+      "sources": 29,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 268,
+      "playing": true,
+      "sources": 26,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 269,
+      "playing": true,
+      "sources": 25,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 270,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 271,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 272,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 273,
+      "playing": true,
+      "sources": 19,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 274,
+      "playing": true,
+      "sources": 26,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 275,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 276,
+      "playing": true,
+      "sources": 45,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 277,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 278,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 279,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 280,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 281,
+      "playing": true,
+      "sources": 28,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 282,
+      "playing": true,
+      "sources": 33,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 283,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 284,
+      "playing": true,
+      "sources": 27,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 285,
+      "playing": true,
+      "sources": 30,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 286,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 287,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 288,
+      "playing": true,
+      "sources": 39,
+      "previews": 1,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 289,
+      "playing": true,
+      "sources": 28,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 290,
+      "playing": true,
+      "sources": 20,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    },
+    {
+      "iteration": 291,
+      "playing": true,
+      "sources": 29,
+      "previews": 0,
+      "heap": 13400000,
+      "history": {
+        "undo": 60,
+        "redo": 0
+      }
+    }
+  ],
+  "final": {
+    "notes": 212,
+    "sources": 0,
+    "previews": 0,
+    "errors": null
+  },
+  "pageErrors": [],
+  "scope": "Measured wall-clock playback/edit/view/preview loop. Inline origin does not validate persistent saving. Exact duration and iterations are recorded."
+}

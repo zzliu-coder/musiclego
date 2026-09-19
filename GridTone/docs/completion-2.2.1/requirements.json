@@ -1,0 +1,366 @@
+{
+  "version": "2.2.1",
+  "htmlSha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "scope": "original 2.2 user requirements and audited engineering gaps; external validation tracked separately",
+  "requirements": [
+    {
+      "id": "COMP-01",
+      "requirement": "以实际交付2.2重建源码增量修正，保留音色、目录和已通过基础",
+      "status": "PASS",
+      "implementation": [
+        "SOURCE_PROVENANCE.md"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/source-comparison.json",
+        "docs/completion-2.2.1/evidence/audio/results.json"
+      ]
+    },
+    {
+      "id": "COMP-02",
+      "requirement": "取消常驻托盘、模板域中不混入音色",
+      "status": "PASS",
+      "implementation": [
+        "src/views/shell.js",
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#01-home-and-length-entry",
+        "docs/completion-2.2.1/evidence/browser/results.json#02-music-library-excludes-sounds"
+      ]
+    },
+    {
+      "id": "COMP-03",
+      "requirement": "拿起和取消不改变编排几何，真实鼠标拖动可完成单块放置",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js",
+        "src/views/template-shelf.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#08-take-cancel-preserves-geometry",
+        "docs/completion-2.2.1/evidence/browser/results.json#09-template-click-place-single-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#10-real-mouse-drag-library-to-arrangement"
+      ]
+    },
+    {
+      "id": "COMP-04",
+      "requirement": "浏览现场恢复；失败、失焦和外部拖放不误写音乐",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#24-library-restores-search-context",
+        "docs/completion-2.2.1/evidence/browser/results.json#35-batch-escape-cleans-audio-ghost-and-restores-library",
+        "docs/completion-2.2.1/evidence/transactions/results.json"
+      ]
+    },
+    {
+      "id": "COMP-05",
+      "requirement": "本次待用、收藏、最近、正在用完整迁入大库",
+      "status": "PASS",
+      "implementation": [
+        "src/content/collections.js",
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#29-collections-visible-pinned-favorites-and-reopen",
+        "docs/completion-2.2.1/evidence/browser/results.json#30-applied-material-in-recent-and-currently-used",
+        "docs/completion-2.2.1/evidence/browser/results.json#44-music-and-sound-collections-remain-separate",
+        "tests/completion-batch.test.mjs#C-L01"
+      ]
+    },
+    {
+      "id": "COMP-06",
+      "requirement": "旧集合去重合并只迁移一次，空集合不自动复活，缺资源ID不丢",
+      "status": "PASS",
+      "implementation": [
+        "src/content/collections.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#46-unavailable-saved-material-keeps-identity-and-explanation",
+        "tests/completion-batch.test.mjs#C-L01",
+        "tests/completion-batch.test.mjs#C-L02",
+        "tests/completion-batch.test.mjs#C-L05"
+      ]
+    },
+    {
+      "id": "COMP-07",
+      "requirement": "全部5份旧示例可发现、可试听、明确新建而非覆盖",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#31-all-five-examples-discoverable-with-safe-audition",
+        "docs/completion-2.2.1/evidence/browser/results.json#32-example-independent-new-work-preserves-old-adapter",
+        "tests/completion-batch.test.mjs#C-L07"
+      ]
+    },
+    {
+      "id": "COMP-08",
+      "requirement": "声音选择固定目标，采用不改音符，目标删除禁止误用",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js",
+        "src/views/inspector.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#03-one-sound-chooser-in-track-panel",
+        "docs/completion-2.2.1/evidence/browser/results.json#04-sound-use-preserves-notes-and-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#05-sound-fixed-target-despite-selection",
+        "docs/completion-2.2.1/evidence/browser/results.json#06-deleted-sound-target-blocked"
+      ]
+    },
+    {
+      "id": "COMP-09",
+      "requirement": "深入参数只显示当前声音，不再嵌入旧完整浏览器",
+      "status": "PASS",
+      "implementation": [
+        "src/views/sound.js",
+        "src/views/inspector.js",
+        "src/app.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#27-deep-sound-only-current-parameters-real-slider"
+      ]
+    },
+    {
+      "id": "COMP-10",
+      "requirement": "录音、导入、音源包和鼓组管理共用资源入口",
+      "status": "PASS",
+      "implementation": [
+        "src/views/catalog.js",
+        "src/app.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#28-resource-manager-without-second-sound-chooser",
+        "docs/completion-2.2.1/evidence/browser/results.json#47-resource-drums-no-hidden-template-or-preset-browser"
+      ]
+    },
+    {
+      "id": "COMP-11",
+      "requirement": "按顺序接着放，允许调整顺序，4+4+2真实占10小节",
+      "status": "PASS",
+      "implementation": [
+        "src/creation/batch-placement.js",
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#11-ordered-batch-place-and-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#33-batch-series-hover-plan-audition-apply-one-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#38-batch-reorder-new-series-one-track",
+        "tests/completion-batch.test.mjs#C-B05"
+      ]
+    },
+    {
+      "id": "COMP-12",
+      "requirement": "一起放可逐项选择已有匹配音轨或新增，保留已有轨声音",
+      "status": "PASS",
+      "implementation": [
+        "src/creation/batch-placement.js",
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#12-parallel-batch-allocates-tracks",
+        "docs/completion-2.2.1/evidence/browser/results.json#34-parallel-explicit-existing-tracks-preview-with-song",
+        "tests/completion-batch.test.mjs#C-B01",
+        "tests/completion-batch.test.mjs#C-B04"
+      ]
+    },
+    {
+      "id": "COMP-13",
+      "requirement": "批量预览显示逐项音轨、长度、主音处理、总范围及新增轨数",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js",
+        "src/styles/library.css"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#33-batch-series-hover-plan-audition-apply-one-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#34-parallel-explicit-existing-tracks-preview-with-song",
+        "docs/completion-2.2.1/evidence/browser/results.json#45-long-batch-preview-extends-scroll-not-existing-geometry"
+      ]
+    },
+    {
+      "id": "COMP-14",
+      "requirement": "试听整组/连同作品使用同一冻结计划，确认前原稿保持",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js",
+        "src/creation/session.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#07-preview-does-not-write",
+        "docs/completion-2.2.1/evidence/browser/results.json#33-batch-series-hover-plan-audition-apply-one-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#43-batch-preview-export-keeps-unapplied-plan",
+        "tests/completion-batch.test.mjs#C-B10"
+      ]
+    },
+    {
+      "id": "COMP-15",
+      "requirement": "批量原生拖动与点击共用计划；放定位置后明确确认一次",
+      "status": "PASS",
+      "implementation": [
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#39-real-native-multi-drag-stable-plan-before-apply",
+        "docs/completion-2.2.1/evidence/browser/results.json#35-batch-escape-cleans-audio-ghost-and-restores-library"
+      ]
+    },
+    {
+      "id": "COMP-16",
+      "requirement": "相关原稿变化使计划过期，无关轨道修改保留",
+      "status": "PASS",
+      "implementation": [
+        "src/creation/batch-placement.js",
+        "src/views/studio-library.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#36-batch-stale-related-edit-requires-recheck",
+        "docs/completion-2.2.1/evidence/browser/results.json#37-batch-application-preserves-unrelated-edit"
+      ]
+    },
+    {
+      "id": "COMP-17",
+      "requirement": "冲突和不支持素材整次拒绝，取消清理音源与投影",
+      "status": "PASS",
+      "implementation": [
+        "src/creation/batch-placement.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#35-batch-escape-cleans-audio-ghost-and-restores-library",
+        "tests/completion-batch.test.mjs#C-B08",
+        "tests/completion-batch.test.mjs#C-B11",
+        "docs/completion-2.2.1/evidence/transactions/results.json"
+      ]
+    },
+    {
+      "id": "COMP-18",
+      "requirement": "尾部收短与长度设置保护已有块，包括空白块",
+      "status": "PASS",
+      "implementation": [
+        "src/music/time-edit.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#13-trim-empty-tail-and-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#14-resize-protects-existing-blocks"
+      ]
+    },
+    {
+      "id": "COMP-19",
+      "requirement": "清除内容保持作品时间，不切割选区外长音或额外起音",
+      "status": "PASS",
+      "implementation": [
+        "src/music/time-edit.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#16-clear-content-keeps-time",
+        "docs/completion-2.2.1/evidence/browser/results.json#40-clear-unrelated-first-bar-keeps-one-sustained-event",
+        "tests/completion-time.test.mjs#C-T01",
+        "tests/completion-time.test.mjs#C-T11"
+      ]
+    },
+    {
+      "id": "COMP-20",
+      "requirement": "删除时间全轨前移，用精确1—16小节块保存连续音",
+      "status": "PASS",
+      "implementation": [
+        "src/model.js",
+        "src/music/time-edit.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#15-delete-time-and-whole-undo",
+        "docs/completion-2.2.1/evidence/browser/results.json#41-delete-time-exact-seven-bars-download-reopen-contract",
+        "tests/completion-time.test.mjs#C-T02",
+        "tests/completion-time.test.mjs#C-T03"
+      ]
+    },
+    {
+      "id": "COMP-21",
+      "requirement": "区间清除保留有意静音，和声/保留/共享/来源按范围一致处理",
+      "status": "PASS",
+      "implementation": [
+        "src/music/time-edit.js",
+        "src/music/harmony.js"
+      ],
+      "evidence": [
+        "tests/completion-time.test.mjs#C-T04",
+        "tests/completion-time.test.mjs#C-T05",
+        "tests/completion-time.test.mjs#C-T06",
+        "tests/completion-time.test.mjs#C-T07",
+        "tests/completion-time.test.mjs#C-T10",
+        "docs/completion-2.2.1/evidence/core-results.json"
+      ]
+    },
+    {
+      "id": "COMP-22",
+      "requirement": "时间操作过期拒绝，循环范围与编辑位置随撤销重做恢复",
+      "status": "PASS",
+      "implementation": [
+        "src/app.js",
+        "src/music/time-edit.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#25-time-edit-undo-redo-restores-loop",
+        "docs/completion-2.2.1/evidence/browser/results.json#26-stale-time-confirmation-does-not-overwrite"
+      ]
+    },
+    {
+      "id": "COMP-23",
+      "requirement": "音高尺横向固定，尺拖动及浏览工具只改变视口",
+      "status": "PASS",
+      "implementation": [
+        "src/ui/editor-gestures.js",
+        "src/views/piano-roll.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#17-pitch-axis-stays-visible-horizontally",
+        "docs/completion-2.2.1/evidence/browser/results.json#18-pitch-ruler-drag-only-changes-view",
+        "docs/completion-2.2.1/evidence/browser/results.json#19-pan-tool-browses-pitch-range"
+      ]
+    },
+    {
+      "id": "COMP-24",
+      "requirement": "保留两皮肤和设计参数，短窗口不藏主动作",
+      "status": "PASS",
+      "implementation": [
+        "src/styles/tokens.css",
+        "src/styles/library.css"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#20-short-window-major-controls-reachable",
+        "docs/completion-2.2.1/evidence/browser/results.json#42-short-window-batch-controls-reachable",
+        "docs/completion-2.2.1/evidence/visual/review.json"
+      ]
+    },
+    {
+      "id": "COMP-25",
+      "requirement": "复制、撤销、生成、预听、混音和文件导出回归",
+      "status": "PASS",
+      "implementation": [
+        "src/app.js",
+        "src/playback.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/browser/results.json#21-real-project-file-download",
+        "docs/completion-2.2.1/evidence/browser/results.json#22-generation-and-preview-regression",
+        "docs/completion-2.2.1/evidence/browser/results.json#23-play-mix-stop-regression",
+        "docs/completion-2.2.1/evidence/regressions/results.json"
+      ]
+    },
+    {
+      "id": "COMP-26",
+      "requirement": "实际声音渲染与持续运行，停止后无活动音源",
+      "status": "PASS",
+      "implementation": [
+        "src/audio.js"
+      ],
+      "evidence": [
+        "docs/completion-2.2.1/evidence/audio/results.json",
+        "docs/completion-2.2.1/evidence/soak/soak.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "version": 3,
+  "id": "song_1vk71js5ls2mu87n5st",
+  "title": "清楚的流行四拍",
+  "bpm": 108,
+  "key": 0,
+  "scale": "major",
+  "swing": 0,
+  "master": 0.8,
+  "bars": 7,
+  "tracks": [
+    {
+      "id": "t_fd971ac88srmu87n65d",
+      "name": "我的旋律",
+      "kind": "melodic",
+      "color": "#2875f5",
+      "preset": "prism.wood",
+      "volume": 0.52,
+      "pan": 0,
+      "mute": false,
+      "sound": {
+        "brightness": 0.55,
+        "attack": 0.01,
+        "release": 0.32
+      },
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0,
+        "drive": 0
+      },
+      "pipeline": {
+        "arp": "off",
+        "rate": 240,
+        "transpose": 0,
+        "humanize": 0
+      },
+      "patterns": [
+        {
+          "id": "p_j234u09rrbmu87n6go",
+          "name": "我的旋律 A",
+          "bars": 7,
+          "notes": [
+            {
+              "id": "n_he7wilvsxgmu87n6go",
+              "pitch": 60,
+              "start": 11520,
+              "duration": 15360,
+              "velocity": 0.7,
+              "performanceKey": "n_u6yiqh9yhcbmu87n69a",
+              "swingPhase": 0
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "c_5vfm0sqnwcmu87n65d",
+          "patternId": "p_j234u09rrbmu87n6go",
+          "bar": 0
+        }
+      ],
+      "role": "melody"
+    }
+  ],
+  "assets": {}
+}

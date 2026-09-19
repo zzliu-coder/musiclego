@@ -25,24 +25,25 @@
  function targetFingerprint(project,target){
   if(!target?.clipId)return G.contentHash({id:project.id});
   const t=project.tracks.find(t=>t.id===target.trackId),c=t?.clips.find(c=>c.id===target.clipId),p=t?.patterns.find(p=>p.id===c?.patternId);
-  return G.contentHash({id:project.id,clip:c,pattern:p?{id:p.id,bars:p.bars,notes:p.notes,retention:p.retention,harmony:p.harmony}:null,pipeline:t?.pipeline});
+  return G.contentHash({id:project.id,clip:c,pattern:p?{id:p.id,bars:p.bars,notes:p.notes,retention:p.retention,harmony:p.harmony}:null,pipeline:t?.pipeline,kind:t?.kind,drumMapping:t?.kind==='drum'?G.drumMappingHash(project,t):undefined});
  }
  class CandidateSession{
-  constructor(project,operationId,target={},parameters={}){this.projectId=project.id;this.operationId=operationId;this.target=G.clone(target);this.base=G.clone(project);this.baseRevision=G.contentHash(project);this.relevantInputFingerprint=targetFingerprint(project,target);this.parameterFingerprint=G.contentHash(parameters);this.parameters=G.clone(parameters);this.state='idle';this.requestId=0;this.candidates=[];this.message='';}
+  constructor(project,operationId,target={},parameters={}){this.projectId=project.id;this.operationId=operationId;this.target=G.clone(target);this.base=G.clone(project);this.baseRevision=G.contentHash(project);this.relevantInputFingerprint=targetFingerprint(project,target);this.parameterFingerprint=G.contentHash(parameters);this.parameters=G.clone(parameters);this.effectiveInputs=G.contentHash(G.creationEffectiveInputs?.(project,operationId,this.parameters)||{});this.state='idle';this.requestId=0;this.candidates=[];this.message='';}
   invalidate(message='参数已变化，请重新生成。'){this.requestId++;this.state='stale';this.message=message;this.candidates=[];}
   cancel(){this.requestId++;this.state='cancelled';this.candidates=[];}
   begin(){this.state='computing';this.message='';this.candidates=[];return ++this.requestId;}
   fail(error){this.state='failed';this.message=error.message;this.candidates=[];}
   ready(results,requestId=this.requestId){if(requestId!==this.requestId||this.state!=='computing')return false;
    this.candidates=results.map(result=>{const patch=candidatePatch(this.base,result.project),affectedTrackIds=result.trackIds||[...new Set(patch.map(c=>c.path[0]==='tracks'?c.path[1]?.id:null).filter(Boolean))];
-    const refs=affectedTrackIds.flatMap(id=>result.project.tracks.find(t=>t.id===id)?.patterns.flatMap(p=>p.generation?.sources||[])||[]);
-    const dependencies=refs.filter(ref=>this.base.tracks.some(t=>t.id===ref.trackId)).map(ref=>({...ref,hash:G.dependencyHash(this.base,this.base.tracks.find(t=>t.id===ref.trackId),ref)}));
+    const refs=affectedTrackIds.flatMap(id=>result.project.tracks.find(t=>t.id===id)?.patterns.flatMap(p=>(p.generation?.sources||[]).map(ref=>({...ref,...(p.generation.settings.drumReferenceTrackId===ref.trackId?{roleMapHash:p.generation.settings.drumReferenceMapHash}:{})})))||[]);
+    const dependencies=refs.filter(ref=>this.base.tracks.some(t=>t.id===ref.trackId)).map(ref=>({...ref,hash:G.dependencyHash(this.base,this.base.tracks.find(t=>t.id===ref.trackId),ref),...(ref.roleMapHash!==undefined?{roleMapHash:G.drumMappingHash(this.base,this.base.tracks.find(t=>t.id===ref.trackId))}:{})}));
     const t=result.project.tracks.find(t=>t.id===result.trackId),c=t?.clips.find(c=>c.id===result.clipId),p=t?.patterns.find(p=>p.id===c?.patternId);
     return {...result,candidateId:G.uid('candidate'),projectId:this.projectId,operationId:this.operationId,target:this.target,patch,dependencies,affectedTrackIds,outputRange:result.range|| (c&&p?[c.bar*G.BAR,(c.bar+p.bars)*G.BAR]:[0,result.project.bars*G.BAR])};});
    this.state=this.candidates.length?'ready':'idle';return true;
   }
   validate(current,candidate){if(this.state!=='ready'||!candidate)throw Error(this.message||'请先生成候选。');if(current.id!==this.projectId)throw Error('作品已切换，请重新生成。');if(targetFingerprint(current,this.target)!==this.relevantInputFingerprint)throw Error('目标内容已变化，请重新生成。');
-   for(const ref of candidate.dependencies){const track=current.tracks.find(t=>t.id===ref.trackId);if(!track||G.dependencyHash(current,track,ref)!==ref.hash)throw Error('参考内容已变化，请重新生成。');}
+   if(G.contentHash(G.creationEffectiveInputs?.(current,this.operationId,this.parameters)||{})!==this.effectiveInputs)throw Error('创作参考输入已变化，请重新生成。');
+   for(const ref of candidate.dependencies){const track=current.tracks.find(t=>t.id===ref.trackId);if(!G.dependencyMatches(current,track,ref))throw Error('参考内容已变化，请重新生成。');}
   }
   materialize(current,index=0){const candidate=this.candidates[index];this.validate(current,candidate);return {...candidate,project:applyCandidatePatch(current,candidate.patch)};}
  }

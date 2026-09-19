@@ -1,0 +1,25 @@
+{
+  "htmlSha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "checks": [
+    {
+      "name": "synthetic-window-blur-cancels",
+      "status": "PASS",
+      "method": "synthetic window/DOM event with real production handlers; no OS event claim"
+    },
+    {
+      "name": "external-and-mismatched-drop-never-commits",
+      "status": "PASS",
+      "method": "synthetic window/DOM event with real production handlers; no OS event claim"
+    },
+    {
+      "name": "24-batch-audition-cancel-cycles",
+      "status": "PASS",
+      "method": "real controller + Web Audio, not physical user pointer benchmark",
+      "seconds": 5.365598966000107,
+      "cycles": 24
+    }
+  ],
+  "pageErrors": [],
+  "status": "PASS",
+  "browser": "144.0.7559.96"
+}

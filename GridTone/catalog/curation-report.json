@@ -1,0 +1,1800 @@
+{
+  "version": 1,
+  "scope": "New + old library, exact-content signatures and structural family grouping. No human listening approval claimed.",
+  "counts": {
+    "sounds": 76,
+    "templates": 126,
+    "newSounds": 29,
+    "newTemplates": 55,
+    "curatedFamilies": 39,
+    "combinations": 18,
+    "exactRhythmDuplicates": 0,
+    "nearRhythmPairs": 55
+  },
+  "exactAliases": [],
+  "nearRhythms": [
+    {
+      "a": "prism.drum.pocket",
+      "b": "prism.drum.pop",
+      "gridSimilarity": 0.8621,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "prism.drum.pocket",
+      "b": "prism.drum.rock",
+      "gridSimilarity": 0.7813,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "prism.drum.disco",
+      "b": "prism.drum.build",
+      "gridSimilarity": 0.8378,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "prism.drum.pop",
+      "b": "prism.drum.rock",
+      "gridSimilarity": 0.9,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "prism.drum.pop",
+      "b": "prism.drum.build",
+      "gridSimilarity": 0.7143,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "builtin.drum.four",
+      "b": "builtin.drum.lofi",
+      "gridSimilarity": 0.7059,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.1",
+      "b": "studio.rhythm.hand-pop.2",
+      "gridSimilarity": 0.8421,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.1",
+      "b": "studio.rhythm.hand-pop.4",
+      "gridSimilarity": 0.7759,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.2",
+      "b": "studio.rhythm.hand-pop.3",
+      "gridSimilarity": 0.7377,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.2",
+      "b": "studio.rhythm.hand-pop.4",
+      "gridSimilarity": 0.8545,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.2",
+      "b": "studio.rhythm.hand-soul.2",
+      "gridSimilarity": 0.7077,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-pop.3",
+      "b": "studio.rhythm.hand-pop.4",
+      "gridSimilarity": 0.7333,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-soul.1",
+      "b": "studio.rhythm.hand-soul.2",
+      "gridSimilarity": 0.8308,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-soul.1",
+      "b": "studio.rhythm.hand-soul.3",
+      "gridSimilarity": 0.7761,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-soul.2",
+      "b": "studio.rhythm.hand-soul.3",
+      "gridSimilarity": 0.873,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.hand-soul.2",
+      "b": "studio.rhythm.hand-soul.4",
+      "gridSimilarity": 0.7324,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.1",
+      "b": "studio.rhythm.four.2",
+      "gridSimilarity": 0.8182,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.1",
+      "b": "studio.rhythm.four.3",
+      "gridSimilarity": 0.7333,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.1",
+      "b": "studio.rhythm.four.4",
+      "gridSimilarity": 0.8723,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.1",
+      "b": "studio.rhythm.four.5",
+      "gridSimilarity": 0.8667,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.1",
+      "b": "studio.rhythm.motor.2",
+      "gridSimilarity": 0.75,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.2",
+      "b": "studio.rhythm.four.4",
+      "gridSimilarity": 0.7391,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.2",
+      "b": "studio.rhythm.four.5",
+      "gridSimilarity": 0.7273,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.four.4",
+      "b": "studio.rhythm.four.5",
+      "gridSimilarity": 0.8667,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.pocket.1",
+      "b": "studio.rhythm.pocket.3",
+      "gridSimilarity": 0.7429,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.pocket.1",
+      "b": "studio.rhythm.pocket.4",
+      "gridSimilarity": 0.8276,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.pocket.1",
+      "b": "studio.rhythm.pocket.5",
+      "gridSimilarity": 0.8545,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.pocket.4",
+      "b": "studio.rhythm.pocket.5",
+      "gridSimilarity": 0.8868,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.1",
+      "b": "studio.rhythm.broken.2",
+      "gridSimilarity": 0.7407,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.1",
+      "b": "studio.rhythm.broken.3",
+      "gridSimilarity": 0.8387,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.1",
+      "b": "studio.rhythm.broken.4",
+      "gridSimilarity": 0.8772,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.1",
+      "b": "studio.rhythm.broken.5",
+      "gridSimilarity": 0.8545,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.2",
+      "b": "studio.rhythm.broken.4",
+      "gridSimilarity": 0.7222,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.3",
+      "b": "studio.rhythm.broken.4",
+      "gridSimilarity": 0.7937,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.3",
+      "b": "studio.rhythm.broken.5",
+      "gridSimilarity": 0.7705,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.broken.4",
+      "b": "studio.rhythm.broken.5",
+      "gridSimilarity": 0.8704,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.1",
+      "b": "studio.rhythm.motor.2",
+      "gridSimilarity": 0.7692,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.1",
+      "b": "studio.rhythm.motor.3",
+      "gridSimilarity": 0.7647,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.1",
+      "b": "studio.rhythm.motor.4",
+      "gridSimilarity": 0.8909,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.1",
+      "b": "studio.rhythm.motor.5",
+      "gridSimilarity": 0.8868,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.2",
+      "b": "studio.rhythm.motor.4",
+      "gridSimilarity": 0.7037,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.motor.4",
+      "b": "studio.rhythm.motor.5",
+      "gridSimilarity": 0.8868,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.1",
+      "b": "studio.rhythm.airy.2",
+      "gridSimilarity": 0.8571,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.1",
+      "b": "studio.rhythm.airy.3",
+      "gridSimilarity": 0.7778,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.1",
+      "b": "studio.rhythm.airy.4",
+      "gridSimilarity": 0.8438,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.1",
+      "b": "studio.rhythm.airy.5",
+      "gridSimilarity": 0.8621,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.2",
+      "b": "studio.rhythm.airy.4",
+      "gridSimilarity": 0.7188,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.2",
+      "b": "studio.rhythm.airy.5",
+      "gridSimilarity": 0.7241,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.airy.4",
+      "b": "studio.rhythm.airy.5",
+      "gridSimilarity": 0.7813,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.1",
+      "b": "studio.rhythm.shuffle.3",
+      "gridSimilarity": 1,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.1",
+      "b": "studio.rhythm.shuffle.4",
+      "gridSimilarity": 0.902,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.1",
+      "b": "studio.rhythm.shuffle.5",
+      "gridSimilarity": 0.898,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.3",
+      "b": "studio.rhythm.shuffle.4",
+      "gridSimilarity": 0.902,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.3",
+      "b": "studio.rhythm.shuffle.5",
+      "gridSimilarity": 0.898,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    },
+    {
+      "a": "studio.rhythm.shuffle.4",
+      "b": "studio.rhythm.shuffle.5",
+      "gridSimilarity": 0.88,
+      "decision": "Keep dynamic/microtiming difference; grouped as family where authored. No automatic deletion."
+    }
+  ],
+  "soundCoverage": [
+    {
+      "id": "prism.tine",
+      "families": [
+        "family.fm-ep"
+      ]
+    },
+    {
+      "id": "prism.reed",
+      "families": [
+        "family.fm-ep"
+      ]
+    },
+    {
+      "id": "prism.celeste",
+      "families": [
+        "family.digital-motion"
+      ]
+    },
+    {
+      "id": "prism.glass",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "prism.wood",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "prism.kalimba",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "prism.vibes",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "prism.nylon",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "prism.steel",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "prism.mutepluck",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "prism.roundbass",
+      "families": [
+        "family.analog-bass"
+      ]
+    },
+    {
+      "id": "prism.rubberbass",
+      "families": [
+        "family.resonant-bass"
+      ]
+    },
+    {
+      "id": "prism.glasspad",
+      "families": [
+        "family.digital-motion"
+      ]
+    },
+    {
+      "id": "prism.choirpad",
+      "families": [
+        "family.motion-pad"
+      ]
+    },
+    {
+      "id": "prism.air",
+      "families": [
+        "family.original-air"
+      ]
+    },
+    {
+      "id": "prism.clarinet",
+      "families": [
+        "family.original-air"
+      ]
+    },
+    {
+      "id": "prism.lead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "prism.pulse",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "prism.deepdrum",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "prism.drydrum",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "prism.brushdrum",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "epiano",
+      "families": [
+        "family.fm-ep"
+      ]
+    },
+    {
+      "id": "felt",
+      "families": [
+        "family.original-piano"
+      ]
+    },
+    {
+      "id": "brightpiano",
+      "families": [
+        "family.original-piano"
+      ]
+    },
+    {
+      "id": "organ",
+      "families": [
+        "family.digital-tone"
+      ]
+    },
+    {
+      "id": "toy",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "bell",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "marimba",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "kalimba",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "vibes",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "pluck",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "harp",
+      "families": [
+        "family.original-plucks"
+      ]
+    },
+    {
+      "id": "chippluck",
+      "families": [
+        "family.fm-pluck"
+      ]
+    },
+    {
+      "id": "roundbass",
+      "families": [
+        "family.analog-bass"
+      ]
+    },
+    {
+      "id": "subbass",
+      "families": [
+        "family.analog-bass"
+      ]
+    },
+    {
+      "id": "acidbass",
+      "families": [
+        "family.resonant-bass"
+      ]
+    },
+    {
+      "id": "fmbass",
+      "families": [
+        "family.fm-bass"
+      ]
+    },
+    {
+      "id": "cloudpad",
+      "families": [
+        "family.motion-pad"
+      ]
+    },
+    {
+      "id": "warmpad",
+      "families": [
+        "family.retro-pad"
+      ]
+    },
+    {
+      "id": "strings",
+      "families": [
+        "family.retro-pad"
+      ]
+    },
+    {
+      "id": "air",
+      "families": [
+        "family.original-air"
+      ]
+    },
+    {
+      "id": "sinelead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "sawlead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "chip",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "fmlead",
+      "families": [
+        "family.digital-tone"
+      ]
+    },
+    {
+      "id": "drums",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "softdrums",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "studio.va.round",
+      "families": [
+        "family.analog-bass"
+      ]
+    },
+    {
+      "id": "studio.va.pluckbass",
+      "families": [
+        "family.analog-bass"
+      ]
+    },
+    {
+      "id": "studio.va.acid",
+      "families": [
+        "family.resonant-bass"
+      ]
+    },
+    {
+      "id": "studio.va.rubber",
+      "families": [
+        "family.resonant-bass"
+      ]
+    },
+    {
+      "id": "studio.va.sawlead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "studio.va.pulselead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "studio.va.slidelead",
+      "families": [
+        "family.analog-lead"
+      ]
+    },
+    {
+      "id": "studio.va.brass",
+      "families": [
+        "family.synth-chords"
+      ]
+    },
+    {
+      "id": "studio.va.stab",
+      "families": [
+        "family.synth-chords"
+      ]
+    },
+    {
+      "id": "studio.va.silk",
+      "families": [
+        "family.retro-pad"
+      ]
+    },
+    {
+      "id": "studio.va.darkpad",
+      "families": [
+        "family.retro-pad"
+      ]
+    },
+    {
+      "id": "studio.va.breath",
+      "families": [
+        "family.motion-pad"
+      ]
+    },
+    {
+      "id": "studio.va.motion",
+      "families": [
+        "family.motion-pad"
+      ]
+    },
+    {
+      "id": "studio.fm.tine",
+      "families": [
+        "family.fm-ep"
+      ]
+    },
+    {
+      "id": "studio.fm.softkeys",
+      "families": [
+        "family.fm-ep"
+      ]
+    },
+    {
+      "id": "studio.fm.slap",
+      "families": [
+        "family.fm-bass"
+      ]
+    },
+    {
+      "id": "studio.fm.woodbass",
+      "families": [
+        "family.fm-bass"
+      ]
+    },
+    {
+      "id": "studio.fm.koto",
+      "families": [
+        "family.fm-pluck"
+      ]
+    },
+    {
+      "id": "studio.fm.harp",
+      "families": [
+        "family.fm-pluck"
+      ]
+    },
+    {
+      "id": "studio.fm.bell",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "studio.fm.steel",
+      "families": [
+        "family.metal-keys"
+      ]
+    },
+    {
+      "id": "studio.fm.organ",
+      "families": [
+        "family.digital-tone"
+      ]
+    },
+    {
+      "id": "studio.fm.reed",
+      "families": [
+        "family.digital-tone"
+      ]
+    },
+    {
+      "id": "studio.fm.orbit",
+      "families": [
+        "family.digital-motion"
+      ]
+    },
+    {
+      "id": "studio.fm.crystal",
+      "families": [
+        "family.digital-motion"
+      ]
+    },
+    {
+      "id": "studio.drum.round",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "studio.drum.punch",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "studio.drum.dry",
+      "families": [
+        "family.electronic-kits"
+      ]
+    },
+    {
+      "id": "studio.drum.metal",
+      "families": [
+        "family.electronic-kits"
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": "family.analog-bass",
+      "name": "模拟低音",
+      "kind": "sound",
+      "role": "bass",
+      "description": "圆润承托或短促弹跳",
+      "members": [
+        "studio.va.round",
+        "studio.va.pluckbass",
+        "roundbass",
+        "subbass",
+        "prism.roundbass"
+      ],
+      "defaultId": "studio.va.round",
+      "tags": [
+        "模拟",
+        "低音"
+      ],
+      "status": "curated-design",
+      "legacyMembers": [
+        "roundbass",
+        "subbass",
+        "prism.roundbass"
+      ]
+    },
+    {
+      "id": "family.resonant-bass",
+      "name": "共振低音",
+      "kind": "sound",
+      "role": "bass",
+      "description": "带明显滤波性格的电子低音",
+      "members": [
+        "studio.va.acid",
+        "studio.va.rubber",
+        "acidbass",
+        "prism.rubberbass"
+      ],
+      "defaultId": "studio.va.acid",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "acidbass",
+        "prism.rubberbass"
+      ]
+    },
+    {
+      "id": "family.analog-lead",
+      "name": "复古主音",
+      "kind": "sound",
+      "role": "melody",
+      "description": "锯齿、方波与单音滑行",
+      "members": [
+        "studio.va.sawlead",
+        "studio.va.pulselead",
+        "studio.va.slidelead",
+        "sawlead",
+        "sinelead",
+        "prism.lead",
+        "prism.pulse",
+        "chip"
+      ],
+      "defaultId": "studio.va.sawlead",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "sawlead",
+        "sinelead",
+        "prism.lead",
+        "prism.pulse",
+        "chip"
+      ]
+    },
+    {
+      "id": "family.synth-chords",
+      "name": "合成和弦",
+      "kind": "sound",
+      "role": "chords",
+      "description": "长短明确的两种和弦触感",
+      "members": [
+        "studio.va.brass",
+        "studio.va.stab"
+      ],
+      "defaultId": "studio.va.brass",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": []
+    },
+    {
+      "id": "family.retro-pad",
+      "name": "复古音垫",
+      "kind": "sound",
+      "role": "texture",
+      "description": "柔光与暗色两种持续背景",
+      "members": [
+        "studio.va.silk",
+        "studio.va.darkpad",
+        "warmpad",
+        "strings"
+      ],
+      "defaultId": "studio.va.silk",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "warmpad",
+        "strings"
+      ]
+    },
+    {
+      "id": "family.motion-pad",
+      "name": "流动音垫",
+      "kind": "sound",
+      "role": "texture",
+      "description": "空气与滤波运动",
+      "members": [
+        "studio.va.breath",
+        "studio.va.motion",
+        "cloudpad",
+        "prism.choirpad"
+      ],
+      "defaultId": "studio.va.breath",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "cloudpad",
+        "prism.choirpad"
+      ]
+    },
+    {
+      "id": "family.fm-ep",
+      "name": "FM电钢",
+      "kind": "sound",
+      "role": "chords",
+      "description": "一组动态明确的电钢声音",
+      "members": [
+        "studio.fm.tine",
+        "studio.fm.softkeys",
+        "epiano",
+        "prism.tine",
+        "prism.reed"
+      ],
+      "defaultId": "studio.fm.tine",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "epiano",
+        "prism.tine",
+        "prism.reed"
+      ]
+    },
+    {
+      "id": "family.fm-bass",
+      "name": "FM低音",
+      "kind": "sound",
+      "role": "bass",
+      "description": "弹指起音与木芯主体",
+      "members": [
+        "studio.fm.slap",
+        "studio.fm.woodbass",
+        "fmbass"
+      ],
+      "defaultId": "studio.fm.slap",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "fmbass"
+      ]
+    },
+    {
+      "id": "family.fm-pluck",
+      "name": "数字拨弦",
+      "kind": "sound",
+      "role": "melody",
+      "description": "清脆和圆润的两种拨弦",
+      "members": [
+        "studio.fm.koto",
+        "studio.fm.harp",
+        "chippluck"
+      ],
+      "defaultId": "studio.fm.koto",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "chippluck"
+      ]
+    },
+    {
+      "id": "family.metal-keys",
+      "name": "金属敲击",
+      "kind": "sound",
+      "role": "melody",
+      "description": "清亮长尾与短促金属片",
+      "members": [
+        "studio.fm.bell",
+        "studio.fm.steel",
+        "bell",
+        "toy",
+        "prism.glass",
+        "prism.vibes",
+        "vibes"
+      ],
+      "defaultId": "studio.fm.bell",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "bell",
+        "toy",
+        "prism.glass",
+        "prism.vibes",
+        "vibes"
+      ]
+    },
+    {
+      "id": "family.digital-tone",
+      "name": "数字键盘",
+      "kind": "sound",
+      "role": "melody",
+      "description": "持续风琴与簧片主音",
+      "members": [
+        "studio.fm.organ",
+        "studio.fm.reed",
+        "organ",
+        "fmlead"
+      ],
+      "defaultId": "studio.fm.organ",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "organ",
+        "fmlead"
+      ]
+    },
+    {
+      "id": "family.digital-motion",
+      "name": "数字色彩",
+      "kind": "sound",
+      "role": "texture",
+      "description": "长音变化与短键点缀",
+      "members": [
+        "studio.fm.orbit",
+        "studio.fm.crystal",
+        "prism.glasspad",
+        "prism.celeste"
+      ],
+      "defaultId": "studio.fm.orbit",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "prism.glasspad",
+        "prism.celeste"
+      ]
+    },
+    {
+      "id": "family.electronic-kits",
+      "name": "电子鼓组",
+      "kind": "sound",
+      "role": "drums",
+      "description": "四种明确不同的起音与尾部",
+      "members": [
+        "studio.drum.round",
+        "studio.drum.punch",
+        "studio.drum.dry",
+        "studio.drum.metal",
+        "drums",
+        "softdrums",
+        "prism.deepdrum",
+        "prism.drydrum",
+        "prism.brushdrum"
+      ],
+      "defaultId": "studio.drum.round",
+      "tags": [],
+      "status": "curated-design",
+      "legacyMembers": [
+        "drums",
+        "softdrums",
+        "prism.deepdrum",
+        "prism.drydrum",
+        "prism.brushdrum"
+      ]
+    },
+    {
+      "id": "family.hand-pop",
+      "name": "手奏流行",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "GMD真人演奏；保留力度与起音位置",
+      "members": [
+        "studio.rhythm.hand-pop.1",
+        "studio.rhythm.hand-pop.2",
+        "studio.rhythm.hand-pop.3",
+        "studio.rhythm.hand-pop.4"
+      ],
+      "defaultId": "studio.rhythm.hand-pop.1",
+      "tags": [
+        "真人",
+        "保留律动"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.hand-soul",
+      "name": "手奏灵魂",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "GMD真人演奏；保留力度与起音位置",
+      "members": [
+        "studio.rhythm.hand-soul.1",
+        "studio.rhythm.hand-soul.2",
+        "studio.rhythm.hand-soul.3",
+        "studio.rhythm.hand-soul.4"
+      ],
+      "defaultId": "studio.rhythm.hand-soul.1",
+      "tags": [
+        "真人",
+        "保留律动"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.hand-fill",
+      "name": "手奏过门",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "GMD真人演奏；保留力度与起音位置",
+      "members": [
+        "studio.rhythm.hand-fill.1"
+      ],
+      "defaultId": "studio.rhythm.hand-fill.1",
+      "tags": [
+        "真人",
+        "保留律动"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.four",
+      "name": "四拍城市",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.four.1",
+        "studio.rhythm.four.2",
+        "studio.rhythm.four.3",
+        "studio.rhythm.four.4",
+        "studio.rhythm.four.5"
+      ],
+      "defaultId": "studio.rhythm.four.1",
+      "tags": [
+        "电子",
+        "118 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.pocket",
+      "name": "半拍口袋",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.pocket.1",
+        "studio.rhythm.pocket.2",
+        "studio.rhythm.pocket.3",
+        "studio.rhythm.pocket.4",
+        "studio.rhythm.pocket.5"
+      ],
+      "defaultId": "studio.rhythm.pocket.1",
+      "tags": [
+        "电子",
+        "84 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.broken",
+      "name": "折线电步",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.broken.1",
+        "studio.rhythm.broken.2",
+        "studio.rhythm.broken.3",
+        "studio.rhythm.broken.4",
+        "studio.rhythm.broken.5"
+      ],
+      "defaultId": "studio.rhythm.broken.1",
+      "tags": [
+        "电子",
+        "110 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.motor",
+      "name": "夜行脉冲",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.motor.1",
+        "studio.rhythm.motor.2",
+        "studio.rhythm.motor.3",
+        "studio.rhythm.motor.4",
+        "studio.rhythm.motor.5"
+      ],
+      "defaultId": "studio.rhythm.motor.1",
+      "tags": [
+        "电子",
+        "126 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.airy",
+      "name": "留白水面",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.airy.1",
+        "studio.rhythm.airy.2",
+        "studio.rhythm.airy.3",
+        "studio.rhythm.airy.4",
+        "studio.rhythm.airy.5"
+      ],
+      "defaultId": "studio.rhythm.airy.1",
+      "tags": [
+        "电子",
+        "76 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.shuffle",
+      "name": "三分轻摆",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "同一风格的基本、留白、推进、过门与收尾",
+      "members": [
+        "studio.rhythm.shuffle.1",
+        "studio.rhythm.shuffle.2",
+        "studio.rhythm.shuffle.3",
+        "studio.rhythm.shuffle.4",
+        "studio.rhythm.shuffle.5"
+      ],
+      "defaultId": "studio.rhythm.shuffle.1",
+      "tags": [
+        "电子",
+        "96 BPM"
+      ],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.bounce",
+      "name": "弹跳",
+      "kind": "rhythm",
+      "role": "bass",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.bounce.1",
+        "studio.part.bounce.2"
+      ],
+      "defaultId": "studio.part.bounce.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.anchor",
+      "name": "稳固",
+      "kind": "rhythm",
+      "role": "bass",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.anchor.1",
+        "studio.part.anchor.2"
+      ],
+      "defaultId": "studio.part.anchor.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.sync",
+      "name": "切分",
+      "kind": "rhythm",
+      "role": "bass",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.sync.1",
+        "studio.part.sync.2"
+      ],
+      "defaultId": "studio.part.sync.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.stabs",
+      "name": "反拍轻弹",
+      "kind": "rhythm",
+      "role": "chords",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.stabs.1",
+        "studio.part.stabs.2"
+      ],
+      "defaultId": "studio.part.stabs.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.arp",
+      "name": "往返分解",
+      "kind": "rhythm",
+      "role": "chords",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.arp.1",
+        "studio.part.arp.2"
+      ],
+      "defaultId": "studio.part.arp.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.answer",
+      "name": "问答节奏",
+      "kind": "rhythm",
+      "role": "melody",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.answer.1",
+        "studio.part.answer.2"
+      ],
+      "defaultId": "studio.part.answer.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.space",
+      "name": "留白旋律",
+      "kind": "rhythm",
+      "role": "melody",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.space.1",
+        "studio.part.space.2"
+      ],
+      "defaultId": "studio.part.space.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.motif",
+      "name": "重复动机",
+      "kind": "rhythm",
+      "role": "melody",
+      "description": "可独立放入，也可作为节奏骨架",
+      "members": [
+        "studio.part.motif.1",
+        "studio.part.motif.2"
+      ],
+      "defaultId": "studio.part.motif.1",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.warm",
+      "name": "复古暖光",
+      "kind": "combo",
+      "role": "song",
+      "description": "稳定四拍、暖铜和弦和水滴拨弦；适合明亮短旋律。",
+      "members": [
+        "studio.combo.warm",
+        "studio.combo.warm.sparse",
+        "studio.combo.warm.ending"
+      ],
+      "defaultId": "studio.combo.warm",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.city",
+      "name": "清亮都市",
+      "kind": "combo",
+      "role": "song",
+      "description": "手奏灵魂节奏、切分FM低音与玻璃电钢。",
+      "members": [
+        "studio.combo.city",
+        "studio.combo.city.sparse",
+        "studio.combo.city.ending"
+      ],
+      "defaultId": "studio.combo.city",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.night",
+      "name": "夜间口袋",
+      "kind": "combo",
+      "role": "song",
+      "description": "半拍空间、干燥鼓和金属点缀，旋律留白明显。",
+      "members": [
+        "studio.combo.night",
+        "studio.combo.night.sparse",
+        "studio.combo.night.ending"
+      ],
+      "defaultId": "studio.combo.night",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.pulse",
+      "name": "脉冲电子",
+      "kind": "combo",
+      "role": "song",
+      "description": "共振低音、机械推动和分解音型；短音清楚。",
+      "members": [
+        "studio.combo.pulse",
+        "studio.combo.pulse.sparse",
+        "studio.combo.pulse.ending"
+      ],
+      "defaultId": "studio.combo.pulse",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.air",
+      "name": "空旷微光",
+      "kind": "combo",
+      "role": "song",
+      "description": "稀疏鼓、暗色音垫和长尾玻璃钟，音符数量克制。",
+      "members": [
+        "studio.combo.air",
+        "studio.combo.air.sparse",
+        "studio.combo.air.ending"
+      ],
+      "defaultId": "studio.combo.air",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.studio.combo.edge",
+      "name": "锐利折线",
+      "kind": "combo",
+      "role": "song",
+      "description": "折线节奏、橡胶低音与短数字键，强调交错起音。",
+      "members": [
+        "studio.combo.edge",
+        "studio.combo.edge.sparse",
+        "studio.combo.edge.ending"
+      ],
+      "defaultId": "studio.combo.edge",
+      "tags": [],
+      "status": "curated-design"
+    },
+    {
+      "id": "family.original-plucks",
+      "name": "拨弦与木质",
+      "kind": "sound",
+      "role": "melody",
+      "description": "保留的原有声音，已合并为家族入口。",
+      "members": [
+        "prism.nylon",
+        "prism.steel",
+        "prism.mutepluck",
+        "pluck",
+        "harp",
+        "prism.wood",
+        "marimba",
+        "prism.kalimba",
+        "kalimba"
+      ],
+      "defaultId": "prism.nylon",
+      "tags": [
+        "原有精选"
+      ],
+      "legacy": false
+    },
+    {
+      "id": "family.original-air",
+      "name": "管乐与气息",
+      "kind": "sound",
+      "role": "melody",
+      "description": "保留的原有声音，已合并为家族入口。",
+      "members": [
+        "prism.air",
+        "prism.clarinet",
+        "air"
+      ],
+      "defaultId": "prism.air",
+      "tags": [
+        "原有精选"
+      ],
+      "legacy": false
+    },
+    {
+      "id": "family.original-piano",
+      "name": "基础钢琴",
+      "kind": "sound",
+      "role": "chords",
+      "description": "保留的原有声音，已合并为家族入口。",
+      "members": [
+        "felt",
+        "brightpiano"
+      ],
+      "defaultId": "felt",
+      "tags": [
+        "原有精选"
+      ],
+      "legacy": false
+    },
+    {
+      "id": "legacy.song",
+      "name": "原有示例作品",
+      "kind": "example",
+      "role": "song",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.song.glass",
+        "prism.song.walk",
+        "prism.song.radio",
+        "prism.song.pulse",
+        "builtin.song.afternoon"
+      ],
+      "defaultId": "prism.song.glass",
+      "legacy": true
+    },
+    {
+      "id": "legacy.drums.2.0.major",
+      "name": "原有鼓点 · 2小节",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.drum.pocket",
+        "prism.drum.house",
+        "prism.drum.disco",
+        "prism.drum.halftime",
+        "prism.drum.trap",
+        "prism.drum.pop",
+        "prism.drum.rock",
+        "prism.drum.minimal",
+        "prism.drum.break",
+        "prism.drum.brush",
+        "prism.drum.offbeat",
+        "prism.drum.electro",
+        "prism.drum.dembow",
+        "prism.drum.clave",
+        "prism.drum.build",
+        "prism.drum.slow"
+      ],
+      "defaultId": "prism.drum.pocket",
+      "legacy": true
+    },
+    {
+      "id": "legacy.melody.4.0.major",
+      "name": "原有旋律 · 4小节",
+      "kind": "rhythm",
+      "role": "melody",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.melody.answer",
+        "prism.melody.steps",
+        "prism.melody.echo",
+        "prism.melody.pent",
+        "prism.melody.long",
+        "prism.melody.off",
+        "prism.melody.arch",
+        "prism.melody.paired",
+        "prism.melody.neighbour",
+        "prism.melody.sparse",
+        "prism.melody.pluck",
+        "prism.melody.resolve",
+        "builtin.chords.cafg"
+      ],
+      "defaultId": "prism.melody.answer",
+      "legacy": true
+    },
+    {
+      "id": "legacy.bass.4.0.major",
+      "name": "原有贝斯 · 4小节",
+      "kind": "rhythm",
+      "role": "bass",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.bass.roots",
+        "prism.bass.quarters",
+        "prism.bass.octaves",
+        "prism.bass.fifths",
+        "prism.bass.sync",
+        "prism.bass.space",
+        "prism.bass.push",
+        "prism.bass.down"
+      ],
+      "defaultId": "prism.bass.roots",
+      "legacy": true
+    },
+    {
+      "id": "legacy.chords.4.0.major",
+      "name": "原有和弦 · 4小节",
+      "kind": "rhythm",
+      "role": "chords",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.chords.pop",
+        "prism.chords.axis",
+        "prism.chords.doo",
+        "prism.chords.folk",
+        "prism.chords.lift",
+        "prism.chords.home",
+        "prism.chords.soft",
+        "prism.chords.window",
+        "prism.chords.royal",
+        "prism.chords.sus",
+        "prism.chords.sunset",
+        "prism.chords.251",
+        "prism.chords.6251",
+        "prism.chords.3625",
+        "prism.chords.2516",
+        "prism.chords.secondary"
+      ],
+      "defaultId": "prism.chords.pop",
+      "legacy": true
+    },
+    {
+      "id": "legacy.chords.8.0.major",
+      "name": "原有和弦 · 8小节",
+      "kind": "rhythm",
+      "role": "chords",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.chords.canon"
+      ],
+      "defaultId": "prism.chords.canon",
+      "legacy": true
+    },
+    {
+      "id": "legacy.chords.4.9.minor",
+      "name": "原有和弦 · 4小节",
+      "kind": "rhythm",
+      "role": "chords",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "prism.chords.minor-axis",
+        "prism.chords.minor-descent",
+        "prism.chords.minor-fifth",
+        "prism.chords.minor-return",
+        "prism.chords.andalusian",
+        "prism.chords.minor-breath",
+        "prism.chords.minor251"
+      ],
+      "defaultId": "prism.chords.minor-axis",
+      "legacy": true
+    },
+    {
+      "id": "legacy.drums.1.0.major",
+      "name": "原有鼓点 · 1小节",
+      "kind": "rhythm",
+      "role": "drums",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "builtin.drum.four",
+        "builtin.drum.lofi",
+        "builtin.drum.half"
+      ],
+      "defaultId": "builtin.drum.four",
+      "legacy": true
+    },
+    {
+      "id": "legacy.melody.2.0.major",
+      "name": "原有旋律 · 2小节",
+      "kind": "rhythm",
+      "role": "melody",
+      "description": "旧内容保持原ID，按角色与长度归组。",
+      "members": [
+        "builtin.bass.walk",
+        "builtin.melody.answer"
+      ],
+      "defaultId": "builtin.bass.walk",
+      "legacy": true
+    }
+  ],
+  "combinations": [
+    {
+      "id": "studio.combo.warm",
+      "name": "复古暖光",
+      "eventHash": "815d2f92fbabd4615d4f1861ad20410a159c997cc9eadd2230cde30eaba10cd2",
+      "events": 212
+    },
+    {
+      "id": "studio.combo.warm.sparse",
+      "name": "复古暖光 · 留白版",
+      "eventHash": "b4ebe250a670ed007884b2ae7121dc6c9be7aff1ed97226af2e229c7657fc816",
+      "events": 151
+    },
+    {
+      "id": "studio.combo.warm.ending",
+      "name": "复古暖光 · 收尾版",
+      "eventHash": "07819d4ec8b562a24cd78ba37e09d591b23fc697be67186854ba7175bf8cfba5",
+      "events": 200
+    },
+    {
+      "id": "studio.combo.city",
+      "name": "清亮都市",
+      "eventHash": "cf4932b69639f782a690e65af5fa993d01e1aef8f16b1b4ec2528bd2d38b2b70",
+      "events": 334
+    },
+    {
+      "id": "studio.combo.city.sparse",
+      "name": "清亮都市 · 留白版",
+      "eventHash": "13c3986be0dafd77acd802a8af4535cbab1ebdc7092eef7963ff94c20d8bc053",
+      "events": 256
+    },
+    {
+      "id": "studio.combo.city.ending",
+      "name": "清亮都市 · 收尾版",
+      "eventHash": "e09d6f81c90826304be744cb757327b25240c8a9025ef09e93241c45ce6db048",
+      "events": 305
+    },
+    {
+      "id": "studio.combo.night",
+      "name": "夜间口袋",
+      "eventHash": "f6669dd3dac655cfd434ed735aed4e04862034d58267a37dc1e18cfc5b4e6c48",
+      "events": 200
+    },
+    {
+      "id": "studio.combo.night.sparse",
+      "name": "夜间口袋 · 留白版",
+      "eventHash": "3272d9d20642ba4f0df530d62765ad9d2b084a41a759a49db50f53b1907bbc26",
+      "events": 125
+    },
+    {
+      "id": "studio.combo.night.ending",
+      "name": "夜间口袋 · 收尾版",
+      "eventHash": "6da9998035f5258f0dd71910f12872396326aac50a75c36a6da4d2a8d47a80ab",
+      "events": 189
+    },
+    {
+      "id": "studio.combo.pulse",
+      "name": "脉冲电子",
+      "eventHash": "6fe42ca649cc20b1ded210c4af98b5b672797b888244a664f8c497eb720dc9f5",
+      "events": 274
+    },
+    {
+      "id": "studio.combo.pulse.sparse",
+      "name": "脉冲电子 · 留白版",
+      "eventHash": "9401d240322f729a8b59ffb83e0547c1e6a89d5c7aab497e390013ca1fdca29e",
+      "events": 186
+    },
+    {
+      "id": "studio.combo.pulse.ending",
+      "name": "脉冲电子 · 收尾版",
+      "eventHash": "4a057c6760a3b00d2404f253255851a4d8895835a8088dbb828e4249003f7224",
+      "events": 256
+    },
+    {
+      "id": "studio.combo.air",
+      "name": "空旷微光",
+      "eventHash": "41b8eee2849471188c7f312b0bc53b90057419c202bee19337d5d14061245a25",
+      "events": 117
+    },
+    {
+      "id": "studio.combo.air.sparse",
+      "name": "空旷微光 · 留白版",
+      "eventHash": "b57324df2dc18a46b3b589064061d3008a3252b3aad25b99256d12d8806702a4",
+      "events": 87
+    },
+    {
+      "id": "studio.combo.air.ending",
+      "name": "空旷微光 · 收尾版",
+      "eventHash": "28c49772bc88dae35ec0a73eedde69831a5e42aa5745b0c47d8ff280047f8df8",
+      "events": 112
+    },
+    {
+      "id": "studio.combo.edge",
+      "name": "锐利折线",
+      "eventHash": "e8e6200ec3ad84eedaf76d5712b805f4fc51485b783343c77494f581ce81a1a8",
+      "events": 279
+    },
+    {
+      "id": "studio.combo.edge.sparse",
+      "name": "锐利折线 · 留白版",
+      "eventHash": "eadbd66da9dc281a8fc151913370c226389988909235c3ba7b68dc69ab14df53",
+      "events": 205
+    },
+    {
+      "id": "studio.combo.edge.ending",
+      "name": "锐利折线 · 收尾版",
+      "eventHash": "25dc4746e214d0ac7158cba8a64443d4df4916aeacdc5a5502c1547696abd265",
+      "events": 260
+    }
+  ],
+  "compatibility": "IDs and payloads retained. Default discovery is family-based; old variants available by expanding original content. All applied data remains in documents.",
+  "listening": "NOT_RUN"
+}

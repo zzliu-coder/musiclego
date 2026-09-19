@@ -1,0 +1,15 @@
+{
+  "src/model.js": "b0070c1a679b2798a40e67483e53083b0cf8b13689044e814f7e5217913fa159",
+  "src/audio.js": "f3273039660d32e120dfa4a97681677b9a06602c11f7d875e990b4346f45238f",
+  "src/audio/instruments.js": "a49548cde5b85aa3a95560e8319ac850354c4757743fb9baa8a1a265c05e586e",
+  "src/music/generation.js": "80ce911fbb8b319d8ed0a3404ec6b68cda8134a640fb1084785c43fdc5fce567",
+  "src/music/harmony.js": "342e846481d2f455a6f4b71a82a150bc0a92cca4db9e5a080dc5fb7ebdb6c684",
+  "src/music/ensemble.js": "f6145d3ce7b30df104866a0a17fc482b9139fc2b5b784158f4d6f855fba768aa",
+  "src/music/recipes.js": "6b5d0a499f964592cfec5a1e9acc36c9d7bb9687c50e8e44ab3f7eee6e1a5772",
+  "src/storage/projects.js": "6c1bcf92cab2858da93ca28b796deb226613bd43737165ef7dd2f14fed2f5754",
+  "src/creation/placement.js": "855bec1489a8640c5a719097b16259230a7d5d0f20c0a89e2655c9ab3b68e7c3",
+  "src/creation/session.js": "ad70cb14ccd81852146c2310138473ce53d58b28241993cc0f4f97e3cd1f01af",
+  "src/catalog.js": "0667854cdeef5a2464d78eaa011d5df785a364fc1bd011abb82dbbdf917e020d",
+  "catalog/builtin.json": "4205d9193552a7148c9194f13a7012994d49bc596c1c087a3c2e88b97ad76717",
+  "catalog/recipes.json": "8b93423c78fc09b12daa857ebc58e020324c20f52efd4644f52e944784b37a34"
+}

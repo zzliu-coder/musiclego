@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: C-B01 parallel uses explicit existing tracks and preserves their sounds
+ok 1 - C-B01 parallel uses explicit existing tracks and preserves their sounds
+  ---
+  duration_ms: 6.539032
+  type: 'test'
+  ...
+# Subtest: C-B02 suggested targets reuse matching free voices
+ok 2 - C-B02 suggested targets reuse matching free voices
+  ---
+  duration_ms: 0.398407
+  type: 'test'
+  ...
+# Subtest: C-B03 occupied tracks are not suggested and are never overwritten
+ok 3 - C-B03 occupied tracks are not suggested and are never overwritten
+  ---
+  duration_ms: 0.572994
+  type: 'test'
+  ...
+# Subtest: C-B04 existing plus new is an atomic mixed target plan
+ok 4 - C-B04 existing plus new is an atomic mixed target plan
+  ---
+  duration_ms: 1.170596
+  type: 'test'
+  ...
+# Subtest: C-B05 ordered lengths 4+4+2 at bar5 occupy exactly ten bars
+ok 5 - C-B05 ordered lengths 4+4+2 at bar5 occupy exactly ten bars
+  ---
+  duration_ms: 1.260961
+  type: 'test'
+  ...
+# Subtest: C-B06 a new series creates one track, not one track per block
+ok 6 - C-B06 a new series creates one track, not one track per block
+  ---
+  duration_ms: 1.388506
+  type: 'test'
+  ...
+# Subtest: C-B07 source snapshots include key mapping and original drum timing
+ok 7 - C-B07 source snapshots include key mapping and original drum timing
+  ---
+  duration_ms: 0.998258
+  type: 'test'
+  ...
+# Subtest: C-B08 invalid duplicate parallel track assignment rejects whole batch
+ok 8 - C-B08 invalid duplicate parallel track assignment rejects whole batch
+  ---
+  duration_ms: 0.552641
+  type: 'test'
+  ...
+# Subtest: C-B09 changing a relevant target invalidates candidate, unrelated track preserved
+ok 9 - C-B09 changing a relevant target invalidates candidate, unrelated track preserved
+  ---
+  duration_ms: 3.815695
+  type: 'test'
+  ...
+# Subtest: C-B10 actual materialized plan uses exactly preview clip IDs and range
+ok 10 - C-B10 actual materialized plan uses exactly preview clip IDs and range
+  ---
+  duration_ms: 2.57572
+  type: 'test'
+  ...
+# Subtest: C-B11 batch never accepts sounds, songs, too many items or invalid times
+ok 11 - C-B11 batch never accepts sounds, songs, too many items or invalid times
+  ---
+  duration_ms: 0.486564
+  type: 'test'
+  ...
+# Subtest: C-L01 migration merges old catalog and wide library favorites once
+ok 12 - C-L01 migration merges old catalog and wide library favorites once
+  ---
+  duration_ms: 0.597288
+  type: 'test'
+  ...
+# Subtest: C-L02 empty tray is intentionally empty after reopening
+ok 13 - C-L02 empty tray is intentionally empty after reopening
+  ---
+  duration_ms: 0.494275
+  type: 'test'
+  ...
+# Subtest: C-L03 storage denial preserves in-window data with a truthful error
+ok 14 - C-L03 storage denial preserves in-window data with a truthful error
+  ---
+  duration_ms: 0.783278
+  type: 'test'
+  ...
+# Subtest: C-L04 corrupted legacy collection values do not break startup
+ok 15 - C-L04 corrupted legacy collection values do not break startup
+  ---
+  duration_ms: 0.143247
+  type: 'test'
+  ...
+# Subtest: C-L05 unavailable identifiers remain stored for later resource reimport
+ok 16 - C-L05 unavailable identifiers remain stored for later resource reimport
+  ---
+  duration_ms: 2.140215
+  type: 'test'
+  ...
+# Subtest: C-L06 used collection comes from placed music only, not unused patterns
+ok 17 - C-L06 used collection comes from placed music only, not unused patterns
+  ---
+  duration_ms: 0.328908
+  type: 'test'
+  ...
+# Subtest: C-L07 old catalog songs still exist and copy independently
+ok 18 - C-L07 old catalog songs still exist and copy independently
+  ---
+  duration_ms: 29.527719
+  type: 'test'
+  ...
+# Subtest: C-L08 an original template records identity for the used collection
+ok 19 - C-L08 an original template records identity for the used collection
+  ---
+  duration_ms: 4.037748
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 400.144046

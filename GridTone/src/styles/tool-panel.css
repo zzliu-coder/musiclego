@@ -1,0 +1,119 @@
+/* Shared tool slot. Controllers own drafts; these rules own grouping and readable flow. */
+.single-workspace .creation-dock { width: var(--tool-width); flex: 0 0 var(--tool-width); min-width: 310px; max-width: 380px; padding: 12px 14px 20px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: auto; scrollbar-gutter: stable; overscroll-behavior: contain; scroll-padding-top: 8px; scroll-padding-bottom: 18px; }
+.creation-dock-heading { position: sticky; top: -12px; z-index: 8; background: var(--surface); padding: 10px 0 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.creation-dock-heading>div { min-width: 0; }
+.creation-dock-heading h2 { font-size: 16px; line-height: 24px; font-weight: 600; overflow-wrap: anywhere; }
+.creation-dock-heading small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; color: var(--muted); line-height: 18px; margin-bottom: 2px; }
+.creation-dock-subtitle,.draft-target-strip { font-size: 12px; color: var(--muted); line-height: 18px; margin-bottom: 12px; }
+.draft-target-strip .btn { margin-top: 6px; }
+.inspector-pinned { position: sticky; top: -12px; z-index: 8; padding-top: 4px; background: var(--surface); }
+.inspector-pinned .creation-dock-heading { position: static; margin-bottom: 6px; }
+.inspector-tabs { display: flex; gap: 4px; padding-bottom: 10px; }
+.inspector-tabs .btn { flex: 1; }
+.tool-resume { display: flex; gap: 5px; flex-wrap: wrap; padding: 4px 0 8px; font-size: 12px; }
+.creation-dock h3 { font-size: 14px; line-height: 20px; }
+.creation-dock p { line-height: 1.6; }
+.creation-dock label:not(.slider-control):not(.field-row):not(.compact-check):not(.search-box):not(.shelf-search) { display: grid; gap: 6px; margin: 12px 0; font-size: 13px; line-height: 18px; }
+.creation-dock label.field-row { display: flex; margin: 8px 0; }
+.creation-dock :is(input[type=number],input[type=text],select) { width: 100%; min-width: 0; }
+.creation-dock details { border-top: 1px solid var(--line); padding: 14px 0; }
+.creation-dock summary { cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink); line-height: 20px; }
+.creation-dock .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.creation-dock .form-grid .form-label { margin: 6px 0; }
+.creation-dock .menu-grid { display: flex; gap: 6px; flex-wrap: wrap; }
+.inspector-section { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.inspector-section h3 { margin-bottom: 10px; }
+.inspector-section p,.scope-note { font-size: 12px; line-height: 18px; color: var(--muted); }
+.danger-section { margin-top: 24px; }
+.transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 10px 0 16px; }
+.transform-grid .btn { white-space: normal; text-align: left; }
+.creation-dock .sound-layout { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.creation-dock .sound-library,.creation-dock .sound-inspector { border: 0; background: transparent; min-width: 0; width: 100%; position: static; }
+.creation-dock .sound-inspector { order: -1; }
+.creation-dock .view-heading { display: none; }
+.creation-dock .library-header { padding: 8px 0; }
+.creation-dock .sound-grid { grid-template-columns: 1fr; padding: 8px 0; }
+.creation-dock .sound-import-actions { padding-bottom: 10px; }
+.creation-dock .sound-detail-toggle { width: 100%; margin: 8px 0; }
+.creation-dock .inspector-top { padding: 12px; border: 1px solid var(--line); border-radius: 10px; }
+.creation-dock .audition-keys { height: 78px; }
+.creation-dock .search-box { width: 100%; }
+.creation-dock .source-badge { white-space: normal; }
+.creation-dock .pipeline-controls { display: flex; flex-direction: column; }
+.creation-dock .pipeline-editor .view-heading { display: block; }
+.creation-dock .pipeline-editor .view-heading h1 { display: block; font-size: 16px; margin-bottom: 8px; }
+.creation-dock .pipeline-editor .view-heading p { display: block; margin-bottom: 10px; }
+.pipeline-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; color: var(--muted); padding: 12px 0; }
+.pipeline-controls>section { padding: 14px 0; border-top: 1px solid var(--line); }
+.creation-dock .composer-intro { display: block; }
+.creation-dock .composer-intro .pill { margin-top: 8px; }
+.creation-dock .composer-layout { display: flex; flex-direction: column; gap: 12px; }
+.creation-dock .progression-list { max-height: 200px; display: grid; }
+.creation-dock .chord-hero { padding: 12px; }
+.creation-dock .chord-hero h3 { font-size: 18px; }
+.creation-dock .chord-hero>p { min-height: 0; }
+/* Candidates stay above advanced parameters; there is one primary adoption action. */
+.creation-dock .candidate-bar { margin: 12px 0 16px; padding: 12px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface-raised); }
+.candidate-bar>header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font-size: 13px; }
+.candidate-bar nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.candidate-preview { height: 86px; padding: 8px 0; color: var(--brand); }
+.candidate-preview svg { height: 100%; width: 100%; }
+.candidate-stats { font-size: 12px; color: var(--muted); line-height: 18px; margin: 6px 0 12px; }
+.candidate-commit { display: flex; gap: 6px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+.candidate-commit [data-action=creation-apply] { flex: 1; }
+.candidate-preview-mode { display: flex; gap: 6px; margin-top: 10px; font-size: 12px; align-items: center; flex-wrap: wrap; }
+.candidate-preview-mode>span { color: var(--muted); margin-right: auto; }
+.creation-generate-row { display: flex; margin: 12px 0; }
+.creation-generate-row>.btn { width: 100%; }
+.generation-primary { margin-top: 16px; }
+.creation-feedback:empty,#creation-feedback:empty { display: none; }
+.creation-dock #creation-feedback:not(:empty) { padding: 0; background: transparent; margin: 10px 0; color: var(--muted); font-size: 12px; }
+.creation-dock .retention-controls { border: 0; border-top: 1px solid var(--line); background: transparent; padding: 14px 0; }
+.retention-summary { font-size: 12px; color: var(--muted); margin: 10px 0; }
+.retention-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+.retention-actions .btn { white-space: normal; text-align: left; justify-content: flex-start; }
+.quick-retention { margin: 10px 0; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-raised); font-size: 12px; }
+.quick-retention>span { display: block; margin-bottom: 6px; color: var(--muted); }
+.note-explanations { display: grid; gap: 8px; margin: 12px 0; }
+.note-explanations p { border-left: 2px solid var(--line-strong); padding-left: 10px; font-size: 12px; }
+.projection-status { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; background: var(--selected); color: var(--selected-ink); font-size: 12px; line-height: 18px; border-block: 1px solid var(--line); flex-shrink: 0; }
+.projection-legend { display: flex; gap: 10px; flex-wrap: wrap; }
+.projection-legend i { display: inline-block; width: 11px; height: 7px; margin-right: 3px; border: 1px dashed var(--brand); }
+.projection-legend .kept { border: 2px solid var(--success); }
+#candidate-projection { pointer-events: none; }
+.projection-note[data-state=changed] { fill: var(--brand); fill-opacity: .07; stroke: var(--brand); stroke-width: 1.5; stroke-dasharray: 4 2; }
+.projection-note[data-state=unchanged] { fill: transparent; stroke: var(--subtle); stroke-width: 1; stroke-dasharray: 1 2; }
+.projection-note[data-state=retained] { fill: var(--success); fill-opacity: .06; stroke: var(--success); stroke-width: 2; }
+.preview-original-dim .note-body { opacity: .3; }
+.preview-original-dim .note-edge,.preview-original-dim .note-bottom { opacity: .15; }
+.save-status-actions { display: inline-flex; gap: 4px; }
+.preview-controls .btn[data-action=stop] { margin-left: auto; }
+@media(max-width:1280px) { :root { --tool-width: 320px; } .single-workspace .creation-dock { padding-inline: 12px; } }
+/* Actual production combinations are reused in the system's living reference. */
+.components-page { height: 100dvh; overflow: auto; max-width: 1280px; margin: auto; padding: 32px; background: var(--paper); }
+.gallery-heading { padding: 16px 0 24px; border-bottom: 1px solid var(--line); }
+.gallery-heading h1 { font-size: 26px; line-height: 1.4; margin: 8px 0; }
+.gallery-heading p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.component-skin { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.components-page>section,.components-page #samples>section { padding: 24px 0; }
+.components-page h2 { font-size: 18px; margin-bottom: 12px; }
+.components-page section>p { font-size: 13px; line-height: 1.6; color: var(--muted); margin-bottom: 12px; }
+.components-page .sample-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border: 1px solid var(--line); padding: 16px; border-radius: 12px; background: var(--surface); }
+.gallery-materials { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.gallery-panels { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; align-items: start; }
+.gallery-panels>.creation-dock,.gallery-sound.creation-dock { display: block; position: relative; width: auto; min-width: 0; max-width: none; max-height: 920px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.gallery-panels .creation-dock-heading { position: static; }
+.gallery-panels .context-card { margin-bottom: 10px; }
+.gallery-notices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.components-page section.candidate-bar { padding: 12px; }
+.components-page .form-label { max-width: 290px; }
+.components-page .gallery-materials .shelf-card-pick { cursor: default; }
+.gallery-sound .sound-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+@media(max-width:760px) { .components-page { padding: 18px; } .gallery-materials,.gallery-panels,.gallery-notices { grid-template-columns: 1fr; } .gallery-sound .sound-grid { grid-template-columns: 1fr; } }
+
+/* Form focus clears the pinned heading; pinned controls themselves never scroll the content. */
+.creation-dock :is(input,select,textarea,summary){scroll-margin-block-start:144px;scroll-margin-block-end:16px}
+.inspector-pinned :is(button,a){scroll-margin:0}
+
+/* At a very short effective viewport, a sticky header would cover the controls below it. */
+@media(max-height:620px){.single-workspace .creation-dock .creation-dock-heading,.single-workspace .creation-dock .inspector-pinned{position:static}.single-workspace .creation-dock{scroll-padding-top:8px}.creation-dock :is(input,select,textarea,summary){scroll-margin-block-start:12px}}

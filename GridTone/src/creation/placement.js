@@ -22,7 +22,7 @@
   let incoming=template.notes.map(n=>({...n,id:G.uid('n'),start:n.start+start}));
   if(t.kind==='drum')incoming=G.remapDrums(incoming,G.resolveKit(template.drumkitId||'builtin.standard',p).rows,G.drumsFor(p,t));
   pat.notes=keep.concat(incoming);if(pat.retention)pat.retention.notes=pat.retention.notes.concat(splitReferences).filter(n=>pat.notes.some(v=>v.id===n.id));delete pat.generation;
-  if(template.harmony&&start===0&&template.bars===pat.bars)G.confirmHarmony(pat,template.harmony);else delete pat.harmony;
+  G.mergePlacedHarmony(original,pat,template,start,finish);if(template.attributions){pat.attributions??=[];for(const ref of template.attributions)if(!pat.attributions.some(r=>r.id===ref.id))pat.attributions.push(G.clone(ref));}G.annotateStudioMaterial?.(pat,template.id);
   return {project:G.validateProject(p),trackId:t.id,patternId:pat.id,clipId:clip?.id,range:clip?[(clip.bar*G.BAR)+start,(clip.bar*G.BAR)+finish]:undefined};
  }
  G.planPlacement=planPlacement;

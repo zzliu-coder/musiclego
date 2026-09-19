@@ -6,7 +6,7 @@
     if (!el?.matches?.('button,input,select,textarea,a,summary,[tabindex]')) return null;
     if (el.id) return '#' + esc(el.id);
     let selector = el.tagName.toLowerCase();
-    for (const name of ['data-action','data-field','data-range','data-id','data-track','data-tab','data-group','data-view','data-tool','data-page','data-category','data-clip','aria-label']) {
+    for (const name of ['data-batch-field','data-index','data-collection','data-family','data-kind','data-library-field','data-filter','data-command','data-action','data-field','data-range','data-id','data-track','data-tab','data-group','data-view','data-tool','data-page','data-category','data-clip','aria-label']) {
       if (el.hasAttribute(name)) selector += `[${name}="${esc(el.getAttribute(name))}"]`;
     }
     for (const parent of ['.modal','.properties-sidebar','.top-actions','.editor-breadcrumb','.editor-subtabs','.view-tabs','.arrange-bottom','.selection-bar']) {
@@ -36,13 +36,13 @@
       if (!overlay.children.length) returnFocus=captureFocus();
       const focus=overlay.children.length?captureFocus():null;
       overlay.innerHTML=G.ui.Dialog({title,body,subtitle});
-      document.querySelector('#app').inert=true;
+      document.querySelector('#app').inert=true;if(document.querySelector('#studio-library'))document.querySelector('#studio-library').inert=true;
       const node=overlay.querySelector('#form-value,[autofocus]') || overlay.querySelector('#modal-title');
       requestAnimationFrame(()=>{if(!restoreFocus(focus)&&node?.isConnected)node.focus({preventScroll:true});});
     },
     close() {
       document.querySelector('#overlay').replaceChildren();
-      document.querySelector('#app').inert=false;
+      document.querySelector('#app').inert=false;if(document.querySelector('#studio-library'))document.querySelector('#studio-library').inert=false;
       restoreFocus(returnFocus);returnFocus=null;
     },
     keydown(e) {

@@ -1,0 +1,17 @@
+PASS U01-chord-panel-target-deletion
+PASS U02-generator-target-deletion
+PASS U03-global-mix-independent-of-old-selection
+PASS U04-library-pack-count-and-backup
+PASS U05-kit-role-remap
+PASS U06-recipe-preview-matches-target-key
+PASS U07-export-current-preview-MIDI
+PASS U08-bake-stale-harmony-and-undo
+PASS U09-export-current-preview-WAV-range
+PASS U10-paused-audition-new-loop
+PASS U11-one-active-creation-owner
+PASS U12-source-drum-role-change-invalidates
+PASS U13-missing-drum-role-rejects-atomically
+PASS U14-recipe-preview-effective-tempo-swing
+PASS U15-confirmed-bake-preserves-performed-music
+PASS U16-kit-apply-single-undo-redo
+{'PASS': 16, 'FAIL': 0}

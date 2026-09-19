@@ -1,25 +1,39 @@
 {
   "name": "gridtone",
-  "version": "1.7.0",
+  "version": "2.2.1",
   "private": true,
   "description": "乐构：把音乐搭起来。可离线运行的音乐创作工作台。",
   "scripts": {
     "start": "node scripts/server.mjs",
     "catalog": "node scripts/catalog-build.mjs",
+    "prebuild": "node scripts/catalog-build.mjs",
     "build": "node scripts/build.mjs",
     "pretest": "node scripts/catalog-build.mjs",
-    "test": "node --test tests/*.test.mjs tests/*.test.cjs",
-    "test:e2e": "node tests/verify-storage.mjs && node tests/verify-workflow.mjs && node tests/verify-release-flow.mjs && node tests/verify-interactions.mjs",
-    "verify": "node scripts/verify.mjs",
-    "prebuild": "node scripts/catalog-build.mjs",
-    "catalog:generate": "node scripts/content-build.mjs && node scripts/catalog-build.mjs",
-    "test:prism": "npm run build && python3 tests/prism_browser.py",
-    "verify:visual": "node tests/verify-visual.mjs",
-    "verify:audio": "node tests/verify-audio.mjs",
-    "verify:soak": "node tests/verify-soak.mjs",
-    "verify:release": "npm run verify && npm run verify:soak && node scripts/verify-closure-gate.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "verify:browser": "python3 tests/verify-completion-browser.py",
+    "verify:audio": "python3 tests/verify-studio-audio.py",
+    "verify:soak": "REPAIR_EVIDENCE_DIR=docs/completion-2.2.1/evidence/soak python3 tests/verify-repair-soak.py --seconds 600",
+    "verify:engineering": "node scripts/verify-completion.mjs",
+    "verify": "npm run verify:engineering",
+    "verify:release": "node scripts/verify-completion-gate.mjs --release",
+    "verify:reaudit": "python3 tests/verify-workspace-regressions.py",
+    "verify:origin": "python3 tests/verify-origin-storage.py",
+    "verify:design": "node scripts/verify-design.mjs",
+    "verify:design:browser": "python3 tests/verify-design-system.py",
+    "verify:design:source": "python3 scripts/audit-design-source.py",
+    "verify:studio": "python3 tests/verify-studio-browser.py",
+    "curate": "node scripts/curate-content.mjs",
+    "verify:legacy-content": "node scripts/verify-content.mjs",
+    "verify:receipts": "node scripts/verify-completion-gate.mjs",
+    "verify:magnet": "python3 tests/verify-magnet-browser.py",
+    "verify:visual": "python3 tests/verify-completion-visual.py",
+    "verify:performance": "python3 tests/measure-magnet-performance.py",
+    "verify:legacy:engineering": "node scripts/verify-magnet.mjs",
+    "verify:legacy:release": "node scripts/verify-magnet-gate.mjs --release",
+    "verify:recovery": "node scripts/verify-recovery-gate.mjs",
+    "verify:completion": "python3 tests/verify-completion-browser.py",
+    "verify:legacy:recovery": "node scripts/verify-recovery.mjs"
   },
-  "devDependencies": {
-    "playwright": "^1.63.0"
-  }
+  "devDependencies": {},
+  "buildLabel": "completion-audited"
 }

@@ -1,9 +1,5 @@
-# 固定验收输入与输出
+# 只读兼容性夹具
 
-本轮固定文件集中保存在 `docs/implementation/evidence/fixtures/`，避免测试夹具与交付证据出现两份不一致的副本：
+`model-1.7.1.js`取自交付1.7.1提交 `a11de52ec4d27fff691a2487f4f6c392bafda15a`，保持原始字节，用于Q25验证旧验证器可读取本版生成工程。该文件不在生产assets清单中。
 
-- `legacy-v1.gridtone` / `legacy-v2.gridtone`：基线读取与迁移比较。
-- `success-path.gridtone` / `.mid` / `.wav`：模板、生成、保留范围、编排和混音的完整浏览器导出。
-- `soak-final.gridtone`：30 分钟创作循环后保存并真实刷新的最终作品。
-
-这些都是自动构造的验收工程，未使用用户私人作品。
+Git blob: `b6539259fde8e6f66266b9f5a23f44e916979623`

@@ -1,0 +1,204 @@
+{
+  "version": "2.2.1",
+  "htmlSha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "status": "REVIEWED",
+  "reviewer": "assistant visual inspection",
+  "humanUserStudy": false,
+  "reviewedAt": "2026-09-19T10:05:04.524823+00:00",
+  "method": "All 17 captured production screens inspected via three contact sheets; 08 full-resolution reviewed again. These are application screenshots, not generated concepts.",
+  "notes": [
+    "模板与音色分域，旧示例可见，参数页无第二套浏览器。",
+    "批量计划显示轨道与第5—8小节，原稿可见；固定面板不挤动时间几何。",
+    "短窗口使用真实滚动保持确认/取消/试听按钮可达。",
+    "本环境保存失败提示保留，未通过编辑图片隐藏。"
+  ],
+  "screens": [
+    {
+      "name": "01-workspace",
+      "path": "01-workspace.png",
+      "sha256": "9f3510ef31e59fd3be92c08a7f928c6322387cc3e37b4f163e1103bf0364ac8f",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "02-complete-template-library",
+      "path": "02-complete-template-library.png",
+      "sha256": "8a53fe1d442dda3d7f2b58f6f338b4782e40724dce497bdfb24a0cdde0624c59",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "03-pending-collection",
+      "path": "03-pending-collection.png",
+      "sha256": "26c96378b9a90c8047ca9932fa1b90f0f5f5002985aa6b7e9d6db77d1ad6a9f2",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "04-five-original-examples",
+      "path": "04-five-original-examples.png",
+      "sha256": "957a82481ed60e0748d95f72fbf900457ae6467845aa2033b1c9e3aca8baa786",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "05-only-sound-chooser",
+      "path": "05-only-sound-chooser.png",
+      "sha256": "ede853403765aaaabc2a041ef213b80ec8f7fca6d9172708731bf463479f9742",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "06-current-sound-parameters",
+      "path": "06-current-sound-parameters.png",
+      "sha256": "6e50b95c91d77ed6584d20ca7f6bca7295a0265d14efe1dedbc0c257d446145f",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "07-sound-resources",
+      "path": "07-sound-resources.png",
+      "sha256": "4234d8c37af51f9483d68624bc8afadf7da6d7d887dad7b8222e410377336e68",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "08-parallel-existing-targets",
+      "path": "08-parallel-existing-targets.png",
+      "sha256": "2dc6f69944fca1e2138e941ae0eab84947a5693def5d1f76e85d87a837332614",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "09-series-plan",
+      "path": "09-series-plan.png",
+      "sha256": "a3601a1cd8ebda1379b2c9817f8f2c72dd337453f3f56cbd50e18cf0cdfa905b",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "10-batch-conflict",
+      "path": "10-batch-conflict.png",
+      "sha256": "2e1e0da85c7c8272124292c83339ba0442b446b6c4338fe2968e99b5c7f0f341",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "11-short-parallel-plan",
+      "path": "11-short-parallel-plan.png",
+      "sha256": "628ef5d263ff8690d8833811671d30268edefb51fc59de88ef36a178a3ca86fa",
+      "inspection": "reviewed",
+      "skin": "pearl",
+      "viewport": [
+        1100,
+        700
+      ]
+    },
+    {
+      "name": "12-seven-bar-continuous-note",
+      "path": "12-seven-bar-continuous-note.png",
+      "sha256": "3abecc27cd948a6c5c63c5181ee67947afceac23c75ef6b6b809cc45b4b5408a",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "13-generation-comparison",
+      "path": "13-generation-comparison.png",
+      "sha256": "3ab014168ab9476b29bc21810194241408c911c4e782b9fda82f2bed0a76dbf0",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "14-mixing-preserved",
+      "path": "14-mixing-preserved.png",
+      "sha256": "1675a45090ec4555b17f35aeb7f3edeea5d45bbeae9f2b3ccd26eaed7aa9fd08",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "15-pearl-template-library",
+      "path": "15-pearl-template-library.png",
+      "sha256": "60e5277c02c2d336f35c533cd892a495a4ff9aabd7fc1dad0deabc84f93c381d",
+      "inspection": "reviewed",
+      "skin": "pearl",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "16-short-library",
+      "path": "16-short-library.png",
+      "sha256": "302177d16bb7695bb640d7a9a731625715a905f99ebc54c3d1668cb5a18c4c7c",
+      "inspection": "reviewed",
+      "skin": "crystal",
+      "viewport": [
+        1100,
+        700
+      ]
+    },
+    {
+      "name": "17-short-parameters",
+      "path": "17-short-parameters.png",
+      "sha256": "7bdfc4f0d09fa6abf84b0a56979f39aefc959352540620f2278fb89287e55f6b",
+      "inspection": "reviewed",
+      "skin": "pearl",
+      "viewport": [
+        1280,
+        800
+      ]
+    }
+  ]
+}

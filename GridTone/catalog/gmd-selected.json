@@ -1,0 +1,3645 @@
+[
+  {
+    "id": "studio.rhythm.hand-pop.1",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏流行 · 原演奏1",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 138,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 42,
+        "start": 0.0,
+        "duration": 190.0,
+        "velocity": 0.685039,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 450.0,
+        "duration": 224.0,
+        "velocity": 0.409449,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 892.0,
+        "duration": 220.0,
+        "velocity": 0.984252,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 934.0,
+        "duration": 222.0,
+        "velocity": 0.834646,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1398.0,
+        "duration": 224.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 1864.0,
+        "duration": 222.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1906.0,
+        "duration": 222.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2380.0,
+        "duration": 222.0,
+        "velocity": 0.377953,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2808.0,
+        "duration": 224.0,
+        "velocity": 0.543307,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 2826.0,
+        "duration": 222.0,
+        "velocity": 0.700787,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2850.0,
+        "duration": 222.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3300.0,
+        "duration": 224.0,
+        "velocity": 0.385827,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3740.0,
+        "duration": 224.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3776.0,
+        "duration": 222.0,
+        "velocity": 0.582677,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4238.0,
+        "duration": 224.0,
+        "velocity": 0.401575,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4718.0,
+        "duration": 224.0,
+        "velocity": 0.952756,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4734.0,
+        "duration": 222.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5192.0,
+        "duration": 224.0,
+        "velocity": 0.409449,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5668.0,
+        "duration": 222.0,
+        "velocity": 0.779528,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6084.0,
+        "duration": 222.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6130.0,
+        "duration": 224.0,
+        "velocity": 0.425197,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6632.0,
+        "duration": 222.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6654.0,
+        "duration": 224.0,
+        "velocity": 0.795276,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6676.0,
+        "duration": 224.0,
+        "velocity": 0.259843,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7100.0,
+        "duration": 224.0,
+        "velocity": 0.409449,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7618.0,
+        "duration": 222.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7622.0,
+        "duration": 222.0,
+        "velocity": 0.496063,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8100.0,
+        "duration": 224.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8570.0,
+        "duration": 222.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8584.0,
+        "duration": 222.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9052.0,
+        "duration": 224.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 9494.0,
+        "duration": 224.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9550.0,
+        "duration": 222.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10030.0,
+        "duration": 222.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10394.0,
+        "duration": 222.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10468.0,
+        "duration": 222.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10496.0,
+        "duration": 224.0,
+        "velocity": 0.732283,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10962.0,
+        "duration": 224.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11394.0,
+        "duration": 222.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11444.0,
+        "duration": 222.0,
+        "velocity": 0.80315,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11940.0,
+        "duration": 224.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12412.0,
+        "duration": 222.0,
+        "velocity": 0.858268,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12432.0,
+        "duration": 224.0,
+        "velocity": 0.874016,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12896.0,
+        "duration": 226.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13356.0,
+        "duration": 222.0,
+        "velocity": 0.787402,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13812.0,
+        "duration": 222.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13876.0,
+        "duration": 222.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14340.0,
+        "duration": 224.0,
+        "velocity": 0.92126,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 14348.0,
+        "duration": 222.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14368.0,
+        "duration": 222.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14816.0,
+        "duration": 222.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 15314.0,
+        "duration": 46.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15332.0,
+        "duration": 28.0,
+        "velocity": 0.866142,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+      "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+      "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+      "sourceBars": [
+        1,
+        4
+      ],
+      "originalBpm": 138,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-pop",
+    "variant": "基本型"
+  },
+  {
+    "id": "studio.rhythm.hand-pop.2",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏流行 · 原演奏2",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 138,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 42,
+        "start": 414.0,
+        "duration": 222.0,
+        "velocity": 0.330709,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 934.0,
+        "duration": 222.0,
+        "velocity": 0.866142,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 934.0,
+        "duration": 222.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1434.0,
+        "duration": 222.0,
+        "velocity": 0.299213,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 1918.0,
+        "duration": 222.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1926.0,
+        "duration": 222.0,
+        "velocity": 0.732283,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2424.0,
+        "duration": 222.0,
+        "velocity": 0.377953,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2876.0,
+        "duration": 222.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2886.0,
+        "duration": 224.0,
+        "velocity": 0.92126,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2898.0,
+        "duration": 222.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3356.0,
+        "duration": 224.0,
+        "velocity": 0.377953,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3824.0,
+        "duration": 222.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3840.0,
+        "duration": 224.0,
+        "velocity": 0.771654,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4316.0,
+        "duration": 224.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4760.0,
+        "duration": 222.0,
+        "velocity": 0.952756,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4784.0,
+        "duration": 222.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5250.0,
+        "duration": 222.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5728.0,
+        "duration": 224.0,
+        "velocity": 0.84252,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6180.0,
+        "duration": 224.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6194.0,
+        "duration": 222.0,
+        "velocity": 0.417323,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6658.0,
+        "duration": 222.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6680.0,
+        "duration": 222.0,
+        "velocity": 0.748031,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6682.0,
+        "duration": 220.0,
+        "velocity": 0.811024,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7156.0,
+        "duration": 224.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7660.0,
+        "duration": 222.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7666.0,
+        "duration": 222.0,
+        "velocity": 0.740157,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8140.0,
+        "duration": 224.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8608.0,
+        "duration": 222.0,
+        "velocity": 0.818898,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8626.0,
+        "duration": 222.0,
+        "velocity": 0.976378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9100.0,
+        "duration": 226.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 9580.0,
+        "duration": 222.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9596.0,
+        "duration": 224.0,
+        "velocity": 0.614173,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10058.0,
+        "duration": 224.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10506.0,
+        "duration": 220.0,
+        "velocity": 0.511811,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10518.0,
+        "duration": 222.0,
+        "velocity": 0.795276,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10528.0,
+        "duration": 220.0,
+        "velocity": 0.661417,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10990.0,
+        "duration": 224.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11418.0,
+        "duration": 224.0,
+        "velocity": 0.543307,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11458.0,
+        "duration": 222.0,
+        "velocity": 0.779528,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11958.0,
+        "duration": 224.0,
+        "velocity": 0.307087,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12382.0,
+        "duration": 222.0,
+        "velocity": 0.937008,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12418.0,
+        "duration": 222.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12886.0,
+        "duration": 226.0,
+        "velocity": 0.346457,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13372.0,
+        "duration": 222.0,
+        "velocity": 0.629921,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13808.0,
+        "duration": 222.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13836.0,
+        "duration": 224.0,
+        "velocity": 0.401575,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 14308.0,
+        "duration": 224.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14316.0,
+        "duration": 222.0,
+        "velocity": 0.787402,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14328.0,
+        "duration": 224.0,
+        "velocity": 0.622047,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14812.0,
+        "duration": 226.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15284.0,
+        "duration": 76.0,
+        "velocity": 0.661417,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 15298.0,
+        "duration": 62.0,
+        "velocity": 0.858268,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+      "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+      "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+      "sourceBars": [
+        5,
+        8
+      ],
+      "originalBpm": 138,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-pop",
+    "variant": "原奏B"
+  },
+  {
+    "id": "studio.rhythm.hand-pop.3",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏流行 · 原演奏3",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 138,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 38,
+        "start": 382.0,
+        "duration": 222.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 402.0,
+        "duration": 224.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 896.0,
+        "duration": 222.0,
+        "velocity": 0.700787,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 910.0,
+        "duration": 222.0,
+        "velocity": 0.826772,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1350.0,
+        "duration": 224.0,
+        "velocity": 0.346457,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1826.0,
+        "duration": 222.0,
+        "velocity": 0.566929,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 1846.0,
+        "duration": 222.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2300.0,
+        "duration": 224.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2790.0,
+        "duration": 222.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2792.0,
+        "duration": 220.0,
+        "velocity": 0.818898,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2806.0,
+        "duration": 222.0,
+        "velocity": 0.543307,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3262.0,
+        "duration": 224.0,
+        "velocity": 0.425197,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3758.0,
+        "duration": 222.0,
+        "velocity": 0.472441,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3774.0,
+        "duration": 222.0,
+        "velocity": 0.629921,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4228.0,
+        "duration": 222.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4682.0,
+        "duration": 224.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4700.0,
+        "duration": 224.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4982.0,
+        "duration": 222.0,
+        "velocity": 0.062992,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5160.0,
+        "duration": 224.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5646.0,
+        "duration": 222.0,
+        "velocity": 0.637795,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6106.0,
+        "duration": 224.0,
+        "velocity": 0.322835,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6126.0,
+        "duration": 222.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 6606.0,
+        "duration": 222.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6614.0,
+        "duration": 224.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6624.0,
+        "duration": 222.0,
+        "velocity": 0.527559,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7064.0,
+        "duration": 224.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7560.0,
+        "duration": 222.0,
+        "velocity": 0.629921,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7574.0,
+        "duration": 224.0,
+        "velocity": 0.818898,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8028.0,
+        "duration": 222.0,
+        "velocity": 0.330709,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8546.0,
+        "duration": 224.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 8552.0,
+        "duration": 224.0,
+        "velocity": 0.700787,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9038.0,
+        "duration": 224.0,
+        "velocity": 0.244094,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 9510.0,
+        "duration": 222.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9514.0,
+        "duration": 222.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9966.0,
+        "duration": 224.0,
+        "velocity": 0.299213,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10428.0,
+        "duration": 222.0,
+        "velocity": 0.834646,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10446.0,
+        "duration": 222.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10468.0,
+        "duration": 222.0,
+        "velocity": 0.582677,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10936.0,
+        "duration": 222.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11424.0,
+        "duration": 222.0,
+        "velocity": 0.653543,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11424.0,
+        "duration": 222.0,
+        "velocity": 0.574803,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11912.0,
+        "duration": 224.0,
+        "velocity": 0.314961,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12400.0,
+        "duration": 222.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12428.0,
+        "duration": 224.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12886.0,
+        "duration": 222.0,
+        "velocity": 0.291339,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13352.0,
+        "duration": 222.0,
+        "velocity": 0.653543,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13796.0,
+        "duration": 222.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13842.0,
+        "duration": 222.0,
+        "velocity": 0.314961,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 14294.0,
+        "duration": 222.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14316.0,
+        "duration": 224.0,
+        "velocity": 0.787402,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14326.0,
+        "duration": 224.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14798.0,
+        "duration": 224.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 15310.0,
+        "duration": 50.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15324.0,
+        "duration": 36.0,
+        "velocity": 0.677165,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+      "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+      "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+      "sourceBars": [
+        9,
+        12
+      ],
+      "originalBpm": 138,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-pop",
+    "variant": "原奏C"
+  },
+  {
+    "id": "studio.rhythm.hand-pop.4",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏流行 · 原演奏4",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 138,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 42,
+        "start": 418.0,
+        "duration": 226.0,
+        "velocity": 0.377953,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 890.0,
+        "duration": 224.0,
+        "velocity": 0.732283,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 912.0,
+        "duration": 224.0,
+        "velocity": 0.976378,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1076.0,
+        "duration": 222.0,
+        "velocity": 0.165354,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1402.0,
+        "duration": 224.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 1868.0,
+        "duration": 220.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1876.0,
+        "duration": 224.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2334.0,
+        "duration": 224.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2818.0,
+        "duration": 222.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 2834.0,
+        "duration": 222.0,
+        "velocity": 0.622047,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2860.0,
+        "duration": 222.0,
+        "velocity": 0.574803,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3332.0,
+        "duration": 226.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3794.0,
+        "duration": 222.0,
+        "velocity": 0.543307,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3808.0,
+        "duration": 222.0,
+        "velocity": 0.527559,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4282.0,
+        "duration": 222.0,
+        "velocity": 0.401575,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4748.0,
+        "duration": 222.0,
+        "velocity": 0.787402,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4764.0,
+        "duration": 222.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5232.0,
+        "duration": 224.0,
+        "velocity": 0.409449,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5690.0,
+        "duration": 222.0,
+        "velocity": 0.566929,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6178.0,
+        "duration": 224.0,
+        "velocity": 0.417323,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6180.0,
+        "duration": 222.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6670.0,
+        "duration": 222.0,
+        "velocity": 0.566929,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 6692.0,
+        "duration": 222.0,
+        "velocity": 0.685039,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6712.0,
+        "duration": 224.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7216.0,
+        "duration": 222.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7626.0,
+        "duration": 224.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7674.0,
+        "duration": 224.0,
+        "velocity": 0.543307,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8144.0,
+        "duration": 222.0,
+        "velocity": 0.527559,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 8614.0,
+        "duration": 222.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8628.0,
+        "duration": 222.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9126.0,
+        "duration": 222.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 9566.0,
+        "duration": 224.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9616.0,
+        "duration": 224.0,
+        "velocity": 0.519685,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10060.0,
+        "duration": 222.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10540.0,
+        "duration": 222.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10542.0,
+        "duration": 220.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10562.0,
+        "duration": 222.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11030.0,
+        "duration": 224.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11514.0,
+        "duration": 222.0,
+        "velocity": 0.889764,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11538.0,
+        "duration": 224.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11982.0,
+        "duration": 224.0,
+        "velocity": 0.393701,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12428.0,
+        "duration": 222.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12466.0,
+        "duration": 224.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12944.0,
+        "duration": 222.0,
+        "velocity": 0.330709,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13398.0,
+        "duration": 224.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13852.0,
+        "duration": 222.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13868.0,
+        "duration": 224.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14342.0,
+        "duration": 222.0,
+        "velocity": 0.740157,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 14358.0,
+        "duration": 224.0,
+        "velocity": 0.472441,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14382.0,
+        "duration": 224.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14872.0,
+        "duration": 224.0,
+        "velocity": 0.362205,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/7_pop-groove7_138_beat_4-4.mid",
+      "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+      "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+      "sourceBars": [
+        13,
+        16
+      ],
+      "originalBpm": 138,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-pop",
+    "variant": "原奏D"
+  },
+  {
+    "id": "studio.rhythm.hand-soul.1",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏灵魂 · 原演奏1",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 102,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 36,
+        "start": 0.0,
+        "duration": 142.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 0.0,
+        "duration": 142.0,
+        "velocity": 0.779528,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 470.0,
+        "duration": 164.0,
+        "velocity": 0.165354,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 922.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 936.0,
+        "duration": 166.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1148.0,
+        "duration": 164.0,
+        "velocity": 0.062992,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1454.0,
+        "duration": 166.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1940.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2380.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2412.0,
+        "duration": 164.0,
+        "velocity": 0.496063,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2880.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2882.0,
+        "duration": 166.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 3018.0,
+        "duration": 92.0,
+        "velocity": 0.220472,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 3110.0,
+        "duration": 72.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3354.0,
+        "duration": 164.0,
+        "velocity": 0.653543,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3652.0,
+        "duration": 166.0,
+        "velocity": 0.346457,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3836.0,
+        "duration": 164.0,
+        "velocity": 0.661417,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3848.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4312.0,
+        "duration": 166.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4770.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4788.0,
+        "duration": 166.0,
+        "velocity": 0.811024,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5268.0,
+        "duration": 166.0,
+        "velocity": 0.472441,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5718.0,
+        "duration": 164.0,
+        "velocity": 0.377953,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6164.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6172.0,
+        "duration": 166.0,
+        "velocity": 0.409449,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6660.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6672.0,
+        "duration": 164.0,
+        "velocity": 0.622047,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7174.0,
+        "duration": 164.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7450.0,
+        "duration": 164.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7638.0,
+        "duration": 166.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7644.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8116.0,
+        "duration": 166.0,
+        "velocity": 0.685039,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8622.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8628.0,
+        "duration": 166.0,
+        "velocity": 0.653543,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8836.0,
+        "duration": 60.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8896.0,
+        "duration": 104.0,
+        "velocity": 0.055118,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9128.0,
+        "duration": 164.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9570.0,
+        "duration": 164.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9812.0,
+        "duration": 164.0,
+        "velocity": 0.181102,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10022.0,
+        "duration": 166.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10036.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10518.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10526.0,
+        "duration": 166.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10728.0,
+        "duration": 166.0,
+        "velocity": 0.110236,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11004.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11326.0,
+        "duration": 164.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11498.0,
+        "duration": 164.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11512.0,
+        "duration": 166.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11972.0,
+        "duration": 166.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12444.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12470.0,
+        "duration": 164.0,
+        "velocity": 0.818898,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12938.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13380.0,
+        "duration": 166.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 13666.0,
+        "duration": 166.0,
+        "velocity": 0.212598,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13848.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13856.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14334.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14350.0,
+        "duration": 166.0,
+        "velocity": 0.897638,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14462.0,
+        "duration": 164.0,
+        "velocity": 0.259843,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14838.0,
+        "duration": 166.0,
+        "velocity": 0.629921,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15086.0,
+        "duration": 166.0,
+        "velocity": 0.322835,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15296.0,
+        "duration": 64.0,
+        "velocity": 0.614173,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 15344.0,
+        "duration": 16.0,
+        "velocity": 0.417323,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+      "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+      "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+      "sourceBars": [
+        1,
+        4
+      ],
+      "originalBpm": 102,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-soul",
+    "variant": "基本型"
+  },
+  {
+    "id": "studio.rhythm.hand-soul.2",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏灵魂 · 原演奏2",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 102,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 42,
+        "start": 448.0,
+        "duration": 166.0,
+        "velocity": 0.716535,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 924.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 960.0,
+        "duration": 164.0,
+        "velocity": 0.811024,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1432.0,
+        "duration": 164.0,
+        "velocity": 0.566929,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1708.0,
+        "duration": 164.0,
+        "velocity": 0.220472,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1886.0,
+        "duration": 164.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2146.0,
+        "duration": 164.0,
+        "velocity": 0.244094,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2340.0,
+        "duration": 164.0,
+        "velocity": 0.889764,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2348.0,
+        "duration": 166.0,
+        "velocity": 0.519685,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2832.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2840.0,
+        "duration": 166.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3314.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3606.0,
+        "duration": 166.0,
+        "velocity": 0.346457,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3778.0,
+        "duration": 166.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3790.0,
+        "duration": 166.0,
+        "velocity": 0.637795,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4286.0,
+        "duration": 166.0,
+        "velocity": 0.637795,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4766.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4790.0,
+        "duration": 164.0,
+        "velocity": 0.850394,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5266.0,
+        "duration": 166.0,
+        "velocity": 0.322835,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5710.0,
+        "duration": 166.0,
+        "velocity": 0.370079,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 5952.0,
+        "duration": 164.0,
+        "velocity": 0.102362,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6146.0,
+        "duration": 168.0,
+        "velocity": 0.464567,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6164.0,
+        "duration": 166.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6662.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6666.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7154.0,
+        "duration": 166.0,
+        "velocity": 0.858268,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7410.0,
+        "duration": 164.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 7446.0,
+        "duration": 164.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7636.0,
+        "duration": 164.0,
+        "velocity": 0.84252,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7650.0,
+        "duration": 166.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8104.0,
+        "duration": 164.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8586.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8604.0,
+        "duration": 166.0,
+        "velocity": 0.771654,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9110.0,
+        "duration": 166.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9380.0,
+        "duration": 164.0,
+        "velocity": 0.055118,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9576.0,
+        "duration": 166.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9860.0,
+        "duration": 166.0,
+        "velocity": 0.062992,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10046.0,
+        "duration": 164.0,
+        "velocity": 0.496063,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10046.0,
+        "duration": 164.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10530.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10538.0,
+        "duration": 166.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11036.0,
+        "duration": 166.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11278.0,
+        "duration": 166.0,
+        "velocity": 0.322835,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11464.0,
+        "duration": 164.0,
+        "velocity": 0.456693,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11506.0,
+        "duration": 164.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11972.0,
+        "duration": 164.0,
+        "velocity": 0.661417,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12478.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12490.0,
+        "duration": 164.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12966.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13440.0,
+        "duration": 164.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 13680.0,
+        "duration": 164.0,
+        "velocity": 0.19685,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13896.0,
+        "duration": 166.0,
+        "velocity": 0.582677,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13896.0,
+        "duration": 166.0,
+        "velocity": 0.472441,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14372.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14372.0,
+        "duration": 164.0,
+        "velocity": 0.582677,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14858.0,
+        "duration": 166.0,
+        "velocity": 0.716535,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15096.0,
+        "duration": 166.0,
+        "velocity": 0.322835,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15328.0,
+        "duration": 32.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 15340.0,
+        "duration": 20.0,
+        "velocity": 0.535433,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+      "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+      "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+      "sourceBars": [
+        5,
+        8
+      ],
+      "originalBpm": 102,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-soul",
+    "variant": "原奏B"
+  },
+  {
+    "id": "studio.rhythm.hand-soul.3",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏灵魂 · 原演奏3",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 102,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 42,
+        "start": 470.0,
+        "duration": 166.0,
+        "velocity": 0.811024,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 940.0,
+        "duration": 164.0,
+        "velocity": 0.88189,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 954.0,
+        "duration": 164.0,
+        "velocity": 0.92126,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1446.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1716.0,
+        "duration": 164.0,
+        "velocity": 0.062992,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1914.0,
+        "duration": 166.0,
+        "velocity": 0.425197,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2186.0,
+        "duration": 164.0,
+        "velocity": 0.244094,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2384.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2388.0,
+        "duration": 162.0,
+        "velocity": 0.834646,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2864.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2870.0,
+        "duration": 166.0,
+        "velocity": 0.622047,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3350.0,
+        "duration": 166.0,
+        "velocity": 0.818898,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3600.0,
+        "duration": 164.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3830.0,
+        "duration": 166.0,
+        "velocity": 0.905512,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3830.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4310.0,
+        "duration": 166.0,
+        "velocity": 0.700787,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4810.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4824.0,
+        "duration": 166.0,
+        "velocity": 0.551181,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5312.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 5588.0,
+        "duration": 164.0,
+        "velocity": 0.086614,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5762.0,
+        "duration": 164.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6018.0,
+        "duration": 166.0,
+        "velocity": 0.204724,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6214.0,
+        "duration": 164.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6226.0,
+        "duration": 166.0,
+        "velocity": 0.519685,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6688.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6708.0,
+        "duration": 164.0,
+        "velocity": 0.779528,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7160.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7454.0,
+        "duration": 164.0,
+        "velocity": 0.362205,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 7524.0,
+        "duration": 164.0,
+        "velocity": 0.165354,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7638.0,
+        "duration": 164.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7646.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8116.0,
+        "duration": 166.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8578.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8600.0,
+        "duration": 164.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9092.0,
+        "duration": 166.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9550.0,
+        "duration": 166.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9830.0,
+        "duration": 164.0,
+        "velocity": 0.094488,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10012.0,
+        "duration": 166.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10038.0,
+        "duration": 166.0,
+        "velocity": 0.84252,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10524.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10526.0,
+        "duration": 166.0,
+        "velocity": 0.811024,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10650.0,
+        "duration": 86.0,
+        "velocity": 0.291339,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10736.0,
+        "duration": 78.0,
+        "velocity": 0.125984,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11020.0,
+        "duration": 166.0,
+        "velocity": 0.92126,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11322.0,
+        "duration": 164.0,
+        "velocity": 0.385827,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11496.0,
+        "duration": 166.0,
+        "velocity": 0.511811,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11504.0,
+        "duration": 166.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11990.0,
+        "duration": 166.0,
+        "velocity": 0.984252,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12484.0,
+        "duration": 164.0,
+        "velocity": 0.889764,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12496.0,
+        "duration": 166.0,
+        "velocity": 0.771654,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12988.0,
+        "duration": 164.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 37,
+        "start": 13250.0,
+        "duration": 166.0,
+        "velocity": 0.15748,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13446.0,
+        "duration": 166.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 13722.0,
+        "duration": 164.0,
+        "velocity": 0.149606,
+        "performed": true
+      },
+      {
+        "pitch": 46,
+        "start": 13916.0,
+        "duration": 166.0,
+        "velocity": 0.669291,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 13922.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14340.0,
+        "duration": 164.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 14404.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14420.0,
+        "duration": 164.0,
+        "velocity": 0.740157,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14904.0,
+        "duration": 166.0,
+        "velocity": 0.519685,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15180.0,
+        "duration": 164.0,
+        "velocity": 0.338583,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+      "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+      "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+      "sourceBars": [
+        9,
+        12
+      ],
+      "originalBpm": 102,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-soul",
+    "variant": "原奏C"
+  },
+  {
+    "id": "studio.rhythm.hand-soul.4",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏灵魂 · 原演奏4",
+    "description": "真人演奏截取；保留力度和微小时差。每四小节的内容自然变化。",
+    "bars": 4,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 102,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "基本型"
+    ],
+    "notes": [
+      {
+        "pitch": 36,
+        "start": 6.0,
+        "duration": 166.0,
+        "velocity": 0.574803,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 498.0,
+        "duration": 166.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 952.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 978.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1452.0,
+        "duration": 166.0,
+        "velocity": 0.503937,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1718.0,
+        "duration": 164.0,
+        "velocity": 0.055118,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1906.0,
+        "duration": 164.0,
+        "velocity": 0.425197,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2148.0,
+        "duration": 164.0,
+        "velocity": 0.11811,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 2342.0,
+        "duration": 164.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2354.0,
+        "duration": 164.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 2840.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2846.0,
+        "duration": 166.0,
+        "velocity": 0.685039,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 3062.0,
+        "duration": 166.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3304.0,
+        "duration": 166.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3592.0,
+        "duration": 164.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 3796.0,
+        "duration": 164.0,
+        "velocity": 0.574803,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3822.0,
+        "duration": 164.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4300.0,
+        "duration": 166.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 4784.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 4818.0,
+        "duration": 166.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5296.0,
+        "duration": 166.0,
+        "velocity": 0.708661,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 5540.0,
+        "duration": 164.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 5774.0,
+        "duration": 164.0,
+        "velocity": 0.448819,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6008.0,
+        "duration": 164.0,
+        "velocity": 0.11811,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6210.0,
+        "duration": 166.0,
+        "velocity": 0.511811,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 6214.0,
+        "duration": 164.0,
+        "velocity": 0.905512,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 6696.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 6702.0,
+        "duration": 166.0,
+        "velocity": 0.787402,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7176.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7484.0,
+        "duration": 164.0,
+        "velocity": 0.338583,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 7666.0,
+        "duration": 166.0,
+        "velocity": 0.645669,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 7674.0,
+        "duration": 164.0,
+        "velocity": 0.480315,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8152.0,
+        "duration": 166.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 8630.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 8646.0,
+        "duration": 166.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9128.0,
+        "duration": 166.0,
+        "velocity": 0.629921,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9412.0,
+        "duration": 164.0,
+        "velocity": 0.07874,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 9590.0,
+        "duration": 166.0,
+        "velocity": 0.354331,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 9862.0,
+        "duration": 164.0,
+        "velocity": 0.141732,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 10026.0,
+        "duration": 164.0,
+        "velocity": 0.732283,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10052.0,
+        "duration": 166.0,
+        "velocity": 0.598425,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 10536.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 10546.0,
+        "duration": 164.0,
+        "velocity": 0.692913,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11036.0,
+        "duration": 166.0,
+        "velocity": 0.614173,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11316.0,
+        "duration": 164.0,
+        "velocity": 0.330709,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 11520.0,
+        "duration": 164.0,
+        "velocity": 0.433071,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 11522.0,
+        "duration": 162.0,
+        "velocity": 0.566929,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12000.0,
+        "duration": 166.0,
+        "velocity": 0.559055,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 12472.0,
+        "duration": 164.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12478.0,
+        "duration": 166.0,
+        "velocity": 0.866142,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 12954.0,
+        "duration": 164.0,
+        "velocity": 0.677165,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 13212.0,
+        "duration": 164.0,
+        "velocity": 0.055118,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13428.0,
+        "duration": 164.0,
+        "velocity": 0.440945,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 13668.0,
+        "duration": 166.0,
+        "velocity": 0.889764,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 13806.0,
+        "duration": 164.0,
+        "velocity": 0.472441,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 14120.0,
+        "duration": 164.0,
+        "velocity": 0.92126,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14276.0,
+        "duration": 164.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 14348.0,
+        "duration": 166.0,
+        "velocity": 1.0,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 14580.0,
+        "duration": 164.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 14758.0,
+        "duration": 164.0,
+        "velocity": 0.606299,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 14812.0,
+        "duration": 166.0,
+        "velocity": 0.700787,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 15052.0,
+        "duration": 166.0,
+        "velocity": 0.88189,
+        "performed": true
+      },
+      {
+        "pitch": 36,
+        "start": 15266.0,
+        "duration": 94.0,
+        "velocity": 1.0,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/eval_session/10_soul-groove10_102_beat_4-4.mid",
+      "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+      "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+      "sourceBars": [
+        13,
+        16
+      ],
+      "originalBpm": 102,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-soul",
+    "variant": "原奏D"
+  },
+  {
+    "id": "studio.rhythm.hand-fill.1",
+    "version": 1,
+    "type": "pattern",
+    "kind": "drum",
+    "role": "drums",
+    "name": "手奏过门 · 短过门",
+    "description": "真人演奏截取；保留力度和微小时差。适合句尾。",
+    "bars": 1,
+    "key": 0,
+    "scale": "major",
+    "presetId": "studio.drum.dry",
+    "drumkitId": "builtin.standard",
+    "bpm": 116,
+    "tags": [
+      "真人演奏",
+      "保留律动",
+      "过门"
+    ],
+    "notes": [
+      {
+        "pitch": 38,
+        "start": 12.0,
+        "duration": 188.0,
+        "velocity": 0.755906,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 458.0,
+        "duration": 188.0,
+        "velocity": 0.488189,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 744.0,
+        "duration": 186.0,
+        "velocity": 0.76378,
+        "performed": true
+      },
+      {
+        "pitch": 46,
+        "start": 770.0,
+        "duration": 190.0,
+        "velocity": 0.102362,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 1044.0,
+        "duration": 188.0,
+        "velocity": 0.897638,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 1430.0,
+        "duration": 188.0,
+        "velocity": 0.590551,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1686.0,
+        "duration": 188.0,
+        "velocity": 0.716535,
+        "performed": true
+      },
+      {
+        "pitch": 38,
+        "start": 1944.0,
+        "duration": 186.0,
+        "velocity": 0.748031,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 2346.0,
+        "duration": 188.0,
+        "velocity": 0.724409,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 2628.0,
+        "duration": 186.0,
+        "velocity": 0.716535,
+        "performed": true
+      },
+      {
+        "pitch": 45,
+        "start": 2916.0,
+        "duration": 188.0,
+        "velocity": 0.732283,
+        "performed": true
+      },
+      {
+        "pitch": 42,
+        "start": 3288.0,
+        "duration": 188.0,
+        "velocity": 0.685039,
+        "performed": true
+      }
+    ],
+    "lineage": {
+      "dataset": "Groove MIDI Dataset",
+      "credit": "Google LLC",
+      "license": "CC-BY-4.0",
+      "sourceFile": "drummer1/session1/10_jazz-funk_116_fill_4-4.mid",
+      "gitBlob": "3ed4dc794103c5f245bc5839a45c1dee5688cda8",
+      "sha256": "b1e2662bb4cb065669790c7f5df53f1f86222a87a70309044f6ac9056c22641c",
+      "sourceBars": [
+        1,
+        1
+      ],
+      "originalBpm": 116,
+      "sourcePpq": 480,
+      "mapping": "Roland TD-11 to 8-role kit; tom/ride articulations combined; CC4 omitted",
+      "timing": "Original onsets and velocities; no additional global swing/humanize"
+    },
+    "familyId": "hand-fill",
+    "variant": "短过门"
+  }
+]

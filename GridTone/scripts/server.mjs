@@ -14,5 +14,5 @@ const server=http.createServer(async(req,res)=>{
   const bytes=await readFile(target);res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(bytes);
  }catch{res.writeHead(404);res.end('Not found');}
 });
-server.listen(port,'127.0.0.1',()=>console.log(`声格已启动：http://localhost:${port}\n按 Ctrl+C 停止。`));
+server.listen(port,'127.0.0.1',()=>console.log(`乐构已启动：http://localhost:${port}\n按 Ctrl+C 停止。`));
 server.on('error',e=>{console.error(e.message);process.exitCode=1;});

@@ -1,0 +1,254 @@
+{
+  "system": "Warm Magnetic 2.0",
+  "app": "2.1.0",
+  "count": 18,
+  "items": [
+    {
+      "id": "global",
+      "title": "总控与状态",
+      "source": [
+        "src/views/shell.js"
+      ],
+      "styles": [
+        "workspace.css"
+      ],
+      "states": "播放/停止/速度/范围/保存/导出",
+      "evidence": "workspace-final + M01/M06",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "commands",
+      "title": "统一操作栏",
+      "source": [
+        "src/views/edit-bar.js",
+        "src/workspace/commands.js"
+      ],
+      "styles": [
+        "components.css"
+      ],
+      "states": "目标/禁用/复制剪切删除/共享",
+      "evidence": "workspace-final + M19",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "arrange",
+      "title": "编排与轨道头",
+      "source": [
+        "src/views/arrange.js",
+        "src/ui/components.js"
+      ],
+      "styles": [
+        "workspace.css"
+      ],
+      "states": "移动/选择/循环/添加/静音/只听",
+      "evidence": "M02/M04/M10",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "notes",
+      "title": "音符与鼓点",
+      "source": [
+        "src/views/piano-roll.js",
+        "src/ui/editor-gestures.js"
+      ],
+      "styles": [
+        "workspace.css"
+      ],
+      "states": "绘音/长度/框选/范围/力度/量化",
+      "evidence": "M06/M07 + workspace-final",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "tray",
+      "title": "本次材料托盘",
+      "source": [
+        "src/views/template-shelf.js"
+      ],
+      "styles": [
+        "material.css",
+        "music-block.css"
+      ],
+      "states": "选取/试听/拖放/收藏/取消",
+      "evidence": "M03/M04 + design-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "library",
+      "title": "完整素材库",
+      "source": [
+        "src/views/studio-library.js"
+      ],
+      "styles": [
+        "library.css"
+      ],
+      "states": "家族/分类/查询/分页/列表/来源",
+      "evidence": "M12/M15 + studio-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "placement",
+      "title": "放置状态",
+      "source": [
+        "src/creation/placement.js",
+        "src/ui/motion.js"
+      ],
+      "styles": [
+        "music-block.css"
+      ],
+      "states": "真实范围/取消/冲突/共享",
+      "evidence": "M04 + retained placement tests",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "candidate",
+      "title": "生成与方案",
+      "source": [
+        "src/views/creation.js",
+        "src/creation/session.js"
+      ],
+      "styles": [
+        "tool-panel.css"
+      ],
+      "states": "准备/缺输入/比较/采用/过期/保留",
+      "evidence": "M16/M18 + design-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "composer",
+      "title": "和弦工具",
+      "source": [
+        "src/views/composer.js"
+      ],
+      "styles": [
+        "tool-panel.css"
+      ],
+      "states": "生成/范围/来源/确认",
+      "evidence": "design-final-v2 + visual14",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "sound",
+      "title": "音色与试听琴键",
+      "source": [
+        "src/views/sound.js"
+      ],
+      "styles": [
+        "sound.css"
+      ],
+      "states": "预设/比较/资源/高级折叠/整轨影响",
+      "evidence": "M08/M11 + studio-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "pipeline",
+      "title": "演奏处理",
+      "source": [
+        "src/views/pipeline.js"
+      ],
+      "styles": [
+        "tool-panel.css"
+      ],
+      "states": "琶音/移调/写回/待复核",
+      "evidence": "reaudit-final + visual17",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "mix",
+      "title": "混音",
+      "source": [
+        "src/views/mix.js"
+      ],
+      "styles": [
+        "mix.css"
+      ],
+      "states": "推子/声像/静音/只听/总输出",
+      "evidence": "M22 + visual19",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "projects",
+      "title": "作品与备份",
+      "source": [
+        "src/app.js",
+        "src/storage/projects.js"
+      ],
+      "styles": [
+        "dialogs.css"
+      ],
+      "states": "保存/冲突/恢复/打开/下载",
+      "evidence": "workspace-final + origin-storage BLOCKED",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "import",
+      "title": "导入与资源",
+      "source": [
+        "src/app.js",
+        "src/views/catalog.js"
+      ],
+      "styles": [
+        "dialogs.css",
+        "material.css"
+      ],
+      "states": "解析/缺失/失败/来源/取消",
+      "evidence": "reaudit-final + design-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "record",
+      "title": "录音",
+      "source": [
+        "src/app.js"
+      ],
+      "styles": [
+        "dialogs.css"
+      ],
+      "states": "授权/进行/取消/拒绝/资源释放",
+      "evidence": "actual unavailable-state; physical not tested",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "export",
+      "title": "导出",
+      "source": [
+        "src/app.js",
+        "src/audio.js"
+      ],
+      "styles": [
+        "dialogs.css"
+      ],
+      "states": "作品/范围/方案/进度/失败",
+      "evidence": "reaudit-final + actualdownloads",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "settings",
+      "title": "外观与键位",
+      "source": [
+        "src/ui/appearance.js",
+        "src/ui/keymap.js"
+      ],
+      "styles": [
+        "dialogs.css",
+        "components.css"
+      ],
+      "states": "两皮肤/减少动态/键位/输入法",
+      "evidence": "M05/M19 + studio-final-v2",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "gallery",
+      "title": "生产组件样例",
+      "source": [
+        "src/ui/component-demo.js"
+      ],
+      "styles": [
+        "components.css"
+      ],
+      "states": "普通/焦点/禁用/忙碌/错误/组合",
+      "evidence": "final-visual gallery + directions",
+      "status": "IMPLEMENTED"
+    }
+  ],
+  "note": "Production-family coverage; verification and external scope live in docs/magnet-2.1/acceptance.json."
+}

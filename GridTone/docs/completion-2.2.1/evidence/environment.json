@@ -1,0 +1,8 @@
+{
+  "system": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "node": "v22.16.0",
+  "method": "Full production HTML set_content for interactive verification; attempt native file navigation separately.",
+  "browser": "144.0.7559.96",
+  "fileNavigation": "BLOCKED",
+  "navigationError": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/legou_223/GridTone/dist/index.html\nCall log:\n  - navigating to \"file:///mnt/data/legou_223/GridTone/dist/index.html\", waiting until \"load\"\n"
+}

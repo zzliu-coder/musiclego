@@ -11,3 +11,10 @@ await writeFile(generated,(await readFile(generated,'utf8'))+`globalThis.GridTon
 const recipes=JSON.parse(await readFile(new URL('catalog/recipes.json',root),'utf8'));
 const ids=new Set();for(const r of recipes){if(!Number.isInteger(r.version)||r.version<1||!r.id||ids.has(r.id)||!r.name||!r.license||!r.origin)throw Error('Invalid or duplicate recipe');ids.add(r.id);if(r.melodyRhythm){const h=r.melodyRhythm;if(h.version!==1||![1,2,4,8].includes(h.bars)||!Array.isArray(h.slots)||h.slots.some((n,i)=>!Number.isFinite(n.start)||!Number.isFinite(n.duration)||n.start<0||n.duration<1||n.start+n.duration>h.bars*3840||i&&n.start<h.slots[i-1].start+h.slots[i-1].duration))throw Error('Invalid recipe rhythm skeleton: '+r.id);}}
 await writeFile(generated,(await readFile(generated,'utf8'))+`globalThis.GridTone.RECIPES=${JSON.stringify(recipes)};\n`);
+
+// Classic Studio is a versioned data pack, independent of legacy built-in IDs.
+const studio=JSON.parse(await readFile(new URL('catalog/studio.json',root),'utf8'));
+const families=JSON.parse(await readFile(new URL('catalog/studio-families.json',root),'utf8'));
+const combos=JSON.parse(await readFile(new URL('catalog/studio-combos.json',root),'utf8'));
+const sources=JSON.parse(await readFile(new URL('catalog/studio-sources.json',root),'utf8'));
+await writeFile(new URL('src/content/studio-data.js',root),`/** Generated data; edit catalog/studio*.json. */\n(function(G){G.STUDIO_PACK=${JSON.stringify(studio)};G.STUDIO_FAMILIES=${JSON.stringify(families)};G.STUDIO_COMBOS=${JSON.stringify(combos)};G.STUDIO_SOURCES=${JSON.stringify(sources)};})(globalThis.GridTone ||= {});\n`);

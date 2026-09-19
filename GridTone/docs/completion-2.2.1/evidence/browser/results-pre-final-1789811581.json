@@ -1,0 +1,284 @@
+{
+  "version": "2.2.1",
+  "htmlSha256": "b77723dd2f3008150634192a27305d8a4527290c5573d5e2f322c6ab89721643",
+  "environment": "Linux Chromium, full production HTML via set_content; fixtures via public API",
+  "browser": "144.0.7559.96",
+  "checks": [
+    {
+      "name": "01-home-and-length-entry",
+      "status": "PASS",
+      "seconds": 1.19,
+      "detail": null
+    },
+    {
+      "name": "02-music-library-excludes-sounds",
+      "status": "PASS",
+      "seconds": 1.19,
+      "detail": null
+    },
+    {
+      "name": "03-one-sound-chooser-in-track-panel",
+      "status": "PASS",
+      "seconds": 1.25,
+      "detail": null
+    },
+    {
+      "name": "04-sound-use-preserves-notes-and-undo",
+      "status": "PASS",
+      "seconds": 1.42,
+      "detail": null
+    },
+    {
+      "name": "05-sound-fixed-target-despite-selection",
+      "status": "PASS",
+      "seconds": 1.38,
+      "detail": null
+    },
+    {
+      "name": "06-deleted-sound-target-blocked",
+      "status": "PASS",
+      "seconds": 1.06,
+      "detail": null
+    },
+    {
+      "name": "07-preview-does-not-write",
+      "status": "PASS",
+      "seconds": 2.89,
+      "detail": null
+    },
+    {
+      "name": "08-take-cancel-preserves-geometry",
+      "status": "PASS",
+      "seconds": 2.6,
+      "detail": null
+    },
+    {
+      "name": "09-template-click-place-single-undo",
+      "status": "PASS",
+      "seconds": 2.38,
+      "detail": null
+    },
+    {
+      "name": "10-real-mouse-drag-library-to-arrangement",
+      "status": "PASS",
+      "seconds": 3.75,
+      "detail": null
+    },
+    {
+      "name": "11-ordered-batch-place-and-undo",
+      "status": "PASS",
+      "seconds": 1.79,
+      "detail": null
+    },
+    {
+      "name": "12-parallel-batch-allocates-tracks",
+      "status": "PASS",
+      "seconds": 1.75,
+      "detail": null
+    },
+    {
+      "name": "13-trim-empty-tail-and-undo",
+      "status": "PASS",
+      "seconds": 1.88,
+      "detail": null
+    },
+    {
+      "name": "14-resize-protects-existing-blocks",
+      "status": "PASS",
+      "seconds": 2.7,
+      "detail": null
+    },
+    {
+      "name": "15-delete-time-and-whole-undo",
+      "status": "PASS",
+      "seconds": 1.41,
+      "detail": null
+    },
+    {
+      "name": "16-clear-content-keeps-time",
+      "status": "PASS",
+      "seconds": 1.07,
+      "detail": null
+    },
+    {
+      "name": "17-pitch-axis-stays-visible-horizontally",
+      "status": "PASS",
+      "seconds": 1.06,
+      "detail": {
+        "beforeX": 26,
+        "afterX": 26
+      }
+    },
+    {
+      "name": "18-pitch-ruler-drag-only-changes-view",
+      "status": "PASS",
+      "seconds": 1.04,
+      "detail": null
+    },
+    {
+      "name": "19-pan-tool-browses-pitch-range",
+      "status": "PASS",
+      "seconds": 1.23,
+      "detail": null
+    },
+    {
+      "name": "20-short-window-major-controls-reachable",
+      "status": "PASS",
+      "seconds": 1.43,
+      "detail": null
+    },
+    {
+      "name": "21-real-project-file-download",
+      "status": "PASS",
+      "seconds": 0.9,
+      "detail": null
+    },
+    {
+      "name": "22-generation-and-preview-regression",
+      "status": "PASS",
+      "seconds": 1.38,
+      "detail": null
+    },
+    {
+      "name": "23-play-mix-stop-regression",
+      "status": "PASS",
+      "seconds": 1.29,
+      "detail": null
+    },
+    {
+      "name": "24-library-restores-search-context",
+      "status": "PASS",
+      "seconds": 1.04,
+      "detail": null
+    },
+    {
+      "name": "25-time-edit-undo-redo-restores-loop",
+      "status": "PASS",
+      "seconds": 1.32,
+      "detail": null
+    },
+    {
+      "name": "26-stale-time-confirmation-does-not-overwrite",
+      "status": "PASS",
+      "seconds": 1.14,
+      "detail": null
+    },
+    {
+      "name": "27-deep-sound-only-current-parameters-real-slider",
+      "status": "PASS",
+      "seconds": 1.42,
+      "detail": null
+    },
+    {
+      "name": "28-resource-manager-without-second-sound-chooser",
+      "status": "PASS",
+      "seconds": 1.7,
+      "detail": null
+    },
+    {
+      "name": "29-collections-visible-pinned-favorites-and-reopen",
+      "status": "PASS",
+      "seconds": 1.71,
+      "detail": null
+    },
+    {
+      "name": "30-applied-material-in-recent-and-currently-used",
+      "status": "PASS",
+      "seconds": 1.49,
+      "detail": null
+    },
+    {
+      "name": "31-all-five-examples-discoverable-with-safe-audition",
+      "status": "PASS",
+      "seconds": 1.36,
+      "detail": null
+    },
+    {
+      "name": "32-example-independent-new-work-preserves-old-adapter",
+      "status": "PASS",
+      "seconds": 1.38,
+      "detail": {
+        "storage": "explicit in-memory adapter, not real IndexedDB validation",
+        "copied": true
+      }
+    },
+    {
+      "name": "33-batch-series-hover-plan-audition-apply-one-undo",
+      "status": "PASS",
+      "seconds": 1.84,
+      "detail": null
+    },
+    {
+      "name": "34-parallel-explicit-existing-tracks-preview-with-song",
+      "status": "PASS",
+      "seconds": 1.94,
+      "detail": null
+    },
+    {
+      "name": "35-batch-escape-cleans-audio-ghost-and-restores-library",
+      "status": "PASS",
+      "seconds": 1.71,
+      "detail": null
+    },
+    {
+      "name": "36-batch-stale-related-edit-requires-recheck",
+      "status": "PASS",
+      "seconds": 1.44,
+      "detail": null
+    },
+    {
+      "name": "37-batch-application-preserves-unrelated-edit",
+      "status": "PASS",
+      "seconds": 1.48,
+      "detail": null
+    },
+    {
+      "name": "38-batch-reorder-new-series-one-track",
+      "status": "PASS",
+      "seconds": 1.42,
+      "detail": null
+    },
+    {
+      "name": "39-real-native-multi-drag-stable-plan-before-apply",
+      "status": "PASS",
+      "seconds": 2.04,
+      "detail": null
+    },
+    {
+      "name": "40-clear-unrelated-first-bar-keeps-one-sustained-event",
+      "status": "PASS",
+      "seconds": 1.26,
+      "detail": null
+    },
+    {
+      "name": "41-delete-time-exact-seven-bars-download-reopen-contract",
+      "status": "PASS",
+      "seconds": 1.26,
+      "detail": null
+    },
+    {
+      "name": "42-short-window-batch-controls-reachable",
+      "status": "PASS",
+      "seconds": 1.34,
+      "detail": null
+    },
+    {
+      "name": "43-batch-preview-export-keeps-unapplied-plan",
+      "status": "PASS",
+      "seconds": 1.7,
+      "detail": {
+        "plannedClips": 2,
+        "midiBytes": 372,
+        "originalUnchanged": true
+      }
+    },
+    {
+      "name": "44-music-and-sound-collections-remain-separate",
+      "status": "PASS",
+      "seconds": 1.3,
+      "detail": null
+    }
+  ],
+  "passed": 44,
+  "failed": 0
+}

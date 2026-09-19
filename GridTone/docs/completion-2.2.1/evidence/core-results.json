@@ -1,0 +1,10 @@
+{
+  "version": "2.2.1",
+  "htmlSha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "status": "PASS",
+  "passed": 394,
+  "failed": 0,
+  "skipped": 0,
+  "command": "npm test",
+  "exitCode": 0
+}

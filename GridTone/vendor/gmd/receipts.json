@@ -1,0 +1,38 @@
+[
+  {
+    "file": "7_pop-groove7_138_beat_4-4.mid",
+    "gitBlob": "f3e9ab1e65382dae15526caf33754095a2516f8b",
+    "sha256": "d65fbd6b773c84859701167094952464632575ccc2a35c7442d457dc5d2e4745",
+    "bytes": 1894,
+    "notes": 210,
+    "sourcePpq": 480,
+    "durationTicks": 61176.0,
+    "maxOnset": 60952.0,
+    "ccEvents": 64,
+    "microtimingNotes": 208
+  },
+  {
+    "file": "10_soul-groove10_102_beat_4-4.mid",
+    "gitBlob": "c691635fb3255441afd667d5ac62a641a163a030",
+    "sha256": "34609f1b6b71c8e52dfb341434ddef3e72f2c5f53418bc7045f3df6c00b286e3",
+    "bytes": 2589,
+    "notes": 247,
+    "sourcePpq": 480,
+    "durationTicks": 61512.0,
+    "maxOnset": 61346.0,
+    "ccEvents": 138,
+    "microtimingNotes": 238
+  },
+  {
+    "file": "10_jazz-funk_116_fill_4-4.mid",
+    "gitBlob": "3ed4dc794103c5f245bc5839a45c1dee5688cda8",
+    "sha256": "b1e2662bb4cb065669790c7f5df53f1f86222a87a70309044f6ac9056c22641c",
+    "bytes": 423,
+    "notes": 12,
+    "sourcePpq": 480,
+    "durationTicks": 5570.0,
+    "maxOnset": 3288.0,
+    "ccEvents": 84,
+    "microtimingNotes": 12
+  }
+]

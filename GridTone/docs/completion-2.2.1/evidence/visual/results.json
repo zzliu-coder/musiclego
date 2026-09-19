@@ -1,0 +1,178 @@
+{
+  "version": "2.2.1",
+  "htmlSha256": "08a85412882fc63c51ef828a0afce11c02a90f32656fa39471f725b4786e0eca",
+  "browser": "144.0.7559.96",
+  "environment": "Linux Chromium, full production HTML set_content",
+  "checks": [
+    {
+      "name": "01-workspace",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "02-complete-template-library",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "03-pending-collection",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "04-five-original-examples",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "05-only-sound-chooser",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "06-current-sound-parameters",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "07-sound-resources",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "08-parallel-existing-targets",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "09-series-plan",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "10-batch-conflict",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "11-short-parallel-plan",
+      "status": "CAPTURED",
+      "skin": "pearl",
+      "size": [
+        1100,
+        700
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "12-seven-bar-continuous-note",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "13-generation-comparison",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "14-mixing-preserved",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "15-pearl-template-library",
+      "status": "CAPTURED",
+      "skin": "pearl",
+      "size": [
+        1440,
+        900
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "16-short-library",
+      "status": "CAPTURED",
+      "skin": "crystal",
+      "size": [
+        1100,
+        700
+      ],
+      "pageErrors": []
+    },
+    {
+      "name": "17-short-parameters",
+      "status": "CAPTURED",
+      "skin": "pearl",
+      "size": [
+        1280,
+        800
+      ],
+      "pageErrors": []
+    }
+  ]
+}

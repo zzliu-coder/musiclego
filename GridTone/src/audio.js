@@ -599,5 +599,5 @@
         return out;
     }
     async function blobDataURL(blob) { return new Promise((resolve, reject) => { const r = new FileReader(); r.onload = () => resolve(r.result); r.onerror = reject; r.readAsDataURL(blob); }); }
-    Object.assign(G, { voiceTools, seededNoise, legacyDrumVoice: drumVoice, registerInstrument, createGraph, renderNote, decodeAssets, AudioEngine, encodeWav, blobDataURL });
+    Object.assign(G, { getInstrumentRenderer: id => instrumentRenderers.get(id), voiceTools, seededNoise, legacyDrumVoice: drumVoice, registerInstrument, createGraph, renderNote, decodeAssets, AudioEngine, encodeWav, blobDataURL });
 })(globalThis.GridTone ||= {});

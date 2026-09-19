@@ -14,7 +14,7 @@
   const retention=pat.retention||{notes:[],ranges:[]},flags=new Map(retention.notes.map(n=>[n.id,n])),sources=[],notes=[],random=G.seededRandom(seed);
   const keep=n=>n.start<start||n.start+n.duration>end||retention.ranges.some(r=>n.start<r.end&&n.start+n.duration>r.start)||flags.has(n.id);
   const occupied=n=>notes.some(x=>x.start<n.start+n.duration&&x.start+x.duration>n.start)||retention.ranges.some(r=>n.start<r.end&&n.start+n.duration>r.start);
-  let harmony=null;
+  let harmony=null,referenceRoleMapping=null;
   if(mode==='drums'){
    if(t.kind!=='drum')throw Error('鼓型变化需要鼓轨。');
    const map=drumMap(project,t),role=settings.drumRole||'closedHat',pitch=map.get(role);
@@ -26,7 +26,7 @@
    if(t.kind==='drum')throw Error('请选择旋律类音轨。');
    harmony=G.resolveHarmony(project,{...target,sourceTrackId:settings.sourceTrackId,start,end});sources.push({trackId:harmony.sourceTrackId,hash:harmony.sourceHash,range:harmony.sourceRange});
    let reference=[];G.assertDependencies(project,t.id,[settings.sourceTrackId,settings.referenceTrackId]);
-   if(settings.referenceTrackId){const source=project.tracks.find(t=>t.id===settings.referenceTrackId);if(!source)throw Error('参考声部不存在。');if(source.id===t.id)throw Error('请选择另一条轨道作为参考。');if(mode==='bass'&&source.kind!=='drum')throw Error('贝斯的节奏参考需要鼓轨。');if(mode==='accompaniment'&&source.kind==='drum')throw Error('伴奏的避让参考需要旋律轨。');reference=sourceNotes(project,source.id,harmony.origin,length,{sustained:mode==='accompaniment',performed:true});const range=[harmony.origin,harmony.origin+length];sources.push({trackId:source.id,hash:G.performanceSourceHash(project,source,...range),range,layer:'performed'});if(mode==='bass'){const kick=drumMap(project,source).get('kick');if(kick===undefined)throw Error('参考鼓轨没有底鼓角色。');reference=reference.filter(n=>n.pitch===kick);}}
+   if(settings.referenceTrackId){const source=project.tracks.find(t=>t.id===settings.referenceTrackId);if(!source)throw Error('参考声部不存在。');if(source.id===t.id)throw Error('请选择另一条轨道作为参考。');if(mode==='bass'&&source.kind!=='drum')throw Error('贝斯的节奏参考需要鼓轨。');if(mode==='accompaniment'&&source.kind==='drum')throw Error('伴奏的避让参考需要旋律轨。');reference=sourceNotes(project,source.id,harmony.origin,length,{sustained:mode==='accompaniment',performed:true});const range=[harmony.origin,harmony.origin+length];sources.push({trackId:source.id,hash:G.performanceSourceHash(project,source,...range),range,layer:'performed'});if(source.kind==='drum')referenceRoleMapping=G.drumMappingHash(project,source);if(mode==='bass'){const kick=drumMap(project,source).get('kick');if(kick===undefined)throw Error('参考鼓轨没有底鼓角色。');reference=reference.filter(n=>n.pitch===kick);}}
    notes.push(...pat.notes.filter(keep).map(G.clone));
    const low=Number(settings.low??(mode==='bass'?36:60)),high=Number(settings.high??(mode==='bass'?55:84));
    if(!Number.isInteger(low)||!Number.isInteger(high)||low<0||high>127||low>high)throw Error('请指定有效的发声音域。');
@@ -52,7 +52,7 @@
     for(const [i,pitch] of pitches.entries()){const written=pitch-Math.round(t.pipeline.transpose);if(written<0||written>127)throw Error('目标轨道移调超出音域。');const id='generated_'+seed+'_'+at+'_'+i;const timingOffset=reference.length?-((Math.floor(at/G.STEP)%2?project.swing*G.STEP:0)+(G.hash(id)-.5)*t.pipeline.humanize):0;notes.push({id,pitch:written,start:at,duration,velocity:mode==='bass'?.7:.48,...(reference.length?{timingOffset}: {})});}
    }
   }
-  return {notes:notes.sort((a,b)=>a.start-b.start||a.pitch-b.pitch),retention:G.clone(retention),generation:{version:1,algorithm:G.generationVersion,kind:mode,seed:seed>>>0,templateVersion:1,inputHash:G.contentHash({sources,notes:G.musicalNotes(pat.notes),settings}),sources,settings:{mode,start,end,origin:clip.bar*G.BAR,strategy:settings.strategy||'support',drumRole:settings.drumRole||'closedHat',density:settings.density||'normal',drumStyle:settings.drumStyle||'straight',velocityStyle:settings.velocityStyle||'balanced',textureStyle:settings.textureStyle||'sustain'}}};
+  return {notes:notes.sort((a,b)=>a.start-b.start||a.pitch-b.pitch),retention:G.clone(retention),generation:{version:1,algorithm:G.generationVersion,kind:mode,seed:seed>>>0,templateVersion:1,inputHash:G.contentHash({sources,notes:G.musicalNotes(pat.notes),settings}),sources,settings:{...(referenceRoleMapping?{drumReferenceTrackId:settings.referenceTrackId,drumReferenceMapHash:referenceRoleMapping}:{}),mode,start,end,origin:clip.bar*G.BAR,strategy:settings.strategy||'support',drumRole:settings.drumRole||'closedHat',density:settings.density||'normal',drumStyle:settings.drumStyle||'straight',velocityStyle:settings.velocityStyle||'balanced',textureStyle:settings.textureStyle||'sustain'}}};
  }
  function generateEnsembleGroup(project,settings={},seed=1){
   const from=Number(settings.sourceBar||0)*G.BAR,to=from+Number(settings.bars||4)*G.BAR;
