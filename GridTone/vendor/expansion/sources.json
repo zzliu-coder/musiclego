@@ -1,0 +1,245 @@
+[
+  {
+    "source": "tr808",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/LICENSE",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 7048,
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/README.md",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 8221,
+    "sha256": "9fd714352f477768fc6120d2225c9f1fb2a452e88ba337c9f8d896c6927682e1",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "bd8/BD5050.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/bd8/BD5050.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 132346,
+    "sha256": "2ca93cd7a3b19f6ec7fe26fefe51b89de69b7be7a87047ffc8ecd396064a8504",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "sd8/SD5050.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/sd8/SD5050.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 44146,
+    "sha256": "6dcbf8acd5cee6d6b7955d26c6b57d8ca413f1ae1c7caafaaec780d83f08d712",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "ch8/CH.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ch8/CH.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 22094,
+    "sha256": "c9f30ff2b4d73b03f41960e504e03c54e9a59697af666fe4d155bab9cd1ccae6",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "oh8/OH50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/oh8/OH50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 44146,
+    "sha256": "84ae3220fab2396380fb6ba6032bcec7c55a6d3f621d30a13c11fdeaa099aff7",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "cp8/CP.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cp8/CP.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 176446,
+    "sha256": "376429bb81cb48d1f392a11cd066c32ffb7883d445b2488704ea52e46bb08286",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "lt8/LT50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lt8/LT50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 88246,
+    "sha256": "d3720682985a9621c4a67749dfd5336fa4f25564ef7ea2e633ac8ff5fdd64eda",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "cy8/CY5050.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cy8/CY5050.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 220546,
+    "sha256": "3aad28641774c1e7a5502f40ec76d1b219192631547e308ce74c6d4a1c5e70a0",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "rs8/RS.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/rs8/RS.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 22096,
+    "sha256": "20d5cd385c0f8c3a24bbfe78c2e2747776841ede6185bc0fe93f97f0b455b89c",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "cb8/CB.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cb8/CB.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 132346,
+    "sha256": "1468cbd6c75a1f23b50a15968796c256c74893a35aa3824c6663db82c271f28d",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "cl8/CL.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/cl8/CL.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 22094,
+    "sha256": "4f5b72674791ce133a2ad3bd40c9a0e628bad9062eb8f04de27f59dcc8ce5d46",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "hc8/HC50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/hc8/HC50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 44146,
+    "sha256": "ee4354b1fb79126e455a5343161f5c1e78165874df8a74dece78cbb5b6964af9",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "ht8/HT50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ht8/HT50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 88246,
+    "sha256": "7e0b9eddd95379298aacbf1520929f586191788d9e0841ad752d84bdde910d88",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "lc8/LC50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/lc8/LC50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 44146,
+    "sha256": "6591f57bbbdb891819a0ce6ce5b3bfd12d24da9f7f413243ef37b2593d1a7393",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "ma8/MA.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/ma8/MA.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 22094,
+    "sha256": "7b17cc2973fe55233c6ece7b341adb4d04a44b12527582102591c8981a586451",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "mc8/MC50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mc8/MC50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 44146,
+    "sha256": "8175efe26c67f5af926bdf376b1bde75f495451140a2ebc132e74644b31cae1b",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "tr808",
+    "path": "mt8/MT50.WAV",
+    "url": "https://raw.githubusercontent.com/tidalcycles/sounds-tr808-fischer/85fbecf1bec32553395625ea659e2a56dfd7c0e1/mt8/MT50.WAV",
+    "commit": "85fbecf1bec32553395625ea659e2a56dfd7c0e1",
+    "bytes": 88246,
+    "sha256": "81bbc63110a21c5d1ff28572734f2969f96db9a2ca7e304e52b4f808de905927",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "LICENSE.md",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/LICENSE.md",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 6555,
+    "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_bw_blended/AKWF_blended_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_bw_blended/AKWF_blended_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "ddf0671b317d246c488fbf64cee3ae12b4964839e99037581861ce7121bee7e0",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_distorted/AKWF_distorted_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_distorted/AKWF_distorted_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "0b5f46267509999e762a059f2356c9addf26b96d8c13ac10b4e9f3010bd71c3e",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_eguitar/AKWF_eguitar_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_eguitar/AKWF_eguitar_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "46fccdca2f27e87505539e85b6e01582777bc64d931a947e0e2eb18b0267c641",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_eorgan/AKWF_eorgan_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_eorgan/AKWF_eorgan_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "63b23c306b7dcf757d7d5d2cdd92b29d1df341900b257287ff22ae077333754c",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_hvoice/AKWF_hvoice_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_hvoice/AKWF_hvoice_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "ea57edce5b9b72b0380c0269081c75fae7be4df13ce74bdb5b555892a5714220",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_oboe/AKWF_oboe_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_oboe/AKWF_oboe_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "b6fb29a31325bc13e14901dc086ec8a30a93e8aca4df1ea00e905cc99aeecc77",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_sinharm/AKWF_sinharm_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_sinharm/AKWF_sinharm_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "4005a0a492d036970f853ee996c2c767f789b92229e0d3b26e84a34f2d8e22a5",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "akwf",
+    "path": "AKWF/AKWF_vgame/AKWF_vgame_0001.wav",
+    "url": "https://raw.githubusercontent.com/KristofferKarlAxelEkstrand/AKWF-FREE/8de90bf94376670947369e69de0af6b9fbd19286/AKWF/AKWF_vgame/AKWF_vgame_0001.wav",
+    "commit": "8de90bf94376670947369e69de0af6b9fbd19286",
+    "bytes": 1344,
+    "sha256": "d16ef27ba18d94f109dfc9c0b1f7a297a66114f76ae7cea385f26d5ea67d0f69",
+    "license": "CC0-1.0"
+  }
+]

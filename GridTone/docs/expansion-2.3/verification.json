@@ -1,0 +1,13 @@
+{
+  "version": "2.3.0",
+  "date": "2026-09-19",
+  "core": {"status":"PASS","passed":414,"failed":0},
+  "isolatedSourceArchive": {"status":"PASS","passed":414,"comparedFiles":624,"mismatches":0,"rebuiltHtmlMatches":true,"zipSha256":"74fd3d7ed52b9d28c3efa73b4c667f899ab8f360d53827e235937bb55619080c","scope":"Staged candidate before adding this archive receipt; unpacked with macOS ditto"},
+  "html": {"bytes":2905275,"sha256":"c39c55cfc91e6f5cde894b3aa63463f61e9f69d31d64d3bba5745a97c1b2d8ad"},
+  "offlineAudio": {"status":"PASS","count":43,"minRms":0.00029218443691341947,"maxPeak":0.16282200813293457,"maxAbsDc":0.0004570284322417487,"method":"Actual browser OfflineAudioContext via tests/expansion-audio.html; before final CSS-only/control-markup revision"},
+  "audioEngineSoak": {"status":"PASS","wallSeconds":600.0232000000029,"cycles":300,"maxSources":6,"maxPreviews":1,"finalSources":0,"finalPreviews":0,"error":null,"scope":"AudioEngine update and note-preview lifecycle; not the full UI soak suite"},
+  "browser": {"bpmKeyboardUndo":"108 -> 109 -> 108","consoleErrors":0,"responsiveWidths":[1440,1100,700],"horizontalDocumentOverflow":false,"screenshotWidth":1280},
+  "fullEngineeringGate":"NOT_PROVEN",
+  "fullReleaseGate":"NOT_PROVEN",
+  "subjectiveListeningAndHardwareEquivalence":"NOT_PROVEN"
+}

@@ -1,5 +1,12 @@
 # 第三方来源与授权
 
+## 2.3 经典音色扩展
+
+- **TR-808**：Michael Fischer 的 1994 实机录音，经 [tidalcycles/sounds-tr808-fischer](https://github.com/tidalcycles/sounds-tr808-fischer) 分发，CC0-1.0。固定提交 `85fbecf1bec32553395625ea659e2a56dfd7c0e1`；仅内置选定的 16 个短采样，原始 PCM 未修改。许可、原说明、逐文件 SHA-256 见 `vendor/expansion/tr808/` 与 `vendor/expansion/sources.json`。
+- **AKWF**：Kristoffer Karl Axel Ekstrand / Adventure Kid 的 [AKWF-FREE](https://github.com/KristofferKarlAxelEkstrand/AKWF-FREE)，CC0-1.0。固定提交 `8de90bf94376670947369e69de0af6b9fbd19286`；选用八个单周期波形，去直流后提取最多 64 个 Fourier 泛音，由浏览器 PeriodicWave 播放。原文件和许可见 `vendor/expansion/akwf/`；包络、滤波与预设由乐构编写。
+- 本次新增的鼓点、贝斯、伴奏和和弦编排由乐构编写，MIT；风格名称用于说明节奏语汇。没有新增 GMD 摘录，也没有导入 SHLD MIDI 数据集。
+- Mini、Juno、DX、303 风格名称仅说明设计灵感；这些原创预设采用现有虚拟模拟、四运算器 FM 与新增单周期引擎，未使用对应商业设备的原厂音色文件，也不代表原机一致性、品牌背书或精确电路仿真。未捆绑 SEQTRAK、D-50、M1 原厂采样或完整 AMY 运行时。
+
 乐构原创代码、电子鼓、虚拟模拟/FM实现、图标与原创音乐材料依根目录MIT LICENSE提供。第三方材料分别遵守各自许可。
 
 ## AMY：参数曲线移植，MIT

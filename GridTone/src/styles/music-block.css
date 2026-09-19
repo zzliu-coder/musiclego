@@ -43,10 +43,10 @@
 .block-projection[data-valid=false] .projection-label { background: var(--danger); }
 /* Same material, different geometry: width is always owned by musical time. */
 .song-clip { position: absolute; top: 5px; height: calc(var(--track-row) - 11px); overflow: hidden; padding: 7px 9px; cursor: grab; touch-action: none; border: 1px solid color-mix(in srgb,var(--music-ink) 32%,var(--music-surface)); border-radius: var(--radius); background: linear-gradient(180deg,color-mix(in srgb,var(--music-surface) 68%,white),var(--music-surface)); color: var(--music-ink); box-shadow: var(--block-rest); transition: border-color var(--state-time),box-shadow var(--state-time); }
-.song-clip header { display: flex; align-items: center; gap: 6px; justify-content: space-between; font-size: 12px; line-height: 18px; margin-bottom: 4px; color: var(--music-ink); }
+.song-clip header { display: flex; align-items: center; gap: 6px; justify-content: space-between; font-size: var(--font-body); line-height: 20px; margin-bottom: 6px; color: var(--music-ink); }
 .song-clip b { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .clip-length { font-size: 11px; font-weight: 400; white-space: nowrap; margin-left: auto; }
-.song-clip .mini-pattern { display: block; width: 100%; height: 26px; }
+.song-clip .mini-pattern { display: block; width: 100%; height: 38px; }
 .song-clip:hover { border-color: var(--music-edge); }
 .song-clip.opened { box-shadow: var(--block-rest),inset 0 -3px 0 var(--music-ink); }
 .song-clip.selected { outline: 2px solid var(--focus-color); outline-offset: 0; border-color: var(--surface-raised); }

@@ -2,7 +2,14 @@
  * Family grouping changes discovery only: legacy IDs and old audio remain intact. */
 (function(G){'use strict';
  G.BUNDLED_CATALOG_IDS=['studio.library.v1'];G.installCatalog(G.STUDIO_PACK);
- const familyById=new Map(G.STUDIO_FAMILIES.map(f=>[f.id,G.clone(f)]));
+ if(G.EXPANSION_PACK){G.installCatalog(G.EXPANSION_PACK);G.BUNDLED_CATALOG_IDS.push(G.EXPANSION_PACK.id);Object.assign(G.STUDIO_SOURCES,G.EXPANSION_SOURCES);}
+ const familyById=new Map([...G.STUDIO_FAMILIES,...(G.EXPANSION_FAMILIES||[])].map(f=>[f.id,G.clone(f)]));
+ for(const p of G.PROGRESSIONS){
+  familyById.set('family.'+p.id,{id:'family.'+p.id,name:p.name,kind:'rhythm',role:'chords',subcategory:p.group,description:p.roman+' · '+p.description,members:[p.id+'.generated'],defaultId:p.id+'.generated',tags:[p.group,'和弦进行']});
+ }
+ // Metadata only: no changes to the old material or musical definitions.
+ const groups={'hand-pop':'流行与直拍','hand-soul':'放克与灵魂','hand-fill':'过门与收尾',four:'四拍舞曲',pocket:'嘻哈与半拍',broken:'碎拍',motor:'四拍舞曲',airy:'氛围与留白',shuffle:'摇摆',bounce:'八度与脉冲',anchor:'根音与长音',sync:'切分与留白',stabs:'反拍与切分',arp:'分解和弦'};
+ for(const f of familyById.values())f.subcategory??=f.kind==='sound'?(f.id.includes('fm')||f.id.includes('metal')||f.id.includes('digital')?'FM 数字':f.role==='drums'?'合成鼓组':'模拟电路'):groups[f.id.slice(7)]||({melody:'动机与乐句',song:'完整组合'})[f.role]||'其他材料';
  const related={
   'family.analog-bass':['roundbass','subbass','prism.roundbass'],
   'family.resonant-bass':['acidbass','prism.rubberbass'],
@@ -95,7 +102,7 @@
   }
   return fams.filter(f=>(kind==='all'||f.kind===kind)&&(role==='all'||f.role===role)&&(!q||[f.name,f.description,...(f.tags||[]),...f.members.map(id=>{try{return f.kind==='sound'?G.resolvePreset(id,project).name:G.getTemplate(id).name;}catch{return id;}})].join(' ').toLowerCase().includes(q)));
  };
- G.studioItem=function(id,project){const combo=G.STUDIO_COMBOS.find(c=>c.id===id);if(combo)return {...G.clone(combo),type:'recipe',role:'song'};const sound=G.resolvePreset(id,project);if(!sound.missing)return {...G.clone(sound),type:'sound',role:sound.engine==='drum'?'drums':sound.category==='低音'?'bass':'melody'};try{return G.getTemplate(id);}catch{return null;}};
+ G.studioItem=function(id,project){if(G.PROGRESSIONS.some(p=>p.id+'.generated'===id))return G.generateProgression(id.slice(0,-10),{key:project?.key||0}).template;const combo=G.STUDIO_COMBOS.find(c=>c.id===id);if(combo)return {...G.clone(combo),type:'recipe',role:'song'};const sound=G.resolvePreset(id,project);if(!sound.missing)return {...G.clone(sound),type:'sound',role:sound.engine==='drum'?'drums':sound.category==='低音'?'bass':'melody'};try{return G.getTemplate(id);}catch{return null;}};
  G.studioFamilyOf=id=>[...familyById.values()].find(f=>f.members.includes(id)||f.legacyMembers?.includes(id))||null;
  G.studioDefaults=()=>['studio.combo.warm','studio.rhythm.four.1','studio.rhythm.hand-soul.1','studio.part.answer.1','prism.chords.pop','studio.combo.air'].filter(id=>G.studioItem(id,G.blankProject()));
  G.applyStudioSound=function(project,trackId,presetId){
@@ -104,11 +111,16 @@
   if((t.kind==='drum')!==(preset.engine==='drum'))throw Error('选择同类型声音。');
   G.pinPreset(p,presetId);
   if(t.kind==='drum'){
-   const rows=G.drumsFor(p,t),kitId=presetId.startsWith('studio.drum.')?'studio.kit.'+presetId.split('.').at(-1):'builtin.standard';
+   const rows=G.drumsFor(p,t),kitId=preset.drumkitId||(presetId.startsWith('studio.drum.')?'studio.kit.'+presetId.split('.').at(-1):'builtin.standard');
    G.pinKit(p,kitId);const kit=G.resolveKit(kitId,p);
-   for(const pat of t.patterns)pat.notes=G.remapDrums(pat.notes,rows,kit.rows);
+   if((t.drumkitId||'builtin.standard')!==kitId)for(const pat of t.patterns)pat.notes=G.remapDrums(pat.notes,rows,kit.rows);
    t.drumkitId=kitId;
   }t.preset=presetId;return G.validateProject(p);
+ };
+ G.studioCanReuseTrack=function(project,item,target){
+  if(!target||target.kind!==item.kind)return false;
+  if(item.kind!=='drum'||(target.drumkitId||'builtin.standard')===(item.drumkitId||'builtin.standard'))return true;
+  try{G.remapDrums(item.notes,G.resolveKit(item.drumkitId,project).rows,G.drumsFor(project,target));return true;}catch{return false;}
  };
  G.annotateStudioMaterial=function(pattern,id){
   // Stable template references survive edits and provide an exact ‘used’ collection.

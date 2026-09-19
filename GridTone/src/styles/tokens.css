@@ -3,9 +3,9 @@
    B is a non-persistent comparison variant in components.html, not a new work mode. */
 :root {
   color-scheme: light;
-  --paper: #f7f7f4; --bg: var(--paper);
+  --paper: #f1f0ec; --bg: var(--paper);
   --surface: #fdfcfa; --surface-raised: #ffffff; --surface-tint: #f2f1ee;
-  --grid-paper: #ffffff; --grid-key: #f5f5f2; --grid-beat: #f7f8f8;
+  --grid-paper: #fcfbf8; --grid-key: #eeede9; --grid-beat: #f5f4f0;
   --grid-major: #c5c9ce; --grid-minor: #e9eaed;
   --ink: #2a303b; --muted: #626b79; --subtle: var(--muted);
   --line: #e2e1df; --line-strong: #bdc1c8; --control-border: #858c97;
@@ -24,7 +24,7 @@
   --music-other-surface: #ddf1f2; --music-other-ink: #2e666b;
   --font-ui: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
   --font: var(--font-ui); --font-mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --font-body: 14px; --font-label: 13px; --font-small: 12px; --font-meta: 11px;
+  --font-body: 16px; --font-label: 14px; --font-small: 13px; --font-meta: 11px;
   --font-section: 14px; --font-title: 20px; --font-heading: 20px;
   --weight-regular: 400; --weight-book: 400; --weight-medium: 500; --weight-label: 500;
   --weight-semibold: 600; --weight-strong: 600; --weight-bold: 600;
@@ -40,22 +40,28 @@
   --field-bg: var(--surface-raised); --danger-bg: var(--notice-error);
   --inset-field: var(--field-inset); --music-chords-bg: var(--music-chords-surface);
   --tile-edge: var(--block-light),inset 0 -1px 0 #28334914;
-  --tile-shadow: 0 1px 0 #aab0ba33,0 2px 3px #3037440e;
-  --control: 36px; --control-small: 30px; --control-icon: 32px; --touch-control: 44px;
-  --track-head: 216px; --track-row: 76px; --tray-width: 240px; --tool-width: 336px;
+  --tile-shadow: 0 2px 0 #817b7026,0 3px 5px #30374418;
+  --control: 40px; --control-small: 32px; --control-icon: 36px; --touch-control: 44px;
+  --track-head: 264px; --track-row: 100px; --tray-width: 240px; --tool-width: 336px;
   --button-face: #faf9f6; --button-hover: #f2eeeb;
-  --button-shadow: inset 0 1px 0 #ffffffed,0 1px 1px #333b4910;
-  --shadow: 0 1px 2px #3037440a;
+  --button-shadow: inset 0 1px 0 #ffffffed,inset 0 -1px 0 #817b7014,0 2px 0 #817b7026,0 3px 4px #333b4912;
+  --shadow: inset 0 1px 0 #ffffffed,0 2px 2px #817b7012,0 4px 10px #3037440a;
+  --primary-shadow: inset 0 1px 0 #ffffff70,inset 0 -2px 0 #65253633,0 2px 0 #68263840,0 3px 5px #30374424;
+  --selected-shadow: inset 0 1px 0 #ffffffbd,inset 0 -1px 0 #b43d581a,0 1px 2px #30374418;
+  --note-shadow: drop-shadow(0 2px 1px #30374426);
   --shadow-raised: 0 8px 24px #3037441c,0 1px 3px #3037440a;
   --block-light: inset 0 1px 0 #ffffffdc;
-  --block-rest: var(--block-light),inset 0 -1px 0 #28334914,0 1px 0 #aab0ba33,0 2px 3px #3037440e;
+  --block-rest: var(--block-light),inset 0 -2px 0 #2833491c,0 2px 0 #817b7026,0 3px 5px #3037441a;
   --block-lift: var(--block-light),inset 0 -1px 0 #28334914,0 5px 12px #30374424;
   --depth-rest: var(--button-shadow);
   --depth-pressed: inset 0 1px 2px #30374424;
   --depth-lifted: var(--block-lift);
-  --field-inset: inset 0 1px 2px #30374408;
+  --field-face: transparent; --field-hover: #efeee980;
+  --field-edge: #a9a69f; --field-edge-hover: #797a7b;
+  --field-disabled: #eeede9; --field-disabled-ink: #74736f;
+  --field-inset: inset 0 1px 3px #504a4020,0 1px 0 #ffffffec;
   --focus: 0 0 0 2px var(--surface),0 0 0 4px var(--focus-color);
-  --key-dark: #344252; --key-dark-ink: #ffffff;
+  --key-dark: #414747; --key-dark-ink: #ffffff;
   --press-time: 0ms; --state-time: 80ms; --panel-time: 0ms; --settle-time: 100ms;
   --duration-quick: var(--state-time); --duration-panel: var(--panel-time);
   --ease-settle: ease-out; --ease-panel: ease-out;

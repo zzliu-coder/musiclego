@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><title>乐构 2.3 音频验收</title>
+<style>body{font:16px system-ui;margin:32px;line-height:1.7}button{padding:10px;margin:8px}pre{white-space:pre-wrap;max-width:1100px}audio{display:block;margin:8px}progress{width:300px}</style>
+<h1>独立音频验收 · 不读取或修改用户作品</h1>
+<button id="render" disabled>验证全部新音色与鼓件</button><button id="soak" disabled>启动 600 秒循环测试</button><button id="stop" disabled>停止测试</button>
+<p id="status" role="status">加载真实生产模块…</p><pre id="results"></pre><div id="listening"></div>
+<script type="module">
+const manifest=await (await fetch('../assets.json')).json();
+for(const path of manifest.scripts.filter(x=>!x.endsWith('/app.js'))){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='../'+path;s.onload=resolve;s.onerror=reject;document.head.append(s);});}
+const G=globalThis.GridTone,show=x=>document.querySelector('#status').textContent=x,output=x=>document.querySelector('#results').textContent=JSON.stringify(x,null,2),checks=[];
+let engine,timer,started,cycles=0,records=[];
+function project(id,pitches){const p=G.blankProject(),preset=G.resolvePreset(id,p),t=G.newTrack(preset.engine==='drum'?'drum':'melodic',0,id);p.tracks=[t];p.bars=2;p.bpm=120;t.patterns[0].bars=2;t.fx={reverb:0,delay:0,drive:0};t.patterns[0].notes=(pitches||(t.kind==='drum'?[36,38,42,46,39,56]:preset.category==='低音'?[36,43,48,36,40,43]:[60,64,67,72,67,64])).map((n,i)=>G.newNote(n,i*960,650,i%2?.5:.8));G.pinDocument(p);return G.validateProject(p);}
+document.querySelector('#render').disabled=false;document.querySelector('#soak').disabled=false;show('就绪');
+document.querySelector('#render').onclick=async()=>{
+ document.querySelector('#render').disabled=true;checks.length=0;
+ try{
+  const sounds=G.EXPANSION_PACK.presets.map(p=>({id:p.id})),kit=G.EXPANSION_PACK.drumkits[0];
+  for(const row of kit.rows)sounds.push({id:'expansion.drum.808',pitch:row.pitch});
+  for(const entry of sounds){show('渲染 '+entry.id+(entry.pitch?' · '+entry.pitch:''));const p=project(entry.id,entry.pitch?[entry.pitch]:undefined),r=await new G.AudioEngine().exportWav(p);let sum=0,peak=0,dc=0,count=0;for(let c=0;c<r.buffer.numberOfChannels;c++)for(const x of r.buffer.getChannelData(c)){if(!Number.isFinite(x))throw Error('非有限输出');sum+=x*x;dc+=x;count++;peak=Math.max(peak,Math.abs(x));}
+   const row={...entry,rms:Math.sqrt(sum/count),peak,dc:dc/count,frames:r.buffer.length,status:sum/count>1e-10&&Math.abs(dc/count)<.03&&peak<1?'PASS':'FAIL'};checks.push(row);output(checks);if(row.status!=='PASS')throw Error(JSON.stringify(row));
+   if(!entry.pitch){const wrap=document.createElement('section'),label=document.createElement('strong'),audio=document.createElement('audio');label.textContent=G.resolvePreset(entry.id,p).name;audio.controls=true;audio.src=URL.createObjectURL(r.blob);wrap.append(label,audio);document.querySelector('#listening').append(wrap);}
+  }show('PASS · '+checks.length+' 项实际离线渲染，试听片段在下方');
+ }catch(e){show('FAIL · '+e.message);}finally{document.querySelector('#render').disabled=false;}
+};
+function finish(error){clearInterval(timer);engine?.stop();const end={status:error?'FAIL':'PASS',wallSeconds:(performance.now()-started)/1000,cycles,records,finalSources:engine?.graph?.sources.size||0,finalPreviews:engine?.previewGraphs.size||0,error:error?.message||null};output(end);show((error?'FAIL':'PASS')+' · 循环测试结束');document.querySelector('#soak').disabled=false;document.querySelector('#stop').disabled=true;}
+document.querySelector('#soak').onclick=async()=>{
+ document.querySelector('#soak').disabled=true;document.querySelector('#stop').disabled=false;engine=new G.AudioEngine();records=[];cycles=0;started=performance.now();
+ const p=project('expansion.va.mini-bass');p.master=.02;
+ try{await engine.play(p,{kind:'song'},true);timer=setInterval(async()=>{try{if(engine.error)throw engine.error;if(!engine.playing)throw Error('播放意外停止');p.tracks[0].patterns[0].notes[0].velocity=cycles%2?.65:.75;engine.update(p);if(cycles%7===0)await engine.preview(p.tracks[0],43,p,.05);records.push({seconds:+((performance.now()-started)/1000).toFixed(1),sources:engine.graph.sources.size,previews:engine.previewGraphs.size});if(engine.graph.sources.size>1536||engine.previewGraphs.size>8)throw Error('音源未释放');cycles++;show('持续测试 '+Math.floor((performance.now()-started)/1000)+' / 600 秒 · '+cycles+' 次更新');if(performance.now()-started>=600000)finish();}catch(e){finish(e);}},2000);}catch(e){finish(e);}
+};
+document.querySelector('#stop').onclick=()=>finish(Error('手动提前停止，未完成 600 秒'));
+</script>

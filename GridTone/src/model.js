@@ -31,7 +31,7 @@
     const newPattern = (name = '片段 A', bars = 1) => ({ id: uid('p'), name, bars, notes: [] });
     function newTrack(kind = 'melodic', index = 0, preset = 'epiano') {
         const p = newPattern();
-        return { id: uid('t'), name: kind === 'drum' ? '节奏鼓组' : '新音轨', kind, color: kind==='drum'?'#f66570':/bass/.test(preset)?'#34b995':/piano|keys|pad/.test(preset)?'#ee9552':'#2875f5', preset: kind === 'drum' && preset === 'epiano' ? 'drums' : preset, volume: kind === 'drum' ? .68 : .65, pan: 0, mute: false,
+        return { ...(kind==='drum'&&G.resolvePreset?.(preset)?.drumkitId?{drumkitId:G.resolvePreset(preset).drumkitId}:{}), id: uid('t'), name: kind === 'drum' ? '节奏鼓组' : '新音轨', kind, color: kind==='drum'?'#f66570':/bass/.test(preset)?'#34b995':/piano|keys|pad/.test(preset)?'#ee9552':'#2875f5', preset: kind === 'drum' && preset === 'epiano' ? 'drums' : preset, volume: kind === 'drum' ? .68 : .65, pan: 0, mute: false,
             sound: { brightness: .55, attack: .01, release: .32 }, fx: { reverb: kind === 'drum' ? .09 : .24, delay: 0, drive: 0 }, pipeline: { transpose: 0, arp: 'off', rate: STEP, humanize: 0 },
             patterns: [p], clips: [{ id: uid('c'), patternId: p.id, bar: 0 }] };
     }

@@ -20,7 +20,7 @@
         identifier(p.id, '音色编号');
         if (p.version !== 1)
             throw Error('音色定义版本应为 1。');
-        if (!['fm', 'harmonic', 'organ', 'sub', 'bass', 'pad', 'drum', 'prism-modal','prism-pluck','prism-ep','prism-bass','prism-pad','prism-lead','prism-air','multisample','studio-va','studio-fm4'].includes(p.engine))
+        if (!['fm', 'harmonic', 'organ', 'sub', 'bass', 'pad', 'drum', 'prism-modal','prism-pluck','prism-ep','prism-bass','prism-pad','prism-lead','prism-air','multisample','studio-va','studio-fm4','studio-wave'].includes(p.engine))
             throw Error('尚未接入这个声音算法：' + p.engine);
         if (!['sine', 'triangle', 'square', 'sawtooth'].includes(p.wave))
             throw Error('波形无效。');
@@ -28,6 +28,7 @@
             number(p[k], a, b, '音色 ' + k);
         if(p.engine.startsWith('studio-')&&!p.synthesis)throw Error('新引擎需要完整发声定义。');
         const extra={};
+        if(p.drumkitId!==undefined){if(p.engine!=='drum')throw Error('鼓组只适用于鼓声音。');extra.drumkitId=identifier(p.drumkitId);}
         if(p.synthesis!==undefined){if(!G.validateStudioSynthesis)throw Error('当前版本未加载新声音定义校验器。');extra.synthesis=G.validateStudioSynthesis(p.synthesis,p.engine);}
         if(p.profile!==undefined)extra.profile=text(p.profile,'',30);
         if(p.gain!==undefined)extra.gain=number(p.gain,.05,2,'预设输出补偿');

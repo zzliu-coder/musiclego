@@ -1,6 +1,6 @@
 {
   "system": "Warm Magnetic 2.0",
-  "app": "2.1.0",
+  "app": "2.3.0",
   "count": 18,
   "items": [
     {
@@ -245,8 +245,8 @@
       "styles": [
         "components.css"
       ],
-      "states": "普通/焦点/禁用/忙碌/错误/组合",
-      "evidence": "final-visual gallery + directions",
+      "states": "普通/焦点/禁用/忙碌/错误/组合；数字单底线/选择箭头/透明禁用按钮/共享工具托盘",
+      "evidence": "docs/expansion-2.3/REPORT.md + tests/tactile.test.mjs；其余历史记录见 final-visual gallery + directions",
       "status": "IMPLEMENTED"
     }
   ],

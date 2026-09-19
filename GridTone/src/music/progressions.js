@@ -31,6 +31,21 @@
  ['minor251','小调 ii–V–i','爵士与回转','minor','iiø7 – V7 – i7 – i7','半减七和弦准备、大属七带来升导音，再回到小调。',[[2,'halfDim'],[7,'dom7'],[0,'min7'],[0,'min7']]],
  ['secondary','明亮的回转','爵士与回转','major','Imaj7 – VI7 – ii7 – V7','VI7 作为 ii 的副属和弦，包含调外音，增加前进感。',[[0,'maj7'],[9,'dom7'],[2,'min7'],[7,'dom7']]]
  ];
+ // New harmonic relations have new IDs; the original 24 definitions above remain unchanged.
+ rows.push(
+ ['dorian','多利亚夜游','调式与借用','minor','i7 – IV7 – i7 – IV7','小调主和弦与大下属七的明暗反差；含升六级。',[[0,'min7'],[5,'dom7'],[0,'min7'],[5,'dom7']]],
+ ['mixolydian','公路落日','调式与借用','major','I – ♭VII – IV – I','降七级带来开阔的摇滚与民谣色彩。',[[0,'major'],[10,'major'],[5,'major'],[0,'major']]],
+ ['phrygian','半音沙丘','调式与借用','minor','i – ♭II – i – ♭II','半音上方的大和弦形成紧张的往返。',[[0,'minor'],[1,'major'],[0,'minor'],[1,'major']]],
+ ['lydian','悬空天际','调式与借用','major','Imaj7 – II – Imaj7 – II','二级大和弦带出升四级的漂浮色彩。',[[0,'maj7'],[2,'major'],[0,'maj7'],[2,'major']]],
+ ['borrowed-iv','一瞬忧伤','调式与借用','major','I – IV – iv – I','大下属转小下属；同根和弦的三音半音下行。',[[0,'major'],[5,'major'],[5,'minor'],[0,'major']]],
+ ['backdoor','侧门归来','爵士与回转','major','Imaj7 – iv7 – ♭VII7 – Imaj7','小下属与降七属七构成柔和的侧门解决。',[[0,'maj7'],[5,'min7'],[10,'dom7'],[0,'maj7']]],
+ ['tritone','半音落地','爵士与回转','major','ii7 – ♭II7 – Imaj7 – VI7','三全音替代让根音半音落向主和弦，再接副属。',[[2,'min7'],[1,'dom7'],[0,'maj7'],[9,'dom7']]],
+ ['minor-circle','小调五度长路','小调','minor','i7 – iv7 – VII7 – IIImaj7 – VImaj7 – iiø7 – V7 – i','完整八小节五度链，最后用属七明确解决。',[[0,'min7'],[5,'min7'],[10,'dom7'],[3,'maj7'],[8,'maj7'],[2,'halfDim'],[7,'dom7'],[0,'minor']]],
+ ['cinematic','远景转场','调式与借用','minor','i – ♭VI – ♭II – V7','小主和弦、远关系大和弦与属七形成有跨度的电影感。',[[0,'minor'],[8,'major'],[1,'major'],[7,'dom7']]],
+ ['chromatic-mediants','三度棱镜','调式与借用','major','I – ♭VI – III – I','大三和弦跨三度移动，适合缓慢铺底；包含调外音。',[[0,'major'],[8,'major'],[4,'major'],[0,'major']]],
+ ['blues12','十二小节蓝调','蓝调','major','I7 · IV7 · I7 · I7 / IV7 · IV7 · I7 · I7 / V7 · IV7 · I7 · V7','标准十二小节框架，带快速下属与末尾回转。',[[0,'dom7'],[5,'dom7'],[0,'dom7'],[0,'dom7'],[5,'dom7'],[5,'dom7'],[0,'dom7'],[0,'dom7'],[7,'dom7'],[5,'dom7'],[0,'dom7'],[7,'dom7']]],
+ ['minor-blues12','十二小节夜蓝','蓝调','minor','i7 · i7 · i7 · i7 / iv7 · iv7 · i7 · i7 / ♭VI7 · V7 · i7 · V7','小调蓝调十二小节，降六属七接属七形成强烈收束。',[[0,'min7'],[0,'min7'],[0,'min7'],[0,'min7'],[5,'min7'],[5,'min7'],[0,'min7'],[0,'min7'],[8,'dom7'],[7,'dom7'],[0,'min7'],[7,'dom7']]]
+ );
  const PROGRESSIONS=rows.map(([id,name,group,scale,roman,description,chords])=>Object.freeze({id:'progression.'+id,name,group,scale,roman,description,chords:chords.map(([offset,quality])=>({offset,quality})),bars:chords.length}));
  function chordName(c,key){const k=((key+c.offset)%12+12)%12;return G.KEYS[k]+names[c.quality];}
  function voiced(root,quality,style,previous){

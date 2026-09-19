@@ -1,6 +1,6 @@
 {
   "name": "gridtone",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "private": true,
   "description": "乐构：把音乐搭起来。可离线运行的音乐创作工作台。",
   "scripts": {
@@ -35,5 +35,5 @@
     "verify:legacy:recovery": "node scripts/verify-recovery.mjs"
   },
   "devDependencies": {},
-  "buildLabel": "completion-audited"
+  "buildLabel": "classic-expansion"
 }

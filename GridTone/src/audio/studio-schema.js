@@ -5,6 +5,14 @@
  G.validateStudioSynthesis=function(input,engine){
   if(!input||typeof input!=='object'||input.version!==1)throw Error('发声定义版本无效。');
   const p=G.clone(input),out={version:1,type:p.type};
+  if(engine==='studio-wave'){
+   if(p.type!==engine)throw Error('波形引擎定义不一致。');
+   if(!Array.isArray(p.real)||!Array.isArray(p.imag)||p.real.length!==p.imag.length||p.real.length<2||p.real.length>65)throw Error('波形需要 1–64 个泛音。');
+   out.real=p.real.map(x=>valid(x,-2,2,'real'));out.imag=p.imag.map(x=>valid(x,-2,2,'imag'));
+   if(out.real[0]!==0||out.imag[0]!==0||!out.real.slice(1).some(x=>x!==0)&&!out.imag.slice(1).some(x=>x!==0))throw Error('波形必须无直流且包含有效泛音。');
+   for(const [k,a,b]of [['attack',.002,2],['decay',.005,5],['sustain',.01,1],['release',.025,3],['cutoff',80,16000]])out[k]=valid(p[k],a,b,k);
+   return out;
+  }
   if(p.type==='electronic-kit'){
    if(engine!=='drum')throw Error('鼓组需要鼓声引擎。');
    for(const [k,a,b]of [['kickPitch',25,100],['kickDecay',.08,1.2],['click',0,.25],['snarePitch',90,350],['snareDecay',.04,.7],['snareHigh',200,6000],['hatDecay',.02,.2],['hatHigh',2000,14000],['metal',0,2]])out[k]=valid(p[k],a,b,k);return out;

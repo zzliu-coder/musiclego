@@ -1,5 +1,6 @@
 /** JSON is the source of truth for built-in content. Generated JS stays offline/file:// compatible. */
 import {readFile,writeFile} from 'node:fs/promises';import {fileURLToPath} from 'node:url';
+import './expansion-build.mjs';
 const root=new URL('../',import.meta.url),data=JSON.parse(await readFile(new URL('catalog/builtin.json',root),'utf8'));
 if(data.format!=='gridtone.catalog'||data.version!==1)throw Error('Unsupported built-in catalog');
 const header='/** Generated from catalog/builtin.json by scripts/catalog-build.mjs. Edit the JSON source. */\n';

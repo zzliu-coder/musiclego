@@ -2,6 +2,16 @@ node_modules/
 __pycache__/
 .DS_Store
 *.pyc
+*.log
+# Preserve pre-existing local-only works and acceptance scratch evidence.
+design/legou/pre-refresh-project.gridtone
+checkpoints/*.bundle
+docs/implementation/evidence/soak-progress.json
+docs/implementation/evidence/exploratory/
+docs/closure-v2/evidence/**/fixtures/safari-export.*
+docs/closure-v2/evidence/pre-label-fix/
+docs/closure-v2/evidence/pre-cancel-fix/
+docs/closure-v2/evidence/current/soak-progress.json
 # Large evidence files are shipped in the complete ZIP; source checkpoints keep receipts.
 docs/repair-1.7.1/evidence/audio/*.wav
 docs/repair-1.7.1/evidence/downloads/*.wav

@@ -287,6 +287,13 @@
         source.connect(env);
         env.connect(out);
         const full = source.buffer.duration / rate, gate = asset.meta.mode === 'oneshot' ? full : Math.min(duration, full), release = Math.min(track.sound.release, full - gate), end = at + gate + Math.max(0, release);
+        // Only the new 808 kit opts into open/closed hat choking. Legacy samples are unchanged.
+        if(track.sampleHat){
+            graph.sampleHats??=new Map();const prior=graph.sampleHats.get(track.id);
+            if(prior&&prior.end>at){prior.env.gain.cancelScheduledValues(at);prior.env.gain.setValueAtTime(prior.level,at);prior.env.gain.linearRampToValueAtTime(.00001,at+.004);try{prior.source.stop(at+.006);}catch{}}
+            graph.sampleHats.delete(track.id);
+            if(track.sampleHat==='openHat')graph.sampleHats.set(track.id,{source,env,end,level:note.velocity*.62});
+        }
         env.gain.setValueAtTime(.00001, at);
         env.gain.linearRampToValueAtTime(note.velocity * .62, at + Math.min(.006, gate * .25));
         env.gain.setValueAtTime(note.velocity * .62, Math.max(at + .007, end - .03));
@@ -309,6 +316,7 @@
             actualNote = { ...note, velocity: note.velocity * row.velocity };
             if (row.source.type === 'sample') {
                 actualTrack = { ...track, preset: 'sample:' + row.source.assetId };
+                if(kit.id==='expansion.kit.808'&&['openHat','closedHat'].includes(row.role))actualTrack.sampleHat=row.role;
                 actualNote.pitch = assets.get(row.source.assetId)?.meta.root ?? 60;
             }
             else {
