@@ -3,7 +3,8 @@
   "changes": {
     "src/model.js": "optional performed flag bypasses a second groove application; absent flag retains old timing; 2.2.1 accepts exact integer phrase lengths 1..16 so time edits never split at artificial powers-of-two seams; old projects unchanged",
     "src/catalog.js": "new bounded engines/preset definitions and optional material provenance; old definitions unchanged",
-    "src/audio.js": "expose renderer lookup for a delegated new-drum wrapper",
+    "src/audio.js": "expose renderer lookup for a delegated new-drum wrapper; review repair uses one future cutoff for cancellation and immediate rescheduling, preserving imminent onsets",
+    "src/storage/projects.js": "User-authorized review repair: atomic v3 recovery metadata index migration, bounded pruning on recovery creation, no historical document reads on normal saves; revision conflict and save queue preserved",
     "src/creation/placement.js": "append attribution when new source content is placed; existing music edits unchanged",
     "src/music/harmony.js": "2.2.1 preserves generation provenance after time surgery and marks the edited result as needing a new dependency review; musical generators and sounding pitches unchanged"
   }

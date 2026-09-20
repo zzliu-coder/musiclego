@@ -1,5 +1,23 @@
 /** Stable layers for the musical canvas; content is data, never a decorative asset. */
 (function(G){G.views ||= {};let staticKey='';const pinnedScrolls=new WeakSet();
+ G.views.patchPianoLayer=function(el,html){
+  if(el.dataset.markup===html)return;
+  const container=document.createElementNS('http://www.w3.org/2000/svg','g');container.innerHTML=html;
+  const old=new Map([...el.children].map(n=>[n.getAttribute('data-note'),n]));let cursor=el.firstElementChild;
+  for(const fresh of [...container.children]){
+   const key=fresh.getAttribute('data-note');let node=old.get(key);
+   if(node&&node.tagName===fresh.tagName){
+    old.delete(key);
+    for(const a of [...node.attributes])if(!fresh.hasAttribute(a.name))node.removeAttribute(a.name);
+    for(const a of [...fresh.attributes])if(node.getAttribute(a.name)!==a.value)node.setAttribute(a.name,a.value);
+    if(node.innerHTML!==fresh.innerHTML)node.innerHTML=fresh.innerHTML;
+   }else node=fresh;
+   if(node!==cursor)el.insertBefore(node,cursor);
+   cursor=node.nextElementSibling;
+  }
+  for(const node of old.values())node.remove();
+  el.dataset.markup=html;
+ };
  // A ruler shares the notes' X geometry; only its Y position is pinned.
  G.views.pianoTimeRuler=function({width,left,top,cw,offset,bars}){
   let marks=`<rect width="${width}" height="${top}" fill="var(--surface)"/><path d="M0 ${top-.5}H${width}" stroke="var(--line)"/>`;
@@ -44,7 +62,7 @@
    if(vx>=left)velocities+=`<rect data-note="v-${n.id}" x="${vx}" y="${vy+48*(1-n.velocity)}" width="${sel?5:3}" height="${48*n.velocity}" rx="1" fill="${sel?'var(--brand)':paint.ink}" opacity="${selected.size&&!sel ? .35 : .8}"/>`;
   }
   // SVG-aware keyed patching avoids replacing capture targets and static grid lines.
-  function layer(id,html){const el=document.getElementById(id);if(el.dataset.markup===html)return;el.dataset.markup=html;const container=document.createElementNS('http://www.w3.org/2000/svg','g');container.innerHTML=html;const old=new Map([...el.children].map(n=>[n.getAttribute('data-note'),n]));for(const n of [...container.children]){const prev=old.get(n.getAttribute('data-note'));if(prev){old.delete(n.getAttribute('data-note'));if(prev.outerHTML!==n.outerHTML)prev.replaceWith(n);}else el.append(n);}for(const n of old.values())n.remove();}
+  function layer(id,html){G.views.patchPianoLayer(document.getElementById(id),html);}
   layer('note-layer',notes||`<text data-note="empty-hint" x="${left+(width-left)/2}" y="${top+Math.min(rows.length*rh/2,110)}" text-anchor="middle" font-size="13" fill="var(--muted)" pointer-events="none">${t.kind==='drum'?'点亮一个格子，开始节奏':'点一下，写下第一个音符'}</text>`);layer('velocity-layer',`<text data-note="velocity-label" x="${left-10}" y="${vy+27}" text-anchor="end" font-size="11" fill="var(--muted)">力度</text>`+velocities);
   const origin=document.querySelector('#note-origin-layer');if(origin)origin.innerHTML=drag?.moved&&drag.notes?[...drag.notes.values()].map(n=>{const row=rows.indexOf(n.pitch);if(row<0)return '';return `<rect x="${left+(n.start-win.offset)/G.STEP*cw+1}" y="${top+row*rh+3}" width="${Math.max(3,n.duration/G.STEP*cw-2)}" height="${Math.max(6,rh-6)}" rx="3" fill="none" stroke="${paint.ink}" stroke-opacity=".6" stroke-dasharray="3 3"/>`;}).join(''):'';
   const selection=document.querySelector('#selection-layer');const selectedRange=a.kind==='range'&&a.patternId===p.id?a.range:null;const cursorX=left+((S.cursor||0)-win.offset)/G.STEP*cw;const overlays=(selectedRange?`<rect x="${left+(selectedRange.start-win.offset)/G.STEP*cw}" y="${top}" width="${(selectedRange.end-selectedRange.start)/G.STEP*cw}" height="${rows.length*rh}" fill="var(--brand)" fill-opacity=".09" stroke="var(--brand)" pointer-events="none"/>`:'')+(cursorX>=left&&cursorX<=width?`<path d="M${cursorX} ${top}V${top+rows.length*rh}" stroke="var(--brand)" stroke-opacity=".35" stroke-dasharray="3 3" pointer-events="none"/>`:'');selection.innerHTML=overlays+(drag?.type==='marquee'?`<rect x="${Math.min(drag.x,drag.mx)}" y="${Math.min(drag.y,drag.my)}" width="${Math.abs(drag.mx-drag.x)}" height="${Math.abs(drag.my-drag.y)}" fill="var(--brand)" fill-opacity=".09" stroke="var(--brand)"/>`:'');

@@ -443,10 +443,14 @@
             for(const [id,meta] of Object.entries(project.assets))if(this.assets.has(id))this.assets.get(id).meta=meta;
             this.plan=this.compile(project,scope);
             const now=this.ctx.currentTime;
-            if(tempoChanged){this.tempo=project.bpm;this.origin=now-at/PPQ*60/this.tempo;}
-            for(const source of this.graph.sources)if(source.gridStart>now){try{source.stop(now);}catch{}}
-            this.fromTime=now+.003;
+            // Keep the imminent window intact. Cancellation and scheduling must
+            // partition the same half-open timeline, including the boundary.
+            const cutoff=now+.003;
+            if(tempoChanged){const ticks=(cutoff-this.origin)*PPQ*this.tempo/60;this.tempo=project.bpm;this.origin=cutoff-ticks/PPQ*60/this.tempo;}
+            for(const source of this.graph.sources)if(source.gridStart>=cutoff-1e-8){try{source.stop(now);}catch{}}
+            this.fromTime=cutoff;
             this.graph.update(project,G.resolvePlaybackScope(project,scope).trackIds);
+            this.tick();
         }
         seek(tick) {
             if(!this.playing||!this.plan){this.pausedAt=Math.max(0,tick);return;}

@@ -15,6 +15,30 @@
     const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
     const uid = (prefix = 'id') => prefix + '_' + (globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2) + Date.now().toString(36));
     const clone = x => JSON.parse(JSON.stringify(x));
+    // Sample bodies are immutable strings. Copy mutable metadata/notes, never
+    // serialize megabytes of unchanged audio just to create an edit snapshot.
+    const checkedSamples = new WeakMap();
+    function projectMetadata(p) {
+        return {...p, assets:Object.fromEntries(Object.entries(p.assets || {}).map(([id,a])=>{
+            if(!a || typeof a!=='object' || Array.isArray(a))return [id,a];
+            const {data,...metadata}=a;return [id,metadata];
+        }))};
+    }
+    function cloneProject(p) {
+        if(!p.assets || typeof p.assets!=='object' || Array.isArray(p.assets))return clone(p);
+        const copy=clone(projectMetadata(p));
+        for(const [id,a] of Object.entries(p.assets))if(a && typeof a==='object' && !Array.isArray(a)){
+            copy.assets[id].data=typeof a.data==='string'?a.data:a.data===undefined?undefined:clone(a.data);
+            if(checkedSamples.has(a)&&checkedSamples.get(a)===a.data)checkedSamples.set(copy.assets[id],a.data);
+        }
+        return copy;
+    }
+    function projectEquals(a,b) {
+        const aa=a.assets||{},ba=b.assets||{},keys=Object.keys(aa);
+        if(keys.length!==Object.keys(ba).length || keys.some(id=>aa[id]?.data!==ba[id]?.data))return false;
+        return JSON.stringify(projectMetadata(a))===JSON.stringify(projectMetadata(b));
+    }
+    Object.assign(G,{cloneProject,projectEquals});
     const noteName = p => KEYS[((Math.round(p) % 12) + 12) % 12] + (Math.floor(p / 12) - 1);
     const inScale = (p, root = 0, scale = 'major') => SCALES[scale].includes(((p - root) % 12 + 12) % 12);
     function snapPitch(p, root, scale) {
@@ -87,7 +111,7 @@
             throw Object.assign(Error('工程格式不支持：支持乐构 / 声格 v1、v2、v3 工程。'), { code: 'UNSUPPORTED_VERSION' });
         if (G.assertDataTree)
             G.assertDataTree(input);
-        const p = clone(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;
+        const p = cloneProject(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;
         p.version = 3;
         if (!Array.isArray(p.tracks) || p.tracks.length < 1 || p.tracks.length > LIMITS.tracks)
             throw Error('音轨数量应为 1–64。');
@@ -116,7 +140,7 @@
         for (const [key, a] of Object.entries(p.assets)) {
             if (!/^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$/.test(key) || ['__proto__', 'constructor', 'prototype'].includes(key))
                 throw Error('采样编号无效。');
-            if (!a || typeof a.data !== 'string' || !/^data:audio\/wav;base64,[A-Za-z0-9+/]+=*$/.test(a.data) || !finite(a.root, 0, 127))
+            if (!a || typeof a.data !== 'string' || (checkedSamples.get(a)!==a.data && !/^data:audio\/wav;base64,[A-Za-z0-9+/]+=*$/.test(a.data)) || !finite(a.root, 0, 127))
                 throw Error('音源资料无效。');
             if (!['pitched', 'oneshot'].includes(a.mode))
                 throw Error('采样模式无效。');
@@ -124,6 +148,7 @@
             if (assetBytes > LIMITS.assetsBytes)
                 throw Error('工程内嵌音源超过 24 MB。');
             a.name = String(a.name || '自定义采样').slice(0, 80);
+            checkedSamples.set(a,a.data);
         }
         for (const t of p.tracks) {
             id(t.id);

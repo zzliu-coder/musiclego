@@ -1,9 +1,9 @@
 {
-  "runtimeDigest": "114f828190c21f61ecc6c44845419b16e073e2fde716ef93c7c5e95da5933d6e",
+  "runtimeDigest": "e529a529687f9fec8bf76e3a1a932407684ef86c4b4207af0dfdaab3aeae984c",
   "app": "乐构",
   "version": "2.3.0",
-  "bytes": 2947664,
-  "sha256": "5c50cc45e798093ebe65fbd5598eae17a6f1c01f516b399883b49ed15e0d91c6",
+  "bytes": 2950905,
+  "sha256": "7d14c9f55e25f435a852130c5966ccdc0b7a859a7b0c146a682af18b0e9fd768",
   "runtimeDependencies": [],
   "entry": "index.html"
 }

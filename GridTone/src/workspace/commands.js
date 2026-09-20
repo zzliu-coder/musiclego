@@ -106,7 +106,7 @@
  }
  function performEditCommand(project,s,id){
   const state=commandState(project,s,id);if(!state.enabled)throw Error(state.reason);
-  const a=G.resolveEditTarget(project,s),patch={},p=G.clone(project);
+  const a=G.resolveEditTarget(project,s),patch={},p=G.cloneProject(project);
   if(id==='cut'){const clipboard=captureClipboard(project,s,a);const result=performEditCommand(project,s,'delete');return {...result,patch:{...result.patch,editClipboard:clipboard},message:'已剪切，可在本工作台粘贴或撤销'};}
   if(id==='copy')return {document:project,patch:{editClipboard:captureClipboard(project,s,a)},changed:false,message:'已复制'+(a.kind==='range'?'时间范围（含休止）':'选中内容')};
   if(id==='select-all'){
@@ -136,7 +136,8 @@
    patch.clipIds=ids;patch.editTarget={kind:'clips',trackId:a.trackId,ids};const first=G.clipSelection(p,ids)[0];Object.assign(patch,{trackId:first.track.id,patternId:first.pattern.id,clipId:first.clip.id});
   }
   for(const t of p.tracks)for(const pat of t.patterns)if(pat.retention)pat.retention.notes=pat.retention.notes.filter(r=>pat.notes.some(n=>n.id===r.id));
-  return {document:G.validateProject(p),patch,changed:JSON.stringify(p)!==JSON.stringify(project),message:defs[id].label+'完成'};
+  const document=G.validateProject(p);
+  return {document,patch,changed:!G.projectEquals(document,project),message:defs[id].label+'完成'};
  }
  Object.assign(G,{quantizeStarts,EDIT_COMMANDS:Object.freeze(defs),editCommandState:commandState,performEditCommand,captureEditClipboard:captureClipboard,trimPatternRange:trimRange});
 })(globalThis.GridTone ||= {});

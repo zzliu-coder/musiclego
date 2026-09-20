@@ -13,7 +13,7 @@
     const lead=project.tracks.find(t=>/旋律/.test(t.name))||project.tracks[0];G.openPatternInSession(S,project,{trackId:lead.id,edit:false});G.fitViewport(S,lead,lead.patterns[0]);
     const playback = new G.PlaybackController(engine, () => project, () => S, B, () => { updateTransport(); const l = $('#playback-label'); if (l)
         l.textContent = G.playbackLabel(project, S, B); }, message => toast(message));
-    function snapshot() { const copy = clone({ ...project, assets: {} }); copy.assets = Object.fromEntries(Object.entries(project.assets).map(([id, a]) => [id, { ...a }])); historySelections.set(copy,clone({trackId:S.trackId,patternId:S.patternId,clipId:S.clipId,clipIds:S.clipIds,selected:S.selected,editTarget:S.editTarget,noteRange:S.noteRange,cursor:S.cursor,arrangeCursor:S.arrangeCursor})); return copy; }
+    function snapshot() { const copy = G.cloneProject(project); historySelections.set(copy,clone({trackId:S.trackId,patternId:S.patternId,clipId:S.clipId,clipIds:S.clipIds,selected:S.selected,editTarget:S.editTarget,noteRange:S.noteRange,cursor:S.cursor,arrangeCursor:S.arrangeCursor})); return copy; }
     function fingerprint(p) { return JSON.stringify(p); }
     const history = [], future = [], historySelections=new WeakMap();
     function restoreHistorySelection(document){const selection=historySelections.get(document);if(selection){const {_timePlayback,...saved}=clone(selection);Object.assign(S,saved);if(_timePlayback)Object.assign(B,_timePlayback);}}
@@ -25,11 +25,13 @@
     const toolTrack = () => ['properties','sound','pipeline'].includes(S.rightPanel) ? project.tracks.find(t=>t.id===S.inspectorTrackId)||track() : track();
     function syncSelection() { return G.reconcileSession(S, project, B); }
     function toast(message) { $('#toast').textContent = G.ui.format.error(message); $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 3500); }
-    function markChanged(before, mixOnly=false) {
-        for(const t of project.tracks)for(const p of t.patterns)if(p.retention)p.retention.notes=p.retention.notes.filter(n=>p.notes.some(x=>x.id===n.id));
-        try { validateProject(project); }
-        catch (e) { project = before; syncSelection(); toast(e.message); return {ok:false,error:{message:e.message}}; }
-        if (fingerprint(before) === fingerprint(project))
+    function markChanged(before, mixOnly=false, commandResult=null) {
+        if(!commandResult){
+            for(const t of project.tracks)for(const p of t.patterns)if(p.retention)p.retention.notes=p.retention.notes.filter(n=>p.notes.some(x=>x.id===n.id));
+            try { project=validateProject(project); }
+            catch (e) { project = before; syncSelection(); toast(e.message); return {ok:false,error:{message:e.message}}; }
+        }
+        if (commandResult ? !commandResult.changed : G.projectEquals(before,project))
             return {ok:true,changed:false};
         history.push(before);
         if (history.length > 60)
@@ -52,7 +54,7 @@
             },selection);
             if(!result.ok)throw Object.assign(Error(result.error.message),{code:result.error.code});
             project=result.document;
-            const committed=markChanged(before);
+            const committed=markChanged(before,false,result);
             syncSelection();
             if (draw)
                 render();
@@ -172,7 +174,7 @@
         }
         try{
             const result=G.performEditCommand(project,S,id);
-            if(result.changed){const out=mutate(()=>{project=result.document;Object.assign(S,result.patch);});if(!out.ok)return out;}
+            if(result.changed){const before=snapshot();project=result.document;Object.assign(S,result.patch);const out=markChanged(before,false,result);if(!out.ok)return out;syncSelection();render();}
             else{Object.assign(S,result.patch);syncSelection();render();}
             if(['copy','cut'].includes(id)&&S.editClipboard){void G.publishMusicalClipboard(S.editClipboard).then(r=>{if(!r.system&&id==='cut')toast('已剪切，可在本工作台粘贴；系统剪贴板未授权。');});}
             if(result.message)toast(result.message);return {ok:true,changed:result.changed};

@@ -1159,6 +1159,30 @@ textarea { resize:vertical; }
     const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
     const uid = (prefix = 'id') => prefix + '_' + (globalThis.crypto?.randomUUID?.() || Math.random().toString(36).slice(2) + Date.now().toString(36));
     const clone = x => JSON.parse(JSON.stringify(x));
+    // Sample bodies are immutable strings. Copy mutable metadata/notes, never
+    // serialize megabytes of unchanged audio just to create an edit snapshot.
+    const checkedSamples = new WeakMap();
+    function projectMetadata(p) {
+        return {...p, assets:Object.fromEntries(Object.entries(p.assets || {}).map(([id,a])=>{
+            if(!a || typeof a!=='object' || Array.isArray(a))return [id,a];
+            const {data,...metadata}=a;return [id,metadata];
+        }))};
+    }
+    function cloneProject(p) {
+        if(!p.assets || typeof p.assets!=='object' || Array.isArray(p.assets))return clone(p);
+        const copy=clone(projectMetadata(p));
+        for(const [id,a] of Object.entries(p.assets))if(a && typeof a==='object' && !Array.isArray(a)){
+            copy.assets[id].data=typeof a.data==='string'?a.data:a.data===undefined?undefined:clone(a.data);
+            if(checkedSamples.has(a)&&checkedSamples.get(a)===a.data)checkedSamples.set(copy.assets[id],a.data);
+        }
+        return copy;
+    }
+    function projectEquals(a,b) {
+        const aa=a.assets||{},ba=b.assets||{},keys=Object.keys(aa);
+        if(keys.length!==Object.keys(ba).length || keys.some(id=>aa[id]?.data!==ba[id]?.data))return false;
+        return JSON.stringify(projectMetadata(a))===JSON.stringify(projectMetadata(b));
+    }
+    Object.assign(G,{cloneProject,projectEquals});
     const noteName = p => KEYS[((Math.round(p) % 12) + 12) % 12] + (Math.floor(p / 12) - 1);
     const inScale = (p, root = 0, scale = 'major') => SCALES[scale].includes(((p - root) % 12 + 12) % 12);
     function snapPitch(p, root, scale) {
@@ -1231,7 +1255,7 @@ textarea { resize:vertical; }
             throw Object.assign(Error('工程格式不支持：支持乐构 / 声格 v1、v2、v3 工程。'), { code: 'UNSUPPORTED_VERSION' });
         if (G.assertDataTree)
             G.assertDataTree(input);
-        const p = clone(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;
+        const p = cloneProject(input), finite = (x, a, b) => typeof x === 'number' && Number.isFinite(x) && x >= a && x <= b;
         p.version = 3;
         if (!Array.isArray(p.tracks) || p.tracks.length < 1 || p.tracks.length > LIMITS.tracks)
             throw Error('音轨数量应为 1–64。');
@@ -1260,7 +1284,7 @@ textarea { resize:vertical; }
         for (const [key, a] of Object.entries(p.assets)) {
             if (!/^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$/.test(key) || ['__proto__', 'constructor', 'prototype'].includes(key))
                 throw Error('采样编号无效。');
-            if (!a || typeof a.data !== 'string' || !/^data:audio\/wav;base64,[A-Za-z0-9+/]+=*$/.test(a.data) || !finite(a.root, 0, 127))
+            if (!a || typeof a.data !== 'string' || (checkedSamples.get(a)!==a.data && !/^data:audio\/wav;base64,[A-Za-z0-9+/]+=*$/.test(a.data)) || !finite(a.root, 0, 127))
                 throw Error('音源资料无效。');
             if (!['pitched', 'oneshot'].includes(a.mode))
                 throw Error('采样模式无效。');
@@ -1268,6 +1292,7 @@ textarea { resize:vertical; }
             if (assetBytes > LIMITS.assetsBytes)
                 throw Error('工程内嵌音源超过 24 MB。');
             a.name = String(a.name || '自定义采样').slice(0, 80);
+            checkedSamples.set(a,a.data);
         }
         for (const t of p.tracks) {
             id(t.id);
@@ -1698,7 +1723,7 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
         });
     }
     function pitchCandidate(project, trackId, patternId, ids, settings) {
-        const p = G.clone(project), t = p.tracks.find(t => t.id === trackId), pat = t?.patterns.find(p => p.id === patternId);
+        const p = G.cloneProject(project), t = p.tracks.find(t => t.id === trackId), pat = t?.patterns.find(p => p.id === patternId);
         if (!pat)
             throw Error('编辑目标不存在。');
         if (t.kind === 'drum')
@@ -1724,7 +1749,7 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
         });
     }
     function duplicateTrack(project, trackId) {
-        const p = G.clone(project), source = p.tracks.find(t => t.id === trackId);
+        const p = G.cloneProject(project), source = p.tracks.find(t => t.id === trackId);
         if (!source) throw Error('音轨不存在。');
         if (p.tracks.length >= G.LIMITS.tracks) throw Error('最多支持 64 条音轨。');
         const t = G.clone(source), ids = new Map();
@@ -1736,7 +1761,7 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
         return { project: G.validateProject(p), trackId: t.id, patternId: t.patterns[0].id, clipId: t.clips[0]?.id };
     }
     function copyProject(project) {
-        const p=G.clone(project),ids=new Map([[p.id,G.uid('song')]]);
+        const p=G.cloneProject(project),ids=new Map([[p.id,G.uid('song')]]);
         for(const t of p.tracks){ids.set(t.id,G.uid('t'));for(const pat of t.patterns){ids.set(pat.id,G.uid('p'));for(const n of pat.notes)ids.set(n.id,G.uid('n'));}for(const c of t.clips)ids.set(c.id,G.uid('c'));}
         const remap=x=>Array.isArray(x)?x.map(remap):x&&typeof x==='object'?Object.fromEntries(Object.entries(x).map(([k,v])=>[ids.get(k)||k,remap(v)])):typeof x==='string'?(ids.get(x)||x):x;
         const copy=remap(p);for(let i=0;i<p.tracks.length;i++)for(let j=0;j<p.tracks[i].patterns.length;j++)for(let k=0;k<p.tracks[i].patterns[j].notes.length;k++){const old=p.tracks[i].patterns[j].notes[k];copy.tracks[i].patterns[j].notes[k].performanceKey=old.performanceKey||old.id;}copy.title=p.title+' · 副本';return G.validateProject(copy);
@@ -1749,15 +1774,15 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
 /** Atomic command boundary. Session gestures commit once through markChanged. */
 (function(G){'use strict';
  function executeCommand(document,command,target={},payload={}){
-  const draft=G.clone(document);
   try{
+   const draft=G.cloneProject(document);
    let next=draft;
    if(typeof command==='function')next=command(draft)||draft;
    else if(command==='duplicate-track')next=G.duplicateTrack(draft,target.trackId).project;
    else if(command==='replace-document')next=payload.document;
    else throw Object.assign(Error('命令不存在。'),{code:'UNKNOWN_COMMAND'});
    next=G.validateProject(next);
-   return {ok:true,document:next,affectedIds:[target.trackId,target.patternId,target.clipId].filter(Boolean),changeKinds:['music'],changed:JSON.stringify(document)!==JSON.stringify(next)};
+   return {ok:true,document:next,affectedIds:[target.trackId,target.patternId,target.clipId].filter(Boolean),changeKinds:['music'],changed:!G.projectEquals(document,next)};
   }catch(error){return {ok:false,error:{code:error.code||'INVALID_COMMAND',message:error.message},document};}
  }
  G.executeCommand=executeCommand;
@@ -1996,7 +2021,7 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
  }
  function performEditCommand(project,s,id){
   const state=commandState(project,s,id);if(!state.enabled)throw Error(state.reason);
-  const a=G.resolveEditTarget(project,s),patch={},p=G.clone(project);
+  const a=G.resolveEditTarget(project,s),patch={},p=G.cloneProject(project);
   if(id==='cut'){const clipboard=captureClipboard(project,s,a);const result=performEditCommand(project,s,'delete');return {...result,patch:{...result.patch,editClipboard:clipboard},message:'已剪切，可在本工作台粘贴或撤销'};}
   if(id==='copy')return {document:project,patch:{editClipboard:captureClipboard(project,s,a)},changed:false,message:'已复制'+(a.kind==='range'?'时间范围（含休止）':'选中内容')};
   if(id==='select-all'){
@@ -2026,7 +2051,8 @@ const presetById=(id,project)=>G.resolvePreset?G.resolvePreset(id,project):PRESE
    patch.clipIds=ids;patch.editTarget={kind:'clips',trackId:a.trackId,ids};const first=G.clipSelection(p,ids)[0];Object.assign(patch,{trackId:first.track.id,patternId:first.pattern.id,clipId:first.clip.id});
   }
   for(const t of p.tracks)for(const pat of t.patterns)if(pat.retention)pat.retention.notes=pat.retention.notes.filter(r=>pat.notes.some(n=>n.id===r.id));
-  return {document:G.validateProject(p),patch,changed:JSON.stringify(p)!==JSON.stringify(project),message:defs[id].label+'完成'};
+  const document=G.validateProject(p);
+  return {document,patch,changed:!G.projectEquals(document,project),message:defs[id].label+'完成'};
  }
  Object.assign(G,{quantizeStarts,EDIT_COMMANDS:Object.freeze(defs),editCommandState:commandState,performEditCommand,captureEditClipboard:captureClipboard,trimPatternRange:trimRange});
 })(globalThis.GridTone ||= {});
@@ -3767,10 +3793,14 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
             for(const [id,meta] of Object.entries(project.assets))if(this.assets.has(id))this.assets.get(id).meta=meta;
             this.plan=this.compile(project,scope);
             const now=this.ctx.currentTime;
-            if(tempoChanged){this.tempo=project.bpm;this.origin=now-at/PPQ*60/this.tempo;}
-            for(const source of this.graph.sources)if(source.gridStart>now){try{source.stop(now);}catch{}}
-            this.fromTime=now+.003;
+            // Keep the imminent window intact. Cancellation and scheduling must
+            // partition the same half-open timeline, including the boundary.
+            const cutoff=now+.003;
+            if(tempoChanged){const ticks=(cutoff-this.origin)*PPQ*this.tempo/60;this.tempo=project.bpm;this.origin=cutoff-ticks/PPQ*60/this.tempo;}
+            for(const source of this.graph.sources)if(source.gridStart>=cutoff-1e-8){try{source.stop(now);}catch{}}
+            this.fromTime=cutoff;
             this.graph.update(project,G.resolvePlaybackScope(project,scope).trackIds);
+            this.tick();
         }
         seek(tick) {
             if(!this.playing||!this.plan){this.pausedAt=Math.max(0,tick);return;}
@@ -4238,7 +4268,8 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
 /** Local documents. A transaction owns both revision comparison and index update. */
 (function (G) {
  'use strict';
- const DB_NAME='gridtone-local-v1', DB_VERSION=2;
+ const DB_NAME='gridtone-local-v1', DB_VERSION=3;
+ const recoverySummary=row=>({id:row.id,projectId:row.projectId,time:row.time,title:row.title,bytes:JSON.stringify(row.document).length*2});
  const failure=(code,message)=>Object.assign(new Error(message),{code});
  class ProjectRepository {
   constructor(name=DB_NAME){this.name=name;this.db=null;this.opening=null;this.revisions=new Map();this.queue=Promise.resolve();}
@@ -4247,7 +4278,13 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
    if(!globalThis.indexedDB)throw failure('STORAGE_UNAVAILABLE','浏览器未启用本机存储，请下载工程备份。');
    if(!this.opening)this.opening=new Promise((resolve,reject)=>{
     const r=indexedDB.open(this.name,DB_VERSION);let blocked=false;
-    r.onupgradeneeded=()=>{for(const name of ['projects','documents','project-index','recoveries','metadata'])if(!r.result.objectStoreNames.contains(name))r.result.createObjectStore(name);};
+    r.onupgradeneeded=()=>{
+     for(const name of ['projects','documents','project-index','recoveries','metadata','recovery-index'])if(!r.result.objectStoreNames.contains(name))r.result.createObjectStore(name);
+     // One-time v2 backfill, atomic with the schema upgrade. Ordinary saves only
+     // read this lightweight index, never the historical document bodies.
+     const cursor=r.transaction.objectStore('recoveries').openCursor();
+     cursor.onsuccess=()=>{const c=cursor.result;if(c){r.transaction.objectStore('recovery-index').put(recoverySummary(c.value),c.key);c.continue();}};
+    };
     r.onblocked=()=>{blocked=true;this.opening=null;reject(failure('STORAGE_BLOCKED','存储升级被旧页面阻止，请关闭其他乐构页面后重试。'));};
     r.onerror=()=>{this.opening=null;reject(r.error);};
     r.onsuccess=()=>{if(blocked){r.result.close();return;}this.db=r.result;this.db.onversionchange=()=>{this.db.close();this.db=null;this.opening=null;};resolve(this.db);};
@@ -4259,14 +4296,14 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
   async migrate(){
    const db=await this.open();
    return new Promise((resolve,reject)=>{
-    const tx=db.transaction(['projects','documents','project-index','recoveries','metadata'],'readwrite'),meta=tx.objectStore('metadata'),check=meta.get('migration-v2');
+    const tx=db.transaction(['projects','documents','project-index','recoveries','recovery-index','metadata'],'readwrite'),meta=tx.objectStore('metadata'),check=meta.get('migration-v2');
     const warnings=[];
     check.onsuccess=()=>{
      if(check.result)return;
      const request=tx.objectStore('projects').openCursor();
      request.onsuccess=()=>{const cursor=request.result;if(!cursor){
-      const records=tx.objectStore('recoveries'),all=records.getAll();
-      all.onsuccess=()=>{const counts=new Map();let bytes=0;for(const row of all.result.sort((a,b)=>b.time-a.time)){const n=(counts.get(row.projectId)||0)+1;counts.set(row.projectId,n);bytes+=JSON.stringify(row.document).length*2;if(n>10||bytes>120*1024*1024)records.delete(row.id);}meta.put({date:Date.now(),warnings},'migration-v2');};return;}
+      const records=tx.objectStore('recoveries'),history=tx.objectStore('recovery-index'),all=history.getAll();
+      all.onsuccess=()=>{const counts=new Map();let bytes=0;for(const row of all.result.sort((a,b)=>b.time-a.time)){const n=(counts.get(row.projectId)||0)+1;counts.set(row.projectId,n);if(n>10||bytes+row.bytes>120*1024*1024){records.delete(row.id);history.delete(row.id);}else bytes+=row.bytes;}meta.put({date:Date.now(),warnings},'migration-v2');};return;}
       const key=String(cursor.key),value=cursor.value;
       if(key==='autosave'||key.startsWith('recovery:')){
        try{
@@ -4274,7 +4311,7 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
         if(key==='autosave'){
          const docs=tx.objectStore('documents'),existing=docs.get(document.id);
          existing.onsuccess=()=>{if(!existing.result){docs.put({document,revision:1,updatedAt:time},document.id);tx.objectStore('project-index').put(this.summary(document,1,time),document.id);meta.put(document.id,'last-opened');}};
-        }else tx.objectStore('recoveries').put({id:document.id+':legacy:'+key,projectId:document.id,time,title:document.title,document},document.id+':legacy:'+key);
+        }else{const row={id:document.id+':legacy:'+key,projectId:document.id,time,title:document.title,document};tx.objectStore('recoveries').put(row,row.id);tx.objectStore('recovery-index').put(recoverySummary(row),row.id);}
        }catch(e){warnings.push({key,error:e.message});}
       }
       cursor.continue();
@@ -4286,14 +4323,14 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
   summary(p,revision,time){return {id:p.id,title:p.title,tracks:p.tracks.length,bars:p.bars,updatedAt:time,revision,bytes:JSON.stringify(p).length*2};}
   save(project){
    // Capture at enqueue time, before openDB or any delayed execution.
-   let copy;try{copy=G.validateProject(G.clone(project));}catch(e){return Promise.reject(e);}
+   let copy;try{copy=G.validateProject(project);}catch(e){return Promise.reject(e);}
    const run=this.queue.catch(()=>{}).then(()=>this.write(copy,this.revisions.get(copy.id)||0));
    this.queue=run;return run;
   }
   async write(document,expected){
    const db=await this.open(),time=Date.now(),id=document.id;
    return new Promise((resolve,reject)=>{
-    const tx=db.transaction(['documents','project-index','recoveries'],'readwrite'),docs=tx.objectStore('documents'),index=tx.objectStore('project-index'),recoveries=tx.objectStore('recoveries');
+    const tx=db.transaction(['documents','project-index','recoveries','recovery-index'],'readwrite'),docs=tx.objectStore('documents'),index=tx.objectStore('project-index'),recoveries=tx.objectStore('recoveries'),history=tx.objectStore('recovery-index');
     let error=null,revision=expected+1;
     const abort=(code,message)=>{error=failure(code,message);tx.abort();};
     const request=docs.get(id);
@@ -4304,14 +4341,17 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
       const total=usage.result.filter(x=>x.id!==id).reduce((sum,x)=>sum+x.bytes,0)+item.bytes;
       if(total>120*1024*1024){abort('STORAGE_QUOTA','本机作品达到 120 MB 预算，请下载备份并删除不用的作品。');return;}
       docs.put({document,revision,updatedAt:time},id);index.put(item,id);
-      const prior=recoveries.getAll();prior.onsuccess=()=>{
+      const prior=history.getAll();prior.onsuccess=()=>{
        const own=prior.result.filter(x=>x.projectId===id).sort((a,b)=>b.time-a.time);
        const added=!own.length||time-own[0].time>=30000;
-       if(added){const key=id+':'+time+':'+revision;recoveries.put({id:key,projectId:id,title:document.title,time,document},key);}
-       const obsolete=new Set(own.slice(added?9:10).map(r=>r.id));for(const key of obsolete)recoveries.delete(key);
+       if(!added)return;
+       const key=id+':'+time+':'+revision;recoveries.put({id:key,projectId:id,title:document.title,time,document},key);
+       history.put({id:key,projectId:id,title:document.title,time,bytes:item.bytes},key);
+       const discard=key=>{recoveries.delete(key);history.delete(key);};
+       const obsolete=new Set(own.slice(9).map(r=>r.id));for(const key of obsolete)discard(key);
        // Recovery history has its own bounded budget. Never prune live documents.
-       let bytes=added?JSON.stringify(document).length*2:0;
-       for(const old of prior.result.filter(r=>!obsolete.has(r.id)).sort((a,b)=>b.time-a.time)){bytes+=JSON.stringify(old.document).length*2;if(bytes>120*1024*1024)recoveries.delete(old.id);}
+       let bytes=item.bytes;
+       for(const old of prior.result.filter(r=>!obsolete.has(r.id)).sort((a,b)=>b.time-a.time)){if(bytes+old.bytes>120*1024*1024)discard(old.id);else bytes+=old.bytes;}
       };
      };
     };
@@ -4323,9 +4363,9 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
   async list(){return (await this.all('project-index')).sort((a,b)=>b.updatedAt-a.updatedAt);}
   async activate(id){const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction('metadata','readwrite');tx.objectStore('metadata').put(id,'last-opened');tx.oncomplete=()=>resolve();tx.onabort=tx.onerror=()=>reject(tx.error);});}
   async last(){await this.migrate();const id=await this.read('metadata','last-opened');return id?this.load(id):null;}
-  async recoveries(id){return (await this.all('recoveries')).filter(x=>x.projectId===id).sort((a,b)=>b.time-a.time).map(({id,time,title,projectId})=>({id,time,title,projectId}));}
+  async recoveries(id){return (await this.all('recovery-index')).filter(x=>x.projectId===id).sort((a,b)=>b.time-a.time).map(({id,time,title,projectId})=>({id,time,title,projectId}));}
   async recovery(key,id){const row=await this.read('recoveries',key);if(row?.projectId!==id)throw failure('WRONG_PROJECT','恢复点属于另一作品。');return G.validateProject(row.document);}
-  async delete(id){await this.queue.catch(()=>{});const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction(['documents','project-index','recoveries','metadata'],'readwrite');tx.objectStore('documents').delete(id);tx.objectStore('project-index').delete(id);const r=tx.objectStore('recoveries').openCursor();r.onsuccess=()=>{const c=r.result;if(c){if(c.value.projectId===id)c.delete();c.continue();}};const last=tx.objectStore('metadata').get('last-opened');last.onsuccess=()=>{if(last.result===id)tx.objectStore('metadata').delete('last-opened');};tx.oncomplete=()=>{this.revisions.delete(id);resolve();};tx.onabort=tx.onerror=()=>reject(tx.error);});}
+  async delete(id){await this.queue.catch(()=>{});const db=await this.open();return new Promise((resolve,reject)=>{const tx=db.transaction(['documents','project-index','recoveries','recovery-index','metadata'],'readwrite');tx.objectStore('documents').delete(id);tx.objectStore('project-index').delete(id);const r=tx.objectStore('recovery-index').openCursor();r.onsuccess=()=>{const c=r.result;if(c){if(c.value.projectId===id){tx.objectStore('recoveries').delete(c.key);c.delete();}c.continue();}};const last=tx.objectStore('metadata').get('last-opened');last.onsuccess=()=>{if(last.result===id)tx.objectStore('metadata').delete('last-opened');};tx.oncomplete=()=>{this.revisions.delete(id);resolve();};tx.onabort=tx.onerror=()=>reject(tx.error);});}
  }
  G.ProjectRepository=ProjectRepository;
  G.projects=new ProjectRepository();
@@ -5084,6 +5124,24 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
 <script>
 /** Stable layers for the musical canvas; content is data, never a decorative asset. */
 (function(G){G.views ||= {};let staticKey='';const pinnedScrolls=new WeakSet();
+ G.views.patchPianoLayer=function(el,html){
+  if(el.dataset.markup===html)return;
+  const container=document.createElementNS('http://www.w3.org/2000/svg','g');container.innerHTML=html;
+  const old=new Map([...el.children].map(n=>[n.getAttribute('data-note'),n]));let cursor=el.firstElementChild;
+  for(const fresh of [...container.children]){
+   const key=fresh.getAttribute('data-note');let node=old.get(key);
+   if(node&&node.tagName===fresh.tagName){
+    old.delete(key);
+    for(const a of [...node.attributes])if(!fresh.hasAttribute(a.name))node.removeAttribute(a.name);
+    for(const a of [...fresh.attributes])if(node.getAttribute(a.name)!==a.value)node.setAttribute(a.name,a.value);
+    if(node.innerHTML!==fresh.innerHTML)node.innerHTML=fresh.innerHTML;
+   }else node=fresh;
+   if(node!==cursor)el.insertBefore(node,cursor);
+   cursor=node.nextElementSibling;
+  }
+  for(const node of old.values())node.remove();
+  el.dataset.markup=html;
+ };
  // A ruler shares the notes' X geometry; only its Y position is pinned.
  G.views.pianoTimeRuler=function({width,left,top,cw,offset,bars}){
   let marks=`<rect width="${width}" height="${top}" fill="var(--surface)"/><path d="M0 ${top-.5}H${width}" stroke="var(--line)"/>`;
@@ -5128,7 +5186,7 @@ globalThis.GridTone.RECIPES=[{"id":"recipe.pop","version":2,"name":"清楚的流
    if(vx>=left)velocities+=`<rect data-note="v-${n.id}" x="${vx}" y="${vy+48*(1-n.velocity)}" width="${sel?5:3}" height="${48*n.velocity}" rx="1" fill="${sel?'var(--brand)':paint.ink}" opacity="${selected.size&&!sel ? .35 : .8}"/>`;
   }
   // SVG-aware keyed patching avoids replacing capture targets and static grid lines.
-  function layer(id,html){const el=document.getElementById(id);if(el.dataset.markup===html)return;el.dataset.markup=html;const container=document.createElementNS('http://www.w3.org/2000/svg','g');container.innerHTML=html;const old=new Map([...el.children].map(n=>[n.getAttribute('data-note'),n]));for(const n of [...container.children]){const prev=old.get(n.getAttribute('data-note'));if(prev){old.delete(n.getAttribute('data-note'));if(prev.outerHTML!==n.outerHTML)prev.replaceWith(n);}else el.append(n);}for(const n of old.values())n.remove();}
+  function layer(id,html){G.views.patchPianoLayer(document.getElementById(id),html);}
   layer('note-layer',notes||`<text data-note="empty-hint" x="${left+(width-left)/2}" y="${top+Math.min(rows.length*rh/2,110)}" text-anchor="middle" font-size="13" fill="var(--muted)" pointer-events="none">${t.kind==='drum'?'点亮一个格子，开始节奏':'点一下，写下第一个音符'}</text>`);layer('velocity-layer',`<text data-note="velocity-label" x="${left-10}" y="${vy+27}" text-anchor="end" font-size="11" fill="var(--muted)">力度</text>`+velocities);
   const origin=document.querySelector('#note-origin-layer');if(origin)origin.innerHTML=drag?.moved&&drag.notes?[...drag.notes.values()].map(n=>{const row=rows.indexOf(n.pitch);if(row<0)return '';return `<rect x="${left+(n.start-win.offset)/G.STEP*cw+1}" y="${top+row*rh+3}" width="${Math.max(3,n.duration/G.STEP*cw-2)}" height="${Math.max(6,rh-6)}" rx="3" fill="none" stroke="${paint.ink}" stroke-opacity=".6" stroke-dasharray="3 3"/>`;}).join(''):'';
   const selection=document.querySelector('#selection-layer');const selectedRange=a.kind==='range'&&a.patternId===p.id?a.range:null;const cursorX=left+((S.cursor||0)-win.offset)/G.STEP*cw;const overlays=(selectedRange?`<rect x="${left+(selectedRange.start-win.offset)/G.STEP*cw}" y="${top}" width="${(selectedRange.end-selectedRange.start)/G.STEP*cw}" height="${rows.length*rh}" fill="var(--brand)" fill-opacity=".09" stroke="var(--brand)" pointer-events="none"/>`:'')+(cursorX>=left&&cursorX<=width?`<path d="M${cursorX} ${top}V${top+rows.length*rh}" stroke="var(--brand)" stroke-opacity=".35" stroke-dasharray="3 3" pointer-events="none"/>`:'');selection.innerHTML=overlays+(drag?.type==='marquee'?`<rect x="${Math.min(drag.x,drag.mx)}" y="${Math.min(drag.y,drag.my)}" width="${Math.abs(drag.mx-drag.x)}" height="${Math.abs(drag.my-drag.y)}" fill="var(--brand)" fill-opacity=".09" stroke="var(--brand)"/>`:'');
@@ -6115,7 +6173,7 @@ ${missing.length?`<p class="library-missing-note" role="status">有 ${missing.le
     const lead=project.tracks.find(t=>/旋律/.test(t.name))||project.tracks[0];G.openPatternInSession(S,project,{trackId:lead.id,edit:false});G.fitViewport(S,lead,lead.patterns[0]);
     const playback = new G.PlaybackController(engine, () => project, () => S, B, () => { updateTransport(); const l = $('#playback-label'); if (l)
         l.textContent = G.playbackLabel(project, S, B); }, message => toast(message));
-    function snapshot() { const copy = clone({ ...project, assets: {} }); copy.assets = Object.fromEntries(Object.entries(project.assets).map(([id, a]) => [id, { ...a }])); historySelections.set(copy,clone({trackId:S.trackId,patternId:S.patternId,clipId:S.clipId,clipIds:S.clipIds,selected:S.selected,editTarget:S.editTarget,noteRange:S.noteRange,cursor:S.cursor,arrangeCursor:S.arrangeCursor})); return copy; }
+    function snapshot() { const copy = G.cloneProject(project); historySelections.set(copy,clone({trackId:S.trackId,patternId:S.patternId,clipId:S.clipId,clipIds:S.clipIds,selected:S.selected,editTarget:S.editTarget,noteRange:S.noteRange,cursor:S.cursor,arrangeCursor:S.arrangeCursor})); return copy; }
     function fingerprint(p) { return JSON.stringify(p); }
     const history = [], future = [], historySelections=new WeakMap();
     function restoreHistorySelection(document){const selection=historySelections.get(document);if(selection){const {_timePlayback,...saved}=clone(selection);Object.assign(S,saved);if(_timePlayback)Object.assign(B,_timePlayback);}}
@@ -6127,11 +6185,13 @@ ${missing.length?`<p class="library-missing-note" role="status">有 ${missing.le
     const toolTrack = () => ['properties','sound','pipeline'].includes(S.rightPanel) ? project.tracks.find(t=>t.id===S.inspectorTrackId)||track() : track();
     function syncSelection() { return G.reconcileSession(S, project, B); }
     function toast(message) { $('#toast').textContent = G.ui.format.error(message); $('#toast').classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 3500); }
-    function markChanged(before, mixOnly=false) {
-        for(const t of project.tracks)for(const p of t.patterns)if(p.retention)p.retention.notes=p.retention.notes.filter(n=>p.notes.some(x=>x.id===n.id));
-        try { validateProject(project); }
-        catch (e) { project = before; syncSelection(); toast(e.message); return {ok:false,error:{message:e.message}}; }
-        if (fingerprint(before) === fingerprint(project))
+    function markChanged(before, mixOnly=false, commandResult=null) {
+        if(!commandResult){
+            for(const t of project.tracks)for(const p of t.patterns)if(p.retention)p.retention.notes=p.retention.notes.filter(n=>p.notes.some(x=>x.id===n.id));
+            try { project=validateProject(project); }
+            catch (e) { project = before; syncSelection(); toast(e.message); return {ok:false,error:{message:e.message}}; }
+        }
+        if (commandResult ? !commandResult.changed : G.projectEquals(before,project))
             return {ok:true,changed:false};
         history.push(before);
         if (history.length > 60)
@@ -6154,7 +6214,7 @@ ${missing.length?`<p class="library-missing-note" role="status">有 ${missing.le
             },selection);
             if(!result.ok)throw Object.assign(Error(result.error.message),{code:result.error.code});
             project=result.document;
-            const committed=markChanged(before);
+            const committed=markChanged(before,false,result);
             syncSelection();
             if (draw)
                 render();
@@ -6274,7 +6334,7 @@ ${missing.length?`<p class="library-missing-note" role="status">有 ${missing.le
         }
         try{
             const result=G.performEditCommand(project,S,id);
-            if(result.changed){const out=mutate(()=>{project=result.document;Object.assign(S,result.patch);});if(!out.ok)return out;}
+            if(result.changed){const before=snapshot();project=result.document;Object.assign(S,result.patch);const out=markChanged(before,false,result);if(!out.ok)return out;syncSelection();render();}
             else{Object.assign(S,result.patch);syncSelection();render();}
             if(['copy','cut'].includes(id)&&S.editClipboard){void G.publishMusicalClipboard(S.editClipboard).then(r=>{if(!r.system&&id==='cut')toast('已剪切，可在本工作台粘贴；系统剪贴板未授权。');});}
             if(result.message)toast(result.message);return {ok:true,changed:result.changed};

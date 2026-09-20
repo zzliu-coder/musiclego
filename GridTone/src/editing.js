@@ -44,7 +44,7 @@
         });
     }
     function pitchCandidate(project, trackId, patternId, ids, settings) {
-        const p = G.clone(project), t = p.tracks.find(t => t.id === trackId), pat = t?.patterns.find(p => p.id === patternId);
+        const p = G.cloneProject(project), t = p.tracks.find(t => t.id === trackId), pat = t?.patterns.find(p => p.id === patternId);
         if (!pat)
             throw Error('编辑目标不存在。');
         if (t.kind === 'drum')
@@ -70,7 +70,7 @@
         });
     }
     function duplicateTrack(project, trackId) {
-        const p = G.clone(project), source = p.tracks.find(t => t.id === trackId);
+        const p = G.cloneProject(project), source = p.tracks.find(t => t.id === trackId);
         if (!source) throw Error('音轨不存在。');
         if (p.tracks.length >= G.LIMITS.tracks) throw Error('最多支持 64 条音轨。');
         const t = G.clone(source), ids = new Map();
@@ -82,7 +82,7 @@
         return { project: G.validateProject(p), trackId: t.id, patternId: t.patterns[0].id, clipId: t.clips[0]?.id };
     }
     function copyProject(project) {
-        const p=G.clone(project),ids=new Map([[p.id,G.uid('song')]]);
+        const p=G.cloneProject(project),ids=new Map([[p.id,G.uid('song')]]);
         for(const t of p.tracks){ids.set(t.id,G.uid('t'));for(const pat of t.patterns){ids.set(pat.id,G.uid('p'));for(const n of pat.notes)ids.set(n.id,G.uid('n'));}for(const c of t.clips)ids.set(c.id,G.uid('c'));}
         const remap=x=>Array.isArray(x)?x.map(remap):x&&typeof x==='object'?Object.fromEntries(Object.entries(x).map(([k,v])=>[ids.get(k)||k,remap(v)])):typeof x==='string'?(ids.get(x)||x):x;
         const copy=remap(p);for(let i=0;i<p.tracks.length;i++)for(let j=0;j<p.tracks[i].patterns.length;j++)for(let k=0;k<p.tracks[i].patterns[j].notes.length;k++){const old=p.tracks[i].patterns[j].notes[k];copy.tracks[i].patterns[j].notes[k].performanceKey=old.performanceKey||old.id;}copy.title=p.title+' · 副本';return G.validateProject(copy);
