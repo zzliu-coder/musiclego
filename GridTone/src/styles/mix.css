@@ -1,11 +1,31 @@
 /* A channel strip is a precise control surface; color identifies its music. */
-.mix-layout{display:flex;align-items:flex-start;gap:16px;min-width:0}.mixer-channels{display:flex;gap:12px;overflow-x:auto;flex:1;min-width:0;padding:4px 4px 12px;overscroll-behavior-x:contain}
-.mixer-channel{width:176px;flex:0 0 176px;border:1px solid var(--line);border-top:3px solid var(--music-edge,var(--control-border));border-radius:var(--radius-tile);padding:12px;background:var(--surface);box-shadow:var(--shadow)}
-.channel-head{min-height:96px;text-align:center}.channel-head>.monitor-check{text-align:left;margin-bottom:8px}.channel-head>span{display:inline-flex;color:var(--music-ink,var(--ink));background:var(--music-surface,var(--bg));border-radius:var(--radius-sm);padding:6px;margin-bottom:6px}.channel-head>span svg{width:20px;height:20px}
-.channel-head h3{font-size:var(--text-label);font-weight:600;line-height:1.4;overflow-wrap:anywhere}.channel-head>small{font-size:var(--text-small);color:var(--muted);display:block;line-height:1.5;margin-top:4px}
+.mix-layout{display:flex;align-items:flex-start;gap:8px;min-width:0}.mixer-channels{display:flex;gap:8px;overflow-x:auto;flex:0 1 auto;min-width:0;max-width:100%;padding:4px 4px 12px;overscroll-behavior-x:contain}
+.mixer-channel{width:160px;flex:0 0 160px;border:1px solid var(--line);border-top:3px solid var(--music-edge,var(--control-border));border-radius:var(--radius-tile);padding:8px;background:var(--surface);box-shadow:var(--shadow)}
+.channel-head{min-height:88px;text-align:center}.channel-head>.monitor-check{text-align:left;margin-bottom:8px}.channel-head>span{display:inline-flex;color:var(--music-ink,var(--ink));background:var(--music-surface,var(--bg));border-radius:var(--radius-sm);padding:6px;margin-bottom:6px}.channel-head>span svg{width:20px;height:20px}
+.channel-head h3{font-size:var(--text-label);font-weight:600;line-height:1.4;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.channel-head>small{font-size:var(--text-small);color:var(--muted);display:block;line-height:1.5;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .monitor-check{display:flex;align-items:center;gap:6px;font-size:var(--text-small);color:var(--muted);min-height:28px;cursor:pointer}.mute-solo{display:flex;gap:8px}.mute-solo .btn{flex:1}
-.fader-area{height:160px;display:flex;align-items:stretch;justify-content:center;gap:10px;margin:16px 0 8px}.db-labels{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;font:12px ui-monospace,monospace;color:var(--muted);width:24px;padding:3px 0}
+.fader-area{height:160px;display:flex;align-items:stretch;justify-content:center;gap:10px;margin:8px 0 6px}.db-labels{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;font:12px ui-monospace,monospace;color:var(--muted);width:24px;padding:3px 0}
 .channel-meter{position:relative;height:100%;width:8px;background:var(--grid-key);border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}.channel-meter>i{position:absolute;bottom:0;left:0;right:0;height:0;background:var(--music-ink,var(--success));transition:none}
-.volume-readout{display:block;text-align:center;font:600 13px ui-monospace,monospace;color:var(--ink);padding-bottom:12px;border-bottom:1px solid var(--line)}.channel-knobs .slider-control{margin:12px 0}.channel-knobs .slider-control>span{font-size:var(--text-small)}
-.master-channel{width:210px;flex:0 0 210px;border:1px solid var(--line-strong);border-radius:var(--radius-panel);padding:16px;background:var(--surface)}.master-channel h2{font-size:18px;margin-top:4px}.master-art{height:64px;display:flex;align-items:center;justify-content:center;color:var(--muted)}.master-art svg{width:34px;height:34px}.master-channel>p,.mix-note{font-size:var(--text-small);line-height:1.5;color:var(--muted);margin:12px 0}.master-channel .btn{margin-top:4px}
+.volume-readout{display:block;text-align:center;font:600 13px ui-monospace,monospace;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--line)}.channel-knobs .slider-control{margin:6px 0}.channel-knobs .slider-control>span{font-size:var(--text-small)}
+.master-channel{width:180px;flex:0 0 180px;border:1px solid var(--line-strong);border-radius:var(--radius-panel);padding:10px;background:var(--surface)}.master-channel h2{font-size:18px;margin-top:4px}.master-art{height:64px;display:flex;align-items:center;justify-content:center;color:var(--muted)}.master-art svg{width:34px;height:34px}.master-channel>p,.mix-note{font-size:var(--text-small);line-height:1.5;color:var(--muted);margin:12px 0}.master-channel .btn{margin-top:4px}
 @media(max-width:940px){.mix-layout{flex-direction:column}.mixer-channels{width:100%;flex:none}.master-channel{width:100%;flex:auto}.master-art{display:none}}
+.channel-identity{display:flex;align-items:center;justify-content:center;gap:6px}
+.channel-head>.monitor-check{margin-bottom:2px}
+.channel-effects{padding-top:8px;font-size:12px}
+.channel-effects summary{cursor:pointer;color:var(--muted)}
+.master-channel details{font-size:12px;margin:8px 0;line-height:1.6}
+.master-channel{width:150px;flex-basis:150px}
+@media(max-width:940px){.master-channel{width:100%;flex-basis:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.master-channel>.slider-control{flex:1;min-width:180px}.master-channel details{max-width:280px}}
+
+/* One task header, with the master next to the actual channel bank. */
+.mix-workspace { container-type:inline-size; }
+.mix-command-bar { display:flex;align-items:center;gap:12px;min-height:44px;flex-wrap:wrap;padding:0 4px; }
+.mix-identity { display:flex;align-items:baseline;gap:8px; }
+.mix-identity h2 { font-size:16px; }
+.mix-identity small,.mix-scope { font-size:12px;color:var(--muted); }
+.mix-command-actions { display:flex;align-items:center;gap:4px;flex-wrap:wrap; }
+.mix-scope { margin:0 4px 10px; }
+.mute-solo.action-tray { background:none;padding:4px 0; }
+.channel-identity { min-height:40px; }
+.master-channel { margin-top:4px; }
+@container (max-width:620px) { .mix-command-actions { width:100%; } }

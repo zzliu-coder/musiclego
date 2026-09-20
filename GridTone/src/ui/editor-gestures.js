@@ -62,7 +62,8 @@
    }
    const frame=e.target.closest('#gridframe');if(!frame)return;
    if(S.tool==='pan'&&e.pointerType==='touch')return;const pt=point(e);e.preventDefault();frame.focus({preventScroll:true});
-   if(pt.y<geo.top){if(pt.x>=geo.left){S.cursor=snap(pt.tick);G.activateNotes(S,C.getProject());C.selectionChanged?.();C.seekPattern?.(S.cursor);drawGrid();}return;}
+   // A pinned ruler's screen Y differs from its musical-canvas Y after scrolling.
+   if(e.target.closest('[data-time-axis]')||pt.y<geo.top){if(!e.target.closest('[data-time-corner]')&&pt.x>=geo.left){S.cursor=snap(pt.tick);G.activateNotes(S,C.getProject());C.selectionChanged?.();C.seekPattern?.(S.cursor);drawGrid();}return;}
    if(e.target.closest('[data-pitch-axis]')||pt.x<geo.left){if(pt.y<geo.top+geo.rows.length*geo.row)drag={...common,type:'ruler',top:frame.parentElement.scrollTop,low:G.viewportFor(S,track()).low,pitch:geo.rows[pt.row]};else return;}
    else if(S.tool==='pan'){if(e.pointerType==='touch')return;const scroll=frame.parentElement;drag={...common,type:'pan',scroll,left:scroll.scrollLeft,top:scroll.scrollTop,low:G.viewportFor(S,track()).low};}
    else{
@@ -131,7 +132,7 @@
     });
    }
   });
-  document.addEventListener('contextmenu',e=>{const frame=e.target.closest('#gridframe');if(!frame)return;e.preventDefault();if(drag)cancel();const pt=point(e);if(pt.y<geo.top||pt.x<geo.left)return;const n=hit(pt);if(n){if(!S.selected.includes(n.id))S.selected=[n.id];G.activateNotes(S,C.getProject());C.selectionChanged?.();drawGrid();C.noteMenu();}});
+  document.addEventListener('contextmenu',e=>{const frame=e.target.closest('#gridframe');if(!frame)return;e.preventDefault();if(drag)cancel();if(e.target.closest('[data-time-axis]'))return;const pt=point(e);if(pt.y<geo.top||pt.x<geo.left)return;const n=hit(pt);if(n){if(!S.selected.includes(n.id))S.selected=[n.id];G.activateNotes(S,C.getProject());C.selectionChanged?.();drawGrid();C.noteMenu();}});
   document.addEventListener('wheel',e=>{if(!e.target.closest('.grid-scroll')||!(e.ctrlKey||e.metaKey))return;e.preventDefault();C.zoom?.(e.deltaY<0?1:-1,e.clientX,e.clientY,e.shiftKey);},{passive:false});
   return {setGeometry:g=>geo={...geo,...g},getDrag:()=>drag,cancel};
  };

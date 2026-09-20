@@ -1,30 +1,34 @@
 /* Shared tool slot. Controllers own drafts; these rules own grouping and readable flow. */
-.single-workspace .creation-dock { width: var(--tool-width); flex: 0 0 var(--tool-width); min-width: 310px; max-width: 380px; padding: 12px 14px 20px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: auto; scrollbar-gutter: stable; overscroll-behavior: contain; scroll-padding-top: 8px; scroll-padding-bottom: 18px; }
-.creation-dock-heading { position: sticky; top: -12px; z-index: 8; background: var(--surface); padding: 10px 0 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.single-workspace .creation-dock { width: var(--tool-width); flex: 0 0 var(--tool-width); min-width: 310px; max-width: 380px; padding: 0; display:flex; flex-direction:column; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; scrollbar-gutter: auto; overscroll-behavior: contain; scroll-padding-top: 8px; scroll-padding-bottom: 18px; }
+.creation-dock-heading { position: relative; flex-shrink:0; z-index: 8; background: var(--surface); padding: 6px 10px; margin-bottom: 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .creation-dock-heading>div { min-width: 0; }
 .creation-dock-heading h2 { font-size: 16px; line-height: 24px; font-weight: 600; overflow-wrap: anywhere; }
-.creation-dock-heading small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; color: var(--muted); line-height: 18px; margin-bottom: 2px; }
+.creation-dock-heading small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; color: var(--muted); line-height: 18px; margin-top: 2px; }
 .creation-dock-subtitle,.draft-target-strip { font-size: 12px; color: var(--muted); line-height: 18px; margin-bottom: 12px; }
 .draft-target-strip .btn { margin-top: 6px; }
-.inspector-pinned { position: sticky; top: -12px; z-index: 8; padding-top: 4px; background: var(--surface); }
-.inspector-pinned .creation-dock-heading { position: static; margin-bottom: 6px; }
-.inspector-tabs { display: flex; gap: 4px; padding-bottom: 10px; }
+.inspector-pinned { position: relative; flex-shrink:0; z-index: 8; padding-top: 0; background: var(--surface); }
+.inspector-pinned .creation-dock-heading { position: static; margin-bottom: 0; }
+.inspector-tabs { display: flex; gap: 4px; padding: 3px 8px; }
 .inspector-tabs .btn { flex: 1; }
 .tool-resume { display: flex; gap: 5px; flex-wrap: wrap; padding: 4px 0 8px; font-size: 12px; }
 .creation-dock h3 { font-size: 14px; line-height: 20px; }
 .creation-dock p { line-height: 1.6; }
-.creation-dock label:not(.slider-control):not(.field-row):not(.compact-check):not(.search-box):not(.shelf-search) { display: grid; gap: 6px; margin: 12px 0; font-size: 13px; line-height: 18px; }
+.creation-dock label:not(.slider-control):not(.field-row):not(.compact-check):not(.search-box):not(.shelf-search):not(.catalog-check) { display: grid; gap: 4px; margin: 6px 0; font-size: 13px; line-height: 18px; }
 .creation-dock label.field-row { display: flex; margin: 8px 0; }
+.creation-dock label.field-row:has(select){display:grid;grid-template-columns:max-content minmax(0,1fr)}
 .creation-dock :is(input[type=number],input[type=text],select) { width: 100%; min-width: 0; }
-.creation-dock details { border-top: 1px solid var(--line); padding: 14px 0; }
+.creation-dock details { border-top: 1px solid var(--line); padding: 8px 0; }
 .creation-dock summary { cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink); line-height: 20px; }
 .creation-dock .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
 .creation-dock .form-grid .form-label { margin: 6px 0; }
 .creation-dock .menu-grid { display: flex; gap: 6px; flex-wrap: wrap; }
-.inspector-section { padding: 14px 0; border-bottom: 1px solid var(--line); }
-.inspector-section h3 { margin-bottom: 10px; }
+.inspector-section { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.inspector-section:first-child { padding-top:0; }
+.inspector-section:last-child { border-bottom:0; }
+.inspector-section :is(.button-column,.transform-grid,.button-row) { gap:4px;padding:4px 0; }
+.inspector-section h3 { margin-bottom: 6px; }
 .inspector-section p,.scope-note { font-size: 12px; line-height: 18px; color: var(--muted); }
-.danger-section { margin-top: 24px; }
+.danger-section { margin-top: 12px; }
 .transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 10px 0 16px; }
 .transform-grid .btn { white-space: normal; text-align: left; }
 .creation-dock .sound-layout { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
@@ -44,20 +48,20 @@
 .creation-dock .pipeline-editor .view-heading h1 { display: block; font-size: 16px; margin-bottom: 8px; }
 .creation-dock .pipeline-editor .view-heading p { display: block; margin-bottom: 10px; }
 .pipeline-map { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; color: var(--muted); padding: 12px 0; }
-.pipeline-controls>section { padding: 14px 0; border-top: 1px solid var(--line); }
+.pipeline-controls>section { padding: 12px 0; border-top: 1px solid var(--line); }
 .creation-dock .composer-intro { display: block; }
 .creation-dock .composer-intro .pill { margin-top: 8px; }
-.creation-dock .composer-layout { display: flex; flex-direction: column; gap: 12px; }
-.creation-dock .progression-list { max-height: 200px; display: grid; }
+.creation-dock .composer-layout { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:12px; min-height:0; flex:1; }
+.creation-dock .progression-list { max-height:none; min-height:0; overflow:auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-content:start; }
 .creation-dock .chord-hero { padding: 12px; }
 .creation-dock .chord-hero h3 { font-size: 18px; }
 .creation-dock .chord-hero>p { min-height: 0; }
 /* Candidates stay above advanced parameters; there is one primary adoption action. */
-.creation-dock .candidate-bar { margin: 12px 0 16px; padding: 12px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface-raised); }
+.creation-dock .candidate-bar { margin: 6px 0; padding: 8px 0; border: 0; border-radius: 0; background: transparent; }
 .candidate-bar>header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font-size: 13px; }
 .candidate-bar nav { display: flex; flex-wrap: wrap; gap: 4px; }
-.candidate-preview { height: 86px; padding: 8px 0; color: var(--brand); }
-.candidate-preview svg { height: 100%; width: 100%; }
+.candidate-preview { min-height: 76px; height:auto; padding: 8px 0; color: var(--brand); }
+.candidate-preview svg { height: 76px; width: 100%; }
 .candidate-stats { font-size: 12px; color: var(--muted); line-height: 18px; margin: 6px 0 12px; }
 .candidate-commit { display: flex; gap: 6px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
 .candidate-commit [data-action=creation-apply] { flex: 1; }
@@ -88,7 +92,7 @@
 .preview-original-dim .note-edge,.preview-original-dim .note-bottom { opacity: .15; }
 .save-status-actions { display: inline-flex; gap: 4px; }
 .preview-controls .btn[data-action=stop] { margin-left: auto; }
-@media(max-width:1280px) { :root { --tool-width: 320px; } .single-workspace .creation-dock { padding-inline: 12px; } }
+@media(max-width:1280px) { :root { --tool-width: 320px; }  }
 /* Actual production combinations are reused in the system's living reference. */
 .components-page { height: 100dvh; overflow: auto; max-width: 1280px; margin: auto; padding: 32px; background: var(--paper); }
 .gallery-heading { padding: 16px 0 24px; border-bottom: 1px solid var(--line); }
@@ -101,7 +105,7 @@
 .components-page .sample-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border: 1px solid var(--line); padding: 16px; border-radius: 12px; background: var(--surface); }
 .gallery-materials { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
 .gallery-panels { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; align-items: start; }
-.gallery-panels>.creation-dock,.gallery-sound.creation-dock { display: block; position: relative; width: auto; min-width: 0; max-width: none; max-height: 920px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.gallery-panels>.creation-dock,.gallery-sound.creation-dock { display: flex; flex-direction:column; position: relative; width: auto; min-width: 0; max-width: none; max-height: 580px; padding: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow:hidden; }
 .gallery-panels .creation-dock-heading { position: static; }
 .gallery-panels .context-card { margin-bottom: 10px; }
 .gallery-notices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -112,8 +116,63 @@
 @media(max-width:760px) { .components-page { padding: 18px; } .gallery-materials,.gallery-panels,.gallery-notices { grid-template-columns: 1fr; } .gallery-sound .sound-grid { grid-template-columns: 1fr; } }
 
 /* Form focus clears the pinned heading; pinned controls themselves never scroll the content. */
-.creation-dock :is(input,select,textarea,summary){scroll-margin-block-start:144px;scroll-margin-block-end:16px}
+.creation-dock :is(input,select,textarea,summary){scroll-margin-block-start:12px;scroll-margin-block-end:16px}
 .inspector-pinned :is(button,a){scroll-margin:0}
 
 /* At a very short effective viewport, a sticky header would cover the controls below it. */
 @media(max-height:620px){.single-workspace .creation-dock .creation-dock-heading,.single-workspace .creation-dock .inspector-pinned{position:static}.single-workspace .creation-dock{scroll-padding-top:8px}.creation-dock :is(input,select,textarea,summary){scroll-margin-block-start:12px}}
+
+/* All inspector and draft variants share the same three-part frame. */
+.tool-panel-scroll{flex:1;min-height:0;overflow:auto;padding:8px 12px;overscroll-behavior:contain;scroll-padding:12px}
+.tool-panel-actions{flex-shrink:0;display:grid;gap:6px;padding:8px 10px;border-top:1px solid var(--line);background:var(--surface)}
+.tool-panel-actions .candidate-commit,.tool-panel-actions .creation-generate-row{margin:4px 0 0;padding:4px 0 0;border:0}
+.tool-panel-actions .preview-context{display:block;flex-basis:100%;font-size:12px;color:var(--muted);line-height:1.5}
+.creation-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px}
+.creation-settings>.form-grid,.creation-settings>.inline-notice,.creation-settings>.field-note,.creation-settings>.field-row{grid-column:1/-1}
+.creation-target-contract>.context-card{padding:0 0 8px;border:0;border-radius:0;background:none}
+.creation-target-contract .context-caption{display:none}
+.creation-target-contract .task-picker{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.single-workspace .creation-dock.composer-wide{position:absolute;inset:0;z-index:16;width:auto;min-width:0;max-width:none}
+.composer-wide .tool-panel-scroll{display:flex;flex-direction:column;overflow:hidden}
+.composer-wide .progression-library{display:flex;flex-direction:column;min-height:0}
+.composer-wide .catalog-role-tabs{flex-shrink:0;display:flex;flex-wrap:wrap;gap:2px;margin-bottom:6px}
+.composer-wide .progression-detail{min-height:0;overflow:auto;position:relative;align-self:stretch}
+.composer-wide .composer-actions{position:sticky;bottom:0;background:var(--surface);padding:8px 0;display:flex;flex-wrap:wrap;gap:4px}
+.composer-mobile{display:none}
+.mix-candidate-changes{width:100%;border-collapse:collapse;font-size:11px}
+.mix-candidate-changes :is(th,td){padding:5px 3px;text-align:left;border-bottom:1px solid var(--line);font-weight:400}
+.mix-candidate-changes thead{color:var(--muted)}
+.composer-wide .tool-panel-actions .composer-actions{margin:0;padding:0;position:static}
+@media(max-width:760px){
+ .creation-dock .composer-layout{display:block;overflow:hidden}
+ .composer-wide .progression-library,.composer-wide .progression-detail{height:100%}
+ .composer-wide .progression-detail{display:none}
+ .composer-layout[data-detail=true] .progression-library{display:none}
+ .composer-layout[data-detail=true] .progression-detail{display:block}
+ .composer-mobile{display:inline-flex}
+}
+
+.tool-panel-actions .preview-controls { flex-wrap:wrap;gap:2px;padding:4px 0; }
+.tool-panel-actions .candidate-commit { display:grid;grid-template-columns:minmax(0,1fr) auto; }
+.tool-panel-scroll>.inspector-section>h3 { margin-bottom:8px; }
+.creation-dock .creation-settings { padding:8px 0; }
+
+.inspector-tabs { border-bottom:1px solid var(--line); }
+.tool-panel-actions { max-height:42dvh;overflow:auto; }
+.creation-dock :is(.scope-note,.field-note,.draft-target-strip) { overflow-wrap:anywhere; }
+.creation-dock .form-grid,.creation-settings { align-items:start; }
+.creation-dock .form-grid>*,.creation-settings>* { min-width:0; }
+.creation-settings>label:has([data-field=creation-strategy]) { grid-column:1/-1; }
+.creation-dock .pipeline-controls>section:first-child { padding-top:4px;border-top:0; }
+.creation-dock .pipeline-controls p { font-size:12px;color:var(--muted); }
+.creation-dock .chord-hero { border:0;padding:0 0 8px;border-bottom:1px solid var(--line);border-radius:0; }
+.composer-wide .draft-target-strip { margin:0 0 8px; }
+.composer-wide .progression-detail { padding:4px 8px; }
+.progression-detail .form-label:has([data-field=composer-mode]),.progression-detail .form-label:has([data-field=composer-rhythm]) { grid-column:1/-1; }
+.creation-dock .catalog-check { display:flex;align-items:flex-start;gap:8px;margin:8px 0; }
+.mix-candidate-changes { table-layout:fixed; }
+.mix-candidate-changes th { overflow-wrap:anywhere; }
+@media(max-width:480px) { .creation-dock .progression-list { grid-template-columns:1fr; } }
+@media(max-width:600px) {
+ .single-workspace .creation-dock,.single-workspace .creation-dock.composer-wide { position:fixed;inset:8px;width:auto;max-width:none;min-width:0;z-index:40; }
+}

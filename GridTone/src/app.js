@@ -104,7 +104,7 @@
     async function showProjects() {
         try {
             const rows=await G.projects.list();
-            openModal('我的作品', `<p class="modal-copy">${esc(S.saveStatus)}${S.saveError?' · '+esc(S.saveError):''}</p><div class="menu-grid">${button('new-project','新建作品','plus','dark-btn')}${button('open-project','导入作品','folder')}${button('project-copy','另存为新作品','copy')}${button('retry-save','重试保存','save')}${button('discard-reload','放弃本页修改并载入存档','undo','quiet')}${button('export-project','下载当前作品','download')}${button('recoveries','当前作品恢复点','undo')}</div><div class="project-list">${rows.map(r=>`<article><strong>${esc(r.title)}</strong><p>${r.tracks} 轨 · ${r.bars} 小节 · ${new Date(r.updatedAt).toLocaleString()}</p><div class="modal-actions">${button('project-open',r.id===project.id?'重新打开已存版本':'打开','folder','soft-btn',`data-id="${r.id}"`)}${button('project-download','下载','download','quiet',`data-id="${r.id}"`)}${button('project-delete','删除','trash','danger-btn',`data-id="${r.id}" ${r.id===project.id?'disabled title="先切换到另一作品，再删除这一份"':''}`)}</div></article>`).join('')||'<p>编辑后会自动保存第一份作品。</p>'}</div>`);
+            openModal('我的作品', `<p class="modal-copy">${esc(S.saveStatus)}${S.saveError?' · '+esc(S.saveError):''}</p><div class="menu-grid">${button('new-project','新建作品','plus','dark-btn')}${button('open-project','导入作品','folder')}${button('project-copy','另存为新作品','copy')}</div><details ${S.saveError?'open':''}><summary>存档维护与恢复</summary><div class="menu-grid">${button('retry-save','重试保存','save')}${button('discard-reload','放弃本页修改并载入存档','undo','quiet')}${button('export-project','下载当前作品','download')}${button('recoveries','当前作品恢复点','undo')}</div></details><div class="project-list">${rows.map(r=>`<article><strong>${esc(r.title)}</strong><p>${r.tracks} 轨 · ${r.bars} 小节 · ${new Date(r.updatedAt).toLocaleString()}</p><div class="modal-actions">${button('project-open',r.id===project.id?'重新打开已存版本':'打开','folder','soft-btn',`data-id="${r.id}"`)}${button('project-download','下载','download','quiet',`data-id="${r.id}"`)}${button('project-delete','删除','trash','danger-btn',`data-id="${r.id}" ${r.id===project.id?'disabled title="先切换到另一作品，再删除这一份"':''}`)}</div></article>`).join('')||'<p>编辑后会自动保存第一份作品。</p>'}</div>`);
         } catch(e){toast(e.message);}
     }
     function undo() {
@@ -195,7 +195,7 @@
     function showTimeTools(){
         S.timeDialog={id:project.id,hash:G.contentHash(project)};
         const from=B.range?Math.floor(B.range[0]/BAR)+1:1,to=B.range?Math.ceil(B.range[1]/BAR):Math.min(4,project.bars);
-        openModal('长度与时间编辑',`<p>作品共 ${project.bars} 小节。循环范围只控制试听，作品长度在这里修改。</p><section class="inspector-section"><h3>作品长度</h3><label class="form-label">保留小节数<input id="song-bars" type="number" min="1" max="256" value="${project.bars}"></label><div class="button-row">${button('time-apply','设置长度','check','soft-btn','data-mode="resize"')}${button('time-apply','去掉尾部空白','scissors','quiet','data-mode="trim"')}</div><p>缩短时保护全部已放置音乐块，包括空白音乐块。</p></section><section class="inspector-section"><h3>编辑全轨时间范围</h3><div class="form-grid"><label class="form-label">从第几小节<input id="time-from" type="number" min="1" max="${project.bars}" value="${from}"></label><label class="form-label">到第几小节（包含）<input id="time-to" type="number" min="1" max="${project.bars}" value="${to}"></label></div><p>清除内容保留时间；删除时间让后面的全部音轨前移。清除会在所选范围留下休止；删除会连接前后时间。范围外长音保持连续，跨删除两端的同一长音缩短后连续发声。整次可撤销。</p><div class="button-row">${button('time-apply','清除这段内容','eraser','soft-btn','data-mode="clear"')}${button('time-apply','删除这段时间','trash','danger-btn','data-mode="delete"')}</div></section><div class="modal-actions">${button('close-modal','关闭','','quiet')}</div>`);
+        openModal('长度与时间编辑',{body:`<p>作品共 ${project.bars} 小节。循环范围只控制试听，作品长度在这里修改。</p><nav class="segmented-control" role="group" aria-label="时间编辑任务"><button type="button" class="btn active" data-size="small" data-variant="quiet" data-time-tab="length" aria-pressed="true">作品长度</button><button type="button" class="btn" data-size="small" data-variant="quiet" data-time-tab="range" aria-pressed="false">全轨时间段</button></nav><section class="inspector-section" data-time-section="length"><h3>作品长度</h3><label class="form-label">保留小节数<input id="song-bars" type="number" min="1" max="256" value="${project.bars}"></label><div class="button-row">${button('time-apply','设置长度','check','soft-btn','data-mode="resize"')}${button('time-apply','去掉尾部空白','scissors','quiet','data-mode="trim"')}</div><p>缩短时保护全部已放置音乐块，包括空白音乐块。</p></section><section class="inspector-section" data-time-section="range" hidden><h3>编辑全轨时间范围</h3><div class="form-grid"><label class="form-label">从第几小节<input id="time-from" type="number" min="1" max="${project.bars}" value="${from}"></label><label class="form-label">到第几小节（包含）<input id="time-to" type="number" min="1" max="${project.bars}" value="${to}"></label></div><p>清除内容保留时间；删除时间让后面的全部音轨前移。清除会在所选范围留下休止；删除会连接前后时间。范围外长音保持连续，跨删除两端的同一长音缩短后连续发声。整次可撤销。</p><div class="button-row">${button('time-apply','清除这段内容','eraser','soft-btn','data-mode="clear"')}${button('time-apply','删除这段时间','trash','danger-btn','data-mode="delete"')}</div></section>`,actions:`${button('close-modal','关闭','','quiet')}`});
     }
     function applyTimeTools(mode){
         try{if(S.timeDialog?.id!==project.id||S.timeDialog.hash!==G.contentHash(project))throw Error('作品已变化，请重新打开时间编辑。');
@@ -254,16 +254,17 @@
         const other=owner==='creation'?'composer':'creation',otherDraft=other==='creation'?!!creation.session:!!composer.options;
         const resume=otherDraft?`<div class="tool-resume">${button('resume-tool',other==='creation'?'回到生成草稿':'回到和弦草稿','undo','quiet',`data-panel="${other}"`)}</div>`:'';
         const draft=owner==='creation'?creation.session:null,local=draft&&G.CREATION_OPERATIONS[draft.mode].scope==='instance',dt=draft?.base.tracks.find(t=>t.id===draft.target.trackId);const shortContext=local?`${dt?.name||'音乐块'} · 块内 ${G.ui.format.range(draft.start,draft.end)}`:owner==='composer'?'当前和弦草稿 · 放入前作品保持':'整首作品 · 采用前保持原稿';
-        const markup=G.ui.PanelHeader({title,subtitle:shortContext,closeAction:'creation-close'})+`<p class="creation-dock-subtitle">${esc(subtitle)}</p>${resume}${body}`;
+        const slots=typeof body==='string'?{body}:body;
+        const markup=G.ui.PanelFrame({header:G.ui.PanelHeader({title,subtitle:shortContext,closeAction:'creation-close'})+resume,body:slots.body,actions:slots.actions});
         panelMarkup[owner]=markup;if(S.rightPanel!==owner)return;
-        creationMarkup=markup;const dock=$('#creation-dock');if(dock){dock.hidden=false;G.patchDOM(dock,markup);}
+        creationMarkup=markup;const work=$('.view-content');if(work)work.inert=owner==='composer';const dock=$('#creation-dock');if(dock){dock.hidden=false;dock.classList.toggle('composer-wide',owner==='composer');G.patchDOM(dock,markup);}
     }
     function closeCreation(owner=S.rightPanel){
         const visible=owner===S.rightPanel;
         if(owner==='composer'){composer.reset();panelMarkup.composer='';}
         else{creation.session?.flow?.cancel();creation.session=null;panelMarkup.creation='';}
         if(!visible)return;
-        S.rightPanel=null;creationMarkup='';const dock=$('#creation-dock');if(dock){dock.hidden=true;dock.innerHTML='';}
+        S.rightPanel=null;creationMarkup='';if($('.view-content'))$('.view-content').inert=false;const dock=$('#creation-dock');if(dock){dock.hidden=true;dock.innerHTML='';}
         if(!G.ui.restoreFocus(creationFocus))$('.workspace-tabs .active')?.focus({preventScroll:true});creationFocus=null;drawCandidateProjection();
     }
     const catalogContext = { getProject: () => project, getSession: () => S, playback, button, esc, openModal, closeModal,
@@ -300,9 +301,15 @@
         if(owner==='composer')return owner+':'+(composer.options?.trackId||'')+':'+(composer.options?.patternId||'');
         const a=G.resolveEditTarget(project,S);return owner+':'+(owner==='edit'?[a.kind,a.trackId,a.patternId].join(':'):project.id);
     }
+    let frameObserver=null;
+    function syncWorkspaceBounds(){
+        const top=$('.topbar')?.getBoundingClientRect().bottom||66,bottom=innerHeight-($('.playback-footer')?.getBoundingClientRect().top||innerHeight-48);
+        document.documentElement.style.setProperty('--workspace-top',(top+6)+'px');
+        document.documentElement.style.setProperty('--workspace-bottom',(bottom+6)+'px');
+    }
     function render() {
         const previousPanel=$('#creation-dock');S.panelScrolls||={};
-        if(previousPanel?.dataset.panelKey)S.panelScrolls[previousPanel.dataset.panelKey]=previousPanel.scrollTop;
+        if(previousPanel?.dataset.panelKey)S.panelScrolls[previousPanel.dataset.panelKey]=(previousPanel.querySelector('.tool-panel-scroll')||previousPanel).scrollTop;
         // Preserve scroll and focus across deterministic DOM renders.
         const previous = $('.view-content');
         if (previous?.dataset.scrollkey) {
@@ -313,12 +320,14 @@
         const focusToken = G.ui.captureFocus();
         syncSelection();
         renderCounter++;
-        const t=track(),p=pattern(),scrollKey='workspace:'+S.view;
+        const t=track(),p=pattern(),scrollKey='workspace:'+S.view+(S.editorExpanded?':expanded':'');
         if(['properties','sound','pipeline'].includes(S.rightPanel)&&!project.tracks.some(t=>t.id===S.inspectorTrackId))S.rightPanel=null;
         creationMarkup=panelMarkup[S.rightPanel]||'';
         G.patchDOM($('#app'), G.views.renderShell({ ...viewContext(), engine, history, future, renderEditor, renderArrange, renderMix, scrollKey }));
         $$('input[type=range]').forEach(el=>el.style.setProperty('--range-progress',((+el.value-(+el.min||0))/(+el.max-(+el.min||0))*100)+'%'));
         updateStatus();
+        syncWorkspaceBounds();
+        if(typeof ResizeObserver!=='undefined'){frameObserver||=new ResizeObserver(syncWorkspaceBounds);frameObserver.disconnect();for(const el of [$('.topbar'),$('.playback-footer')])if(el)frameObserver.observe(el);}
         if (S.view !== 'mix' && S.editorOpen)
             drawGrid();
         updateTransport();
@@ -337,7 +346,7 @@
         }
         G.ui.restoreFocus(focusToken);
         creation.refresh();composer.refresh();
-        const panel=$('#creation-dock'),panelKey=inspectorScrollKey();if(panel){panel.dataset.panelKey=panelKey;if(panelKey)panel.scrollTop=S.panelScrolls[panelKey]||0;}
+        const panel=$('#creation-dock'),panelKey=inspectorScrollKey();if(panel){panel.dataset.panelKey=panelKey;if(panelKey)(panel.querySelector('.tool-panel-scroll')||panel).scrollTop=S.panelScrolls[panelKey]||0;}
         G.motion?.afterRender(S);
         if (S.modal) document.querySelector('#app').inert = true;
         G.saveWorkspace(S, project.id);
@@ -351,7 +360,7 @@
     function getRows(){return G.visiblePitches(project,S,track(),pattern());}
     let geo={width:960,left:72,top:28,row:26,cw:55,rows:[],height:0};
     function refreshEditUI(){const el=$('#editbar-host');if(el)G.patchDOM(el,G.views.renderEditBar(baseContext()));}
-    function drawGrid(){const next=G.views.drawPianoRoll({...baseContext(),getRows,drag:interactions?.getDrag()});if(next){geo=next;interactions?.setGeometry(next);updatePlayhead();drawCandidateProjection();}}
+    function drawGrid(){const next=G.views.drawPianoRoll({...baseContext(),getRows,drag:interactions?.getDrag()});if(next){geo=next;interactions?.setGeometry(next);const bounds=$('#pitch-bounds');if(bounds&&next.rows.length)bounds.textContent=G.noteName(Math.min(...next.rows))+'—'+G.noteName(Math.max(...next.rows));updatePlayhead();drawCandidateProjection();}}
     function drawCandidateProjection(){G.ui.drawCandidateProjection(creation?.projection?.(),geo);}
     function fitCandidateProjection(){const x=creation.session;if(!x||x.flow?.state!=='ready')return;const notes=x.candidates.flatMap(r=>r.project.tracks.find(t=>t.id===r.trackId)?.patterns.find(p=>p.id===r.patternId)?.notes||[]);if(!notes.length)return;const v=G.viewportFor(S,track()),pitches=notes.concat(pattern().notes).map(n=>n.pitch),lo=Math.min(...pitches),hi=Math.max(...pitches);v.low=Math.max(0,lo-2);v.span=Math.min(127-v.low,Math.max(12,hi-lo+4));drawGrid();G.saveWorkspace(S,project.id);}
     function renderArrange(){return G.views.renderArrange(baseContext());}
@@ -364,6 +373,12 @@
     function openModal(title, body, subtitle = '') {
         S.modal = true;
         G.ui.modal.open(title, body, subtitle);
+        const overlay=$('#overlay'),mode=overlay.querySelector('#transpose-mode');
+        for(const tab of overlay.querySelectorAll('[data-time-tab]'))tab.addEventListener('click',()=>{
+            for(const other of overlay.querySelectorAll('[data-time-tab]')){const selected=other===tab;other.classList.toggle('active',selected);other.setAttribute('aria-pressed',String(selected));}
+            for(const section of overlay.querySelectorAll('[data-time-section]'))section.hidden=section.dataset.timeSection!==tab.dataset.timeTab;
+        });
+        if(mode){const update=()=>{for(const [id,on] of [['transpose-amount',mode.value==='semitone'],['transpose-key',mode.value!=='semitone'],['transpose-scale',mode.value==='adapt']])overlay.querySelector('#'+id).closest('label').hidden=!on;};mode.addEventListener('change',update);update();}
     }
     function closeModal() {
         if(recordingRequest){recordingRequest.cancelled=true;recordingRequest=null;}
@@ -380,21 +395,24 @@
         pendingConfirm = null;
         pendingForm = null;
     }
-    function confirmAction(title, message, fn) { pendingConfirm = fn; openModal(title, `<p class="modal-copy">${message}</p><div class="modal-actions">${button('close-modal', '取消', '', 'soft-btn')}${button('confirm', '确认', '', 'dark-btn')}</div>`); }
+    function confirmAction(title, message, fn) { pendingConfirm = fn; openModal(title, {kind:'confirm',body:`<p class="modal-copy">${message}</p>`,actions:`${button('close-modal', '取消', '', 'quiet')}${button('confirm', '确认', '', 'dark-btn')}`}); }
     function textForm(title, value, fn, label = '名称') {
         pendingForm = () => {
             const value = $('#form-value').value.trim();
             if (!value) {
-                toast('先写一个名字。');
+                $('#form-value').setAttribute('aria-invalid','true');
+                $('#form-error').textContent='先写一个名字，再保存。';
+                $('#form-value').focus();
                 return;
             }
             fn(value);
             closeModal();
         };
-        openModal(title, `<label class="form-label">${label}<input id="form-value" value="${esc(value)}" maxlength="80" autocomplete="off"></label><div class="modal-actions">${button('close-modal', '取消', '', 'soft-btn')}${button('submit-form', '保存', 'check', 'dark-btn')}</div>`);
+        openModal(title, {kind:'form',body:`<label class="form-label">${esc(label)}<input id="form-value" value="${esc(value)}" maxlength="80" autocomplete="off" aria-describedby="form-error"></label><p id="form-error" class="field-error" role="alert"></p>`,actions:`${button('close-modal', '取消', '', 'quiet')}${button('submit-form', '保存', 'check', 'dark-btn')}`});
+        $('#form-value').addEventListener('input',()=>{if($('#form-value').value.trim()){$('#form-value').removeAttribute('aria-invalid');$('#form-error').textContent='';}});
         requestAnimationFrame(() => $('#form-value')?.select());
     }
-    function openHelp(){openModal('乐构 · 操作与作用范围',`<div class="help-note"><b>一个创作工作台：</b>从编排选择音乐块，下方打开音符。点击音轨名称查看本轨设置；收起或放大下方编辑器只改变布局。混音是另一个工作区。</div><div class="help-note"><b>先看操作栏左侧：</b>它写明正在操作音乐块、音符、音轨或时间范围。删除只作用于这个明确对象。工具按钮或素材搜索获得焦点，不会偷换音乐目标；文本框中的删除只处理文本。</div><div class="keymap-summary">${Object.entries(G.keymap.bindings).map(([id,b])=>`<span><kbd>${esc(G.keymap.label(id))}</kbd> ${esc(b.label)}</span>`).join('')}${button('keyboard-settings','键盘与平台设置','piano','quiet')}</div><div class="help-table">${[[G.keymap.label('copy')+' / '+G.keymap.label('paste'),'复制 / 粘贴当前对象。复制保留落点；粘贴使用编辑落点，不跟随播放游标。'],[G.keymap.label('duplicate'),'复制一份独立内容，接在当前选择之后。'],[G.keymap.label('delete'),'删除当前对象；删音乐块只移除一个编排位置。'],[G.keymap.label('select-all'),'全选当前音符画板，或全选编排中的音乐块。'],[G.keymap.label('undo'),'撤销；加 Shift 重做。'],['空格','播放 / 暂停。输入框与按钮保留自己的键盘行为。'],['B / V / R / E / H','画板内：画笔、选择、时间范围、橡皮、浏览。'],['方向键','音符左右按网格移动，上下半音；Alt 左右微调，Shift 上下八度。'],['Ctrl / ⌘ + 滚轮','缩放时间轴；再加 Shift 调整音高行距。']].map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('')}</div><div class="help-note"><b>素材与生成：</b>左边试听、选择或拖入模板；右边生成方案并比较。暂时切换到音色可保留本次会话的草稿，从“恢复生成草稿”返回。方案固定原目标，来源改变时需要重新生成。关闭草稿代表取消。</div><div class="help-note"><b>音色与共享：</b>本轨音色、演奏处理影响整条轨道。关联重复共同使用乐句内容；“复制一份”默认独立。清空音乐块内容是明确的单独操作，会提示所有共享引用。</div><div class="help-note"><b>保存与导出：</b>底部显示实际保存状态。重要作品请下载 .gridtone 备份。默认 WAV / MIDI 导出全曲；选择“当前试听”可以导出未应用方案。作品文件始终保存已应用的完整作品。</div><div class="modal-actions">${button('close-modal','返回工作台','check','dark-btn')}</div>`); }
+    function openHelp(){openModal('乐构 · 操作与作用范围',{body:`<nav class="help-navigation" aria-label="帮助章节"><a href="#help-1">工作区</a><a href="#help-2">操作对象</a><a href="#help-3">素材与生成</a><a href="#help-4">音色与共享</a><a href="#help-5">保存与导出</a></nav><div class="help-note" id="help-1"><b>一个创作工作台：</b>从编排选择音乐块，下方打开音符。点击音轨名称查看本轨设置；收起或放大下方编辑器只改变布局。混音是另一个工作区。</div><div class="help-note" id="help-2"><b>先看操作栏左侧：</b>它写明正在操作音乐块、音符、音轨或时间范围。删除只作用于这个明确对象。工具按钮或素材搜索获得焦点，不会偷换音乐目标；文本框中的删除只处理文本。</div><div class="keymap-summary">${button('keyboard-settings','全部快捷键与平台设置','piano','quiet')}</div><div class="help-table">${[[G.keymap.label('copy')+' / '+G.keymap.label('paste'),'复制 / 粘贴当前对象。复制保留落点；粘贴使用编辑落点，不跟随播放游标。'],[G.keymap.label('duplicate'),'复制一份独立内容，接在当前选择之后。'],[G.keymap.label('delete'),'删除当前对象；删音乐块只移除一个编排位置。'],[G.keymap.label('select-all'),'全选当前音符画板，或全选编排中的音乐块。'],[G.keymap.label('undo'),'撤销；加 Shift 重做。'],['空格','播放 / 暂停。输入框与按钮保留自己的键盘行为。'],['B / V / R / E / H','画板内：画笔、选音符、时间选区、橡皮、浏览。时间选区包含该时段的休止和所有音高，用于复制、删除或变化；底部循环只控制播放。'],['方向键','音符左右按网格移动，上下半音；Alt 左右微调，Shift 上下八度。'],['Ctrl / ⌘ + 滚轮','缩放时间轴；再加 Shift 调整音高行距。']].map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('')}</div><div class="help-note" id="help-3"><b>素材与生成：</b>左边试听、选择或拖入模板；右边生成方案并比较。暂时切换到音色可保留本次会话的草稿，从“恢复生成草稿”返回。方案固定原目标，来源改变时需要重新生成。关闭草稿代表取消。</div><div class="help-note" id="help-4"><b>音色与共享：</b>本轨音色、演奏处理影响整条轨道。关联重复共同使用乐句内容；“复制一份”默认独立。清空音乐块内容是明确的单独操作，会提示所有共享引用。</div><div class="help-note" id="help-5"><b>保存与导出：</b>底部显示实际保存状态。重要作品请下载 .gridtone 备份。默认 WAV / MIDI 导出全曲；选择“当前试听”可以导出未应用方案。作品文件始终保存已应用的完整作品。</div>`,actions:`${button('close-modal','返回工作台','check','dark-btn')}`}); }
     function addPatternAndPlace(t, p) {
         t.patterns.push(p);
         let bar = firstFreeBar(t, p, project.bars);
@@ -445,9 +463,9 @@
         const candidate = () => { if (fingerprint(project) !== before)
             throw Error('作品在预览期间发生了变化，请重新打开移调窗口。'); return G.pitchCandidate(project, tid, pid, ids, { mode: $('#transpose-mode').value, semitones: Number($('#transpose-amount').value), sourceKey, sourceScale, targetKey: Number($('#transpose-key').value), targetScale: $('#transpose-scale').value }); };
         pendingPitch = { candidate, tid, pid };
-        openModal('移调与调式适配', `<p class="modal-copy">作用于 ${ids.length ? '选中的 ' + ids.length + ' 个音符' : '本音乐块全部音符'}。试听保持原稿；确认后写入实际音符，可一次撤销。</p><label class="form-label">方式<select id="transpose-mode"><option value="semitone">整体移动半音 · 保持音程</option><option value="key">整体换主音 · 最近方向</option><option value="adapt">按级数适配调式 · 保留原有变化音偏移</option></select></label><div class="form-grid"><label class="form-label">移动半音（方式一）<input id="transpose-amount" type="number" min="-24" max="24" step="1" value="2"></label><label class="form-label">目标主音（方式二、三）<select id="transpose-key">${KEYS.map((v, i) => `<option value="${i}" ${i === sourceKey ? 'selected' : ''}>${v}</option>`).join('')}</select></label><label class="form-label">目标调式（方式三）<select id="transpose-scale">${Object.entries({ major: '大调', minor: '小调', pentatonic: '五声音阶', chromatic: '半音阶' }).map(([k, l]) => `<option value="${k}" ${k === sourceScale ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div><p class="modal-copy">级数适配适用于同音级数的音阶（例如大调到小调）；原调外音保留相对最近调内音的半音偏移。参考调性保持原设置。</p><div class="modal-actions">${button('preview-pitch', '试听结果', 'headphones', 'soft-btn')}${button('stop', '停止试听', 'stop', 'quiet')}${button('apply-pitch', '确认修改', 'check', 'dark-btn')}</div>`);
+        openModal('移调与调式适配', {body:`<p class="modal-copy">作用于 ${ids.length ? '选中的 ' + ids.length + ' 个音符' : '本音乐块全部音符'}。试听保持原稿；确认后写入实际音符，可一次撤销。</p><label class="form-label">方式<select id="transpose-mode"><option value="semitone">整体移动半音 · 保持音程</option><option value="key">整体换主音 · 最近方向</option><option value="adapt">按级数适配调式 · 保留原有变化音偏移</option></select></label><div class="form-grid"><label class="form-label">移动半音（方式一）<input id="transpose-amount" type="number" min="-24" max="24" step="1" value="2"></label><label class="form-label">目标主音（方式二、三）<select id="transpose-key">${KEYS.map((v, i) => `<option value="${i}" ${i === sourceKey ? 'selected' : ''}>${v}</option>`).join('')}</select></label><label class="form-label">目标调式（方式三）<select id="transpose-scale">${Object.entries({ major: '大调', minor: '小调', pentatonic: '五声音阶', chromatic: '半音阶' }).map(([k, l]) => `<option value="${k}" ${k === sourceScale ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div><p class="modal-copy">级数适配适用于同音级数的音阶（例如大调到小调）；原调外音保留相对最近调内音的半音偏移。参考调性保持原设置。</p>`,actions:`${button('preview-pitch', '试听结果', 'headphones', 'soft-btn')}${button('stop', '停止试听', 'stop', 'quiet')}${button('apply-pitch', '确认修改', 'check', 'dark-btn')}`});
     }
-    function exportDialog() { openModal('导出作品', `<label class="field-row export-scope">导出范围<select id="export-scope"><option value="song">整首作品 · ${project.bars} 小节</option><option value="pattern">当前音乐块 · ${pattern().bars} 小节</option><option value="current">当前试听范围（含临时只听）</option></select></label><div class="export-options">${button('export-wav', 'WAV 音频', 'wave', 'soft-btn export-option')}${button('export-midi', 'MIDI 乐谱', 'piano', 'soft-btn export-option')}${button('export-project', '乐构工程', 'file', 'soft-btn export-option')}</div><div class="export-descriptions"><p>默认导出作品混音，保留作品静音设置，忽略临时只听。作品文件始终包含全曲。</p><p><b>WAV</b>：44.1 kHz / 16-bit 立体声，包含音色与效果，附 3 秒尾音。单次最多 3 分钟。</p><p><b>MIDI</b>：导出音符、速度、移调、琶音和律动，供其他编曲软件继续编辑；具体音色与音频效果不会随 MIDI 保留。</p><p><b>乐构工程</b>：保存整首作品的所有音符、设置和自定义音源，可重新打开接着写。</p></div><p id="export-progress" class="export-progress" role="status"></p>`); }
+    function exportDialog() { openModal('导出作品', `<label class="field-row export-scope">导出范围<select id="export-scope"><option value="song">整首作品 · ${project.bars} 小节</option><option value="pattern">当前音乐块 · ${pattern().bars} 小节</option><option value="current">当前试听范围（含临时只听）</option></select></label><p class="modal-copy">默认导出作品混音，保留作品静音设置，忽略临时只听。作品文件始终包含全曲。</p><div class="export-format-rows"><section>${button('export-wav','WAV 音频','wave','soft-btn')}<p>包含音色与效果。44.1 kHz / 16-bit 立体声，附 3 秒尾音；单次最多 3 分钟。</p></section><section>${button('export-midi','MIDI 乐谱','piano','soft-btn')}<p>导出音符、速度、移调、琶音与律动，供其他编曲软件编辑；不包含具体音色和音频效果。</p></section><section>${button('export-project','乐构工程','file','soft-btn')}<p>整首作品的音符、设置与自定义音源，可重新打开接着写。</p></section></div><p id="export-progress" class="export-progress" role="status"></p>`); }
     async function doExport(type) {
         const range = $('#export-scope')?.value || 'song', selection=playback.exportSelection(type==='project'?'song':range);
         const exportProject=selection.project,scope=selection.scope,name=safeFilename(project.title)+(range==='song'?'':'_'+safeFilename(range==='pattern'?pattern().name:selection.label));
@@ -467,7 +485,7 @@
             S.exportBusy = true;
             engine.stop();
             updateTransport();
-            $$('.export-options button').forEach(b => b.disabled = true);
+            $$('.export-format-rows button').forEach(b => { b.disabled = true; b.setAttribute('aria-busy','true'); });
             const status = $('#export-progress');
             if (status)
                 status.textContent = '正在合成音频，完整保留音色与效果…';
@@ -485,7 +503,7 @@
         }
         finally {
             S.exportBusy = false;
-            $$('.export-options button').forEach(b => b.disabled = false);
+            $$('.export-format-rows button').forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); });
         }
     }
     function pickFile(accept, handler) {
@@ -636,7 +654,7 @@
     async function loadSampleBank(id){
         const bank=G.SAMPLE_BANKS.find(x=>x.id===id);if(!bank)return;
         if(bankRequest)bankRequest.abort();const controller=new AbortController();bankRequest=controller;
-        openModal(bank.name,`<p class="modal-copy">将从 VSCO 2 CE 官方公开仓库载入 ${bank.zones.length} 个采样，制作成本机可用的轻量音色。声音载入成功后再选择“使用”，当前作品保持原样。</p><div class="source-detail">真实乐器录音 · CC0-1.0<br>单力度、多音高，最长 6 秒；不包含原库全部演奏法。<br>来源：Versilian Studios / Sam Gossner / Simon Dalzell<br><a class="source-link" href="https://github.com/sgossner/VSCO-2-CE/blob/6dd651d55dde97fd4028699be9d4481f26917891/LICENSE" target="_blank" rel="noopener noreferrer">查看来源与 CC0 授权</a></div><progress class="sample-progress" id="bank-progress" max="${bank.zones.length}" value="0"></progress><p id="bank-status" class="field-note" role="status">正在连接音源服务器…</p><div class="modal-actions">${button('close-modal','取消载入','','quiet')}</div>`,'首次需要联网；不会上传你的作品。');
+        openModal(bank.name,{body:`<p class="modal-copy">将从 VSCO 2 CE 官方公开仓库载入 ${bank.zones.length} 个采样，制作成本机可用的轻量音色。声音载入成功后再选择“使用”，当前作品保持原样。</p><div class="source-detail">真实乐器录音 · CC0-1.0<br>单力度、多音高，最长 6 秒；不包含原库全部演奏法。<br>来源：Versilian Studios / Sam Gossner / Simon Dalzell<br><a class="source-link" href="https://github.com/sgossner/VSCO-2-CE/blob/6dd651d55dde97fd4028699be9d4481f26917891/LICENSE" target="_blank" rel="noopener noreferrer">查看来源与 CC0 授权</a></div><progress class="sample-progress" id="bank-progress" max="${bank.zones.length}" value="0"></progress><p id="bank-status" class="field-note" role="status">正在连接音源服务器…</p>`,actions:`${button('close-modal','取消载入','','quiet')}`},'首次需要联网；不会上传你的作品。');
         const timer=setTimeout(()=>controller.abort(),90000);
         try{
             const pack=await G.downloadSampleBank(id,{signal:controller.signal,onProgress:({done,total})=>{const p=$('#bank-progress'),l=$('#bank-status');if(p)p.value=done;if(l)l.textContent=`已载入 ${done} / ${total} 个采样…`;}});
@@ -671,7 +689,7 @@
     let noteOriginal=null,noteIds=[];
     function noteInspector(){
         noteOriginal=snapshot();noteIds=[...S.selected];const ns=selectedNotes();
-        openModal('精细编辑',`<p>${ns.length?'修改所选 '+ns.length+' 个音符':'修改当前音乐块全部音符'} · 可先比较，再应用</p><div class="precise-fields"><label>微时移（ticks，960 = 一拍）<input id="note-time" type="number" value="0" step="1"></label><label>移调（半音）<input id="note-pitch" type="number" value="0" min="-24" max="24"></label><label>力度（1–100%，留空保持）<input id="note-velocity" type="number" min="1" max="100" placeholder="保持原力度"></label><label>时长倍率<input id="note-length" type="number" min="0.1" max="8" step="0.1" value="1"></label></div><div class="modal-actions">${button('note-preview-original','试听修改前','headphones','soft-btn')}${button('note-preview-candidate','试听修改后','headphones','soft-btn')}${button('note-apply','应用修改','check','dark-btn')}</div>`);
+        openModal('精细编辑',{body:`<p>${ns.length?'修改所选 '+ns.length+' 个音符':'修改当前音乐块全部音符'} · 可先比较，再应用</p><div class="precise-fields"><label>微时移（ticks，960 = 一拍）<input id="note-time" type="number" value="0" step="1"></label><label>移调（半音）<input id="note-pitch" type="number" value="0" min="-24" max="24"></label><label>力度（1–100%，留空保持）<input id="note-velocity" type="number" min="1" max="100" placeholder="保持原力度"></label><label>时长倍率<input id="note-length" type="number" min="0.1" max="8" step="0.1" value="1"></label></div>`,actions:`${button('note-preview-original','试听修改前','headphones','soft-btn')}${button('note-preview-candidate','试听修改后','headphones','soft-btn')}${button('note-apply','应用修改','check','dark-btn')}`});
     }
     function noteCandidate(){
         const next=clone(noteOriginal),t=next.tracks.find(t=>t.id===S.trackId),p=t.patterns.find(p=>p.id===S.patternId),dt=Number($('#note-time').value),dp=Number($('#note-pitch').value),factor=Number($('#note-length').value),vel=$('#note-velocity').value;
@@ -691,9 +709,9 @@
         if(action==='open-pattern-id'){openPattern({trackId:el.dataset.track,patternId:el.dataset.pattern,edit:true,activation:'notes'});return;}
         if(action==='time-tools'){showTimeTools();return;}
         if(action==='time-apply'){applyTimeTools(el.dataset.mode);return;}
-        if(action==='sound-full'){openInspector('sound',el.dataset.track);openModal('调整当前声音',G.views.renderSoundParameters(toolContext()));return;}
+        if(action==='sound-full'){openInspector('sound',el.dataset.track);openModal('调整当前声音',G.views.renderSoundParameters(toolContext(),{slots:true}));return;}
         if(action==='sound-test-current'){const t=project.tracks.find(t=>t.id===el.dataset.track);if(!t){toast('目标音轨已删除。');return;}const pat=t.patterns.find(p=>p.notes.length)||t.patterns[0];if(pat.notes.length)void playback.audition(snapshot(),{kind:'pattern',trackId:t.id,patternId:pat.id,ignoreMute:true},'当前音轨与参数');else preview(t,defaultPitch(t),.6);return;}
-        if(action==='sound-resources'){openInspector('sound',el.dataset.track);openModal('声音资源与导入',`<p>目标音轨：${esc(toolTrack().name)}。录音与导入完成后仍可选择是否采用。</p><div class="button-column">${button('record','录音','mic','soft-btn')}${button('import-sample','导入音频','upload','soft-btn')}${button('import-catalog','导入音源包','folder','soft-btn')}${button('catalog-tab','管理鼓组与资源','drum','quiet','data-category="drumkits"')}</div><details class="inspector-section"><summary>可选实录音源</summary><p>首次载入需要联网；成功后再到音色选择器使用。</p>${G.SAMPLE_BANKS.map(b=>button('load-sample-bank',b.name,'download','quiet',`data-id="${b.id}"`)).join('')}</details><div class="modal-actions">${button('close-modal','关闭','','quiet')}</div>`);return;}
+        if(action==='sound-resources'){openInspector('sound',el.dataset.track);openModal('声音资源与导入',{body:`<p>目标音轨：${esc(toolTrack().name)}。录音完成或导入成功后会立即用于目标音轨；目标是鼓轨时会新增旋律音轨。可用撤销恢复。</p><div class="resource-actions">${button('record','录音','mic','soft-btn')}${button('import-sample','导入音频','upload','soft-btn')}${button('import-catalog','导入音源包','folder','soft-btn')}${button('catalog-tab','管理鼓组与资源','drum','quiet','data-category="drumkits"')}</div><details class="inspector-section"><summary>可选实录音源</summary><p>首次载入需要联网；成功后再到音色选择器使用。</p>${G.SAMPLE_BANKS.map(b=>button('load-sample-bank',b.name,'download','quiet',`data-id="${b.id}"`)).join('')}</details>`,actions:`${button('close-modal','关闭','','quiet')}`});return;}
 if(action==='structure-tools'){openInspector('arrangement');return;}
         if(action==='note-inspector'){
             const a=G.resolveEditTarget(project,S);if(!['notes','range'].includes(a.kind)||a.kind==='notes'&&!a.ids.length){toast('请先选择音符。');return;}
@@ -741,7 +759,8 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
         if(action==='transform'){transformSelection(el.dataset.transform);return;}
 
         if(S.modal&&['fit-notes','zoom-out','zoom-in','pattern','duplicate-pattern','duplicate-clip','unlink-clip','transform','shorten-notes','lengthen-notes','split-notes','split-at-cursor','octave-up','octave-down','scale-lock','listen-pattern','listen-bar','clear-solo'].includes(action))closeModal();
-        if(action==='workspace-menu'){openModal('乐构 · 工作台',`<div class="studio-tools-menu">${button('project-menu','我的作品','folder')}${button('catalog','模板与素材','grid')}${button('view','混音台','mix','','data-view="mix"')}${button('appearance','外观与动效','spark')}${button('keyboard-settings','键盘与平台','piano')}${button('save-current','保存当前作品','save')}${button('help','操作帮助','help')}</div>`);return;}
+        if(action==='global-groove'){openModal('全曲调性与律动',{body:G.ui.FieldGroup({title:'参考调性',body:`<div class="form-grid"><label class="form-label">主音<select data-field="key">${G.KEYS.map((k,i)=>`<option value="${i}" ${project.key===i?'selected':''}>${k}</option>`).join('')}</select></label><label class="form-label">音阶<select data-field="scale">${[['major','大调'],['minor','小调'],['pentatonic','五声音阶'],['chromatic','全部半音']].map(([k,l])=>`<option value="${k}" ${project.scale===k?'selected':''}>${l}</option>`).join('')}</select></label></div>`,note:'用于调内显示和后续输入；已有音符保持。'})+G.ui.FieldGroup({title:'演奏律动',body:slider('十六分 Swing','project','swing',project.swing,0,.45,.01),note:'影响全曲演奏；原音符位置、吸附网格与时间选区保持。'}),actions:button('close-modal','完成','','quiet')});return;}
+        if(action==='workspace-menu'){openModal('乐构 · 工作台',{kind:'menu',anchor:'.project-entry',body:G.ui.FieldGroup({title:'作品',body:`<div class="studio-tools-menu">${button('project-menu','我的作品','folder','quiet')}${button('rename-song','重命名','pencil','quiet')}${button('save-current','保存作品','save','quiet')}${button('export','导出作品','upload','quiet')}</div>`})+G.ui.FieldGroup({title:'音乐工作台',body:`<div class="studio-tools-menu">${button('catalog','模板与素材','grid','quiet')}${button('view','混音台','mix','quiet','data-view="mix"')}${button('global-groove','全曲调性与律动','wave','quiet')}</div>`})+G.ui.FieldGroup({title:'偏好与帮助',body:`<div class="studio-tools-menu">${button('appearance','外观与动效','spark','quiet')}${button('keyboard-settings','键盘与平台','piano','quiet')}${button('help','操作帮助','help','quiet')}</div>`})});return;}
         if(action==='preview-track'){const t=project.tracks.find(t=>t.id===el.dataset.id);if(t){openPattern({trackId:t.id});playback.start('pattern').then(render);}return;}
         if(action==='close-editor'){S.editorOpen=false;S.editorExpanded=false;S.editorManuallyClosed=true;if(['notes','range'].includes(S.editTarget.kind))G.setEditTarget(S,project,{kind:'none'});render();return;}
         if(action==='expand-editor'){S.editorExpanded=!S.editorExpanded;render();return;}
@@ -944,7 +963,7 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
         else if (action === 'drum-fill')
             materials.listing('templates');
         else if (action === 'groove')
-            openModal('给节奏一点松紧', `${slider('十六分 Swing', 'project', 'swing', project.swing, 0, .45, .01)}<p class="modal-copy">每对十六分音符中的第二个音稍微晚一点，力度不变。0% 是均匀网格。底层仍保存高精度时间，WAV 和 MIDI 会保留这个变化。</p><div class="modal-actions">${button('close-modal', '完成', 'check', 'dark-btn')}</div>`);
+            openModal('给节奏一点松紧', {body:`${slider('十六分 Swing', 'project', 'swing', project.swing, 0, .45, .01)}<p class="modal-copy">每对十六分音符中的第二个音稍微晚一点，力度不变。0% 是均匀网格。底层仍保存高精度时间，WAV 和 MIDI 会保留这个变化。</p>`,actions:`${button('close-modal', '完成', 'check', 'dark-btn')}`});
         else if (action === 'sound-details') { S.soundDetails=!S.soundDetails; render(); }
         else if (action === 'sound-category') {
             S.tab = el.dataset.category;
@@ -1083,6 +1102,8 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
             }));
     }
     document.addEventListener('click', e => {
+        const scope=document.querySelector('.edit-scope[open]');
+        if(scope&&!scope.contains(e.target))scope.open=false;
         const target = e.target.closest('[data-action]');
         if (!target || target.disabled)
             return;
@@ -1182,6 +1203,7 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
         });
     }
     document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('[data-field="bpm"],[data-field="loop-from"],[data-field="loop-to"]')){e.preventDefault();handleField(e.target);e.target.blur();}});
+    document.addEventListener('keydown',e=>{const scope=document.querySelector('.edit-scope[open]');if(e.key==='Escape'&&scope&&!S.modal){scope.open=false;scope.querySelector('summary')?.focus();e.preventDefault();e.stopImmediatePropagation();}},true);
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!S.modal&&e.target.closest('#creation-dock')&&!interactions?.getDrag()){e.preventDefault();e.stopImmediatePropagation();creation.close();}},true);
     document.addEventListener('change', e => {
         if (e.target.id?.startsWith('transpose-'))
@@ -1251,13 +1273,15 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
         const ph = $('#playhead');
         if (!ph)
             return;
+        const ruler = $('#ruler-playhead');
+        const show = visible => { ph.setAttribute('visibility', visible ? 'visible' : 'hidden');ruler?.setAttribute('visibility', visible ? 'visible' : 'hidden'); };
         if (!engine.playing && !engine.pausedAt) {
-            ph.setAttribute('visibility', 'hidden');
+            show(false);
             return;
         }
         let pos = playback.position();
         if (B.audition) {
-            ph.setAttribute('visibility', 'hidden');
+            show(false);
             return;
         }
         if (B.target === 'bar')
@@ -1265,13 +1289,14 @@ if(action==='structure-tools'){openInspector('arrangement');return;}
         if (B.target === 'song' || B.target === 'tracks') {
             const clip = track().clips.find(c => c.patternId === S.patternId && pos >= c.bar * BAR && pos < (c.bar + pattern().bars) * BAR);
             if (!clip) {
-                ph.setAttribute('visibility', 'hidden');
+                show(false);
                 return;
             }
             pos -= clip.bar * BAR;
         }
         const offset=geo.offset||0;const visible = pos >= offset && pos < offset + (geo.bars||1)*BAR;
-        ph.setAttribute('visibility', visible ? 'visible' : 'hidden');
+        show(visible);
+        ruler?.setAttribute('cx',geo.left + (pos - offset) / STEP * geo.cw);
         ph.setAttribute('transform', `translate(${geo.left + (pos - (geo.offset||0)) / STEP * geo.cw} 0)`);
     }
     const audioMeterBuffer = new Float32Array(1024);

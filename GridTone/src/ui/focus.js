@@ -36,6 +36,7 @@
       if (!overlay.children.length) returnFocus=captureFocus();
       const focus=overlay.children.length?captureFocus():null;
       overlay.innerHTML=G.ui.Dialog({title,body,subtitle});
+      if(body?.kind==='menu'){const menu=overlay.querySelector('.modal'),anchor=document.querySelector(body.anchor||'.project-entry');if(anchor){const r=anchor.getBoundingClientRect();menu.classList.add('workspace-menu-popover');menu.style.left=Math.max(8,r.left)+'px';menu.style.top=Math.min(r.bottom+6,innerHeight-100)+'px';}}
       document.querySelector('#app').inert=true;if(document.querySelector('#studio-library'))document.querySelector('#studio-library').inert=true;
       const node=overlay.querySelector('#form-value,[autofocus]') || overlay.querySelector('#modal-title');
       requestAnimationFrame(()=>{if(!restoreFocus(focus)&&node?.isConnected)node.focus({preventScroll:true});});
@@ -47,7 +48,7 @@
     },
     keydown(e) {
       if(e.key!=='Tab') return;
-      const els=[...document.querySelectorAll('.modal button:not([disabled]),.modal input:not([disabled]),.modal select:not([disabled]),.modal a[href],.modal [tabindex="0"]')].filter(x=>x.getClientRects().length);
+      const els=[...document.querySelectorAll('.modal button:not([disabled]),.modal input:not([disabled]),.modal select:not([disabled]),.modal textarea:not([disabled]),.modal summary,.modal a[href],.modal [tabindex="0"]')].filter(x=>x.getClientRects().length);
       const first=els[0],last=els.at(-1),at=document.activeElement;
       if (!els.includes(at)) { (e.shiftKey?last:first)?.focus();e.preventDefault(); }
       else if(e.shiftKey&&at===first){last?.focus();e.preventDefault();}

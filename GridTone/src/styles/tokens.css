@@ -2,6 +2,20 @@
    A is production default. Existing crystal/pearl preferences remain compatible.
    B is a non-persistent comparison variant in components.html, not a new work mode. */
 :root {
+  --workspace-top: 72px;
+  --workspace-bottom: 54px;
+  --studio-dock-height: 360px;
+  --workbench-tray-radius: 8px;
+  --workbench-tray-light: inset 0 1px 0 #ffffffd9,inset 0 -1px 0 #3732290b;
+  --transport-compact: 44px;
+  --workbench-top-group: 52px;
+  --workbench-tool-group: 40px;
+  --workbench-grid-field: 72px;
+  --workbench-control-padding: 6px;
+  --workbench-identity: var(--track-head);
+  --workbench-header-height: 52px;
+  --active-control-shadow: inset 0 1px 2px #7c244024;
+  --workbench-active-shadow: var(--active-control-shadow);
   color-scheme: light;
   --paper: #f1f0ec; --bg: var(--paper);
   --surface: #fdfcfa; --surface-raised: #ffffff; --surface-tint: #f2f1ee;
@@ -42,7 +56,7 @@
   --tile-edge: var(--block-light),inset 0 -1px 0 #28334914;
   --tile-shadow: 0 2px 0 #817b7026,0 3px 5px #30374418;
   --control: 40px; --control-small: 32px; --control-icon: 36px; --touch-control: 44px;
-  --track-head: 264px; --track-row: 100px; --tray-width: 240px; --tool-width: 336px;
+  --track-head: 216px; --track-row: 84px; --tray-width: 240px; --tool-width: 336px;
   --button-face: #faf9f6; --button-hover: #f2eeeb;
   --button-shadow: inset 0 1px 0 #ffffffed,inset 0 -1px 0 #817b7014,0 2px 0 #817b7026,0 3px 4px #333b4912;
   --shadow: inset 0 1px 0 #ffffffed,0 2px 2px #817b7012,0 4px 10px #3037440a;

@@ -1,5 +1,25 @@
 /** Stable layers for the musical canvas; content is data, never a decorative asset. */
-(function(G){G.views ||= {};let staticKey='';
+(function(G){G.views ||= {};let staticKey='';const pinnedScrolls=new WeakSet();
+ // A ruler shares the notes' X geometry; only its Y position is pinned.
+ G.views.pianoTimeRuler=function({width,left,top,cw,offset,bars}){
+  let marks=`<rect width="${width}" height="${top}" fill="var(--surface)"/><path d="M0 ${top-.5}H${width}" stroke="var(--line)"/>`;
+  for(let beat=0;beat<bars*4;beat++){
+   const x=left+beat*4*cw,major=beat%4===0,bar=offset/G.BAR+Math.floor(beat/4)+1;
+   marks+=`<path d="M${x} ${major?top-9:top-5}V${top}" stroke="${major?'var(--grid-major)':'var(--line-strong)'}"/>`;
+   if(major||cw*4>=48)marks+=`<text x="${x+6}" y="17" font-size="${major?12:11}" fill="${major?'var(--ink)':'var(--muted)'}">${major?bar:bar+'.'+(beat%4+1)}</text>`;
+  }
+  return `<g id="time-axis" data-time-axis="true" aria-label="小节与拍标尺：点击设置编辑和播放位置">${marks}<circle id="ruler-playhead" cx="0" cy="23" r="3" fill="var(--color-playhead)" visibility="hidden" pointer-events="none"/><g id="time-axis-corner" data-time-corner="true"><rect width="${left}" height="${top}" fill="var(--surface)"/><path d="M${left-.5} 0V${top}H0" fill="none" stroke="var(--line)"/><text x="${left-10}" y="17" text-anchor="end" font-size="11" fill="var(--muted)">小节 / 拍</text></g></g>`;
+ };
+ G.views.pinPianoAxes=function(scroll,svg){
+  svg?.querySelector('#pitch-axis')?.setAttribute('transform',`translate(${scroll.scrollLeft},0)`);
+  svg?.querySelector('#time-axis')?.setAttribute('transform',`translate(0,${scroll.scrollTop})`);
+  svg?.querySelector('#time-axis-corner')?.setAttribute('transform',`translate(${scroll.scrollLeft},0)`);
+ };
+ G.views.bindPianoAxes=function(scroll){
+  const pin=()=>G.views.pinPianoAxes(scroll,scroll.querySelector('#note-grid'));
+  if(!pinnedScrolls.has(scroll)){scroll.addEventListener('scroll',pin,{passive:true});pinnedScrolls.add(scroll);}
+  pin();
+ };
  G.views.drawPianoRoll=function(C){
   const {project,S,track,pattern,getRows,drag,esc}=C,frame=document.querySelector('#gridframe');if(!frame)return;
   const t=track(),p=pattern(),paint=G.ui.musicPalette(t.color,t.role|| (t.kind==='drum'?'drums':'melody')),rows=getRows(),vp=G.viewportFor(S,t),win=G.gridWindow(S,p),left=t.kind==='drum'?100:86,top=28,baseRow=t.kind==='drum'?32:vp.rowHeight,rh=S.editorExpanded?Math.max(baseRow,Math.min(42,Math.floor((frame.parentElement.clientHeight-top-74)/rows.length))):baseRow;
@@ -10,9 +30,11 @@
   if(!svg||key!==staticKey){
    staticKey=key;let bg=`<rect width="${width}" height="${height}" fill="var(--grid-paper)"/>`;
    rows.forEach((pitch,i)=>{const y=top+i*rh,black=[1,3,6,8,10].includes(pitch%12),root=pitch%12===project.key;bg+=`<rect x="${left}" y="${y}" width="${width-left}" height="${rh}" fill="${S.showScale&&G.inScale(pitch,project.key,project.scale)?'var(--selected)':black?'var(--grid-key)':'var(--grid-paper)'}"/><line x1="${left}" x2="${width}" y1="${y+rh}" y2="${y+rh}" stroke="var(--grid-minor)"/>`;});
-   const gridStep=S.snap||G.STEP;for(let j=0;j<=win.bars*G.BAR/gridStep;j++){const i=j*gridStep/G.STEP,x=left+i*cw;bg+=`<line x1="${x}" x2="${x}" y1="${top}" y2="${top+rows.length*rh}" stroke="${i%16===0?'var(--grid-major)':i%4===0?'var(--line)':'var(--grid-minor)'}"/>`;if(i%16===0&&i<win.bars*16)bg+=`<text x="${x+8}" y="18" font-size="11" fill="var(--muted)">${win.offset/G.BAR+i/16+1}</text>`;}
+   const gridStep=S.snap||G.STEP;for(let j=0;j<=win.bars*G.BAR/gridStep;j++){const i=j*gridStep/G.STEP,x=left+i*cw;bg+=`<line x1="${x}" x2="${x}" y1="${top}" y2="${top+rows.length*rh}" stroke="${i%16===0?'var(--grid-major)':i%4===0?'var(--line)':'var(--grid-minor)'}"/>`;}
    frame.querySelector('#grid-inner').innerHTML=`<svg id="note-grid" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="音符网格 · ${win.bars} 小节" data-left="${left}" data-low="${vp.low}" data-span="${vp.span}" data-row-height="${rh}" data-cell-width="${cw}"><defs><linearGradient id="note-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${paint.surface}"/><stop offset="1" stop-color="${paint.noteSurface}"/></linearGradient></defs><g id="grid-background">${bg}</g><g id="note-origin-layer" pointer-events="none"></g><g id="note-layer"></g><g id="velocity-layer"></g><g id="selection-layer"></g><g id="playhead" visibility="hidden" pointer-events="none"><circle cx="0" cy="22" r="3.5" fill="var(--color-playhead)"/><line x1="0" x2="0" y1="${top}" y2="${height}" stroke="var(--color-playhead)" stroke-width="1.5"/></g><g id="pitch-axis" data-pitch-axis="true" aria-label="音高尺：点击试听，上下拖动浏览音域"></g></svg>`;
    svg=document.querySelector('#note-grid');
+   // Above notes and the pitch ruler; the opaque corner masks both axes' overlap.
+   svg.insertAdjacentHTML('beforeend',G.views.pianoTimeRuler(geo));
   }
   let notes='',velocities='';const vy=top+rows.length*rh+12,a=G.resolveEditTarget(project,S),active=a.kind==='notes'&&a.patternId===p.id,selected=new Set(active?S.selected:[]);
   for(const n of p.notes){if(n.start>=win.offset+win.bars*G.BAR||n.start+n.duration<=win.offset)continue;const row=rows.indexOf(n.pitch);if(row<0)continue;
@@ -29,9 +51,7 @@
   const axis=svg.querySelector('#pitch-axis');
   axis.innerHTML=`<rect x="0" y="0" width="${left}" height="${height}" fill="var(--surface)"/><path d="M${left-.5} 0V${height}" stroke="var(--line-strong)"/>`+rows.map((pitch,i)=>`<g><rect data-ruler-pitch="${pitch}" x="0" y="${top+i*rh}" width="${left-1}" height="${rh}" fill="var(--surface)"/><line x1="0" x2="${left-1}" y1="${top+(i+1)*rh}" y2="${top+(i+1)*rh}" stroke="var(--line-strong)" pointer-events="none"/>${t.kind!=='drum'?`<rect x="0" y="${top+i*rh+2}" width="28" height="${rh-4}" rx="2" fill="${[1,3,6,8,10].includes(pitch%12)?'var(--key-dark)':'var(--button-face)'}" stroke="var(--line-strong)" pointer-events="none"/><line x1="2" x2="26" y1="${top+i*rh+3}" y2="${top+i*rh+3}" stroke="white" opacity=".5" pointer-events="none"/>`: ''}<text x="${left-10}" y="${top+i*rh+rh/2+4}" text-anchor="end" font-size="12" fill="var(--muted)" pointer-events="none">${esc(t.kind==='drum'?(G.drumsFor(project,t).find(d=>d.pitch===pitch)?.name||pitch):G.noteName(pitch))}</text></g>`).join('')+`<text x="${left-10}" y="${vy+27}" text-anchor="end" font-size="12" fill="var(--ink)" pointer-events="none">力度</text>`;
   const scroll=frame.parentElement;
-  const pin=()=>{const svg=document.querySelector('#note-grid'),axis=svg?.querySelector('#pitch-axis');if(axis)axis.setAttribute('transform',`translate(${scroll.scrollLeft},0)`);};
-  if(!scroll.dataset.pitchPin){scroll.addEventListener('scroll',pin,{passive:true});scroll.dataset.pitchPin='true';}
-  pin();
+  G.views.bindPianoAxes(scroll);
   return geo;
  };
 })(globalThis.GridTone ||= {});

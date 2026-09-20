@@ -1,7 +1,7 @@
 {
   "system": "Warm Magnetic 2.0",
   "app": "2.3.0",
-  "count": 18,
+  "count": 21,
   "items": [
     {
       "id": "global",
@@ -54,8 +54,8 @@
       "styles": [
         "workspace.css"
       ],
-      "states": "绘音/长度/框选/范围/力度/量化",
-      "evidence": "M06/M07 + workspace-final",
+      "states": "绘音/长度/框选/范围/力度/量化/固定小节拍标尺/双轴滚动/标尺定位",
+      "evidence": "M06/M07 + workspace-final + tests/piano-ruler.test.mjs + docs/layout-consolidation/PINNED_RULER.md",
       "status": "IMPLEMENTED"
     },
     {
@@ -248,7 +248,60 @@
       "states": "普通/焦点/禁用/忙碌/错误/组合；数字单底线/选择箭头/透明禁用按钮/共享工具托盘",
       "evidence": "docs/expansion-2.3/REPORT.md + tests/tactile.test.mjs；其余历史记录见 final-visual gallery + directions",
       "status": "IMPLEMENTED"
+    },
+    {
+      "id": "compact-workspace",
+      "title": "工作区整合与三段式面板",
+      "source": [
+        "src/views/shell.js",
+        "src/ui/tool-panel.js",
+        "src/ui/focus.js",
+        "src/views/studio-library.js"
+      ],
+      "styles": [
+        "workspace.css",
+        "tool-panel.css",
+        "library.css",
+        "dialogs.css"
+      ],
+      "states": "唯一命令目标/打开侧栏/窄屏分类与详情返回/固定试听采用/条件表单/菜单焦点",
+      "evidence": "docs/layout-consolidation/REPORT.md; tests/layout-consolidation.test.mjs",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "task-modules",
+      "title": "任务托盘与参数组",
+      "source": [
+        "src/ui/components.js",
+        "src/views/edit-bar.js",
+        "src/views/shell.js"
+      ],
+      "styles": [
+        "components.css",
+        "workspace.css"
+      ],
+      "states": "全局命令顺序/编排结构归属/可展开当前对象/粘贴落点/宽窄重排/双栏共同对齐轴/模式与开关统一浅下凹",
+      "evidence": "tests/modular-layout.test.mjs + tests/layout-consolidation.test.mjs CW01-CW12 + docs/layout-consolidation/GLOBAL_RAIL.md + docs/layout-consolidation/ALIGNED_STATES.md",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "explicit-frames",
+      "title": "显式侧栏与弹窗插槽",
+      "source": [
+        "src/ui/components.js",
+        "src/ui/tool-panel.js",
+        "src/ui/focus.js",
+        "src/views/creation.js",
+        "src/views/composer.js"
+      ],
+      "styles": [
+        "tool-panel.css",
+        "dialogs.css"
+      ],
+      "states": "准备/比较/缺输入/动作固定/关闭焦点",
+      "evidence": "tests/modular-layout.test.mjs",
+      "status": "IMPLEMENTED"
     }
   ],
-  "note": "Production-family coverage; verification and external scope live in docs/magnet-2.1/acceptance.json."
+  "note": "Production-family coverage; verification and external scope live in docs/magnet-2.1/acceptance.json. 本轮逐页独立验收与未验证项见 docs/layout-consolidation/INDEPENDENT_ACCEPTANCE.md。"
 }

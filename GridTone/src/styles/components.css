@@ -5,6 +5,8 @@
 .btn[data-size=icon] { width: var(--control-icon); min-width: var(--control-icon); height: var(--control-icon); min-height: var(--control-icon); padding: 6px; font-size: 13px; }
 .btn[data-size=icon] svg { width: 18px; height: 18px; }
 .btn[data-size=small] svg { width: 16px; height: 16px; }
+/* Registered project-menu identity: compact brand, document title, disclosure. */
+.project-entry b { font-size:18px; white-space:nowrap; }
 .btn[data-variant=quiet] { color: var(--ink); background: transparent; border-color: transparent; box-shadow: none; }
 .btn[data-variant=secondary] { color: var(--ink); background: var(--button-face); border-color: var(--line-strong); box-shadow: var(--button-shadow); }
 .btn[data-variant=primary] { color: var(--ink-on-accent); background: var(--brand); border-color: var(--brand); box-shadow: var(--primary-shadow); }
@@ -12,8 +14,8 @@
 .btn[data-variant]:hover:not(:disabled) { background: var(--button-hover); color: var(--ink); border-color: var(--line-strong); }
 .btn[data-variant=primary]:hover:not(:disabled) { background: var(--brand-hover); border-color: var(--brand-hover); color: var(--ink-on-accent); }
 .btn[data-variant=danger]:hover:not(:disabled) { background: var(--notice-error); color: var(--danger); border-color: var(--danger); }
-.btn[data-variant][aria-pressed=true],.btn.active,.btn.on { background: var(--selected); color: var(--selected-ink); border-color: var(--brand); box-shadow: var(--selected-shadow); }
-.btn[data-variant][aria-pressed=true]:hover:not(:disabled) { background: var(--selected); color: var(--selected-ink); border-color: var(--brand); }
+.btn[data-variant]:is([aria-pressed=true],.active,.on):not(:disabled),
+.btn[data-variant]:is([aria-pressed=true],.active,.on):hover:not(:disabled) { background: var(--selected); color: var(--selected-ink); border-color: transparent; box-shadow: var(--active-control-shadow); }
 .btn[data-variant]:active:not(:disabled) { box-shadow: var(--depth-pressed); transition-duration: var(--press-time); }
 .btn[data-variant]:disabled { opacity: 1; color: var(--field-disabled-ink); background: var(--field-disabled); border-color: var(--line); cursor: not-allowed; box-shadow: none; }
 .btn[data-variant=quiet]:hover:not(:disabled):not([aria-pressed=true]):not(.active):not(.on) { border-color: transparent; box-shadow: none; }
@@ -27,7 +29,7 @@
 .btn[data-size=transport] svg { fill: currentColor; width: 18px; height: 18px; }
 .segmented-control { display: flex; flex-wrap: wrap; gap: 4px; }
 .segmented-control[role=group] { padding: 3px; border-radius: 10px; background: var(--surface-tint); border: 1px solid transparent; }
-.segmented-control .btn[data-variant][aria-pressed=true],.segmented-control .btn[data-variant][aria-pressed=true]:hover:not(:disabled) { border-color: transparent; box-shadow: var(--depth-pressed); }
+.segmented-control .btn[data-variant][aria-pressed=true]:not(:disabled),.segmented-control .btn[data-variant][aria-pressed=true]:hover:not(:disabled) { border-color: transparent; box-shadow: var(--active-control-shadow); }
 /* Form controls use visible labels. No hover-only instructions or cosmetic validation. */
 .form-label { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; font-size: 13px; line-height: 18px; font-weight: 500; }
 .form-label>input,.form-label>select { width: 100%; font-weight: 400; }
@@ -82,11 +84,11 @@ input[type=range]:focus-visible { outline-offset: 1px; border-radius: 6px; }
 .inline-notice p { margin: 3px 0 0; font-size: 12px; }
 .inline-notice .notice-actions { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
 .inline-notice svg { margin-top: 1px; }
-.context-card { border-radius: 10px; padding: 12px; border: 1px solid var(--line); background: var(--surface-tint); display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.context-card { border-radius: var(--radius-control); padding: 8px 10px; background: var(--surface-tint); display: grid; gap: 4px; font-size: 12px; color: var(--muted); overflow-wrap:anywhere; }
 .context-card strong { font-size: 14px; color: var(--ink); font-weight: 600; }
 .context-card .context-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .context-card .context-caption { font-size: 12px; }
-.context-card .context-badge { border: 1px solid var(--line-strong); border-radius: 6px; padding: 2px 6px; background: var(--surface); color: var(--ink); }
+.context-card .context-badge { padding: 2px 0; color: var(--ink); }
 .preview-controls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .preview-controls .preview-context { font-size: 12px; color: var(--muted); flex: 1 0 100%; line-height: 1.5; }
 .panel-section { padding: 16px 0; border-top: 1px solid var(--line); }
@@ -98,8 +100,8 @@ input[type=range]:focus-visible { outline-offset: 1px; border-radius: 6px; }
 .task-picker { display: grid; gap: 8px; margin: 12px 0; }
 .task-choice { padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--line-strong); border-radius: 8px; display: flex; gap: 10px; text-align: left; align-items: center; color: var(--ink); font-size: 13px; line-height: 18px; transition: background-color var(--state-time),border-color var(--state-time); }
 .task-choice svg { color: var(--brand); }
-.task-choice[aria-pressed=true] { border-color: var(--brand); background: var(--selected); color: var(--selected-ink); }
-.task-choice:hover { border-color: var(--brand); }
+.task-choice[aria-pressed=true] { border-color: transparent; background: var(--selected); color: var(--selected-ink); box-shadow:var(--active-control-shadow); }
+.task-choice:hover:not([aria-pressed=true]) { border-color: var(--brand); }
 .task-choice strong { font-weight: 500; }
 .task-choice small { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
 .task-summary { font-size: 12px; color: var(--muted); line-height: 1.5; }
@@ -108,3 +110,60 @@ input[type=range]:focus-visible { outline-offset: 1px; border-radius: 6px; }
 
 /* Coarse pointer is an explicit accessibility density, shared by all ordinary controls. */
 @media(pointer:coarse) { .btn:not([data-size=key]):not([data-size=transport]),input:not([type=range]):not([type=checkbox]),select { min-height:44px; } .btn[data-size=icon] { min-width:44px; } }
+
+/* Shallow trays carry a task group; fields retain their quiet underlined affordance. */
+.action-tray { display:flex;align-items:center;gap:4px;padding:4px 6px;background:var(--surface-tint);border-radius:10px;min-width:0; }
+.control-group-label { font-size:12px;color:var(--muted);white-space:nowrap; }
+/* Opt-in compact workbench composition. Other surfaces keep their existing controls. */
+.btn[data-size=transport][data-density=compact] { width:var(--transport-compact);min-width:var(--transport-compact);height:var(--transport-compact);padding:8px; }
+.unified-shell .top-transport .btn[data-action=stop] { width:var(--transport-compact);min-width:var(--transport-compact);height:var(--transport-compact); }
+.unified-shell .top-transport .btn[data-action=stop] svg { width:16px;height:16px; }
+.unified-shell .top-transport .tempo input { width:52px;min-height:var(--transport-compact);height:var(--transport-compact);font-variant-numeric:var(--numeric-style); }
+.compact-workbench .studio-editor .segmented-control[role=group] {
+ border-radius:var(--workbench-tray-radius);background:var(--surface-tint);box-shadow:var(--workbench-tray-light);
+}
+.compact-workbench .studio-editor .canvas-view-controls .action-tray { background:transparent;box-shadow:none;border-radius:0; }
+/* One continuous control surface; groups use spacing and fine separators. */
+.unified-shell .topbar :is(.action-tray,.workspace-tabs),.compact-workbench .arrangement-structure { background:transparent;box-shadow:none;border-radius:0; }
+.unified-shell .topbar .workspace-tabs { border:0; }
+.unified-edit[data-density=compact] .btn[data-size=small] { padding-inline:var(--workbench-control-padding); }
+.edit-scope summary { display:flex;align-items:center;gap:var(--space-1);padding:4px 6px;min-height:var(--control-small);border-radius:var(--radius-control);cursor:pointer;list-style:none; }
+.edit-scope summary::-webkit-details-marker { display:none; }
+.edit-scope summary>svg { flex-shrink:0;color:var(--muted); }
+.edit-scope summary:hover,.edit-scope[open] summary { background:var(--surface-tint); }
+.edit-scope summary:focus-visible { outline:2px solid var(--focus-color);outline-offset:2px; }
+.edit-scope-detail { position:absolute;top:calc(100% + 8px);left:0;z-index:30;display:flex;flex-direction:column;gap:8px;width:280px;max-width:calc(100vw - 40px);padding:12px;background:var(--surface);border-radius:var(--radius-control);box-shadow:var(--shadow-raised);font-size:var(--font-label);overflow-wrap:anywhere; }
+.edit-scope-detail small { color:var(--muted); }
+@media (min-width:761px) and (max-width:1390px) {
+ .unified-edit .edit-primary-actions .btn svg { display:none; }
+}
+@media(pointer:coarse) { .edit-scope summary { min-height:var(--touch-control); } }
+/* Persistent modes and enabled toggles share one quiet, recessed state.
+   Object selection remains in music-block.css; keyboard focus stays independent. */
+.compact-workbench .btn[data-variant]:is([aria-pressed=true],.active,.on):not(:disabled),
+.compact-workbench .btn[data-variant]:is([aria-pressed=true],.active,.on):hover:not(:disabled) {
+ background:var(--selected);color:var(--selected-ink);border-color:transparent;box-shadow:var(--workbench-active-shadow);
+}
+.compact-workbench .sound-chip>span { min-width:0;overflow:hidden;text-overflow:ellipsis; }
+.compact-workbench .sound-chip>svg { flex-shrink:0; }
+.editor-control-deck[data-density=compact] .btn[data-size=small] { padding-inline:var(--space-1);gap:var(--space-1); }
+.editor-control-deck[data-density=compact] select[data-size=small] { padding-inline:var(--space-2); }
+.editor-control-deck[data-density=compact] .canvas-view-controls .btn[data-size=icon] { width:var(--control-small);min-width:var(--control-small);height:var(--control-small);min-height:var(--control-small); }
+@media(pointer:coarse) {
+ .editor-control-deck[data-density=compact] .canvas-view-controls .btn[data-size=icon] { min-width:var(--touch-control);min-height:var(--touch-control); }
+}
+select[data-size="small"] { height:32px;min-height:32px;padding-block:4px; }
+.parameter-group { padding:12px 0; }
+.parameter-group h3 { font-size:14px;margin-bottom:8px; }
+.parameter-group + .parameter-group { border-top:1px solid var(--line); }
+/* Named text-action variant: wrapping belongs to the control, never page font overrides. */
+.btn[data-wrap=true] { white-space:normal;text-align:left;justify-content:flex-start;min-width:0;max-width:100%; }
+.btn[data-wrap=true]>span { min-width:0;overflow-wrap:anywhere; }
+.btn>svg { flex-shrink:0; }
+button:not(.btn):focus-visible,summary:focus-visible,a:focus-visible { outline:2px solid var(--focus-color);outline-offset:3px; }
+summary { min-height:var(--control-small);display:list-item;align-content:center; }
+textarea { resize:vertical; }
+.field-error { color:var(--danger);font-size:var(--font-small);line-height:1.5; }
+.field-error:empty { display:none; }
+::selection { background:var(--selected);color:var(--selected-ink); }
+@media(pointer:coarse) { summary { min-height:var(--touch-control); } }
